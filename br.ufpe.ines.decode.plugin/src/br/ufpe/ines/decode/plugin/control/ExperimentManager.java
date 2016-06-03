@@ -28,12 +28,10 @@ public class ExperimentManager {
 	}
 
 	public void setSelectedExperiment(Experiment newSelectedExperiment) {
-		System.out.println("set="+newSelectedExperiment);
 		selectedExperiment = newSelectedExperiment;
 	}
 	
 	public Experiment getSelectedExperiment() {
-		System.out.println("selected="+selectedExperiment);
 		return selectedExperiment;
 	}
 
