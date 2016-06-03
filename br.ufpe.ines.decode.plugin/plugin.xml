@@ -4,7 +4,7 @@
   <extension
          point="org.eclipse.ui.commands">
       <category
-            name="Sample Category"
+            name="Decode Category"
             id="br.ufpe.ines.decode.plugin.category.command">
       </category>
       <command
@@ -21,15 +21,15 @@
    <extension
          point="org.eclipse.ui.handlers">
       <handler
-            class="br.ufpe.ines.decode.plugin.handlers.ExperimentHandler"
+            class="br.ufpe.ines.decode.plugin.handlers.LoadExperimentHandler"
             commandId="br.ufpe.ines.decode.plugin.handler.selectExperiment">
       </handler>
       <handler
-            class="br.ufpe.ines.decode.plugin.handlers.SampleHandler"
+            class="br.ufpe.ines.decode.plugin.handlers.StartExperimentHandler"
             commandId="br.ufpe.ines.decode.plugin.handler.startExperiment">
          <enabledWhen>
          	<test
-               property="net.sdruskat.blog.foobar.commands.hasNonEmptyTextSelection">
+               property="br.ufpe.ines.decode.plugin.hasSelectedExperiment">
             </test>
          </enabledWhen>
       </handler>
@@ -61,10 +61,10 @@
    </extension>
 	<extension point="org.eclipse.core.expressions.propertyTesters">
       <propertyTester
-            class="br.ufpe.ines.decode.plugin.propertytesters.SelectionTester"
-            id="net.sdruskat.blog.foobar.selectionTester"
-            namespace="net.sdruskat.blog.foobar.commands"
-            properties="hasNonEmptyTextSelection"
+            class="br.ufpe.ines.decode.plugin.propertytesters.StartExperimentTester"
+            id="br.ufpe.ines.decode.startExperimentTester"
+            namespace="br.ufpe.ines.decode.plugin"
+            properties="hasSelectedExperiment"
             type="java.lang.Object">
       </propertyTester>
 	</extension>

@@ -1,15 +1,25 @@
 package br.ufpe.ines.decode.plugin.dialog;
 
+import java.net.URL;
+
+import org.eclipse.core.runtime.FileLocator;
+import org.eclipse.core.runtime.Path;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.dialogs.Dialog;
+import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
+import org.osgi.framework.Bundle;
 
+import br.ufpe.ines.decode.plugin.Activator;
 import br.ufpe.ines.decode.plugin.control.ExperimentManager;
 import br.ufpe.ines.decode.plugin.model.Experiment;
 import br.ufpe.ines.decode.plugin.table.ExperimentContentProvider;
@@ -36,7 +46,14 @@ public class ExperimentLoadingDialog extends Dialog {
 	@Override
 	protected Control createDialogArea(final Composite parent) {
 		final Composite body = (Composite) super.createDialogArea(parent);
+		final Button buttonOpenMessage = new Button(body, SWT.PUSH);
+		Bundle bundle = Platform.getBundle(Activator.PLUGIN_ID);
+		final URL fullPathString = FileLocator.find(bundle, new Path("icons/sample.gif"), null);
+		ImageDescriptor imageDesc = ImageDescriptor.createFromURL(fullPathString);
+		Image image = imageDesc.createImage();
+		buttonOpenMessage.setImage(image);
 
+		//final TableViewer tableViewer = new TableViewer(body, SWT.BORDER | SWT.V_SCROLL | SWT.H_SCROLL);
 		final TableViewer tableViewer = new TableViewer(body, SWT.BORDER | SWT.V_SCROLL | SWT.H_SCROLL);
 		Table table = tableViewer.getTable();
 		table.setHeaderVisible(true);

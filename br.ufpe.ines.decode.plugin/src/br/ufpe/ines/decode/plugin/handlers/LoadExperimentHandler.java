@@ -17,14 +17,14 @@ import br.ufpe.ines.decode.plugin.dialog.ExperimentLoadingDialog;
  * @see org.eclipse.core.commands.IHandler
  * @see org.eclipse.core.commands.AbstractHandler
  */
-public class ExperimentHandler extends AbstractHandler {
+public class LoadExperimentHandler extends AbstractHandler {
 
 	private ExperimentManager manager = ExperimentManager.getInstance();
 
 	/**
 	 * The constructor.
 	 */
-	public ExperimentHandler() {
+	public LoadExperimentHandler() {
 	}
 
 	/**

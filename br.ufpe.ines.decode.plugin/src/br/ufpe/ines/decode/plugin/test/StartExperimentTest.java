@@ -3,14 +3,19 @@ package br.ufpe.ines.decode.plugin.test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
+import java.util.LinkedList;
 import java.util.List;
 
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IWorkspaceRoot;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.jdt.core.IClasspathEntry;
+import org.eclipse.jdt.core.IJavaProject;
+import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.swtbot.eclipse.finder.SWTWorkbenchBot;
 import org.eclipse.swtbot.eclipse.finder.widgets.SWTBotView;
-import org.eclipse.swtbot.swt.finder.junit.SWTBotJunit4ClassRunner;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotTable;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.PlatformUI;
@@ -20,19 +25,17 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
 import br.ufpe.ines.decode.plugin.control.ExperimentManager;
 import br.ufpe.ines.decode.plugin.handlers.StartExperimentHandler;
 
-@RunWith(SWTBotJunit4ClassRunner.class)
-public class SelectingExperimentTest {
+public class StartExperimentTest {
 
-	private final String[] EXPERIMENT_IDS = {"Experiment1", "Experiment2"};  
+private final String[] EXPERIMENT_IDS = {"Experiment1", "Experiment2"};  
 	
 	private static SWTWorkbenchBot	bot;
 	private ExperimentManager manager = ExperimentManager.getInstance();
-
+	
 	@BeforeClass
 	public static void beforeClass() throws Exception {
 		bot = new SWTWorkbenchBot();
@@ -45,7 +48,8 @@ public class SelectingExperimentTest {
 	}
 	
 	@Test
-	public void clickCancel() throws Exception {
+	public void clickOkSelectFirst() throws Exception {
+		assertFalse(bot.toolbarButtonWithTooltip("Start Experiment").isEnabled());
 		bot.toolbarButtonWithTooltip("Select Experiment").click();
 		SWTBotTable tab = bot.table();
 		assertNotNull(tab);
@@ -54,63 +58,28 @@ public class SelectingExperimentTest {
 			assertEquals(EXPERIMENT_IDS[i],tab.cell(i, 0));
 		}
 		tab.select(0);
-		tab.select(1);
-		bot.button("Cancel").click();
-		assertNull(manager.getSelectedExperiment());
-		assertFalse(bot.toolbarButtonWithTooltip("Start Experiment").isEnabled());
-	}
-	
-	@Test
-	public void clickLoad() throws Exception {
-		bot.toolbarButtonWithTooltip("Select Experiment").click();
-		SWTBotTable tab = bot.table();
-		assertNotNull(tab);
-		assertEquals(tab.rowCount(), EXPERIMENT_IDS.length);
-		for (int i = 0; i < EXPERIMENT_IDS.length; i++) {
-			assertEquals(EXPERIMENT_IDS[i],tab.cell(i, 0));
-		}
-		tab.select(0);
-		tab.select(1);
-		bot.button("Cancel").click();
-		assertNotNull(bot.toolbarButtonWithTooltip("Load New Experiment"));
-		assertNull(manager.getSelectedExperiment());
-		assertFalse(bot.toolbarButtonWithTooltip("Start Experiment").isEnabled());
-	}
-	
-	@Test
-	public void clickOkEmpty() throws Exception {
-		assertFalse(bot.toolbarButtonWithTooltip("Start Experiment").isEnabled());
-		bot.toolbarButtonWithTooltip("Select Experiment").click();
-		SWTBotTable tab = bot.table();
-		assertNotNull(tab);
-		assertEquals(tab.rowCount(), EXPERIMENT_IDS.length);
-		for (int i = 0; i < EXPERIMENT_IDS.length; i++) {
-			assertEquals(EXPERIMENT_IDS[i],tab.cell(i, 0));
-		}
-		
 		bot.button("OK").click();
-		assertNull(manager.getSelectedExperiment());
-		assertFalse(bot.toolbarButtonWithTooltip("Start Experiment").isEnabled());
-	}
-	
-	@Test
-	public void clickOkSelectSecondAfterFirst() throws Exception {
-		assertFalse(bot.toolbarButtonWithTooltip("Start Experiment").isEnabled());
-		bot.toolbarButtonWithTooltip("Select Experiment").click();
-		SWTBotTable tab = bot.table();
-		assertNotNull(tab);
-		assertEquals(tab.rowCount(), EXPERIMENT_IDS.length);
-		for (int i = 0; i < EXPERIMENT_IDS.length; i++) {
-			assertEquals(EXPERIMENT_IDS[i],tab.cell(i, 0));
-		}
-		tab.select(0);
-		tab.select(1);
-		bot.button("OK").click();
-		assertEquals(EXPERIMENT_IDS[1], manager.getSelectedExperiment().getExperimentId());
+		assertEquals(EXPERIMENT_IDS[0], manager.getSelectedExperiment().getExperimentId());
 		assertNotNull(manager.getSelectedExperiment());
-		assertTrue(bot.toolbarButtonWithTooltip("Start Experiment").isEnabled());
+		bot.toolbarButtonWithTooltip("Start Experiment").click();
+		bot.button("OK").click();
+		String projectName = manager.getSelectedExperiment().getExperimentId();
+		IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
+		IProject project = root.getProject(projectName);
+		assertTrue(project.exists());
+		assertTrue(project.getDescription().hasNature(JavaCore.NATURE_ID));
+		assertTrue(project.getFolder("bin").exists());
+		assertTrue(project.getFolder("src").exists());
+		IJavaProject javaProject = (IJavaProject)project.getNature(JavaCore.NATURE_ID);
+		assertNotNull(javaProject.getRawClasspath());
+		assertEquals("bin",javaProject.getOutputLocation().lastSegment());
+		IClasspathEntry[] rawClasspath = javaProject.getRawClasspath();
+        List <IClasspathEntry> list = new LinkedList<IClasspathEntry>(java.util.Arrays.asList(rawClasspath));
+        assertTrue(list.stream().anyMatch(
+                p -> p.getEntryKind()==IClasspathEntry.CPE_SOURCE &&
+                	 p.getPath().lastSegment().equals("src")));
+
 	}
-	
 	@Before
 	public void populateExperiments(){
 		for (String experimentId : EXPERIMENT_IDS) {

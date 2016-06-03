@@ -4,13 +4,13 @@ import org.eclipse.core.expressions.PropertyTester;
 
 import br.ufpe.ines.decode.plugin.control.ExperimentManager;
 
-public class SelectionTester extends PropertyTester {
+public class StartExperimentTester extends PropertyTester {
 
 	private ExperimentManager manager = ExperimentManager.getInstance();
 
 	@Override
 	public boolean test(Object receiver, String property, Object[] args, Object expectedValue) {
-		if ("hasNonEmptyTextSelection".equals(property)) {
+		if (property.equals("hasSelectedExperiment")) {
 			return manager.getSelectedExperiment() != null;
 		}
 		return true;
