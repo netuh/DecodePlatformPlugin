@@ -8,16 +8,25 @@
             id="br.ufpe.ines.decode.plugin.category.command">
       </category>
       <command
-            name="Decode Platform Command"
+            name="Load Experiment Command"
             categoryId="br.ufpe.ines.decode.plugin.category.command"
-            id="br.ufpe.ines.decode.plugin.handlerId1">
+            id="br.ufpe.ines.decode.plugin.handler.selectExperiment">
+      </command>
+      <command
+            name="Start Experiment Command"
+            categoryId="br.ufpe.ines.decode.plugin.category.command"
+            id="br.ufpe.ines.decode.plugin.handler.startExperiment">
       </command>
    </extension>
    <extension
          point="org.eclipse.ui.handlers">
       <handler
             class="br.ufpe.ines.decode.plugin.handlers.ExperimentHandler"
-            commandId="br.ufpe.ines.decode.plugin.handlerId1">
+            commandId="br.ufpe.ines.decode.plugin.handler.selectExperiment">
+      </handler>
+      <handler
+            class="br.ufpe.ines.decode.plugin.handlers.SampleHandler"
+            commandId="br.ufpe.ines.decode.plugin.handler.startExperiment">
       </handler>
    </extension>
    <extension
@@ -25,12 +34,20 @@
       <menuContribution
             locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
          <toolbar
-               id="CommandLog.toolbars.sampleToolbar">
+               id="CommandLog.toolbars.sampleToolbar2">
             <command
-                  commandId="br.ufpe.ines.decode.plugin.handlerId1"
+                  commandId="br.ufpe.ines.decode.plugin.handler.startExperiment"
                   icon="icons/sample.gif"
-                  tooltip="Select Experiment"
-                  id="CommandLog.toolbars.SelectExperiment">
+                  id="CommandLog.toolbars.StartExperiment"
+                  style="push"
+                  tooltip="Start Experiment">
+            </command>
+            <command
+                  commandId="br.ufpe.ines.decode.plugin.handler.selectExperiment"
+                  icon="icons/sample.gif"
+                  id="CommandLog.toolbars.SelectExperiment"
+                  style="push"
+                  tooltip="Select Experiment">
             </command>
          </toolbar>
       </menuContribution>

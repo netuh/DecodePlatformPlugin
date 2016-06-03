@@ -39,6 +39,7 @@ public class SelectingExperimentTest {
 	
 	@Test
 	public void clickCancel() throws Exception {
+		assertNotNull(bot.toolbarButtonWithTooltip("Start Experiment"));
 		bot.toolbarButtonWithTooltip("Select Experiment").click();
 		SWTBotTable tab = bot.table();
 		assertNotNull(tab);
