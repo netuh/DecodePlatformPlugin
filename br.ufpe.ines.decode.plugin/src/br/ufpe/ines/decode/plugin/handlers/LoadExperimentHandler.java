@@ -38,6 +38,7 @@ public class LoadExperimentHandler extends AbstractHandler {
 		ExperimentLoadingDialog dialog = new ExperimentLoadingDialog(shell);
 
 		if (dialog.open() == Window.OK) {
+			System.out.println("Selected Experiment="+dialog.getSelectedExperiment().getId());
 			manager.setSelectedExperiment(dialog.getSelectedExperiment());
 		}
 		return null;

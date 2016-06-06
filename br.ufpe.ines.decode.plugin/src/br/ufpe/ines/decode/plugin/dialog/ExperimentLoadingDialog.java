@@ -2,6 +2,7 @@ package br.ufpe.ines.decode.plugin.dialog;
 
 import java.net.URL;
 
+import org.apache.log4j.Logger;
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
@@ -27,6 +28,12 @@ import br.ufpe.ines.decode.plugin.table.ExperimentLabelProvider;
 
 public class ExperimentLoadingDialog extends Dialog {
 
+	public enum OperationMode {
+		DEFAULT,
+		TESTING
+	};
+
+	static final Logger logger = Logger.getLogger(ExperimentLoadingDialog.class);
 	private ExperimentManager manager = ExperimentManager.getInstance();
 	public static String[] COLUMN_NAMES = new String[] { "Experiments", "Status" };
 	public static int[] COLUMN_WIDTHS = new int[] { 300, 50 };
@@ -52,8 +59,8 @@ public class ExperimentLoadingDialog extends Dialog {
 		ImageDescriptor imageDesc = ImageDescriptor.createFromURL(fullPathString);
 		Image image = imageDesc.createImage();
 		buttonOpenMessage.setImage(image);
+		buttonOpenMessage.setToolTipText("Load New Experiment");
 
-		//final TableViewer tableViewer = new TableViewer(body, SWT.BORDER | SWT.V_SCROLL | SWT.H_SCROLL);
 		final TableViewer tableViewer = new TableViewer(body, SWT.BORDER | SWT.V_SCROLL | SWT.H_SCROLL);
 		Table table = tableViewer.getTable();
 		table.setHeaderVisible(true);
@@ -69,17 +76,28 @@ public class ExperimentLoadingDialog extends Dialog {
 		tableViewer.setLabelProvider(new ExperimentLabelProvider());
 
 		tableViewer.setInput(manager.getExperiments());
+		buttonOpenMessage.addListener(SWT.Selection, e -> {
+			switch (e.type) {
+			case SWT.Selection:
+				String selected = NativeDialogFactory.fileSelectionDialog(
+		        		parent.getShell(), "Save as...", SWT.OPEN);
+				manager.experimentFromFile(selected);
+				//manager.addExperiment("NewExperiment1");
+				tableViewer.setInput(manager.getExperiments());
+				break;
+			}
+		});
 
 		tableViewer.addSelectionChangedListener(event -> {
-			if (event.getSelection() instanceof StructuredSelection){
-				StructuredSelection selection = (StructuredSelection)event.getSelection();
+			if (event.getSelection() instanceof StructuredSelection) {
+				StructuredSelection selection = (StructuredSelection) event.getSelection();
 				if (selection.getFirstElement() instanceof Experiment)
-					selectedExperiment = (Experiment)selection.getFirstElement();
+					selectedExperiment = (Experiment) selection.getFirstElement();
 			}
 		});
 		return body;
 	}
-
+	
 	public Experiment getSelectedExperiment() {
 		return selectedExperiment;
 	}

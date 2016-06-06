@@ -31,7 +31,7 @@ public class ExperimentLabelProvider  extends LabelProvider implements ITableLab
 		Experiment model = (Experiment) element;
 		switch (columnIndex) {
 		case 0:
-			return model.getExperimentId();
+			return model.getId();
 		default:
 			break;
 		}

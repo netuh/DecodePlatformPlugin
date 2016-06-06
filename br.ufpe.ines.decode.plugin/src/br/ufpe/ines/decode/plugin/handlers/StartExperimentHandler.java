@@ -50,7 +50,7 @@ public class StartExperimentHandler extends AbstractHandler {
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 
 		IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
-		IProject project = root.getProject(manager.getSelectedExperiment().getExperimentId());
+		IProject project = root.getProject(manager.getSelectedExperiment().getId());
 		try {
 			project.create(new NullProgressMonitor());
 			project.open(new NullProgressMonitor());
