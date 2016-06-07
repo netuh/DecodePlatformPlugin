@@ -1,5 +1,8 @@
 package br.ufpe.ines.decode.plugin.handlers;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +19,7 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.jdt.core.IClasspathEntry;
 import org.eclipse.jdt.core.IJavaProject;
+import org.eclipse.jdt.core.IPackageFragment;
 import org.eclipse.jdt.core.IPackageFragmentRoot;
 import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.core.JavaModelException;
@@ -27,6 +31,7 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.handlers.HandlerUtil;
 
 import br.ufpe.ines.decode.plugin.control.ExperimentManager;
+import br.ufpe.ines.decode.plugin.model.SourceCode;
 
 /**
  * Our sample handler extends AbstractHandler, an IHandler base class.
@@ -61,7 +66,8 @@ public class StartExperimentHandler extends AbstractHandler {
 			createBin(project, javaProject);
 			fixClasspath(javaProject);
 			createSrc(project, javaProject);
-		} catch (CoreException e) {
+		} catch (CoreException | IOException e) {
+			logger.debug("MERDA!!!!");
 			IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
 			MessageDialog.openInformation(window.getShell(), "CommandLog", "Experiment NOT Created");
 		}
@@ -96,7 +102,7 @@ public class StartExperimentHandler extends AbstractHandler {
 				new NullProgressMonitor());
 	}
 
-	private void createSrc(IProject project, IJavaProject javaProject) throws CoreException, JavaModelException {
+	private void createSrc(IProject project, IJavaProject javaProject) throws CoreException, JavaModelException, IOException {
 		IFolder sourceFolder = project.getFolder("src");
 		sourceFolder.create(false, true, null);
 		IPackageFragmentRoot root2 = javaProject.getPackageFragmentRoot(sourceFolder);
@@ -108,13 +114,29 @@ public class StartExperimentHandler extends AbstractHandler {
 		
 		
 		String domainName = manager.getSelectedExperiment().getDomain();
-		javaProject.getPackageFragmentRoot(sourceFolder).createPackageFragment(domainName, true, null);
-		//IPackageFragment pack = javaProject.getPackageFragmentRoot(sourceFolder).createPackageFragment(domainName, true, null);
+		IPackageFragment pack = javaProject.getPackageFragmentRoot(sourceFolder).createPackageFragment(domainName, true, null);
+		for (SourceCode sc : manager.getSelectedExperiment().getSources()) {
+			if (sc.getSubPackage() != null) {
+				String subDomainName = domainName+ "."+sc.getSubPackage();
+				IPackageFragment subPack = javaProject.getPackageFragmentRoot(sourceFolder).createPackageFragment(subDomainName, true, null);
+				loadFiles(subPack, sc);
+			} else {
+				loadFiles(pack, sc);
+			}
+		}
+	}
+	
 
-//		StringBuffer buffer = new StringBuffer();
-//		buffer.append("package " + pack.getElementName() + ";\n");
-//		buffer.append("\n");
-//
-//		ICompilationUnit cu = pack.createCompilationUnit("test.Java", buffer.toString(), false, null);
+	private void loadFiles(IPackageFragment pack, SourceCode sc) throws IOException, JavaModelException {
+		
+			File f = manager.getFile(manager.getSelectedExperiment().getId(), sc.getFile());
+			String content = new String(Files.readAllBytes(f.toPath()));
+			StringBuffer buffer = new StringBuffer();
+			buffer.append("package " + pack.getElementName() + ";\n");
+			buffer.append("\n");
+			buffer.append("\n");
+			buffer.append(content);
+			
+			pack.createCompilationUnit(sc.getFile(), buffer.toString(), false, null);
 	}
 }

@@ -8,10 +8,12 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.LinkedList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.commons.compress.archivers.ArchiveException;
+import org.apache.log4j.Logger;
 
 import com.google.gson.Gson;
 
@@ -22,6 +24,8 @@ public class ExperimentManager {
 	
 	protected static ExperimentManager singleton = new ExperimentManager();
 	private Experiment selectedExperiment;
+	static final Logger logger = Logger.getLogger(ExperimentManager.class);
+	private Map<Experiment, List<File>> loadedExperiments = new HashMap<Experiment, List<File>>();
 	
 	public static ExperimentManager getInstance(){
 		if (singleton == null)
@@ -29,14 +33,12 @@ public class ExperimentManager {
 		return singleton;
 	}
 	
-	private List<Experiment> loadedExperiments = new LinkedList<Experiment>();
-	
 	protected ExperimentManager(){
 		//Singleton
 	}
 
 	public Collection<Experiment> getExperiments() {
-		return loadedExperiments;
+		return loadedExperiments.keySet();
 	}
 
 	public void setSelectedExperiment(Experiment newSelectedExperiment) {
@@ -56,10 +58,11 @@ public class ExperimentManager {
 		Path extractionFolder = FileUtil.extractZip(f);
 		final File folderFile = extractionFolder.toFile();
 		File c = Arrays.asList(folderFile.listFiles()).stream().filter(f2 -> f2.getName().endsWith("json")).findFirst().get();
-		experimentFromFile(c.getAbsolutePath());
+		List<File> otherFiles = Arrays.asList(folderFile.listFiles());
+		experimentFromFile(c.getAbsolutePath(), otherFiles);
 	}
 	
-	private void experimentFromFile(String filePath){
+	private void experimentFromFile(String filePath, List<File> otherFiles){
 		BufferedReader br = null;
 		try {
 			br = new BufferedReader( new FileReader(filePath));
@@ -71,7 +74,12 @@ public class ExperimentManager {
 		}
 		Gson gson = new Gson();
 		Experiment countryObj = gson.fromJson(br, Experiment.class);
-		loadedExperiments.add(countryObj);
+		loadedExperiments.put(countryObj, otherFiles);
+	}
+
+	public File getFile(String id, String file) {
+		Experiment exp = loadedExperiments.keySet().stream().filter(exp1 -> exp1.getId().equals(id)).findFirst().get();
+		return loadedExperiments.get(exp).stream().filter(f -> f.getName().equals(file)).findFirst().get();
 	}
 
 }

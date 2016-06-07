@@ -5,14 +5,19 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import java.io.File;
+import java.nio.file.Files;
 import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.IPackageFragment;
 import org.eclipse.jdt.core.IPackageFragmentRoot;
@@ -30,11 +35,12 @@ import org.junit.Test;
 
 import br.ufpe.ines.decode.plugin.control.ExperimentManager;
 import br.ufpe.ines.decode.plugin.handlers.StartExperimentHandler;
+import br.ufpe.ines.decode.plugin.model.SourceCode;
 import br.ufpe.ines.decode.plugin.util.FileUtil;
 
 public class StartExperimentTest {
 
-	//private static Logger logger = LogManager.getLogger(StartExperimentTest.class);
+	private static Logger logger = LogManager.getLogger(StartExperimentTest.class);
 	private static SWTWorkbenchBot bot;
 	private ExperimentManager manager = ExperimentManager.getInstance();
 
@@ -88,6 +94,24 @@ public class StartExperimentTest {
 			final String fullPackageCopy2 = fullPackage;
 			assertTrue("Package does not contains "+fullPackage, elements.stream().anyMatch(obj -> obj.getHandleIdentifier().contains(fullPackageCopy2)));
 			
+		}
+		final String fullPackageCopy2 = fullPackage;
+		
+		for (SourceCode sc : manager.getSelectedExperiment().getSources()) {
+			logger.debug("aqui");
+			IPackageFragment finalPackage;
+			if (sc.getSubPackage() != null){
+				final String fullPackageCopy3 = fullPackageCopy2+ "."+sc.getSubPackage();
+				finalPackage = elements.stream().filter(obj -> obj.getHandleIdentifier().contains(fullPackageCopy3)).findFirst().get();
+			} else {
+				finalPackage = elements.stream().filter(obj -> obj.getHandleIdentifier().contains(fullPackageCopy2)).findFirst().get();
+				
+			}
+			ICompilationUnit cu = finalPackage.getCompilationUnit(sc.getFile());
+			File f = manager.getFile(manager.getSelectedExperiment().getId(), sc.getFile());
+			assertTrue("SourceCode not found "+sc.getFile(),cu.exists());
+			String content = new String(Files.readAllBytes(f.toPath()));
+			assertTrue("Wrong content for file "+sc.getFile(),cu.getSource().contains(content));
 		}
 		assertFalse(src.getChildren().length < 2);
 	}

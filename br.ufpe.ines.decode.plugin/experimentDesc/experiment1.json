@@ -1,5 +1,18 @@
 {
   "experimentId": "NewExperiment1",
   "domain": "br.ufpe.ines.decode.experiment1",
-  "language": "java"
+  "language": "java",
+  "sources": [
+    {
+      "file": "Source1.java",
+      "subPackage": "pack1"
+    },
+    {
+      "file": "Source2.java",
+      "subPackage": "pack2"
+    },
+    {
+      "file": "Source3.java"
+    }
+  ]
 }
