@@ -1,5 +1,9 @@
 package br.ufpe.ines.decode.plugin;
 
+import java.net.URL;
+
+import org.apache.log4j.PropertyConfigurator;
+import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
@@ -28,6 +32,8 @@ public class Activator extends AbstractUIPlugin {
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		plugin = this;
+		URL confURL = getBundle().getEntry("resources/log4j.properties");
+		PropertyConfigurator.configure(FileLocator.toFileURL(confURL).getFile());
 	}
 
 	/*

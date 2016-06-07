@@ -82,7 +82,6 @@ public class ExperimentLoadingDialog extends Dialog {
 				String selected = NativeDialogFactory.fileSelectionDialog(
 		        		parent.getShell(), "Save as...", SWT.OPEN);
 				manager.experimentFromFile(selected);
-				//manager.addExperiment("NewExperiment1");
 				tableViewer.setInput(manager.getExperiments());
 				break;
 			}

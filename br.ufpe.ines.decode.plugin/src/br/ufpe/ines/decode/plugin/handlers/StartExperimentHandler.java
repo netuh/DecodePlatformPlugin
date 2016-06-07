@@ -3,6 +3,7 @@ package br.ufpe.ines.decode.plugin.handlers;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
@@ -36,6 +37,7 @@ import br.ufpe.ines.decode.plugin.control.ExperimentManager;
 public class StartExperimentHandler extends AbstractHandler {
 
 	private ExperimentManager manager = ExperimentManager.getInstance();
+	static final Logger logger = Logger.getLogger(StartExperimentHandler.class);
 
 	/**
 	 * The constructor.
@@ -103,5 +105,16 @@ public class StartExperimentHandler extends AbstractHandler {
 		System.arraycopy(oldEntries, 0, newEntries, 0, oldEntries.length);
 		newEntries[oldEntries.length] = JavaCore.newSourceEntry(root2.getPath());
 		javaProject.setRawClasspath(newEntries, new NullProgressMonitor());
+		
+		
+		String domainName = manager.getSelectedExperiment().getDomain();
+		javaProject.getPackageFragmentRoot(sourceFolder).createPackageFragment(domainName, true, null);
+		//IPackageFragment pack = javaProject.getPackageFragmentRoot(sourceFolder).createPackageFragment(domainName, true, null);
+
+//		StringBuffer buffer = new StringBuffer();
+//		buffer.append("package " + pack.getElementName() + ";\n");
+//		buffer.append("\n");
+//
+//		ICompilationUnit cu = pack.createCompilationUnit("test.Java", buffer.toString(), false, null);
 	}
 }
