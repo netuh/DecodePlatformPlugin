@@ -52,8 +52,8 @@ public class StartExperimentTest {
 	@Test
 	public void clickOkSelectFirst() throws Exception {
 		assertFalse(bot.toolbarButtonWithTooltip("Start Experiment").isEnabled());
-		String filePath = FileUtil.loadResource("experimentDesc/experiment1.json").getAbsolutePath();
-		manager.experimentFromFile(filePath);
+		String filePath = FileUtil.loadResource("experimentDesc/experiment1.zip").getAbsolutePath();
+		manager.experimentFromFile2(filePath);
 		bot.toolbarButtonWithTooltip("Select Experiment").click();
 		SWTBotTable tab = bot.table();
 		assertNotNull(tab);

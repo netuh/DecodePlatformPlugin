@@ -81,7 +81,12 @@ public class ExperimentLoadingDialog extends Dialog {
 			case SWT.Selection:
 				String selected = NativeDialogFactory.fileSelectionDialog(
 		        		parent.getShell(), "Save as...", SWT.OPEN);
-				manager.experimentFromFile(selected);
+				try {
+					manager.experimentFromFile2(selected);
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				tableViewer.setInput(manager.getExperiments());
 				break;
 			}

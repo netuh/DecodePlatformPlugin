@@ -17,7 +17,6 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.handlers.IHandlerActivation;
 import org.eclipse.ui.handlers.IHandlerService;
 import org.junit.After;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -29,8 +28,6 @@ import br.ufpe.ines.decode.plugin.util.FileUtil;
 
 @RunWith(SWTBotJunit4ClassRunner.class)
 public class SelectingExperimentTest {
-
-	private final String[] EXPERIMENT_IDS = { "Experiment1", "Experiment2" };
 
 	private final String SELECT_EXPERIMENT_LABEL = "Select Experiment";
 	private final String START_EXPERIMENT_LABEL = "Start Experiment";
@@ -51,13 +48,6 @@ public class SelectingExperimentTest {
 		}
 	}
 
-	@Before
-	public void populateExperiments() {
-		for (String experimentId : EXPERIMENT_IDS) {
-			manager.addExperiment(experimentId);
-		}
-	}
-
 	@After
 	public void clearExperiments() {
 		manager.cleanExperiment();
@@ -71,32 +61,11 @@ public class SelectingExperimentTest {
 	}
 
 	@Test
-	public void clickCancel() throws Exception {
-		testButtonsAndClick();
-		SWTBotTable tab = populateTable();
-		tab.select(0);
-		tab.select(1);
-		bot.button(CANCEL_LABEL).click();
-		verifyNotSelected();
-	}
-
-	@Test
-	public void clickLoad() throws Exception {
-		testButtonsAndClick();
-		assertNotNull(bot.buttonWithTooltip("Load New Experiment"));
-		SWTBotTable tab = populateTable();
-		tab.select(0);
-		tab.select(1);
-		bot.button(CANCEL_LABEL).click();
-		verifyNotSelected();
-	}
-
-	@Test
 	public void testLoadButtonCancel() throws Exception {
 		NativeDialogFactory.setMode(NativeDialogFactory.OperationMode.TESTING);
 
 		testButtonsAndClick();
-		testPopUpFile("experimentDesc/experiment1.json", "OK");
+		testPopUpFile("experimentDesc/experiment1.zip", "OK");
 
 		SWTBotTable tab = bot.table();
 		assertTrue("id not found," + "NewExperiment1", findInTable(tab, "NewExperiment1"));
@@ -104,35 +73,15 @@ public class SelectingExperimentTest {
 		verifyNotSelected();
 	}
 
-	@Test
-	public void clickOkEmpty() throws Exception {
-		testButtonsAndClick();
-		populateTable();
-		bot.button(OK_LABEL).click();
-		verifyNotSelected();
-	}
-
-	@Test
-	public void clickOkSelectSecondAfterFirst() throws Exception {
-		testButtonsAndClick();
-		SWTBotTable tab = populateTable();
-		tab.select(0);
-		tab.select(1);
-		bot.button(OK_LABEL).click();
-		verifySelected(EXPERIMENT_IDS[1]);
-	}
 
 	@Test
 	public void testLoadButtonOK1() throws Exception {
 		NativeDialogFactory.setMode(NativeDialogFactory.OperationMode.TESTING);
 		testButtonsAndClick();
 
-		testPopUpFile("experimentDesc/experiment1.json", "OK");
+		testPopUpFile("experimentDesc/experiment1.zip", "OK");
 
 		SWTBotTable tab = bot.table();
-		for (String experimentId : EXPERIMENT_IDS) {
-			assertTrue("id not found," + experimentId, findInTable(tab, experimentId));
-		}
 		String newExperimentId = "NewExperiment1";
 		assertTrue("id not found," + newExperimentId, findInTable(tab, newExperimentId));
 		tab.select(newExperimentId);
@@ -145,12 +94,9 @@ public class SelectingExperimentTest {
 		NativeDialogFactory.setMode(NativeDialogFactory.OperationMode.TESTING);
 
 		testButtonsAndClick();
-		testPopUpFile("experimentDesc/experiment2.json", "OK");
+		testPopUpFile("experimentDesc/experiment2.zip", "OK");
 
 		SWTBotTable tab = bot.table();
-		for (String experimentId : EXPERIMENT_IDS) {
-			assertTrue("id not found," + experimentId, findInTable(tab, experimentId));
-		}
 		String newExperimentId = "NewExperiment2";
 		assertTrue("id not found," + newExperimentId, findInTable(tab, newExperimentId));
 		tab.select(newExperimentId);
@@ -163,12 +109,9 @@ public class SelectingExperimentTest {
 		NativeDialogFactory.setMode(NativeDialogFactory.OperationMode.TESTING);
 		testButtonsAndClick();
 
-		testPopUpFile("experimentDesc/experiment1.json", "Cancel");
+		testPopUpFile("experimentDesc/experiment1.zip", "Cancel");
 
 		SWTBotTable tab = bot.table();
-		for (String experimentId : EXPERIMENT_IDS) {
-			assertTrue("id not found," + experimentId, findInTable(tab, experimentId));
-		}
 		String newExperimentId = "NewExperiment1";
 		assertFalse("id not found," + newExperimentId, findInTable(tab, newExperimentId));
 		bot.button(CANCEL_LABEL).click();
@@ -194,16 +137,6 @@ public class SelectingExperimentTest {
 		assertTrue("Select Button enabled", bot.toolbarButtonWithTooltip(SELECT_EXPERIMENT_LABEL).isEnabled());
 		bot.toolbarButtonWithTooltip(SELECT_EXPERIMENT_LABEL).click();
 		assertNotNull(bot.buttonWithTooltip("Load New Experiment"));
-	}
-
-	private SWTBotTable populateTable() {
-		SWTBotTable tab = bot.table();
-		assertNotNull(tab);
-		assertEquals(tab.rowCount(), EXPERIMENT_IDS.length);
-		for (int i = 0; i < EXPERIMENT_IDS.length; i++) {
-			assertEquals(EXPERIMENT_IDS[i], tab.cell(i, 0));
-		}
-		return tab;
 	}
 	
 	private void testPopUpFile(String resourcePath, String buttonName) {
