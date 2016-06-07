@@ -49,24 +49,18 @@ public class ExperimentManager {
 	}
 
 	public void experimentFromFile(String filePath) {
-		
-		System.out.println("name333333"+filePath);
+
 		BufferedReader br = null;
 		try {
 			br = new BufferedReader( new FileReader(filePath));
 		} catch (FileNotFoundException e) {
-			System.out.println("deu erro, oh");
 			e.printStackTrace();
 		}
 		if (br == null) {
-			System.out.println("NULLLLL");
 			return;
 		}
 		Gson gson = new Gson();
-		System.out.println("NOT NULLLLL1");
 		Experiment countryObj = gson.fromJson(br, Experiment.class);
-		System.out.println("NOT NULLLLL2");
-		System.out.println("Experiment Id="+countryObj.getId());
 		loadedExperiments.add(countryObj);
 	}
 
