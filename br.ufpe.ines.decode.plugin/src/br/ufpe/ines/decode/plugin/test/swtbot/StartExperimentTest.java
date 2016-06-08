@@ -24,7 +24,12 @@ import org.eclipse.jdt.core.IPackageFragmentRoot;
 import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.swtbot.eclipse.finder.SWTWorkbenchBot;
 import org.eclipse.swtbot.eclipse.finder.widgets.SWTBotView;
+import org.eclipse.swtbot.swt.finder.junit.SWTBotJunit4ClassRunner;
+import org.eclipse.swtbot.swt.finder.widgets.SWTBotMenu;
+import org.eclipse.swtbot.swt.finder.widgets.SWTBotRootMenu;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotTable;
+import org.eclipse.swtbot.swt.finder.widgets.SWTBotTree;
+import org.eclipse.swtbot.swt.finder.widgets.SWTBotTreeItem;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.handlers.IHandlerActivation;
@@ -32,12 +37,15 @@ import org.eclipse.ui.handlers.IHandlerService;
 import org.junit.After;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
 import br.ufpe.ines.decode.plugin.control.ExperimentManager;
 import br.ufpe.ines.decode.plugin.handlers.StartExperimentHandler;
 import br.ufpe.ines.decode.plugin.model.SourceCode;
+import br.ufpe.ines.decode.plugin.test.util.SWTBotUtils;
 import br.ufpe.ines.decode.plugin.util.FileUtil;
 
+@RunWith(SWTBotJunit4ClassRunner.class)
 public class StartExperimentTest {
 
 	private static Logger logger = LogManager.getLogger(StartExperimentTest.class);
@@ -96,7 +104,7 @@ public class StartExperimentTest {
 			
 		}
 		final String fullPackageCopy2 = fullPackage;
-		
+
 		for (SourceCode sc : manager.getSelectedExperiment().getSources()) {
 			logger.debug("aqui");
 			IPackageFragment finalPackage;
@@ -114,6 +122,32 @@ public class StartExperimentTest {
 			assertTrue("Wrong content for file "+sc.getFile(),cu.getSource().contains(content));
 		}
 		assertFalse(src.getChildren().length < 2);
+		assertTrue(manager.getLoggedActions(manager.getSelectedExperiment()).isEmpty());
+		
+		SWTBotTree projectTree = SWTBotUtils.selectProject(bot, "NewExperiment1", "Project Explorer");
+		SWTBotTreeItem scr = projectTree.expandNode("NewExperiment1", "src");
+		SWTBotTreeItem experimentNode = scr.getNode("br.ufpe.ines.decode.experiment1");
+		experimentNode.getItems()[0].select();
+		SWTBotRootMenu contextMenu = experimentNode.getItems()[0].contextMenu();
+		SWTBotMenu runAs = contextMenu.menu("Run As", "1 Java Application");
+		runAs.click();
+		manager.waitUntilUpdateIsCalled();
+		logger.debug("aqui111");
+		List<String> loggedAction = manager.getLoggedActions(manager.getSelectedExperiment());
+		assertEquals(1, loggedAction.size());
+		assertEquals("Source2.java", loggedAction.get(0));
+		
+		experimentNode = scr.getNode("br.ufpe.ines.decode.experiment1.pack2");
+		experimentNode.getItems()[0].select();
+		contextMenu = experimentNode.getItems()[0].contextMenu();
+		runAs = contextMenu.menu("Run As", "1 Java Application");
+		runAs.click();
+		manager.waitUntilUpdateIsCalled();
+		loggedAction = manager.getLoggedActions(manager.getSelectedExperiment());
+		logger.debug("aqui2222");
+		assertEquals(2, loggedAction.size());
+		assertEquals("Source1.java", loggedAction.get(1));
+		assertEquals("Source2.java", loggedAction.get(0));
 	}
 
 	@After

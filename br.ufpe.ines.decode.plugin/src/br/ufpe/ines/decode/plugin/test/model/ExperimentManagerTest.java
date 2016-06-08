@@ -2,12 +2,14 @@ package br.ufpe.ines.decode.plugin.test.model;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 import java.util.Optional;
 
 import org.apache.commons.compress.archivers.ArchiveException;
+import org.eclipse.swt.graphics.Image;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -25,7 +27,7 @@ public class ExperimentManagerTest {
 	}
 	
 	@Test
-    public void testZip2() throws Exception {
+    public void testManagerBasic() throws Exception {
 		assertTrue(manager.getExperiments().isEmpty());
 		Experiment exp = evaluateFile2("/Users/netuh/git/DecodePlatformPlugin/br.ufpe.ines.decode.plugin/experimentDesc/experiment1.zip",
 				"NewExperiment1");
@@ -41,6 +43,61 @@ public class ExperimentManagerTest {
 		manager.cleanExperiment();
 		assertTrue(manager.getExperiments().isEmpty());
 
+    }
+	
+	@Test
+    public void testManagerImage() throws Exception {
+		assertTrue(manager.getExperiments().isEmpty());
+		Experiment exp = evaluateFile2("/Users/netuh/git/DecodePlatformPlugin/br.ufpe.ines.decode.plugin/experimentDesc/experiment1.zip",
+				"NewExperiment1");
+		Image imgExp1 = manager.getImage(exp);
+		Experiment exp2 = evaluateFile2("/Users/netuh/git/DecodePlatformPlugin/br.ufpe.ines.decode.plugin/experimentDesc/experiment2.zip",
+				"NewExperiment2");
+		Image imgExp2 = manager.getImage(exp2);
+		assertNotEquals(imgExp1, imgExp2);
+    }
+	
+	@Test
+    public void testManagerExperimentStatus() throws Exception {
+		assertTrue(manager.getExperiments().isEmpty());
+		Experiment exp = evaluateFile2("/Users/netuh/git/DecodePlatformPlugin/br.ufpe.ines.decode.plugin/experimentDesc/experiment1.zip",
+				"NewExperiment1");
+		String status = manager.getStatus(exp);
+		Experiment exp2 = evaluateFile2("/Users/netuh/git/DecodePlatformPlugin/br.ufpe.ines.decode.plugin/experimentDesc/experiment2.zip",
+				"NewExperiment2");
+		String status2 = manager.getStatus(exp2);
+		assertTrue(status.equals(status2));
+		manager.setSelectedExperiment(exp);
+		status = manager.getStatus(exp);
+		status2 = manager.getStatus(exp2);
+		assertFalse(status.equals(status2));
+    }
+	
+	@Test
+    public void testManagerExperimentAddAction() throws Exception {
+		assertTrue(manager.getExperiments().isEmpty());
+		Experiment exp = evaluateFile2("/Users/netuh/git/DecodePlatformPlugin/br.ufpe.ines.decode.plugin/experimentDesc/experiment1.zip",
+				"NewExperiment1");
+		Experiment exp2 = evaluateFile2("/Users/netuh/git/DecodePlatformPlugin/br.ufpe.ines.decode.plugin/experimentDesc/experiment2.zip",
+				"NewExperiment2");
+		manager.setSelectedExperiment(exp);
+		assertTrue(manager.getLoggedActions(exp).isEmpty());
+		manager.addAction(exp, "Source.java");
+		assertEquals(1, manager.getLoggedActions(exp).size());
+		manager.addAction(exp, "Source.java");
+		assertEquals(2, manager.getLoggedActions(exp).size());
+		
+		assertEquals(0, manager.getLoggedActions(exp2).size());
+		
+		manager.addAction(exp, "Source.java");
+		assertEquals(3, manager.getLoggedActions(exp).size());
+		
+		assertEquals(0, manager.getLoggedActions(exp2).size());
+		
+		manager.addAction(exp2, "Source.java");
+		assertEquals(3, manager.getLoggedActions(exp).size());
+		
+		assertEquals(1, manager.getLoggedActions(exp2).size());
     }
 
 	private Experiment evaluateFile2(String filePath, String id) throws ArchiveException, IOException{

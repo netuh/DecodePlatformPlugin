@@ -4,9 +4,12 @@ import org.eclipse.jface.viewers.ITableLabelProvider;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.swt.graphics.Image;
 
+import br.ufpe.ines.decode.plugin.control.ExperimentManager;
 import br.ufpe.ines.decode.plugin.model.Experiment;
 
 public class ExperimentLabelProvider  extends LabelProvider implements ITableLabelProvider {
+
+	protected static ExperimentManager manager = ExperimentManager.getInstance();
 
 	@Override
 	public Image getColumnImage(Object element, int columnIndex) {
@@ -16,7 +19,7 @@ public class ExperimentLabelProvider  extends LabelProvider implements ITableLab
 		Experiment model = (Experiment) element;
 		switch (columnIndex) {
 		case 1:
-			return model.getStatusImage();
+			return manager.getImage(model);
 		default:
 			break;
 		}

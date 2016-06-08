@@ -3,11 +3,6 @@ package br.ufpe.ines.decode.plugin.model;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.eclipse.swt.graphics.Image;
-import org.eclipse.swt.widgets.Display;
-
-import br.ufpe.ines.decode.plugin.Activator;
-
 public class Experiment {
 
 	private String experimentId;
@@ -28,9 +23,9 @@ public class Experiment {
 		return language;
 	}
 
-	public Image getStatusImage() {
-		return new Image(Display.getDefault(), Activator.class.getResourceAsStream("/icons/sample.gif"));
-	}
+//	public Image getStatusImage() {
+//		return new Image(Display.getDefault(), Activator.class.getResourceAsStream("/icons/sample.gif"));
+//	}
 
 	public void setId(String newId) {
 		experimentId = newId;

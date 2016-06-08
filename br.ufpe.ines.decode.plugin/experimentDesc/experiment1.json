@@ -5,14 +5,17 @@
   "sources": [
     {
       "file": "Source1.java",
-      "subPackage": "pack1"
-    },
-    {
-      "file": "Source2.java",
       "subPackage": "pack2"
     },
     {
-      "file": "Source3.java"
+      "file": "Source2.java"
+    },
+    {
+      "file": "Source3.java",
+      "subPackage": "pack4"
     }
+  ],
+  "observables": [
+    "execution"
   ]
 }

@@ -9,14 +9,20 @@ import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.locks.ReentrantLock;
 
 import org.apache.commons.compress.archivers.ArchiveException;
 import org.apache.log4j.Logger;
+import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.widgets.Display;
 
 import com.google.gson.Gson;
 
+import br.ufpe.ines.decode.plugin.Activator;
 import br.ufpe.ines.decode.plugin.model.Experiment;
 import br.ufpe.ines.decode.plugin.util.FileUtil;
 
@@ -26,6 +32,9 @@ public class ExperimentManager {
 	private Experiment selectedExperiment;
 	static final Logger logger = Logger.getLogger(ExperimentManager.class);
 	private Map<Experiment, List<File>> loadedExperiments = new HashMap<Experiment, List<File>>();
+	private Map<Experiment, List<String>> expActions = new HashMap<Experiment, List<String>>();
+	
+	private CountDownLatch latch = new CountDownLatch(1);
 	
 	public static ExperimentManager getInstance(){
 		if (singleton == null)
@@ -34,7 +43,6 @@ public class ExperimentManager {
 	}
 	
 	protected ExperimentManager(){
-		//Singleton
 	}
 
 	public Collection<Experiment> getExperiments() {
@@ -75,11 +83,43 @@ public class ExperimentManager {
 		Gson gson = new Gson();
 		Experiment countryObj = gson.fromJson(br, Experiment.class);
 		loadedExperiments.put(countryObj, otherFiles);
+		expActions.put(countryObj, new LinkedList<String>());
 	}
 
 	public File getFile(String id, String file) {
 		Experiment exp = loadedExperiments.keySet().stream().filter(exp1 -> exp1.getId().equals(id)).findFirst().get();
 		return loadedExperiments.get(exp).stream().filter(f -> f.getName().equals(file)).findFirst().get();
+	}
+
+	public Image getImage(Experiment exp) {
+		return new Image(Display.getDefault(), Activator.class.getResourceAsStream("/icons/sample.gif"));
+	}
+
+	public String getStatus(Experiment exp) {
+		if (exp.equals(selectedExperiment))
+			return "Selected";
+		return "Ok";
+	}
+
+	public List<String> getLoggedActions(Experiment exp) {
+		return expActions.get(exp);
+	}
+
+	public void addAction(Experiment exp, String fileName) {
+		logger.debug("added in exp="+exp.getId());
+		logger.debug("added file="+fileName);
+		expActions.get(exp).add(fileName);
+		latch.countDown();
+		latch = new CountDownLatch(1);
+	}
+	
+	public void waitUntilUpdateIsCalled() throws InterruptedException {
+		logger.debug("wait111");
+        latch.await();
+    }
+
+	public List<File> getFiles(Experiment exp) {
+		return loadedExperiments.get(exp);
 	}
 
 }

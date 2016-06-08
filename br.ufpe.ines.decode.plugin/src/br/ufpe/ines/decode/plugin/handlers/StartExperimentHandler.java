@@ -17,6 +17,8 @@ import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.debug.core.DebugPlugin;
+import org.eclipse.debug.core.ILaunchManager;
 import org.eclipse.jdt.core.IClasspathEntry;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.IPackageFragment;
@@ -31,6 +33,7 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.handlers.HandlerUtil;
 
 import br.ufpe.ines.decode.plugin.control.ExperimentManager;
+import br.ufpe.ines.decode.plugin.listener.LaucherListerner;
 import br.ufpe.ines.decode.plugin.model.SourceCode;
 
 /**
@@ -66,6 +69,8 @@ public class StartExperimentHandler extends AbstractHandler {
 			createBin(project, javaProject);
 			fixClasspath(javaProject);
 			createSrc(project, javaProject);
+			ILaunchManager mgr = DebugPlugin.getDefault().getLaunchManager();
+			mgr.addLaunchListener(new LaucherListerner(manager.getSelectedExperiment()));
 		} catch (CoreException | IOException e) {
 			logger.debug("MERDA!!!!");
 			IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);

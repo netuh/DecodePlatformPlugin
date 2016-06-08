@@ -5,6 +5,15 @@ public class SourceCode {
 	private String file;
 	private String subPackage;
 	
+	public SourceCode(){
+		
+	}
+	
+	public SourceCode(String file, String subPackage){
+		this.file= file;
+		this.subPackage= subPackage;
+	}
+	
 	public void setFile(String newFile) {
 		file = newFile;
 	}
