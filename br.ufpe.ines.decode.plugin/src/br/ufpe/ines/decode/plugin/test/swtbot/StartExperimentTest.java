@@ -12,8 +12,6 @@ import java.util.List;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -48,7 +46,7 @@ import br.ufpe.ines.decode.plugin.util.FileUtil;
 @RunWith(SWTBotJunit4ClassRunner.class)
 public class StartExperimentTest {
 
-	private static Logger logger = LogManager.getLogger(StartExperimentTest.class);
+	//private static Logger logger = LogManager.getLogger(StartExperimentTest.class);
 	private static SWTWorkbenchBot bot;
 	private ExperimentManager manager = ExperimentManager.getInstance();
 
@@ -106,7 +104,6 @@ public class StartExperimentTest {
 		final String fullPackageCopy2 = fullPackage;
 
 		for (SourceCode sc : manager.getSelectedExperiment().getSources()) {
-			logger.debug("aqui");
 			IPackageFragment finalPackage;
 			if (sc.getSubPackage() != null){
 				final String fullPackageCopy3 = fullPackageCopy2+ "."+sc.getSubPackage();
@@ -132,7 +129,6 @@ public class StartExperimentTest {
 		SWTBotMenu runAs = contextMenu.menu("Run As", "1 Java Application");
 		runAs.click();
 		manager.waitUntilUpdateIsCalled();
-		logger.debug("aqui111");
 		List<String> loggedAction = manager.getLoggedActions(manager.getSelectedExperiment());
 		assertEquals(1, loggedAction.size());
 		assertEquals("Source2.java", loggedAction.get(0));
@@ -144,7 +140,6 @@ public class StartExperimentTest {
 		runAs.click();
 		manager.waitUntilUpdateIsCalled();
 		loggedAction = manager.getLoggedActions(manager.getSelectedExperiment());
-		logger.debug("aqui2222");
 		assertEquals(2, loggedAction.size());
 		assertEquals("Source1.java", loggedAction.get(1));
 		assertEquals("Source2.java", loggedAction.get(0));
