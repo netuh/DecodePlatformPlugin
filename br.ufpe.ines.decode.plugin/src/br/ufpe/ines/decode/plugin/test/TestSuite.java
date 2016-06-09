@@ -6,7 +6,6 @@ import org.junit.runners.Suite.SuiteClasses;
 
 import br.ufpe.ines.decode.plugin.test.model.ExperimentManagerTest;
 import br.ufpe.ines.decode.plugin.test.model.ExperimentTest;
-import br.ufpe.ines.decode.plugin.test.swtbot.FinishExperimentTest;
 import br.ufpe.ines.decode.plugin.test.swtbot.SelectingExperimentTest;
 import br.ufpe.ines.decode.plugin.test.swtbot.StartExperimentTest;
 

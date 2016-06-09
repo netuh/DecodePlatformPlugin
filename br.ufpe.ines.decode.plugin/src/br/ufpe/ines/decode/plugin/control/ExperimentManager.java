@@ -66,6 +66,8 @@ public class ExperimentManager {
 
 	public void cleanExperiment() {
 		loadedExperiments.clear();
+		selectedExperiment = null;
+		currentRunning = null;
 	}
 
 	public void experimentFromFile2(String filePath) throws ArchiveException, IOException {

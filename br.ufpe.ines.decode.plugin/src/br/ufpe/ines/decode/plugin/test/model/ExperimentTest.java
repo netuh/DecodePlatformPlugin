@@ -14,7 +14,7 @@ import br.ufpe.ines.decode.plugin.model.SourceCode;
 public class ExperimentTest {
 
 	@Test
-	public void basicTestOk(){
+	public void basicTestBasic(){
 		String experimentId1 = "experiment1";
 		String experimentDomain1 = "a.b.c";
 		String experimentLanguage1 = "java";

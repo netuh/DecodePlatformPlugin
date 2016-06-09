@@ -23,10 +23,6 @@ public class Experiment {
 		return language;
 	}
 
-//	public Image getStatusImage() {
-//		return new Image(Display.getDefault(), Activator.class.getResourceAsStream("/icons/sample.gif"));
-//	}
-
 	public void setId(String newId) {
 		experimentId = newId;
 	}

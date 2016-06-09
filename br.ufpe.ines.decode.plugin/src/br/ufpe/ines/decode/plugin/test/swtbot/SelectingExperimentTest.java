@@ -1,154 +1,99 @@
 package br.ufpe.ines.decode.plugin.test.swtbot;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
-import java.util.List;
-
-import org.eclipse.swtbot.eclipse.finder.SWTWorkbenchBot;
-import org.eclipse.swtbot.eclipse.finder.widgets.SWTBotView;
 import org.eclipse.swtbot.swt.finder.junit.SWTBotJunit4ClassRunner;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotTable;
-import org.eclipse.ui.IWorkbench;
-import org.eclipse.ui.PlatformUI;
-import org.eclipse.ui.handlers.IHandlerActivation;
-import org.eclipse.ui.handlers.IHandlerService;
-import org.junit.After;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import br.ufpe.ines.decode.plugin.control.ExperimentManager;
-import br.ufpe.ines.decode.plugin.dialog.NativeDialogFactory;
-import br.ufpe.ines.decode.plugin.handlers.StartExperimentHandler;
 import br.ufpe.ines.decode.plugin.util.FileUtil;
 
 @RunWith(SWTBotJunit4ClassRunner.class)
-public class SelectingExperimentTest {
+public class SelectingExperimentTest extends SWTBotDECODE {
 
-	private final String SELECT_EXPERIMENT_LABEL = "Select Experiment";
-	private final String START_EXPERIMENT_LABEL = "Start Experiment";
-	private final String CANCEL_LABEL = "Cancel";
-	private final String OK_LABEL = "OK";
+	protected final String LOAD_NEW_EXPERIMENT_TOOLTIP_LABEL = "Load New Experiment";
 
-	private static SWTWorkbenchBot bot;
-	private ExperimentManager manager = ExperimentManager.getInstance();
-
-	@BeforeClass
-	public static void beforeClass() throws Exception {
-		bot = new SWTWorkbenchBot();
-		List<SWTBotView> views = bot.views();
-		for (SWTBotView view : views) {
-			if ("Welcome".equals(view.getTitle())) {
-				view.close();
-			}
-		}
-	}
-
-	@After
-	public void clearExperiments() {
-		manager.cleanExperiment();
-		manager.setSelectedExperiment(null);
-		IWorkbench workbench = PlatformUI.getWorkbench();
-		IHandlerService handlerService = (IHandlerService) workbench.getService(IHandlerService.class);
-		StartExperimentHandler sh = new StartExperimentHandler();
-		IHandlerActivation activateHandler = handlerService
-				.activateHandler("br.ufpe.ines.decode.plugin.handler.startExperiment", sh);
-		handlerService.deactivateHandler(activateHandler);
+	@Test
+	public void testCancel() throws Exception {
+		defaultInteraction(EXPERIMENT1);
+		bot.button(BUTTON_LABEL_CANCEL).click();
+		assertNull(manager.getSelectedExperiment());
+		testDefaultToolbarStatus();
 	}
 
 	@Test
-	public void testLoadButtonCancel() throws Exception {
-		NativeDialogFactory.setMode(NativeDialogFactory.OperationMode.TESTING);
-
-		testButtonsAndClick();
-		testPopUpFile("experimentDesc/experiment1.zip", "OK");
-
-		SWTBotTable tab = bot.table();
-		assertTrue("id not found," + "NewExperiment1", findInTable(tab, "NewExperiment1"));
-		bot.button(CANCEL_LABEL).click();
-		verifyNotSelected();
+	public void testLoadExperiment1() throws Exception {
+		SWTBotTable tab = defaultInteraction(EXPERIMENT1);
+		tab.select(EXPERIMENT1[INDEX_PROJECT_NAME]);
+		bot.button(BUTTON_LABEL_OK).click();
+		verifySelectedExperiment(EXPERIMENT1[INDEX_PROJECT_NAME]);
 	}
 
+	@Test
+	public void testLoadExperiment2() throws Exception {
+		SWTBotTable tab = defaultInteraction(EXPERIMENT2);
+		tab.select(EXPERIMENT2[INDEX_PROJECT_NAME]);
+		bot.button(BUTTON_LABEL_OK).click();
+		verifySelectedExperiment(EXPERIMENT2[INDEX_PROJECT_NAME]);
+	}
 
 	@Test
-	public void testLoadButtonOK1() throws Exception {
-		NativeDialogFactory.setMode(NativeDialogFactory.OperationMode.TESTING);
-		testButtonsAndClick();
-
-		testPopUpFile("experimentDesc/experiment1.zip", "OK");
+	public void testLoadTwoExperiments() throws Exception {
+		defaultInteraction(EXPERIMENT1);
+		loadNewExperiment(EXPERIMENT2[INDEX_FILE], BUTTON_LABEL_OK);
 
 		SWTBotTable tab = bot.table();
-		String newExperimentId = "NewExperiment1";
-		assertTrue("id not found," + newExperimentId, findInTable(tab, newExperimentId));
-		tab.select(newExperimentId);
-		bot.button(OK_LABEL).click();
-		verifySelected(newExperimentId);
+		assertTrue(tab.containsItem(EXPERIMENT1[INDEX_PROJECT_NAME]));
+		assertTrue(tab.containsItem(EXPERIMENT2[INDEX_PROJECT_NAME]));
+		
+		tab.select(EXPERIMENT1[INDEX_PROJECT_NAME]);
+		bot.button(BUTTON_LABEL_OK).click();
+		verifySelectedExperiment(EXPERIMENT1[INDEX_PROJECT_NAME]);
 	}
 	
 	@Test
-	public void testLoadButtonOK2() throws Exception {
-		NativeDialogFactory.setMode(NativeDialogFactory.OperationMode.TESTING);
-
-		testButtonsAndClick();
-		testPopUpFile("experimentDesc/experiment2.zip", "OK");
+	public void testCancelNewExperiment() throws Exception {
+		testDefaultToolbarStatus();
+		bot.toolbarButtonWithTooltip(SELECT_EXPERIMENT_TOOLTIP_LABEL).click();
+		loadNewExperiment(EXPERIMENT1[INDEX_FILE], BUTTON_LABEL_CANCEL);
 
 		SWTBotTable tab = bot.table();
-		String newExperimentId = "NewExperiment2";
-		assertTrue("id not found," + newExperimentId, findInTable(tab, newExperimentId));
-		tab.select(newExperimentId);
-		bot.button(OK_LABEL).click();
-		verifySelected(newExperimentId);
+		assertFalse(tab.containsItem(EXPERIMENT1[INDEX_PROJECT_NAME]));
+		
+		bot.button(BUTTON_LABEL_CANCEL).click();
+		testDefaultToolbarStatus();
 	}
 	
 	@Test
-	public void testLoadButtonCancel1() throws Exception {
-		NativeDialogFactory.setMode(NativeDialogFactory.OperationMode.TESTING);
-		testButtonsAndClick();
-
-		testPopUpFile("experimentDesc/experiment1.zip", "Cancel");
+	public void testCancelNewExperiment2() throws Exception {
+		testDefaultToolbarStatus();
+		bot.toolbarButtonWithTooltip(SELECT_EXPERIMENT_TOOLTIP_LABEL).click();
+		loadNewExperiment(EXPERIMENT1[INDEX_FILE], BUTTON_LABEL_CANCEL);
 
 		SWTBotTable tab = bot.table();
-		String newExperimentId = "NewExperiment1";
-		assertFalse("id not found," + newExperimentId, findInTable(tab, newExperimentId));
-		bot.button(CANCEL_LABEL).click();
-		verifyNotSelected();
+		assertFalse(tab.containsItem(EXPERIMENT1[INDEX_PROJECT_NAME]));
+		
+		bot.button(BUTTON_LABEL_OK).click();
+		testDefaultToolbarStatus();
 	}
 
-	private boolean findInTable(SWTBotTable tab, String experimentId) {
-		for (int i = 0; i < tab.rowCount(); i++) {
-			if (tab.cell(i, 0).equals(experimentId))
-				return true;
-		}
-		return false;
+	private SWTBotTable defaultInteraction(String[] experimentDescription) {
+		testDefaultToolbarStatus();
+		bot.toolbarButtonWithTooltip(SELECT_EXPERIMENT_TOOLTIP_LABEL).click();
+
+		loadNewExperiment(experimentDescription[INDEX_FILE], BUTTON_LABEL_OK);
+
+		SWTBotTable tab = bot.table();
+		assertTrue(tab.containsItem(experimentDescription[INDEX_PROJECT_NAME]));
+		return tab;
 	}
 
-	private void verifySelected(String selectedExperimentId) {
-		assertEquals(selectedExperimentId, manager.getSelectedExperiment().getId());
-		assertNotNull(manager.getSelectedExperiment());
-		assertTrue(bot.toolbarButtonWithTooltip(START_EXPERIMENT_LABEL).isEnabled());
-	}
-
-	private void testButtonsAndClick() {
-		assertFalse("Start Button not enabled", bot.toolbarButtonWithTooltip(START_EXPERIMENT_LABEL).isEnabled());
-		assertTrue("Select Button enabled", bot.toolbarButtonWithTooltip(SELECT_EXPERIMENT_LABEL).isEnabled());
-		bot.toolbarButtonWithTooltip(SELECT_EXPERIMENT_LABEL).click();
-		assertNotNull(bot.buttonWithTooltip("Load New Experiment"));
-	}
-	
-	private void testPopUpFile(String resourcePath, String buttonName) {
-		bot.buttonWithTooltip("Load New Experiment").click();
+	private void loadNewExperiment(String resourcePath, String buttonName) {
+		bot.buttonWithTooltip(LOAD_NEW_EXPERIMENT_TOOLTIP_LABEL).click();
 		String filePath = FileUtil.loadResource(resourcePath).getAbsolutePath();
 
 		bot.text().setText(filePath);
 		bot.button(buttonName).click();
-	}
-
-	private void verifyNotSelected() {
-		assertNull(manager.getSelectedExperiment());
-		assertFalse(bot.toolbarButtonWithTooltip(START_EXPERIMENT_LABEL).isEnabled());
 	}
 }

@@ -6,29 +6,17 @@ import org.eclipse.swtbot.swt.finder.utils.TableCollection;
 import org.eclipse.swtbot.swt.finder.utils.TableRow;
 import org.eclipse.swtbot.swt.finder.waits.DefaultCondition;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotList;
+import org.eclipse.swtbot.swt.finder.widgets.SWTBotTable;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotTree;
 
 public class SWTBotUtils {
 
-	/**
-	 * Gets a view by name. It assumes the view MUST be opened, although not
-	 * necessarily active. Open the view first if necessary.
-	 * 
-	 * @return Active, focused explorer view
-	 */
 	public static SWTBotView getView(SWTWorkbenchBot bot, String name) {
 		SWTBotView explorer = bot.viewByTitle(name);
 		explorer.setFocus();
 		return explorer;
 	}
 
-	/**
-	 * Selects a project in the currently opened view. A view must be opened
-	 * prior to using this method.
-	 * 
-	 * @param projectName
-	 * @return
-	 */
 	public static SWTBotTree selectProject(SWTWorkbenchBot bot, String projectName, String viewName) {
 
 		SWTBotView explorer = getView(bot, viewName);
@@ -44,11 +32,6 @@ public class SWTBotUtils {
 		}
 	}
 
-	/**
-	 * Sometimes widgets respond slowly to selection and key presses. Use this
-	 * method to wait for a selection to become what you expect it to be.
-	 * Otherwise, trying to proceed will probably fail the test.
-	 */
 	public static void waitForSelection(SWTWorkbenchBot bot, final String expected, final SWTBotList list) {
 		bot.waitUntil(new DefaultCondition() {
 			public boolean test() throws Exception {
@@ -70,10 +53,6 @@ public class SWTBotUtils {
 		});
 	}
 
-	/**
-	 * Wait for a selection to become what you expect it to be. This method
-	 * assumes a SWTBotTree that only has a single column selection.
-	 */
 	public static void waitForSelection(SWTWorkbenchBot bot, final String expected, final SWTBotTree tree) {
 		bot.waitUntil(new DefaultCondition() {
 			public boolean test() throws Exception {
@@ -102,5 +81,13 @@ public class SWTBotUtils {
 			}
 		}
 		return selection;
+	}
+	
+	public static boolean findInTable(SWTBotTable tab, String experimentId) {
+		for (int i = 0; i < tab.rowCount(); i++) {
+			if (tab.cell(i, 0).equals(experimentId))
+				return true;
+		}
+		return false;
 	}
 }
