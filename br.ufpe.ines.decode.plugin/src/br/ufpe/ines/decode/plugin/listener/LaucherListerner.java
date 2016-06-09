@@ -1,5 +1,6 @@
 package br.ufpe.ines.decode.plugin.listener;
 
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -65,7 +66,7 @@ public class LaucherListerner implements ILaunchListener {
 							.stream()
 							.filter(p -> p.getResource().equals(iResource))
 							.findFirst().
-							ifPresent(p -> {manager.addAction(exp,p.getElementName());});
+							ifPresent(p -> {manager.addAction(exp,p.getElementName(), LocalDateTime.now());});
 				}
 			}
 		} catch (CoreException e) {

@@ -6,14 +6,15 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Path;
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.locks.ReentrantLock;
 
 import org.apache.commons.compress.archivers.ArchiveException;
 import org.apache.log4j.Logger;
@@ -32,7 +33,8 @@ public class ExperimentManager {
 	private Experiment selectedExperiment;
 	static final Logger logger = Logger.getLogger(ExperimentManager.class);
 	private Map<Experiment, List<File>> loadedExperiments = new HashMap<Experiment, List<File>>();
-	private Map<Experiment, List<String>> expActions = new HashMap<Experiment, List<String>>();
+	private Map<Experiment, List<String>> expActions = new LinkedHashMap<Experiment, List<String>>();
+	private Map<Experiment, List<LocalDateTime>> expActionTimes = new LinkedHashMap<Experiment, List<LocalDateTime>>();
 	
 	private CountDownLatch latch = new CountDownLatch(1);
 	
@@ -84,6 +86,7 @@ public class ExperimentManager {
 		Experiment countryObj = gson.fromJson(br, Experiment.class);
 		loadedExperiments.put(countryObj, otherFiles);
 		expActions.put(countryObj, new LinkedList<String>());
+		expActionTimes.put(countryObj, new LinkedList<LocalDateTime>());
 	}
 
 	public File getFile(String id, String file) {
@@ -104,11 +107,16 @@ public class ExperimentManager {
 	public List<String> getLoggedActions(Experiment exp) {
 		return expActions.get(exp);
 	}
+	
+	public List<LocalDateTime> getLoggedTimes(Experiment exp) {
+		return expActionTimes.get(exp);
+	}
 
-	public void addAction(Experiment exp, String fileName) {
+	public void addAction(Experiment exp, String fileName, LocalDateTime localDateTime) {
 		logger.debug("added in exp="+exp.getId());
 		logger.debug("added file="+fileName);
 		expActions.get(exp).add(fileName);
+		expActionTimes.get(exp).add(localDateTime);
 		latch.countDown();
 		latch = new CountDownLatch(1);
 	}

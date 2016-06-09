@@ -6,6 +6,7 @@ import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 import org.apache.commons.compress.archivers.ArchiveException;
@@ -82,19 +83,19 @@ public class ExperimentManagerTest {
 				"NewExperiment2");
 		manager.setSelectedExperiment(exp);
 		assertTrue(manager.getLoggedActions(exp).isEmpty());
-		manager.addAction(exp, "Source.java");
+		manager.addAction(exp, "Source.java", LocalDateTime.now());
 		assertEquals(1, manager.getLoggedActions(exp).size());
-		manager.addAction(exp, "Source.java");
+		manager.addAction(exp, "Source.java",LocalDateTime.now());
 		assertEquals(2, manager.getLoggedActions(exp).size());
 		
 		assertEquals(0, manager.getLoggedActions(exp2).size());
 		
-		manager.addAction(exp, "Source.java");
+		manager.addAction(exp, "Source.java",LocalDateTime.now());
 		assertEquals(3, manager.getLoggedActions(exp).size());
 		
 		assertEquals(0, manager.getLoggedActions(exp2).size());
 		
-		manager.addAction(exp2, "Source.java");
+		manager.addAction(exp2, "Source.java",LocalDateTime.now());
 		assertEquals(3, manager.getLoggedActions(exp).size());
 		
 		assertEquals(1, manager.getLoggedActions(exp2).size());

@@ -7,6 +7,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.io.File;
 import java.nio.file.Files;
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Pattern;
@@ -130,7 +131,9 @@ public class StartExperimentTest {
 		runAs.click();
 		manager.waitUntilUpdateIsCalled();
 		List<String> loggedAction = manager.getLoggedActions(manager.getSelectedExperiment());
+		List<LocalDateTime> loggedTime = manager.getLoggedTimes(manager.getSelectedExperiment());
 		assertEquals(1, loggedAction.size());
+		assertEquals(1, loggedTime.size());
 		assertEquals("Source2.java", loggedAction.get(0));
 		
 		experimentNode = scr.getNode("br.ufpe.ines.decode.experiment1.pack2");
@@ -141,6 +144,7 @@ public class StartExperimentTest {
 		manager.waitUntilUpdateIsCalled();
 		loggedAction = manager.getLoggedActions(manager.getSelectedExperiment());
 		assertEquals(2, loggedAction.size());
+		assertEquals(2, loggedTime.size());
 		assertEquals("Source1.java", loggedAction.get(1));
 		assertEquals("Source2.java", loggedAction.get(0));
 	}
