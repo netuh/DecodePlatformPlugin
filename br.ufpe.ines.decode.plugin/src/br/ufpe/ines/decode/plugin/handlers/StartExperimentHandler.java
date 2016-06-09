@@ -79,6 +79,7 @@ public class StartExperimentHandler extends AbstractHandler {
 
 		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
 		MessageDialog.openInformation(window.getShell(), "CommandLog", "Experiment Started");
+		manager.startSelected();
 		return null;
 	}
 

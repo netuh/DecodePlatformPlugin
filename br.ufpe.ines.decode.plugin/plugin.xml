@@ -17,6 +17,11 @@
             categoryId="br.ufpe.ines.decode.plugin.category.command"
             id="br.ufpe.ines.decode.plugin.handler.startExperiment">
       </command>
+      <command
+            name="Finish Experiment Command"
+            categoryId="br.ufpe.ines.decode.plugin.category.command"
+            id="br.ufpe.ines.decode.plugin.handler.finishExperiment">
+      </command>
    </extension>
    <extension
          point="org.eclipse.ui.handlers">
@@ -30,6 +35,15 @@
          <enabledWhen>
          	<test
                property="br.ufpe.ines.decode.plugin.hasSelectedExperiment">
+            </test>
+         </enabledWhen>
+      </handler>
+      <handler
+            class="br.ufpe.ines.decode.plugin.handlers.FinishExperimentHandler"
+            commandId="br.ufpe.ines.decode.plugin.handler.finishExperiment">
+         <enabledWhen>
+         	<test
+               property="br.ufpe.ines.decode.plugin.hasStartedExperiment">
             </test>
          </enabledWhen>
       </handler>
@@ -49,6 +63,14 @@
                   tooltip="Start Experiment">
             </command>
             <command
+                  commandId="br.ufpe.ines.decode.plugin.handler.finishExperiment"
+                  disabledIcon="icons/sample2.gif"
+                  icon="icons/sample.gif"
+                  id="CommandLog.toolbars.FinishExperiment"
+                  style="push"
+                  tooltip="Finish Experiment">
+            </command>
+            <command
                   commandId="br.ufpe.ines.decode.plugin.handler.selectExperiment"
                   disabledIcon="icons/sample2.gif"
                   icon="icons/sample.gif"
@@ -62,9 +84,16 @@
 	<extension point="org.eclipse.core.expressions.propertyTesters">
       <propertyTester
             class="br.ufpe.ines.decode.plugin.propertytesters.StartExperimentTester"
-            id="br.ufpe.ines.decode.startExperimentTester"
+            id="br.ufpe.ines.decode.selectedExperimentTester"
             namespace="br.ufpe.ines.decode.plugin"
             properties="hasSelectedExperiment"
+            type="java.lang.Object">
+      </propertyTester>
+      <propertyTester
+            class="br.ufpe.ines.decode.plugin.propertytesters.StartExperimentTester"
+            id="br.ufpe.ines.decode.stardedExperimentTester"
+            namespace="br.ufpe.ines.decode.plugin"
+            properties="hasStartedExperiment"
             type="java.lang.Object">
       </propertyTester>
 	</extension>

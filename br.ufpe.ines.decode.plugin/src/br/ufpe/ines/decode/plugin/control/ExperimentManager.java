@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.time.LocalDateTime;
@@ -15,6 +16,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CountDownLatch;
+import java.util.stream.Collectors;
 
 import org.apache.commons.compress.archivers.ArchiveException;
 import org.apache.log4j.Logger;
@@ -22,21 +24,23 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Display;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import br.ufpe.ines.decode.plugin.Activator;
 import br.ufpe.ines.decode.plugin.model.Experiment;
+import br.ufpe.ines.decode.plugin.model.LoggedAction;
 import br.ufpe.ines.decode.plugin.util.FileUtil;
 
 public class ExperimentManager {
 	
 	protected static ExperimentManager singleton = new ExperimentManager();
 	private Experiment selectedExperiment;
+	private Experiment currentRunning;
 	static final Logger logger = Logger.getLogger(ExperimentManager.class);
 	private Map<Experiment, List<File>> loadedExperiments = new HashMap<Experiment, List<File>>();
-	private Map<Experiment, List<String>> expActions = new LinkedHashMap<Experiment, List<String>>();
-	private Map<Experiment, List<LocalDateTime>> expActionTimes = new LinkedHashMap<Experiment, List<LocalDateTime>>();
-	
-	private CountDownLatch latch = new CountDownLatch(1);
+	private Map<Experiment, List<LoggedAction>> expActions = new LinkedHashMap<Experiment, List<LoggedAction>>();
+
+	private CountDownLatch latchAction = new CountDownLatch(1);
 	
 	public static ExperimentManager getInstance(){
 		if (singleton == null)
@@ -51,8 +55,9 @@ public class ExperimentManager {
 		return loadedExperiments.keySet();
 	}
 
-	public void setSelectedExperiment(Experiment newSelectedExperiment) {
+	public synchronized void setSelectedExperiment(Experiment newSelectedExperiment) {
 		selectedExperiment = newSelectedExperiment;
+		latchAction = new CountDownLatch(1);
 	}
 	
 	public Experiment getSelectedExperiment() {
@@ -85,8 +90,8 @@ public class ExperimentManager {
 		Gson gson = new Gson();
 		Experiment countryObj = gson.fromJson(br, Experiment.class);
 		loadedExperiments.put(countryObj, otherFiles);
-		expActions.put(countryObj, new LinkedList<String>());
-		expActionTimes.put(countryObj, new LinkedList<LocalDateTime>());
+		expActions.put(countryObj, new LinkedList<LoggedAction>());
+		//expActionTimes.put(countryObj, new LinkedList<LocalDateTime>());
 	}
 
 	public File getFile(String id, String file) {
@@ -99,35 +104,59 @@ public class ExperimentManager {
 	}
 
 	public String getStatus(Experiment exp) {
+		if (exp == null)
+			return "ERROR";
+		if (exp.equals(currentRunning))
+			return "Started";
 		if (exp.equals(selectedExperiment))
 			return "Selected";
 		return "Ok";
 	}
 
 	public List<String> getLoggedActions(Experiment exp) {
-		return expActions.get(exp);
+		return expActions.get(exp).stream().map(p -> p.getFile()).collect(Collectors.toList());
 	}
 	
 	public List<LocalDateTime> getLoggedTimes(Experiment exp) {
-		return expActionTimes.get(exp);
+		List<LocalDateTime> list1 = expActions.get(exp).stream().map(p -> p.getTimeStamp()).collect(Collectors.toList());
+		List<String> list2 = expActions.get(exp).stream().map(p -> p.getFile()).collect(Collectors.toList());
+		logger.debug("list1 size="+list1.size());
+		logger.debug("list2 size="+list2.size());
+		return expActions.get(exp).stream().map(p -> p.getTimeStamp()).collect(Collectors.toList());
 	}
 
 	public void addAction(Experiment exp, String fileName, LocalDateTime localDateTime) {
-		logger.debug("added in exp="+exp.getId());
-		logger.debug("added file="+fileName);
-		expActions.get(exp).add(fileName);
-		expActionTimes.get(exp).add(localDateTime);
-		latch.countDown();
-		latch = new CountDownLatch(1);
+		LoggedAction la = new LoggedAction();
+		la.setFile(fileName);
+		la.setTimeStamp(localDateTime);
+		expActions.get(exp).add(la);
+		synchronized (localDateTime) {
+			latchAction.countDown();
+			latchAction = new CountDownLatch(1);
+		}
 	}
 	
-	public void waitUntilUpdateIsCalled() throws InterruptedException {
-		logger.debug("wait111");
-        latch.await();
+	public void waitAction() throws InterruptedException {
+        latchAction.await();
     }
 
 	public List<File> getFiles(Experiment exp) {
 		return loadedExperiments.get(exp);
+	}
+
+	public void startSelected() {
+		currentRunning = selectedExperiment;
+	}
+
+	public void export(String selected) throws IOException {
+		File f = new File(selected);
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		String json = gson.toJson(expActions.get(currentRunning));
+		FileWriter writer = new FileWriter(f);
+		writer.write(json);
+		writer.close();
+		selectedExperiment = null;
+		currentRunning = null;
 	}
 
 }

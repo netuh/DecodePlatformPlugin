@@ -129,7 +129,7 @@ public class StartExperimentTest {
 		SWTBotRootMenu contextMenu = experimentNode.getItems()[0].contextMenu();
 		SWTBotMenu runAs = contextMenu.menu("Run As", "1 Java Application");
 		runAs.click();
-		manager.waitUntilUpdateIsCalled();
+		manager.waitAction();
 		List<String> loggedAction = manager.getLoggedActions(manager.getSelectedExperiment());
 		List<LocalDateTime> loggedTime = manager.getLoggedTimes(manager.getSelectedExperiment());
 		assertEquals(1, loggedAction.size());
@@ -141,8 +141,9 @@ public class StartExperimentTest {
 		contextMenu = experimentNode.getItems()[0].contextMenu();
 		runAs = contextMenu.menu("Run As", "1 Java Application");
 		runAs.click();
-		manager.waitUntilUpdateIsCalled();
+		manager.waitAction();
 		loggedAction = manager.getLoggedActions(manager.getSelectedExperiment());
+		loggedTime = manager.getLoggedTimes(manager.getSelectedExperiment());
 		assertEquals(2, loggedAction.size());
 		assertEquals(2, loggedTime.size());
 		assertEquals("Source1.java", loggedAction.get(1));

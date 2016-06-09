@@ -83,10 +83,18 @@ public class ExperimentManagerTest {
 				"NewExperiment2");
 		manager.setSelectedExperiment(exp);
 		assertTrue(manager.getLoggedActions(exp).isEmpty());
-		manager.addAction(exp, "Source.java", LocalDateTime.now());
+		LocalDateTime sinceBefore = LocalDateTime.now();
+		manager.addAction(exp, "Source.java", sinceBefore);
 		assertEquals(1, manager.getLoggedActions(exp).size());
-		manager.addAction(exp, "Source.java",LocalDateTime.now());
+		assertEquals(1, manager.getLoggedTimes(exp).size());
+		assertEquals("Source.java", manager.getLoggedActions(exp).get(0));
+		assertEquals(sinceBefore, manager.getLoggedTimes(exp).get(0));
+		LocalDateTime sinceBefore2 = LocalDateTime.now();
+		manager.addAction(exp, "Source.java",sinceBefore2);
 		assertEquals(2, manager.getLoggedActions(exp).size());
+		assertEquals("Source.java", manager.getLoggedActions(exp).get(1));
+		assertEquals(sinceBefore2, manager.getLoggedTimes(exp).get(1));
+		assertNotEquals(sinceBefore, manager.getLoggedTimes(exp).get(1));
 		
 		assertEquals(0, manager.getLoggedActions(exp2).size());
 		
