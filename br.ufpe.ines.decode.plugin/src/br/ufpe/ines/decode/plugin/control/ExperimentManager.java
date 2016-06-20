@@ -34,10 +34,12 @@ import br.ufpe.ines.decode.plugin.util.FileUtil;
 public class ExperimentManager {
 	
 	protected static ExperimentManager singleton = new ExperimentManager();
+	private static final Logger logger = Logger.getLogger(ExperimentManager.class);
+
 	private Experiment selectedExperiment;
 	private Experiment currentRunning;
-	static final Logger logger = Logger.getLogger(ExperimentManager.class);
 	private Map<Experiment, List<File>> loadedExperiments = new HashMap<Experiment, List<File>>();
+	private Map<Experiment, String> configurationExperiments = new HashMap<Experiment, String>();
 	private Map<Experiment, List<LoggedAction>> expActions = new LinkedHashMap<Experiment, List<LoggedAction>>();
 
 	private CountDownLatch latchAction = new CountDownLatch(1);
@@ -66,6 +68,7 @@ public class ExperimentManager {
 
 	public void cleanExperiment() {
 		loadedExperiments.clear();
+		expActions.clear();
 		selectedExperiment = null;
 		currentRunning = null;
 	}
@@ -91,14 +94,20 @@ public class ExperimentManager {
 		}
 		Gson gson = new Gson();
 		Experiment countryObj = gson.fromJson(br, Experiment.class);
+		logger.debug("Experiment to add="+countryObj.getId());
+		logger.debug("contains="+loadedExperiments.keySet().contains(countryObj));
+		loadedExperiments.keySet().stream().forEach(exp -> logger.debug("Experiments in Set="+exp.getId()));
 		loadedExperiments.put(countryObj, otherFiles);
 		expActions.put(countryObj, new LinkedList<LoggedAction>());
-		//expActionTimes.put(countryObj, new LinkedList<LocalDateTime>());
 	}
 
-	public File getFile(String id, String file) {
-		Experiment exp = loadedExperiments.keySet().stream().filter(exp1 -> exp1.getId().equals(id)).findFirst().get();
-		return loadedExperiments.get(exp).stream().filter(f -> f.getName().equals(file)).findFirst().get();
+	public File getDefaultFile(String id, String file) {
+		Experiment exp = loadedExperiments.keySet().stream()
+				.filter(exp1 -> exp1.getId().equals(id))
+				.findFirst().get();
+		return loadedExperiments.get(exp).stream()
+				.filter(f -> f.getName().equals(file))
+				.findFirst().get();
 	}
 
 	public Image getImage(Experiment exp) {
@@ -146,8 +155,9 @@ public class ExperimentManager {
 		return loadedExperiments.get(exp);
 	}
 
-	public void startSelected() {
+	public void startSelected(String projectName) {
 		currentRunning = selectedExperiment;
+		configurationExperiments.put(selectedExperiment, projectName);
 	}
 
 	public void export(String selected) throws IOException {

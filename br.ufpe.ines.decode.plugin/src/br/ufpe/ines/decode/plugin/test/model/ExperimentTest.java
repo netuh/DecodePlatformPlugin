@@ -14,6 +14,25 @@ import br.ufpe.ines.decode.plugin.model.SourceCode;
 public class ExperimentTest {
 
 	@Test
+	public void testEquals(){
+		String experimentId1 = "experiment1";
+		String experimentDomain1 = "a.b.c";
+		String experimentLanguage1 = "java";
+
+		Experiment exp1 = new Experiment();
+		exp1.setId(experimentId1);
+		exp1.setDomain(experimentDomain1);
+		exp1.setLanguage(experimentLanguage1);
+
+		Experiment exp2 = new Experiment();
+		exp2.setId(experimentId1);
+		exp2.setDomain(experimentDomain1);
+		exp2.setLanguage(experimentLanguage1);
+
+		assertEquals(exp2,exp1);
+	}
+	
+	@Test
 	public void basicTestBasic(){
 		String experimentId1 = "experiment1";
 		String experimentDomain1 = "a.b.c";

@@ -35,6 +35,7 @@ import org.eclipse.ui.handlers.HandlerUtil;
 import br.ufpe.ines.decode.plugin.control.ExperimentManager;
 import br.ufpe.ines.decode.plugin.listener.LaucherListerner;
 import br.ufpe.ines.decode.plugin.model.SourceCode;
+import br.ufpe.ines.decode.plugin.util.EclipseUtil;
 
 /**
  * Our sample handler extends AbstractHandler, an IHandler base class.
@@ -60,7 +61,8 @@ public class StartExperimentHandler extends AbstractHandler {
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 
 		IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
-		IProject project = root.getProject(manager.getSelectedExperiment().getId());
+		String projectName = EclipseUtil.getAvailableName(manager.getSelectedExperiment().getId());
+		IProject project = root.getProject(projectName);
 		try {
 			project.create(new NullProgressMonitor());
 			project.open(new NullProgressMonitor());
@@ -73,13 +75,14 @@ public class StartExperimentHandler extends AbstractHandler {
 			mgr.addLaunchListener(new LaucherListerner(manager.getSelectedExperiment()));
 		} catch (CoreException | IOException e) {
 			logger.debug("MERDA!!!!");
+			logger.debug(e.getMessage());
 			IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
-			MessageDialog.openInformation(window.getShell(), "CommandLog", "Experiment NOT Created");
+			MessageDialog.openInformation(window.getShell(), "CommandLog-Error", "Experiment NOT Created");
 		}
 
 		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
-		MessageDialog.openInformation(window.getShell(), "CommandLog", "Experiment Started");
-		manager.startSelected();
+		MessageDialog.openInformation(window.getShell(), "CommandLog-Ok", "Experiment Started");
+		manager.startSelected(projectName);
 		return null;
 	}
 
@@ -135,7 +138,7 @@ public class StartExperimentHandler extends AbstractHandler {
 
 	private void loadFiles(IPackageFragment pack, SourceCode sc) throws IOException, JavaModelException {
 		
-			File f = manager.getFile(manager.getSelectedExperiment().getId(), sc.getFile());
+			File f = manager.getDefaultFile(manager.getSelectedExperiment().getId(), sc.getFile());
 			String content = new String(Files.readAllBytes(f.toPath()));
 			StringBuffer buffer = new StringBuffer();
 			buffer.append("package " + pack.getElementName() + ";\n");

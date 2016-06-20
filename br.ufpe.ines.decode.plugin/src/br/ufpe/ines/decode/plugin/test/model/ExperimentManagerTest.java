@@ -16,21 +16,12 @@ import org.junit.Test;
 
 import br.ufpe.ines.decode.plugin.control.ExperimentManager;
 import br.ufpe.ines.decode.plugin.model.Experiment;
+import br.ufpe.ines.decode.plugin.test.util.TestContants;
 
 public class ExperimentManagerTest {
 
 	private static final String DEFAULT_FILE_NAME1 = "Source1.java";
 	private static final String DEFAULT_FILE_NAME2 = "Source2.java";
-	
-	private static final String[] EXPERIMENT1 = { "./experimentDesc/experiment1.zip", "NewExperiment1",
-			"br.ufpe.ines.decode.experiment1", "java" };
-	private static final String[] EXPERIMENT2 = { "./experimentDesc/experiment2.zip", "NewExperiment2",
-			"br.ufpe.ines.decode.experiment2", "java" };
-	
-	private static final int INDEX_FILE = 0;
-	private static final int INDEX_PROJECT_NAME = 1;
-	private static final int INDEX_DOMAIN = 2;
-	private static final int INDEX_LANGUAGE = 3;
 	
 	protected static ExperimentManager manager = ExperimentManager.getInstance();
 
@@ -42,21 +33,33 @@ public class ExperimentManagerTest {
 	@Test
 	public void testManagerBasic() throws Exception {
 		assertTrue(manager.getExperiments().isEmpty());
-		assertNotNull(addExperiment(EXPERIMENT1));
-		assertTrue(manager.getExperiments().size() == 1);
-		assertNotNull(addExperiment(EXPERIMENT2));
-		assertTrue(manager.getExperiments().size() == 2);
+		assertNotNull(addExperiment(TestContants.EXPERIMENT1));
+		assertEquals(1, manager.getExperiments().size());
+		assertNotNull(addExperiment(TestContants.EXPERIMENT2));
+		assertEquals(2, manager.getExperiments().size());
 		manager.cleanExperiment();
 		assertTrue(manager.getExperiments().isEmpty());
-
+	}
+	
+	@Test
+	public void testManagerAddingTwice() throws Exception {
+		assertTrue(manager.getExperiments().isEmpty());
+		Experiment exp = addExperiment(TestContants.EXPERIMENT1);
+		assertEquals(1, manager.getExperiments().size());
+		Experiment expCopy = addExperiment(TestContants.EXPERIMENT1);
+		assertEquals(exp, expCopy);
+		manager.getExperiments().stream().forEach(expIn -> System.out.println("expIn="+expIn.getId()));
+		assertEquals(1,manager.getExperiments().size());
+		manager.cleanExperiment();
+		assertTrue(manager.getExperiments().isEmpty());
 	}
 
 	@Test
 	public void testManagerImage() throws Exception {
 		assertTrue(manager.getExperiments().isEmpty());
-		Experiment exp = addExperiment(EXPERIMENT1);
+		Experiment exp = addExperiment(TestContants.EXPERIMENT1);
 		Image imgExp1 = manager.getImage(exp);
-		Experiment exp2 = addExperiment(EXPERIMENT2);
+		Experiment exp2 = addExperiment(TestContants.EXPERIMENT2);
 		Image imgExp2 = manager.getImage(exp2);
 		assertNotEquals(imgExp1, imgExp2);
 	}
@@ -64,9 +67,9 @@ public class ExperimentManagerTest {
 	@Test
 	public void testManagerExperimentStatus() throws Exception {
 		assertTrue(manager.getExperiments().isEmpty());
-		Experiment exp = addExperiment(EXPERIMENT1);
+		Experiment exp = addExperiment(TestContants.EXPERIMENT1);
 		String status = manager.getStatus(exp);
-		Experiment exp2 = addExperiment(EXPERIMENT2);
+		Experiment exp2 = addExperiment(TestContants.EXPERIMENT2);
 		String status2 = manager.getStatus(exp2);
 		assertTrue(status.equals(status2));
 		manager.setSelectedExperiment(exp);
@@ -78,8 +81,8 @@ public class ExperimentManagerTest {
 	@Test
 	public void testManagerExperimentAddAction() throws Exception {
 		assertTrue(manager.getExperiments().isEmpty());
-		Experiment exp = addExperiment(EXPERIMENT1);
-		Experiment exp2 = addExperiment(EXPERIMENT2);
+		Experiment exp = addExperiment(TestContants.EXPERIMENT1);
+		Experiment exp2 = addExperiment(TestContants.EXPERIMENT2);
 		manager.setSelectedExperiment(exp);
 		assertTrue(manager.getLoggedActions(exp).isEmpty());
 
@@ -108,14 +111,13 @@ public class ExperimentManagerTest {
 	}
 
 	private Experiment addExperiment(String[] experimentData) throws ArchiveException, IOException {
-		assertFalse(manager.getExperiments().stream().anyMatch(exp -> exp.getId().equals(experimentData[INDEX_PROJECT_NAME])));
-		manager.experimentFromFile2(experimentData[INDEX_FILE]);
+		manager.experimentFromFile2(experimentData[TestContants.INDEX_FILE]);
 		Experiment exp = manager.getExperiments().stream()
-				.filter(i -> i.getId().equals(experimentData[INDEX_PROJECT_NAME]))
+				.filter(i -> i.getId().equals(experimentData[TestContants.INDEX_EXPERIMENT_ID]))
 				.findFirst()
 				.get();
-		assertEquals(experimentData[INDEX_DOMAIN], exp.getDomain());
-		assertEquals(experimentData[INDEX_LANGUAGE], exp.getLanguage());
+		assertEquals(experimentData[TestContants.INDEX_DOMAIN], exp.getDomain());
+		assertEquals(experimentData[TestContants.INDEX_LANGUAGE], exp.getLanguage());
 		return exp;
 	}
 }

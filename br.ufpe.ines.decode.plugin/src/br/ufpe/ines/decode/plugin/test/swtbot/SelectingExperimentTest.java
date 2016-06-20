@@ -1,12 +1,15 @@
 package br.ufpe.ines.decode.plugin.test.swtbot;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 import org.eclipse.swtbot.swt.finder.junit.SWTBotJunit4ClassRunner;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotTable;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import br.ufpe.ines.decode.plugin.test.util.TestContants;
 import br.ufpe.ines.decode.plugin.util.FileUtil;
 
 @RunWith(SWTBotJunit4ClassRunner.class)
@@ -16,7 +19,7 @@ public class SelectingExperimentTest extends SWTBotDECODE {
 
 	@Test
 	public void testCancel() throws Exception {
-		defaultInteraction(EXPERIMENT1);
+		defaultInteraction(TestContants.EXPERIMENT1);
 		bot.button(BUTTON_LABEL_CANCEL).click();
 		assertNull(manager.getSelectedExperiment());
 		testDefaultToolbarStatus();
@@ -24,42 +27,42 @@ public class SelectingExperimentTest extends SWTBotDECODE {
 
 	@Test
 	public void testLoadExperiment1() throws Exception {
-		SWTBotTable tab = defaultInteraction(EXPERIMENT1);
-		tab.select(EXPERIMENT1[INDEX_PROJECT_NAME]);
+		SWTBotTable tab = defaultInteraction(TestContants.EXPERIMENT1);
+		tab.select(TestContants.EXPERIMENT1[TestContants.INDEX_EXPERIMENT_ID]);
 		bot.button(BUTTON_LABEL_OK).click();
-		verifySelectedExperiment(EXPERIMENT1[INDEX_PROJECT_NAME]);
+		verifySelectedExperiment(TestContants.EXPERIMENT1[TestContants.INDEX_EXPERIMENT_ID]);
 	}
 
 	@Test
 	public void testLoadExperiment2() throws Exception {
-		SWTBotTable tab = defaultInteraction(EXPERIMENT2);
-		tab.select(EXPERIMENT2[INDEX_PROJECT_NAME]);
+		SWTBotTable tab = defaultInteraction(TestContants.EXPERIMENT2);
+		tab.select(TestContants.EXPERIMENT2[TestContants.INDEX_EXPERIMENT_ID]);
 		bot.button(BUTTON_LABEL_OK).click();
-		verifySelectedExperiment(EXPERIMENT2[INDEX_PROJECT_NAME]);
+		verifySelectedExperiment(TestContants.EXPERIMENT2[TestContants.INDEX_EXPERIMENT_ID]);
 	}
 
 	@Test
 	public void testLoadTwoExperiments() throws Exception {
-		defaultInteraction(EXPERIMENT1);
-		loadNewExperiment(EXPERIMENT2[INDEX_FILE], BUTTON_LABEL_OK);
+		defaultInteraction(TestContants.EXPERIMENT1);
+		loadNewExperiment(TestContants.EXPERIMENT2[TestContants.INDEX_FILE], BUTTON_LABEL_OK);
 
 		SWTBotTable tab = bot.table();
-		assertTrue(tab.containsItem(EXPERIMENT1[INDEX_PROJECT_NAME]));
-		assertTrue(tab.containsItem(EXPERIMENT2[INDEX_PROJECT_NAME]));
+		assertTrue(tab.containsItem(TestContants.EXPERIMENT1[TestContants.INDEX_EXPERIMENT_ID]));
+		assertTrue(tab.containsItem(TestContants.EXPERIMENT2[TestContants.INDEX_EXPERIMENT_ID]));
 		
-		tab.select(EXPERIMENT1[INDEX_PROJECT_NAME]);
+		tab.select(TestContants.EXPERIMENT1[TestContants.INDEX_EXPERIMENT_ID]);
 		bot.button(BUTTON_LABEL_OK).click();
-		verifySelectedExperiment(EXPERIMENT1[INDEX_PROJECT_NAME]);
+		verifySelectedExperiment(TestContants.EXPERIMENT1[TestContants.INDEX_EXPERIMENT_ID]);
 	}
 	
 	@Test
 	public void testCancelNewExperiment() throws Exception {
 		testDefaultToolbarStatus();
 		bot.toolbarButtonWithTooltip(SELECT_EXPERIMENT_TOOLTIP_LABEL).click();
-		loadNewExperiment(EXPERIMENT1[INDEX_FILE], BUTTON_LABEL_CANCEL);
+		loadNewExperiment(TestContants.EXPERIMENT1[TestContants.INDEX_FILE], BUTTON_LABEL_CANCEL);
 
 		SWTBotTable tab = bot.table();
-		assertFalse(tab.containsItem(EXPERIMENT1[INDEX_PROJECT_NAME]));
+		assertFalse(tab.containsItem(TestContants.EXPERIMENT1[TestContants.INDEX_EXPERIMENT_ID]));
 		
 		bot.button(BUTTON_LABEL_CANCEL).click();
 		testDefaultToolbarStatus();
@@ -69,10 +72,10 @@ public class SelectingExperimentTest extends SWTBotDECODE {
 	public void testCancelNewExperiment2() throws Exception {
 		testDefaultToolbarStatus();
 		bot.toolbarButtonWithTooltip(SELECT_EXPERIMENT_TOOLTIP_LABEL).click();
-		loadNewExperiment(EXPERIMENT1[INDEX_FILE], BUTTON_LABEL_CANCEL);
+		loadNewExperiment(TestContants.EXPERIMENT1[TestContants.INDEX_FILE], BUTTON_LABEL_CANCEL);
 
 		SWTBotTable tab = bot.table();
-		assertFalse(tab.containsItem(EXPERIMENT1[INDEX_PROJECT_NAME]));
+		assertFalse(tab.containsItem(TestContants.EXPERIMENT1[TestContants.INDEX_EXPERIMENT_ID]));
 		
 		bot.button(BUTTON_LABEL_OK).click();
 		testDefaultToolbarStatus();
@@ -82,10 +85,10 @@ public class SelectingExperimentTest extends SWTBotDECODE {
 		testDefaultToolbarStatus();
 		bot.toolbarButtonWithTooltip(SELECT_EXPERIMENT_TOOLTIP_LABEL).click();
 
-		loadNewExperiment(experimentDescription[INDEX_FILE], BUTTON_LABEL_OK);
+		loadNewExperiment(experimentDescription[TestContants.INDEX_FILE], BUTTON_LABEL_OK);
 
 		SWTBotTable tab = bot.table();
-		assertTrue(tab.containsItem(experimentDescription[INDEX_PROJECT_NAME]));
+		assertTrue(tab.containsItem(experimentDescription[TestContants.INDEX_EXPERIMENT_ID]));
 		return tab;
 	}
 

@@ -47,4 +47,18 @@ public class Experiment {
 		return sources;
 	}
 	
+	@Override
+	public boolean equals(Object obj){
+		if (this.getId() != null && obj instanceof Experiment){
+			Experiment exp = (Experiment)obj;
+			return this.getId().equals(exp.getId());
+		}
+		return false;
+	}
+	
+	@Override
+	public int hashCode(){
+		return experimentId.hashCode();
+	}
+	
 }

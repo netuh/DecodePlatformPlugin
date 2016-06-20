@@ -6,6 +6,7 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.time.LocalDateTime;
 import java.util.Arrays;
@@ -16,149 +17,170 @@ import java.util.stream.Collectors;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.IPackageFragment;
 import org.eclipse.jdt.core.IPackageFragmentRoot;
 import org.eclipse.jdt.core.JavaCore;
-import org.eclipse.swtbot.eclipse.finder.SWTWorkbenchBot;
-import org.eclipse.swtbot.eclipse.finder.widgets.SWTBotView;
+import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.swtbot.swt.finder.junit.SWTBotJunit4ClassRunner;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotMenu;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotRootMenu;
-import org.eclipse.swtbot.swt.finder.widgets.SWTBotTable;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotTree;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotTreeItem;
-import org.eclipse.ui.IWorkbench;
-import org.eclipse.ui.PlatformUI;
-import org.eclipse.ui.handlers.IHandlerActivation;
-import org.eclipse.ui.handlers.IHandlerService;
-import org.junit.After;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import br.ufpe.ines.decode.plugin.control.ExperimentManager;
-import br.ufpe.ines.decode.plugin.handlers.StartExperimentHandler;
 import br.ufpe.ines.decode.plugin.model.SourceCode;
 import br.ufpe.ines.decode.plugin.test.util.SWTBotUtils;
-import br.ufpe.ines.decode.plugin.util.FileUtil;
+import br.ufpe.ines.decode.plugin.test.util.TestContants;
 
 @RunWith(SWTBotJunit4ClassRunner.class)
-public class StartExperimentTest {
+public class StartExperimentTest extends SWTBotDECODE {
 
-	//private static Logger logger = LogManager.getLogger(StartExperimentTest.class);
-	private static SWTWorkbenchBot bot;
-	private ExperimentManager manager = ExperimentManager.getInstance();
-
-	@BeforeClass
-	public static void beforeClass() throws Exception {
-		bot = new SWTWorkbenchBot();
-		List<SWTBotView> views = bot.views();
-		for (SWTBotView view : views) {
-			if ("Welcome".equals(view.getTitle())) {
-				view.close();
-			}
-		}
-	}
+	private static final String ACTION_JAVA_APPLICATION = "1 Java Application";
+	private static final String ACTION_RUN_AS = "Run As";
+	private static final String VIEW_PROJECT_EXPLORER = "Project Explorer";
+	private static final String FOLDER_BIN = "bin";
+	private static final String FOLDER_SRC = "src";
 
 	@Test
 	public void clickOkSelectFirst() throws Exception {
-		assertFalse(bot.toolbarButtonWithTooltip("Start Experiment").isEnabled());
-		String filePath = FileUtil.loadResource("experimentDesc/experiment1.zip").getAbsolutePath();
-		manager.experimentFromFile2(filePath);
-		bot.toolbarButtonWithTooltip("Select Experiment").click();
-		SWTBotTable tab = bot.table();
-		assertNotNull(tab);
-		tab.select(0);
-		bot.button("OK").click();
-		assertNotNull(manager.getSelectedExperiment());
-		bot.toolbarButtonWithTooltip("Start Experiment").click();
-		bot.button("OK").click();
-		String projectName = manager.getSelectedExperiment().getId();
-		IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
-		IProject project = root.getProject(projectName);
-		assertTrue(project.exists());
-		assertTrue(project.getDescription().hasNature(JavaCore.NATURE_ID));
-		assertTrue(project.getFolder("bin").exists());
-		assertTrue(project.getFolder("src").exists());
-		IJavaProject javaProject = (IJavaProject) project.getNature(JavaCore.NATURE_ID);
-		assertNotNull(javaProject.getRawClasspath());
-		assertEquals("bin", javaProject.getOutputLocation().lastSegment());
+		defaultStartExperiment(TestContants.EXPERIMENT1[TestContants.INDEX_FILE]);
 
-		IPackageFragmentRoot src = Arrays.asList(javaProject.getAllPackageFragmentRoots()).stream()
-				.filter(obj -> obj.getPath().lastSegment().contains("src")).findFirst().get();
-		List<IPackageFragment> elements = Arrays.asList(src.getChildren()).stream()
-				.filter(obj -> obj instanceof IPackageFragment).map(IPackageFragment.class::cast)
-				.collect(Collectors.toList());
-		String projectDomain = manager.getSelectedExperiment().getDomain();
-		String [] subPackages = projectDomain.trim().split(Pattern.quote(".")); 
-		String fullPackage = subPackages[0];
-		final String fullPackageCopy = fullPackage;
-		assertTrue(elements.stream().anyMatch(obj -> obj.getHandleIdentifier().contains(fullPackageCopy)));
-		for (int i = 1; i < subPackages.length; i++) {
-			fullPackage += "."+subPackages[i];
-			final String fullPackageCopy2 = fullPackage;
-			assertTrue("Package does not contains "+fullPackage, elements.stream().anyMatch(obj -> obj.getHandleIdentifier().contains(fullPackageCopy2)));
-			
-		}
-		final String fullPackageCopy2 = fullPackage;
+		testContent(TestContants.EXPERIMENT1[TestContants.INDEX_EXPERIMENT_ID],
+				TestContants.EXPERIMENT1[TestContants.INDEX_DOMAIN]);
 
-		for (SourceCode sc : manager.getSelectedExperiment().getSources()) {
-			IPackageFragment finalPackage;
-			if (sc.getSubPackage() != null){
-				final String fullPackageCopy3 = fullPackageCopy2+ "."+sc.getSubPackage();
-				finalPackage = elements.stream().filter(obj -> obj.getHandleIdentifier().contains(fullPackageCopy3)).findFirst().get();
-			} else {
-				finalPackage = elements.stream().filter(obj -> obj.getHandleIdentifier().contains(fullPackageCopy2)).findFirst().get();
-				
-			}
-			ICompilationUnit cu = finalPackage.getCompilationUnit(sc.getFile());
-			File f = manager.getFile(manager.getSelectedExperiment().getId(), sc.getFile());
-			assertTrue("SourceCode not found "+sc.getFile(),cu.exists());
-			String content = new String(Files.readAllBytes(f.toPath()));
-			assertTrue("Wrong content for file "+sc.getFile(),cu.getSource().contains(content));
-		}
-		assertFalse(src.getChildren().length < 2);
-		assertTrue(manager.getLoggedActions(manager.getSelectedExperiment()).isEmpty());
-		
-		SWTBotTree projectTree = SWTBotUtils.selectProject(bot, "NewExperiment1", "Project Explorer");
-		SWTBotTreeItem scr = projectTree.expandNode("NewExperiment1", "src");
-		SWTBotTreeItem experimentNode = scr.getNode("br.ufpe.ines.decode.experiment1");
-		experimentNode.getItems()[0].select();
-		SWTBotRootMenu contextMenu = experimentNode.getItems()[0].contextMenu();
-		SWTBotMenu runAs = contextMenu.menu("Run As", "1 Java Application");
-		runAs.click();
-		manager.waitAction();
+		runElement(TestContants.EXPERIMENT1[TestContants.INDEX_EXPERIMENT_ID],
+				TestContants.EXPERIMENT1[TestContants.INDEX_DOMAIN]);
 		List<String> loggedAction = manager.getLoggedActions(manager.getSelectedExperiment());
 		List<LocalDateTime> loggedTime = manager.getLoggedTimes(manager.getSelectedExperiment());
 		assertEquals(1, loggedAction.size());
 		assertEquals(1, loggedTime.size());
 		assertEquals("Source2.java", loggedAction.get(0));
-		
-		experimentNode = scr.getNode("br.ufpe.ines.decode.experiment1.pack2");
-		experimentNode.getItems()[0].select();
-		contextMenu = experimentNode.getItems()[0].contextMenu();
-		runAs = contextMenu.menu("Run As", "1 Java Application");
-		runAs.click();
-		manager.waitAction();
-		loggedAction = manager.getLoggedActions(manager.getSelectedExperiment());
-		loggedTime = manager.getLoggedTimes(manager.getSelectedExperiment());
-		assertEquals(2, loggedAction.size());
-		assertEquals(2, loggedTime.size());
-		assertEquals("Source1.java", loggedAction.get(1));
+
+		runElement(TestContants.EXPERIMENT1[TestContants.INDEX_EXPERIMENT_ID],
+				TestContants.EXPERIMENT1[TestContants.INDEX_DOMAIN]+".pack2");
+		List<String> loggedAction2 = manager.getLoggedActions(manager.getSelectedExperiment());
+		List<LocalDateTime> loggedTime2 = manager.getLoggedTimes(manager.getSelectedExperiment());
+		assertEquals(2, loggedAction2.size());
+		assertEquals(2, loggedTime2.size());
+		assertEquals("Source1.java", loggedAction2.get(1));
+		assertEquals("Source2.java", loggedAction2.get(0));
+		createdProjects.add(TestContants.EXPERIMENT1[TestContants.INDEX_EXPERIMENT_ID]);
+	}
+	
+	@Test
+	public void clickOkRun3() throws Exception {
+		defaultStartExperiment(TestContants.EXPERIMENT1[TestContants.INDEX_FILE]);
+
+		testContent(TestContants.EXPERIMENT1[TestContants.INDEX_EXPERIMENT_ID],
+				TestContants.EXPERIMENT1[TestContants.INDEX_DOMAIN]);
+
+		runElement(TestContants.EXPERIMENT1[TestContants.INDEX_EXPERIMENT_ID],
+				TestContants.EXPERIMENT1[TestContants.INDEX_DOMAIN]);
+		List<String> loggedAction = manager.getLoggedActions(manager.getSelectedExperiment());
+		List<LocalDateTime> loggedTime = manager.getLoggedTimes(manager.getSelectedExperiment());
+		assertEquals(1, loggedAction.size());
+		assertEquals(1, loggedTime.size());
 		assertEquals("Source2.java", loggedAction.get(0));
+
+		runElement(TestContants.EXPERIMENT1[TestContants.INDEX_EXPERIMENT_ID],
+				TestContants.EXPERIMENT1[TestContants.INDEX_DOMAIN]+".pack2");
+		List<String> loggedAction2 = manager.getLoggedActions(manager.getSelectedExperiment());
+		List<LocalDateTime> loggedTime2 = manager.getLoggedTimes(manager.getSelectedExperiment());
+		assertEquals(2, loggedAction2.size());
+		assertEquals(2, loggedTime2.size());
+		assertEquals("Source1.java", loggedAction2.get(1));
+		assertEquals("Source2.java", loggedAction2.get(0));
+		createdProjects.add(TestContants.EXPERIMENT1[TestContants.INDEX_EXPERIMENT_ID]);
+		
+		runElement(TestContants.EXPERIMENT1[TestContants.INDEX_EXPERIMENT_ID],
+				TestContants.EXPERIMENT1[TestContants.INDEX_DOMAIN]+".pack4");
+		List<String> loggedAction3 = manager.getLoggedActions(manager.getSelectedExperiment());
+		List<LocalDateTime> loggedTime3 = manager.getLoggedTimes(manager.getSelectedExperiment());
+		assertEquals(3, loggedAction3.size());
+		assertEquals(3, loggedTime3.size());
+		assertEquals("Source3.java", loggedAction3.get(2));
+		assertEquals("Source2.java", loggedAction3.get(1));
+		assertEquals("Source1.java", loggedAction3.get(0));
+		createdProjects.add(TestContants.EXPERIMENT1[TestContants.INDEX_EXPERIMENT_ID]);
+	}
+	
+	@Test
+	public void clickOkSelectEmpty() throws Exception {
+		defaultStartExperiment(TestContants.EXPERIMENT1[TestContants.INDEX_FILE]);
+
+		testContent(TestContants.EXPERIMENT1[TestContants.INDEX_EXPERIMENT_ID],
+				TestContants.EXPERIMENT1[TestContants.INDEX_DOMAIN]);
+
+		List<String> loggedAction2 = manager.getLoggedActions(manager.getSelectedExperiment());
+		List<LocalDateTime> loggedTime2 = manager.getLoggedTimes(manager.getSelectedExperiment());
+		assertEquals(0, loggedAction2.size());
+		assertEquals(0, loggedTime2.size());
+		createdProjects.add(TestContants.EXPERIMENT1[TestContants.INDEX_EXPERIMENT_ID]);
 	}
 
-	@After
-	public void clearExperiments() {
-		manager.cleanExperiment();
-		manager.setSelectedExperiment(null);
-		IWorkbench workbench = PlatformUI.getWorkbench();
-		IHandlerService handlerService = (IHandlerService) workbench.getService(IHandlerService.class);
-		StartExperimentHandler sh = new StartExperimentHandler();
-		IHandlerActivation activateHandler = handlerService
-				.activateHandler("br.ufpe.ines.decode.plugin.handler.startExperiment", sh);
-		handlerService.deactivateHandler(activateHandler);
+	private void runElement(String projectName, String projectDomain) throws InterruptedException {
+		SWTBotTree projectTree = SWTBotUtils.selectProject(bot, projectName, VIEW_PROJECT_EXPLORER);
+		SWTBotTreeItem scr = projectTree.expandNode(projectName, FOLDER_SRC);
+		SWTBotTreeItem experimentNode = scr.getNode(projectDomain);
+		experimentNode.getItems()[0].select();
+		SWTBotRootMenu contextMenu = experimentNode.getItems()[0].contextMenu();
+		SWTBotMenu runAs = contextMenu.menu(ACTION_RUN_AS, ACTION_JAVA_APPLICATION);
+		runAs.click();
+		manager.waitAction();
+	}
+
+	private void testContent(String projectName, String projectDomain) throws IOException, CoreException {
+		IJavaProject javaProject = testElementarProject(projectName);
+		IPackageFragmentRoot src = Arrays.asList(javaProject.getAllPackageFragmentRoots()).stream()
+				.filter(obj -> obj.getPath().lastSegment().contains(FOLDER_SRC)).findFirst().get();
+		List<IPackageFragment> elements = Arrays.asList(src.getChildren()).stream()
+				.filter(obj -> obj instanceof IPackageFragment).map(IPackageFragment.class::cast)
+				.collect(Collectors.toList());
+		String fullPackageCopy2 = testPackage(elements, projectDomain);
+
+		for (SourceCode sc : manager.getSelectedExperiment().getSources()) {
+			final String fullPackageCopy = sc.getSubPackage() != null ?
+					fullPackageCopy2 + "." + sc.getSubPackage()
+					: fullPackageCopy2;
+			IPackageFragment finalPackage = elements.stream()
+					.filter(obj -> obj.getHandleIdentifier().contains(fullPackageCopy)).findFirst().get();
+			ICompilationUnit cu = finalPackage.getCompilationUnit(sc.getFile());
+			assertTrue("SourceCode not found " + sc.getFile(), cu.exists());
+			File f = manager.getDefaultFile(projectName, sc.getFile());
+			String content = new String(Files.readAllBytes(f.toPath()));
+			assertTrue("Wrong content for file " + sc.getFile(), cu.getSource().contains(content));
+		}
+		assertFalse(src.getChildren().length < 2);
+		assertTrue(manager.getLoggedActions(manager.getSelectedExperiment()).isEmpty());
+	}
+
+	private String testPackage(List<IPackageFragment> elements, String projectDomain) {
+		String[] subPackages = projectDomain.trim().split(Pattern.quote("."));
+		String fullPackage = subPackages[0];
+		final String fullPackageCopy = fullPackage;
+		assertTrue(elements.stream().anyMatch(obj -> obj.getHandleIdentifier().contains(fullPackageCopy)));
+		for (int i = 1; i < subPackages.length; i++) {
+			fullPackage += "." + subPackages[i];
+			final String fullPackageCopy2 = fullPackage;
+			assertTrue(elements.stream().anyMatch(obj -> obj.getHandleIdentifier().endsWith(fullPackageCopy2)));
+		}
+		return fullPackage;
+	}
+
+	private IJavaProject testElementarProject(String projectName) throws CoreException, JavaModelException {
+		IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
+		IProject project = root.getProject(projectName);
+		assertTrue(project.exists());
+		assertTrue(project.getDescription().hasNature(JavaCore.NATURE_ID));
+		assertTrue(project.getFolder(FOLDER_BIN).exists());
+		assertTrue(project.getFolder(FOLDER_SRC).exists());
+		IJavaProject javaProject = (IJavaProject) project.getNature(JavaCore.NATURE_ID);
+		assertNotNull(javaProject.getRawClasspath());
+		assertEquals(FOLDER_BIN, javaProject.getOutputLocation().lastSegment());
+		return javaProject;
 	}
 }
