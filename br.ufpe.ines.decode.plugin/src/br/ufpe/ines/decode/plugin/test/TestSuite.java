@@ -12,7 +12,7 @@ import br.ufpe.ines.decode.plugin.test.swtbot.SelectingExperimentTest;
 import br.ufpe.ines.decode.plugin.test.swtbot.StartExperimentTest;
 
 @RunWith(Suite.class)
-@SuiteClasses({ ConfigureExperimentTest.class, SelectingExperimentTest.class, StartExperimentTest.class,
-				ExperimentManagerTest.class, ExperimentTest.class, FinishExperimentTest.class})
+@SuiteClasses({ ConfigureExperimentTest.class, ExperimentManagerTest.class, ExperimentTest.class,
+	SelectingExperimentTest.class, StartExperimentTest.class, FinishExperimentTest.class})
 public class TestSuite {	
 }
