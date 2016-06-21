@@ -5,11 +5,9 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
-import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.apache.commons.compress.archivers.ArchiveException;
 import org.apache.log4j.Logger;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IWorkspaceRoot;
@@ -104,8 +102,8 @@ public abstract class SWTBotDECODE {
 		assertTrue(bot.toolbarButtonWithTooltip(START_EXPERIMENT_TOOLTIP_LABEL).isEnabled());
 	}
 
-	protected void defaultStartExperiment(String selectedExperimentId) throws ArchiveException, IOException {
-		testDefaultToolbarStatus();
+	protected void defaultStartExperiment(String selectedExperimentId) throws Exception {
+		//testDefaultToolbarStatus();
 		String filePath = FileUtil.loadResource(selectedExperimentId).getAbsolutePath();
 		manager.experimentFromFile2(filePath);
 		bot.toolbarButtonWithTooltip(SELECT_EXPERIMENT_TOOLTIP_LABEL).click();

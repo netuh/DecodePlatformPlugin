@@ -6,10 +6,9 @@ import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
-import java.io.IOException;
-import java.time.LocalDateTime;
+import java.time.Instant;
+import java.time.ZonedDateTime;
 
-import org.apache.commons.compress.archivers.ArchiveException;
 import org.eclipse.swt.graphics.Image;
 import org.junit.Before;
 import org.junit.Test;
@@ -86,14 +85,14 @@ public class ExperimentManagerTest {
 		manager.setSelectedExperiment(exp);
 		assertTrue(manager.getLoggedActions(exp).isEmpty());
 
-		LocalDateTime sinceBefore = LocalDateTime.now();
+		Instant sinceBefore = ZonedDateTime.now().toInstant();;
 		manager.addAction(exp, DEFAULT_FILE_NAME1, sinceBefore);
 		assertEquals(1, manager.getLoggedActions(exp).size());
 		assertEquals(1, manager.getLoggedTimes(exp).size());
 		assertEquals(DEFAULT_FILE_NAME1, manager.getLoggedActions(exp).get(0));
 		assertEquals(sinceBefore, manager.getLoggedTimes(exp).get(0));
 
-		LocalDateTime sinceBefore2 = LocalDateTime.now();
+		Instant sinceBefore2 = ZonedDateTime.now().toInstant();;
 		manager.addAction(exp, DEFAULT_FILE_NAME1, sinceBefore2);
 		assertEquals(2, manager.getLoggedActions(exp).size());
 		assertEquals(DEFAULT_FILE_NAME1, manager.getLoggedActions(exp).get(1));
@@ -101,16 +100,16 @@ public class ExperimentManagerTest {
 		assertNotEquals(sinceBefore, manager.getLoggedTimes(exp).get(1));
 		assertEquals(0, manager.getLoggedActions(exp2).size());
 
-		manager.addAction(exp, DEFAULT_FILE_NAME1, LocalDateTime.now());
+		manager.addAction(exp, DEFAULT_FILE_NAME1, ZonedDateTime.now().toInstant());
 		assertEquals(3, manager.getLoggedActions(exp).size());
 		assertEquals(0, manager.getLoggedActions(exp2).size());
 
-		manager.addAction(exp2, DEFAULT_FILE_NAME2, LocalDateTime.now());
+		manager.addAction(exp2, DEFAULT_FILE_NAME2, ZonedDateTime.now().toInstant());
 		assertEquals(3, manager.getLoggedActions(exp).size());
 		assertEquals(1, manager.getLoggedActions(exp2).size());
 	}
 
-	private Experiment addExperiment(String[] experimentData) throws ArchiveException, IOException {
+	private Experiment addExperiment(String[] experimentData) throws Exception {
 		manager.experimentFromFile2(experimentData[TestContants.INDEX_FILE]);
 		Experiment exp = manager.getExperiments().stream()
 				.filter(i -> i.getId().equals(experimentData[TestContants.INDEX_EXPERIMENT_ID]))

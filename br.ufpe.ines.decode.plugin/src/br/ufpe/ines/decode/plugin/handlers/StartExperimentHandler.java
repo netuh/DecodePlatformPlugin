@@ -138,8 +138,8 @@ public class StartExperimentHandler extends AbstractHandler {
 
 	private void loadFiles(IPackageFragment pack, SourceCode sc) throws IOException, JavaModelException {
 		
-			File f = manager.getDefaultFile(manager.getSelectedExperiment().getId(), sc.getFile());
-			String content = new String(Files.readAllBytes(f.toPath()));
+			String content = manager.getDefaultFile(manager.getSelectedExperiment().getId(), sc.getFile());
+			//String content = new String(Files.readAllBytes(f.toPath()));
 			StringBuffer buffer = new StringBuffer();
 			buffer.append("package " + pack.getElementName() + ";\n");
 			buffer.append("\n");

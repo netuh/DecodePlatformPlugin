@@ -4,15 +4,18 @@
   "language": "java",
   "sources": [
     {
-      "file": "source2",
+      "file": "Source2.java",
       "subPackage": "pack2"
     },
     {
-      "file": "source3"
+      "file": "Source3.java"
     },
     {
-      "file": "source4",
+      "file": "Source4.java",
       "subPackage": "pack4"
     }
+  ],
+  "observables": [
+    "execution"
   ]
 }

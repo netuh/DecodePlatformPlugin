@@ -1,6 +1,7 @@
 package br.ufpe.ines.decode.plugin.listener;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
+import java.time.ZonedDateTime;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -27,14 +28,17 @@ public class LaucherListerner implements ILaunchListener {
 
 	private ExperimentManager manager = ExperimentManager.getInstance();
 	private Experiment exp;
-	private List<String> fileNames;
+	//private Set<String> fileNames;
 	static final Logger logger = Logger.getLogger(LaucherListerner.class);
 	private String projectName;
+	private static Instant lastExecDate=Instant.MIN;
+	
 
 	public LaucherListerner(Experiment selectedExperiment) {
 		exp = selectedExperiment;
-		fileNames = manager.getFiles(exp).stream().map(p -> p.getName())
-			    .collect(Collectors.toList());
+//		fileNames = manager.getFileNames(exp).stream().map(p -> p.getName())
+//			    .collect(Collectors.toList());
+		//fileNames = manager.getFileNames(exp);
 		projectName = selectedExperiment.getId();
 	}
 
@@ -44,14 +48,21 @@ public class LaucherListerner implements ILaunchListener {
 	}
 
 	@Override
-	public void launchAdded(ILaunch launch) {
+	public void launchAdded(ILaunch launch) {		
 		logger.debug("launchAdded");
-		logger.debug("FileNames"+fileNames);
+
+		//LocalDateTime currentLocalDate = LocalDateTime.now();
+		Instant currentLocalDate = ZonedDateTime.now().toInstant();
+		logger.debug("currentLocalDate="+currentLocalDate);
+		logger.debug("at this time lastLocalDate="+lastExecDate);
+		if(currentLocalDate.minusMillis(300).isBefore(lastExecDate))
+			return;
+
 		IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
 		IProject project = root.getProject(projectName);
-		
-		
+
 		ILaunchConfiguration config = launch.getLaunchConfiguration();
+		logger.debug("LaunchMode="+launch.getLaunchMode());
 		try {
 			IJavaProject javaProject = (IJavaProject) project.getNature(JavaCore.NATURE_ID);
 			IFolder sourceFolder = project.getFolder("src");
@@ -66,7 +77,10 @@ public class LaucherListerner implements ILaunchListener {
 							.stream()
 							.filter(p -> p.getResource().equals(iResource))
 							.findFirst().
-							ifPresent(p -> {manager.addAction(exp,p.getElementName(), LocalDateTime.now());});
+							ifPresent(p -> {manager.addAction(exp,p.getElementName(), currentLocalDate);
+											logger.debug("Addded="+p.getElementName());
+											logger.debug("+element+");
+											lastExecDate = currentLocalDate;});
 				}
 			}
 		} catch (CoreException e) {
@@ -74,8 +88,8 @@ public class LaucherListerner implements ILaunchListener {
 			logger.debug(e);
 			e.printStackTrace();
 		}
+		logger.debug("last ="+lastExecDate);
 		logger.debug("launchAdded - End");
-
 	}
 
 	@Override

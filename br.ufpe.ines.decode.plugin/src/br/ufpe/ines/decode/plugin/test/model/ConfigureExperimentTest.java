@@ -43,7 +43,7 @@ public class ConfigureExperimentTest {
 		exp1.setLanguage(experimentLanguage1);
 		
 		ConfiguredExperiment ce2 = new ConfiguredExperiment(exp1);
-		assertTrue(ce2.getDefaultFiles().isEmpty());
+		assertTrue(ce2.getDefaultFileNames().isEmpty());
 	}
 	
 	@Test
@@ -68,7 +68,7 @@ public class ConfigureExperimentTest {
 		fileContent.put("Source2.java", "content2");
 		fileContent.put("Source3.java", "content3");
 		ConfiguredExperiment ce2 = new ConfiguredExperiment(exp1, fileContent);
-		assertTrue(ce2.getDefaultFiles().size() == 3);
+		assertTrue(ce2.getDefaultFileNames().size() == 3);
 	}
 	
 	@Test(expected=Exception.class)
