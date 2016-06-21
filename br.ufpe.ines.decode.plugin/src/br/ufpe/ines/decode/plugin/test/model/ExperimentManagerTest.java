@@ -77,32 +77,30 @@ public class ExperimentManagerTest {
 	public void testManagerExperimentAddAction() throws Exception {
 		assertTrue(manager.getLoadedExperiments().isEmpty());
 		ConfiguredExperiment exp = addExperiment(TestContants.EXPERIMENT1);
-		ConfiguredExperiment exp2 = addExperiment(TestContants.EXPERIMENT2);
+		//ConfiguredExperiment exp2 = addExperiment(TestContants.EXPERIMENT2);
+		addExperiment(TestContants.EXPERIMENT2);
 		exp.statusSelect();
-		assertTrue(manager.getLoggedActions(exp.getBasicExperiment()).isEmpty());
+		assertTrue(manager.getLoggedActions().isEmpty());
 
 		Instant sinceBefore = ZonedDateTime.now().toInstant();;
-		manager.addAction(exp.getBasicExperiment(), DEFAULT_FILE_NAME1, sinceBefore);
-		assertEquals(1, manager.getLoggedActions(exp.getBasicExperiment()).size());
-		assertEquals(1, manager.getLoggedTimes(exp.getBasicExperiment()).size());
-		assertEquals(DEFAULT_FILE_NAME1, manager.getLoggedActions(exp.getBasicExperiment()).get(0));
-		assertEquals(sinceBefore, manager.getLoggedTimes(exp.getBasicExperiment()).get(0));
+		manager.addAction(DEFAULT_FILE_NAME1, sinceBefore);
+		assertEquals(1, manager.getLoggedActions().size());
+		assertEquals(1, manager.getLoggedTimes().size());
+		assertEquals(DEFAULT_FILE_NAME1, manager.getLoggedActions().get(0));
+		assertEquals(sinceBefore, manager.getLoggedTimes().get(0));
 
 		Instant sinceBefore2 = ZonedDateTime.now().toInstant();;
-		manager.addAction(exp.getBasicExperiment(), DEFAULT_FILE_NAME1, sinceBefore2);
-		assertEquals(2, manager.getLoggedActions(exp.getBasicExperiment()).size());
-		assertEquals(DEFAULT_FILE_NAME1, manager.getLoggedActions(exp.getBasicExperiment()).get(1));
-		assertEquals(sinceBefore2, manager.getLoggedTimes(exp.getBasicExperiment()).get(1));
-		assertNotEquals(sinceBefore, manager.getLoggedTimes(exp.getBasicExperiment()).get(1));
-		assertEquals(0, manager.getLoggedActions(exp2.getBasicExperiment()).size());
+		manager.addAction(DEFAULT_FILE_NAME1, sinceBefore2);
+		assertEquals(2, manager.getLoggedActions().size());
+		assertEquals(DEFAULT_FILE_NAME1, manager.getLoggedActions().get(1));
+		assertEquals(sinceBefore2, manager.getLoggedTimes().get(1));
+		assertNotEquals(sinceBefore, manager.getLoggedTimes().get(1));
 
-		manager.addAction(exp.getBasicExperiment(), DEFAULT_FILE_NAME1, ZonedDateTime.now().toInstant());
-		assertEquals(3, manager.getLoggedActions(exp.getBasicExperiment()).size());
-		assertEquals(0, manager.getLoggedActions(exp2.getBasicExperiment()).size());
+		manager.addAction(DEFAULT_FILE_NAME1, ZonedDateTime.now().toInstant());
+		assertEquals(3, manager.getLoggedActions().size());
 
-		manager.addAction(exp2.getBasicExperiment(), DEFAULT_FILE_NAME2, ZonedDateTime.now().toInstant());
-		assertEquals(3, manager.getLoggedActions(exp.getBasicExperiment()).size());
-		assertEquals(1, manager.getLoggedActions(exp2.getBasicExperiment()).size());
+		manager.addAction(DEFAULT_FILE_NAME2, ZonedDateTime.now().toInstant());
+		assertEquals(4, manager.getLoggedActions().size());
 	}
 
 	private ConfiguredExperiment addExperiment(String[] experimentData) throws Exception {

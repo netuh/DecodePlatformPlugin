@@ -27,15 +27,18 @@ import br.ufpe.ines.decode.plugin.model.Experiment;
 public class LaucherListerner implements ILaunchListener {
 
 	private ExperimentManager manager = ExperimentManager.getInstance();
-	private Experiment exp;
+//	private Experiment exp;
+//	private String projectName;
 	static final Logger logger = Logger.getLogger(LaucherListerner.class);
-	private String projectName;
 	private static Instant lastExecDate=Instant.MIN;
 	
 
 	public LaucherListerner(Experiment selectedExperiment) {
-		exp = selectedExperiment;
-		projectName = selectedExperiment.getId();
+//		exp = selectedExperiment;
+//		projectName = selectedExperiment.getId();
+	}
+
+	public LaucherListerner() {
 	}
 
 	@Override
@@ -48,16 +51,12 @@ public class LaucherListerner implements ILaunchListener {
 		logger.debug("launchAdded");
 
 		Instant currentLocalDate = ZonedDateTime.now().toInstant();
-		logger.debug("currentLocalDate="+currentLocalDate);
-		logger.debug("at this time lastLocalDate="+lastExecDate);
 		if(currentLocalDate.minusMillis(300).isBefore(lastExecDate))
 			return;
 
 		IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
-		IProject project = root.getProject(projectName);
-
+		IProject project = root.getProject(manager.getAvailableProjectName());
 		ILaunchConfiguration config = launch.getLaunchConfiguration();
-		logger.debug("LaunchMode="+launch.getLaunchMode());
 		try {
 			IJavaProject javaProject = (IJavaProject) project.getNature(JavaCore.NATURE_ID);
 			IFolder sourceFolder = project.getFolder("src");
@@ -71,9 +70,10 @@ public class LaucherListerner implements ILaunchListener {
 							.stream()
 							.filter(p -> p.getResource().equals(iResource))
 							.findFirst().
-							ifPresent(p -> {manager.addAction(exp,p.getElementName(), currentLocalDate);
-											logger.debug("Addded="+p.getElementName());
-											lastExecDate = currentLocalDate;});
+							ifPresent(p -> {manager.addAction(p.getElementName(), currentLocalDate);
+							lastExecDate = currentLocalDate;});
+//							ifPresent(p -> {manager.addAction(exp,p.getElementName(), currentLocalDate);
+//											lastExecDate = currentLocalDate;});
 				}
 			}
 		} catch (CoreException e) {

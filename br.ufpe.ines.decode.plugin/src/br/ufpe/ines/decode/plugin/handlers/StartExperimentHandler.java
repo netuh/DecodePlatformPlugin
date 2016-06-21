@@ -59,7 +59,7 @@ public class StartExperimentHandler extends AbstractHandler {
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 
 		IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
-		String projectName = EclipseUtil.getAvailableName(manager.getSelectedExperiment().getId());
+		String projectName = EclipseUtil.getAvailableName(manager.getAvailableProjectName());
 		IProject project = root.getProject(projectName);
 		try {
 			project.create(new NullProgressMonitor());
@@ -70,7 +70,8 @@ public class StartExperimentHandler extends AbstractHandler {
 			fixClasspath(javaProject);
 			createSrc(project, javaProject);
 			ILaunchManager mgr = DebugPlugin.getDefault().getLaunchManager();
-			mgr.addLaunchListener(new LaucherListerner(manager.getSelectedExperiment()));
+			//mgr.addLaunchListener(new LaucherListerner(manager.getSelectedExperiment()));
+			mgr.addLaunchListener(new LaucherListerner());
 		} catch (CoreException | IOException e) {
 			logger.debug(e.getMessage());
 			IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
@@ -119,9 +120,9 @@ public class StartExperimentHandler extends AbstractHandler {
 		javaProject.setRawClasspath(newEntries, new NullProgressMonitor());
 		
 		
-		String domainName = manager.getSelectedExperiment().getDomain();
+		String domainName = manager.getCurrentDomain();
 		IPackageFragment pack = javaProject.getPackageFragmentRoot(sourceFolder).createPackageFragment(domainName, true, null);
-		for (SourceCode sc : manager.getSelectedExperiment().getSources()) {
+		for (SourceCode sc : manager.getCurrentSources()) {
 			if (sc.getSubPackage() != null) {
 				String subDomainName = domainName+ "."+sc.getSubPackage();
 				IPackageFragment subPack = javaProject.getPackageFragmentRoot(sourceFolder).createPackageFragment(subDomainName, true, null);
@@ -135,7 +136,7 @@ public class StartExperimentHandler extends AbstractHandler {
 
 	private void loadFiles(IPackageFragment pack, SourceCode sc) throws IOException, JavaModelException {
 		
-			String content = manager.getDefaultFile(manager.getSelectedExperiment().getId(), sc.getFile());
+			String content = manager.getDefaultFile(sc.getFile());
 			//String content = new String(Files.readAllBytes(f.toPath()));
 			StringBuffer buffer = new StringBuffer();
 			buffer.append("package " + pack.getElementName() + ";\n");

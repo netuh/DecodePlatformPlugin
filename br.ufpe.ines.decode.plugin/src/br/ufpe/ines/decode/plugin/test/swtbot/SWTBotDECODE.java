@@ -1,8 +1,6 @@
 package br.ufpe.ines.decode.plugin.test.swtbot;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.util.LinkedList;
@@ -91,12 +89,6 @@ public abstract class SWTBotDECODE {
 		assertFalse(bot.toolbarButtonWithTooltip(FINISH_EXPERIMENT_TOOLTIP_LABEL).isEnabled());
 		assertTrue(bot.toolbarButtonWithTooltip(SELECT_EXPERIMENT_TOOLTIP_LABEL).isEnabled());
 	}
-	
-	protected void verifySelectedExperiment(String selectedExperimentId) {
-		assertNotNull(manager.getSelectedExperiment());
-		assertEquals(selectedExperimentId, manager.getSelectedExperiment().getId());
-		assertTrue(bot.toolbarButtonWithTooltip(START_EXPERIMENT_TOOLTIP_LABEL).isEnabled());
-	}
 
 	protected void defaultStartExperiment(String selectedExperimentId) throws Exception {
 		//testDefaultToolbarStatus();
@@ -106,7 +98,7 @@ public abstract class SWTBotDECODE {
 		SWTBotTable tab = bot.table();
 		tab.select(0);
 		bot.button(BUTTON_LABEL_OK).click();
-		assertNotNull(manager.getSelectedExperiment());
+
 		bot.toolbarButtonWithTooltip(START_EXPERIMENT_TOOLTIP_LABEL).click();
 		bot.waitUntil(Conditions.shellIsActive("CommandLog-Ok"));
 		bot.button(BUTTON_LABEL_OK).click();

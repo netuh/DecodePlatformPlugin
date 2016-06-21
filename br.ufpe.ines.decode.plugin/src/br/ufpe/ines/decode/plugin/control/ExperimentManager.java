@@ -28,14 +28,15 @@ import br.ufpe.ines.decode.plugin.model.ConfiguredExperiment;
 import br.ufpe.ines.decode.plugin.model.ConfiguredExperiment.ExperimentStatus;
 import br.ufpe.ines.decode.plugin.model.Experiment;
 import br.ufpe.ines.decode.plugin.model.LoggedAction;
+import br.ufpe.ines.decode.plugin.model.SourceCode;
 import br.ufpe.ines.decode.plugin.util.FileUtil;
 
 public class ExperimentManager {
 
 	protected static ExperimentManager singleton = new ExperimentManager();
-	//private static final Logger logger = Logger.getLogger(ExperimentManager.class);
 
 	private Experiment selectedExperiment;
+	private ConfiguredExperiment selectedExperiment2;
 	private Experiment currentRunning;
 	private Set<ConfiguredExperiment> loadedExperiments = new HashSet<ConfiguredExperiment>();
 	private Map<Experiment, List<LoggedAction>> expActions = new LinkedHashMap<Experiment, List<LoggedAction>>();
@@ -57,12 +58,13 @@ public class ExperimentManager {
 
 	public synchronized void setSelectedExperiment(ConfiguredExperiment exp) {
 		selectedExperiment = exp.getBasicExperiment();
+		selectedExperiment2 = exp;
 		latchAction = new CountDownLatch(1);
 	}
-
-	public Experiment getSelectedExperiment() {
-		return selectedExperiment;
-	}
+//
+//	public Experiment getSelectedExperiment() {
+//		return selectedExperiment;
+//	}
 
 	public void cleanExperiment() {
 		loadedExperiments.clear();
@@ -104,25 +106,25 @@ public class ExperimentManager {
 		expActions.put(countryObj, new LinkedList<LoggedAction>());
 	}
 
-	public String getDefaultFile(String id, String file) {
-		ConfiguredExperiment exp = loadedExperiments.stream()
-				.filter(exp1 -> exp1.getBasicExperiment().getId().equals(id)).findFirst().get();
-		return exp.getDefaultFileContent(file);
+	public String getDefaultFile(String file) {
+//		ConfiguredExperiment exp = loadedExperiments.stream()
+//				.filter(exp1 -> exp1.getBasicExperiment().getId().equals(id)).findFirst().get();
+		return selectedExperiment2.getDefaultFileContent(file);
 	}
 
-	public List<String> getLoggedActions(Experiment exp) {
-		return expActions.get(exp).stream().map(p -> p.getFile()).collect(Collectors.toList());
+	public List<String> getLoggedActions() {
+		return expActions.get(selectedExperiment).stream().map(p -> p.getFile()).collect(Collectors.toList());
 	}
 
-	public List<Instant> getLoggedTimes(Experiment exp) {
-		return expActions.get(exp).stream().map(p -> p.getTimeStamp()).collect(Collectors.toList());
+	public List<Instant> getLoggedTimes() {
+		return expActions.get(selectedExperiment).stream().map(p -> p.getTimeStamp()).collect(Collectors.toList());
 	}
 
-	public void addAction(Experiment exp, String fileName, Instant localDateTime) {
+	public void addAction(String fileName, Instant localDateTime) {
 		LoggedAction la = new LoggedAction();
 		la.setFile(fileName);
 		la.setTimeStamp(localDateTime);
-		expActions.get(exp).add(la);
+		expActions.get(selectedExperiment).add(la);
 		synchronized (localDateTime) {
 			latchAction.countDown();
 			latchAction = new CountDownLatch(1);
@@ -157,4 +159,19 @@ public class ExperimentManager {
 		return loadedExperiments.stream().anyMatch(exp -> exp.getStatus().equals(ExperimentStatus.IN_PROGRESS));
 	}
 
+	public boolean hasSelected() {
+		return loadedExperiments.stream().anyMatch(exp -> exp.getStatus().equals(ExperimentStatus.IN_PROGRESS));
+	}
+
+	public String getAvailableProjectName() {
+		return selectedExperiment.getId();
+	}
+
+	public String getCurrentDomain() {
+		return selectedExperiment.getDomain();
+	}
+
+	public List<SourceCode> getCurrentSources() {
+		return selectedExperiment.getSources();
+	}
 }

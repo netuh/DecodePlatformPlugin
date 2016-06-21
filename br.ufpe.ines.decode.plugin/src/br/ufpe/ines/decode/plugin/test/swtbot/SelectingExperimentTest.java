@@ -1,7 +1,6 @@
 package br.ufpe.ines.decode.plugin.test.swtbot;
 
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import org.eclipse.swtbot.swt.finder.junit.SWTBotJunit4ClassRunner;
@@ -21,7 +20,6 @@ public class SelectingExperimentTest extends SWTBotDECODE {
 	public void testCancel() throws Exception {
 		defaultInteraction(TestContants.EXPERIMENT1);
 		bot.button(BUTTON_LABEL_CANCEL).click();
-		assertNull(manager.getSelectedExperiment());
 		testDefaultToolbarStatus();
 	}
 
@@ -30,7 +28,7 @@ public class SelectingExperimentTest extends SWTBotDECODE {
 		SWTBotTable tab = defaultInteraction(TestContants.EXPERIMENT1);
 		tab.select(TestContants.EXPERIMENT1[TestContants.INDEX_EXPERIMENT_ID]);
 		bot.button(BUTTON_LABEL_OK).click();
-		verifySelectedExperiment(TestContants.EXPERIMENT1[TestContants.INDEX_EXPERIMENT_ID]);
+		assertTrue(bot.toolbarButtonWithTooltip(START_EXPERIMENT_TOOLTIP_LABEL).isEnabled());
 	}
 
 	@Test
@@ -38,7 +36,7 @@ public class SelectingExperimentTest extends SWTBotDECODE {
 		SWTBotTable tab = defaultInteraction(TestContants.EXPERIMENT2);
 		tab.select(TestContants.EXPERIMENT2[TestContants.INDEX_EXPERIMENT_ID]);
 		bot.button(BUTTON_LABEL_OK).click();
-		verifySelectedExperiment(TestContants.EXPERIMENT2[TestContants.INDEX_EXPERIMENT_ID]);
+		assertTrue(bot.toolbarButtonWithTooltip(START_EXPERIMENT_TOOLTIP_LABEL).isEnabled());
 	}
 
 	@Test
@@ -52,7 +50,7 @@ public class SelectingExperimentTest extends SWTBotDECODE {
 		
 		tab.select(TestContants.EXPERIMENT1[TestContants.INDEX_EXPERIMENT_ID]);
 		bot.button(BUTTON_LABEL_OK).click();
-		verifySelectedExperiment(TestContants.EXPERIMENT1[TestContants.INDEX_EXPERIMENT_ID]);
+		assertTrue(bot.toolbarButtonWithTooltip(START_EXPERIMENT_TOOLTIP_LABEL).isEnabled());
 	}
 	
 	@Test

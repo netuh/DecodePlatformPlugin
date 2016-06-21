@@ -52,16 +52,16 @@ public class StartExperimentTest extends SWTBotDECODE {
 
 		runElement(TestContants.EXPERIMENT1[TestContants.INDEX_EXPERIMENT_ID],
 				TestContants.EXPERIMENT1[TestContants.INDEX_DOMAIN]);
-		List<String> loggedAction = manager.getLoggedActions(manager.getSelectedExperiment());
-		List<Instant> loggedTime = manager.getLoggedTimes(manager.getSelectedExperiment());
+		List<String> loggedAction = manager.getLoggedActions();
+		List<Instant> loggedTime = manager.getLoggedTimes();
 		assertEquals(1, loggedAction.size());
 		assertEquals(1, loggedTime.size());
 		assertEquals("Source2.java", loggedAction.get(0));
 
 		runElement(TestContants.EXPERIMENT1[TestContants.INDEX_EXPERIMENT_ID],
 				TestContants.EXPERIMENT1[TestContants.INDEX_DOMAIN]+".pack2");
-		List<String> loggedAction2 = manager.getLoggedActions(manager.getSelectedExperiment());
-		List<Instant> loggedTime2 = manager.getLoggedTimes(manager.getSelectedExperiment());
+		List<String> loggedAction2 = manager.getLoggedActions();
+		List<Instant> loggedTime2 = manager.getLoggedTimes();
 		assertEquals(2, loggedAction2.size());
 		assertEquals(2, loggedTime2.size());
 		assertEquals("Source1.java", loggedAction2.get(1));
@@ -78,16 +78,16 @@ public class StartExperimentTest extends SWTBotDECODE {
 
 		runElement(TestContants.EXPERIMENT1[TestContants.INDEX_EXPERIMENT_ID],
 				TestContants.EXPERIMENT1[TestContants.INDEX_DOMAIN]);
-		List<String> loggedAction = manager.getLoggedActions(manager.getSelectedExperiment());
-		List<Instant> loggedTime = manager.getLoggedTimes(manager.getSelectedExperiment());
+		List<String> loggedAction = manager.getLoggedActions();
+		List<Instant> loggedTime = manager.getLoggedTimes();
 		assertEquals(1, loggedAction.size());
 		assertEquals(1, loggedTime.size());
 		assertEquals("Source2.java", loggedAction.get(0));
 
 		runElement(TestContants.EXPERIMENT1[TestContants.INDEX_EXPERIMENT_ID],
 				TestContants.EXPERIMENT1[TestContants.INDEX_DOMAIN]+".pack2");
-		List<String> loggedAction2 = manager.getLoggedActions(manager.getSelectedExperiment());
-		List<Instant> loggedTime2 = manager.getLoggedTimes(manager.getSelectedExperiment());
+		List<String> loggedAction2 = manager.getLoggedActions();
+		List<Instant> loggedTime2 = manager.getLoggedTimes();
 		assertEquals(2, loggedAction2.size());
 		assertEquals(2, loggedTime2.size());
 		assertEquals("Source1.java", loggedAction2.get(1));
@@ -96,8 +96,8 @@ public class StartExperimentTest extends SWTBotDECODE {
 		
 		runElement(TestContants.EXPERIMENT1[TestContants.INDEX_EXPERIMENT_ID],
 				TestContants.EXPERIMENT1[TestContants.INDEX_DOMAIN]+".pack4");
-		List<String> loggedAction3 = manager.getLoggedActions(manager.getSelectedExperiment());
-		List<Instant> loggedTime3 = manager.getLoggedTimes(manager.getSelectedExperiment());
+		List<String> loggedAction3 = manager.getLoggedActions();
+		List<Instant> loggedTime3 = manager.getLoggedTimes();
 		assertEquals(3, loggedAction3.size());
 		assertEquals(3, loggedTime3.size());
 		assertEquals("Source3.java", loggedAction3.get(2));
@@ -113,8 +113,8 @@ public class StartExperimentTest extends SWTBotDECODE {
 		testContent(TestContants.EXPERIMENT1[TestContants.INDEX_EXPERIMENT_ID],
 				TestContants.EXPERIMENT1[TestContants.INDEX_DOMAIN]);
 
-		List<String> loggedAction2 = manager.getLoggedActions(manager.getSelectedExperiment());
-		List<Instant> loggedTime2 = manager.getLoggedTimes(manager.getSelectedExperiment());
+		List<String> loggedAction2 = manager.getLoggedActions();
+		List<Instant> loggedTime2 = manager.getLoggedTimes();
 		assertEquals(0, loggedAction2.size());
 		assertEquals(0, loggedTime2.size());
 		createdProjects.add(TestContants.EXPERIMENT1[TestContants.INDEX_EXPERIMENT_ID]);
@@ -140,7 +140,7 @@ public class StartExperimentTest extends SWTBotDECODE {
 				.collect(Collectors.toList());
 		String fullPackageCopy2 = testPackage(elements, projectDomain);
 
-		for (SourceCode sc : manager.getSelectedExperiment().getSources()) {
+		for (SourceCode sc : manager.getCurrentSources()) {
 			final String fullPackageCopy = sc.getSubPackage() != null ?
 					fullPackageCopy2 + "." + sc.getSubPackage()
 					: fullPackageCopy2;
@@ -148,12 +148,12 @@ public class StartExperimentTest extends SWTBotDECODE {
 					.filter(obj -> obj.getHandleIdentifier().contains(fullPackageCopy)).findFirst().get();
 			ICompilationUnit cu = finalPackage.getCompilationUnit(sc.getFile());
 			assertTrue("SourceCode not found " + sc.getFile(), cu.exists());
-			String content = manager.getDefaultFile(projectName, sc.getFile());
+			String content = manager.getDefaultFile(sc.getFile());
 			//String content = new String(Files.readAllBytes(f.toPath()));
 			assertTrue("Wrong content for file " + sc.getFile(), cu.getSource().contains(content));
 		}
 		assertFalse(src.getChildren().length < 2);
-		assertTrue(manager.getLoggedActions(manager.getSelectedExperiment()).isEmpty());
+		assertTrue(manager.getLoggedActions().isEmpty());
 	}
 
 	private String testPackage(List<IPackageFragment> elements, String projectDomain) {

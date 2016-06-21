@@ -11,10 +11,9 @@ public class StartExperimentTester extends PropertyTester {
 	@Override
 	public boolean test(Object receiver, String property, Object[] args, Object expectedValue) {
 		if (property.equals("hasSelectedExperiment")) {
-			return manager.getSelectedExperiment() != null;
+			return manager.hasSelected();
 		}
 		if (property.equals("hasStartedExperiment")) {
-			//return manager.getStatus(manager.getSelectedExperiment()).equals("Started");
 			return manager.hasStarted();
 		}
 		return true;
