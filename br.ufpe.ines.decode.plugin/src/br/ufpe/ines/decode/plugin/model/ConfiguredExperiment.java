@@ -4,34 +4,34 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-import org.apache.log4j.Logger;
+import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.widgets.Display;
+
+import br.ufpe.ines.decode.plugin.Activator;
+import br.ufpe.ines.decode.plugin.control.ExperimentManager;
 
 public class ConfiguredExperiment {
 
 	private Experiment basicExperiment;
-	private Map<String, String> fileContents = new HashMap<String, String>();
-	private static final Logger logger = Logger.getLogger(ConfiguredExperiment.class);
+	private Map<String, String> defaultFileContents = new HashMap<String, String>();
+	private ExperimentStatus currentStatus;
+	protected static ExperimentManager manager = ExperimentManager.getInstance();
+	//private static final Logger logger = Logger.getLogger(ConfiguredExperiment.class);
 	
 	public ConfiguredExperiment(Experiment exp){
 		basicExperiment = exp;
+		currentStatus = ExperimentStatus.INITIALIZED; 
 	}
 	
-	public ConfiguredExperiment(Experiment exp1, Map<String, String> fileContent) throws Exception {
+	public ConfiguredExperiment(Experiment exp1, Map<String, String> defaultFileContents) throws Exception {
 		basicExperiment = exp1;
-		if((exp1.getSources().size() <= fileContent.keySet().size()) && 
+		currentStatus = ExperimentStatus.INITIALIZED;
+
+		if((exp1.getSources().size() <= defaultFileContents.keySet().size()) && 
 			exp1.getSources().stream()
-				.allMatch(file -> fileContent.keySet().contains(file.getFile()))){
-			this.fileContents = fileContent;
+				.allMatch(file -> defaultFileContents.keySet().contains(file.getFile()))){
+			this.defaultFileContents = defaultFileContents;
 		} else {
-			for (String fileName : fileContent.keySet()) {
-				logger.debug("file content name="+fileName);
-			}
-			
-			for (SourceCode source : exp1.getSources()) {
-				logger.debug("source name="+source.getFile());
-			}
-			logger.debug("contents="+exp1.getSources().stream()
-					.allMatch(file -> fileContent.keySet().contains(file.getFile())));
 			throw new Exception("all contens are not supported");
 		}
 	}
@@ -54,10 +54,51 @@ public class ConfiguredExperiment {
 	}
 
 	public Set<String> getDefaultFileNames() {
-		return fileContents.keySet();		
+		return defaultFileContents.keySet();		
 	}
 
-	public String getDefaultFileContent(String file) {
-		return fileContents.get(file);
+	public String getDefaultFileContent(String fileName) {
+		return defaultFileContents.get(fileName);
+	}
+	
+	public ExperimentStatus getStatus(){
+		return currentStatus;
+	}
+	
+	public void setStatus(ExperimentStatus newStatus){
+		currentStatus = newStatus;
+	}
+
+	public Image getImage() {
+		return currentStatus.getRelatedImage();
+	}
+
+	public enum ExperimentStatus {
+		INITIALIZED {
+	        @Override
+	        public Image getRelatedImage() {
+	            return new Image(Display.getDefault(), Activator.class.getResourceAsStream("/icons/sample.gif"));
+	        }
+	    }, 
+		IN_PROGRESS {
+	        @Override
+	        public Image getRelatedImage() {
+	            return new Image(Display.getDefault(), Activator.class.getResourceAsStream("/icons/sample.gif"));
+	        }
+	    },
+		COMPLETE {
+	        @Override
+	        public Image getRelatedImage() {
+	            return new Image(Display.getDefault(), Activator.class.getResourceAsStream("/icons/sample.gif"));
+	        }
+	    };
+
+
+	    public abstract Image getRelatedImage();
+	}
+
+	public void statusSelect() {
+		currentStatus = ExperimentStatus.IN_PROGRESS;
+		manager.setSelectedExperiment(this);
 	}
 }

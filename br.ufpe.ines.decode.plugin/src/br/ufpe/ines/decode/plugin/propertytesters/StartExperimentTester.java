@@ -14,7 +14,8 @@ public class StartExperimentTester extends PropertyTester {
 			return manager.getSelectedExperiment() != null;
 		}
 		if (property.equals("hasStartedExperiment")) {
-			return manager.getStatus(manager.getSelectedExperiment()).equals("Started");
+			//return manager.getStatus(manager.getSelectedExperiment()).equals("Started");
+			return manager.hasStarted();
 		}
 		return true;
 	}

@@ -22,7 +22,7 @@ import org.osgi.framework.Bundle;
 
 import br.ufpe.ines.decode.plugin.Activator;
 import br.ufpe.ines.decode.plugin.control.ExperimentManager;
-import br.ufpe.ines.decode.plugin.model.Experiment;
+import br.ufpe.ines.decode.plugin.model.ConfiguredExperiment;
 import br.ufpe.ines.decode.plugin.table.ExperimentContentProvider;
 import br.ufpe.ines.decode.plugin.table.ExperimentLabelProvider;
 
@@ -34,10 +34,11 @@ public class ExperimentLoadingDialog extends Dialog {
 	};
 
 	static final Logger logger = Logger.getLogger(ExperimentLoadingDialog.class);
-	private ExperimentManager manager = ExperimentManager.getInstance();
 	public static String[] COLUMN_NAMES = new String[] { "Experiments", "Status" };
 	public static int[] COLUMN_WIDTHS = new int[] { 300, 50 };
-	private Experiment selectedExperiment;
+	
+	private ConfiguredExperiment selectedExperiment;
+	private ExperimentManager manager = ExperimentManager.getInstance();
 
 	public ExperimentLoadingDialog(final Shell parentShell) {
 		super(parentShell);
@@ -75,7 +76,7 @@ public class ExperimentLoadingDialog extends Dialog {
 		tableViewer.setContentProvider(new ExperimentContentProvider());
 		tableViewer.setLabelProvider(new ExperimentLabelProvider());
 
-		tableViewer.setInput(manager.getExperiments());
+		tableViewer.setInput(manager.getLoadedExperiments());
 		buttonOpenMessage.addListener(SWT.Selection, e -> {
 			switch (e.type) {
 			case SWT.Selection:
@@ -84,10 +85,9 @@ public class ExperimentLoadingDialog extends Dialog {
 				try {
 					manager.experimentFromFile2(selected);
 				} catch (Exception e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
+					logger.debug(e1);
 				}
-				tableViewer.setInput(manager.getExperiments());
+				tableViewer.setInput(manager.getLoadedExperiments());
 				break;
 			}
 		});
@@ -95,14 +95,14 @@ public class ExperimentLoadingDialog extends Dialog {
 		tableViewer.addSelectionChangedListener(event -> {
 			if (event.getSelection() instanceof StructuredSelection) {
 				StructuredSelection selection = (StructuredSelection) event.getSelection();
-				if (selection.getFirstElement() instanceof Experiment)
-					selectedExperiment = (Experiment) selection.getFirstElement();
+				if (selection.getFirstElement() instanceof ConfiguredExperiment)
+					selectedExperiment = (ConfiguredExperiment) selection.getFirstElement();
 			}
 		});
 		return body;
 	}
 	
-	public Experiment getSelectedExperiment() {
-		return selectedExperiment;
+	public void getSelectedExperiment() {
+		selectedExperiment.statusSelect();
 	}
 }

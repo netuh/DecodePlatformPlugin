@@ -28,7 +28,6 @@ public class LaucherListerner implements ILaunchListener {
 
 	private ExperimentManager manager = ExperimentManager.getInstance();
 	private Experiment exp;
-	//private Set<String> fileNames;
 	static final Logger logger = Logger.getLogger(LaucherListerner.class);
 	private String projectName;
 	private static Instant lastExecDate=Instant.MIN;
@@ -36,9 +35,6 @@ public class LaucherListerner implements ILaunchListener {
 
 	public LaucherListerner(Experiment selectedExperiment) {
 		exp = selectedExperiment;
-//		fileNames = manager.getFileNames(exp).stream().map(p -> p.getName())
-//			    .collect(Collectors.toList());
-		//fileNames = manager.getFileNames(exp);
 		projectName = selectedExperiment.getId();
 	}
 
@@ -51,7 +47,6 @@ public class LaucherListerner implements ILaunchListener {
 	public void launchAdded(ILaunch launch) {		
 		logger.debug("launchAdded");
 
-		//LocalDateTime currentLocalDate = LocalDateTime.now();
 		Instant currentLocalDate = ZonedDateTime.now().toInstant();
 		logger.debug("currentLocalDate="+currentLocalDate);
 		logger.debug("at this time lastLocalDate="+lastExecDate);
@@ -66,7 +61,6 @@ public class LaucherListerner implements ILaunchListener {
 		try {
 			IJavaProject javaProject = (IJavaProject) project.getNature(JavaCore.NATURE_ID);
 			IFolder sourceFolder = project.getFolder("src");
-			logger.debug("+element+");
 			IPackageFragmentRoot srcPackage = javaProject.getPackageFragmentRoot(sourceFolder);
 			List<IPackageFragment> elements = Arrays.asList(srcPackage.getChildren()).stream()
 					.filter(obj -> obj instanceof IPackageFragment).map(IPackageFragment.class::cast)
@@ -79,16 +73,13 @@ public class LaucherListerner implements ILaunchListener {
 							.findFirst().
 							ifPresent(p -> {manager.addAction(exp,p.getElementName(), currentLocalDate);
 											logger.debug("Addded="+p.getElementName());
-											logger.debug("+element+");
 											lastExecDate = currentLocalDate;});
 				}
 			}
 		} catch (CoreException e) {
-			logger.debug("Deu Ruim");
 			logger.debug(e);
 			e.printStackTrace();
 		}
-		logger.debug("last ="+lastExecDate);
 		logger.debug("launchAdded - End");
 	}
 

@@ -8,7 +8,6 @@ import static org.junit.Assert.assertTrue;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.apache.log4j.Logger;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -32,7 +31,7 @@ import br.ufpe.ines.decode.plugin.util.FileUtil;
 
 public abstract class SWTBotDECODE {
 
-	private static final Logger logger = Logger.getLogger(SWTBotDECODE.class);
+	//private static final Logger logger = Logger.getLogger(SWTBotDECODE.class);
 
 	protected static SWTWorkbenchBot bot;
 	protected ExperimentManager manager = ExperimentManager.getInstance();
@@ -82,11 +81,8 @@ public abstract class SWTBotDECODE {
 			try {
 				project.delete(true, false, null);
 			} catch (CoreException e) {
-				logger.debug("-cant deleted-");
-				logger.debug("erro:"+e.getMessage());
 				e.printStackTrace();
 			}
-			logger.debug("-deleted-");
 		}
 	}
 	

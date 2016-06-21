@@ -5,7 +5,7 @@ import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.swt.graphics.Image;
 
 import br.ufpe.ines.decode.plugin.control.ExperimentManager;
-import br.ufpe.ines.decode.plugin.model.Experiment;
+import br.ufpe.ines.decode.plugin.model.ConfiguredExperiment;
 
 public class ExperimentLabelProvider  extends LabelProvider implements ITableLabelProvider {
 
@@ -13,13 +13,13 @@ public class ExperimentLabelProvider  extends LabelProvider implements ITableLab
 
 	@Override
 	public Image getColumnImage(Object element, int columnIndex) {
-		if (!(element instanceof Experiment)) {
+		if (!(element instanceof ConfiguredExperiment)) {
 			return null;
 		}
-		Experiment model = (Experiment) element;
+		ConfiguredExperiment model = (ConfiguredExperiment) element;
 		switch (columnIndex) {
 		case 1:
-			return manager.getImage(model);
+			return model.getImage();
 		default:
 			break;
 		}
@@ -28,13 +28,13 @@ public class ExperimentLabelProvider  extends LabelProvider implements ITableLab
 
 	@Override
 	public String getColumnText(Object element, int columnIndex) {
-		if (!(element instanceof Experiment)) {
+		if (!(element instanceof ConfiguredExperiment)) {
 			return "";
 		}
-		Experiment model = (Experiment) element;
+		ConfiguredExperiment model = (ConfiguredExperiment) element;
 		switch (columnIndex) {
 		case 0:
-			return model.getId();
+			return model.getBasicExperiment().getId();
 		default:
 			break;
 		}

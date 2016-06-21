@@ -1,8 +1,6 @@
 package br.ufpe.ines.decode.plugin.handlers;
 
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -74,7 +72,6 @@ public class StartExperimentHandler extends AbstractHandler {
 			ILaunchManager mgr = DebugPlugin.getDefault().getLaunchManager();
 			mgr.addLaunchListener(new LaucherListerner(manager.getSelectedExperiment()));
 		} catch (CoreException | IOException e) {
-			logger.debug("MERDA!!!!");
 			logger.debug(e.getMessage());
 			IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
 			MessageDialog.openInformation(window.getShell(), "CommandLog-Error", "Experiment NOT Created");

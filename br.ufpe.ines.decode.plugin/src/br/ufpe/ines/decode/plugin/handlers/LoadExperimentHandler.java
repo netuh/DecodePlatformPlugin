@@ -8,7 +8,6 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.handlers.HandlerUtil;
 
-import br.ufpe.ines.decode.plugin.control.ExperimentManager;
 import br.ufpe.ines.decode.plugin.dialog.ExperimentLoadingDialog;
 
 /**
@@ -18,8 +17,6 @@ import br.ufpe.ines.decode.plugin.dialog.ExperimentLoadingDialog;
  * @see org.eclipse.core.commands.AbstractHandler
  */
 public class LoadExperimentHandler extends AbstractHandler {
-
-	private ExperimentManager manager = ExperimentManager.getInstance();
 
 	/**
 	 * The constructor.
@@ -38,8 +35,7 @@ public class LoadExperimentHandler extends AbstractHandler {
 		ExperimentLoadingDialog dialog = new ExperimentLoadingDialog(shell);
 
 		if (dialog.open() == Window.OK) {
-			System.out.println("Selected Experiment="+dialog.getSelectedExperiment().getId());
-			manager.setSelectedExperiment(dialog.getSelectedExperiment());
+			dialog.getSelectedExperiment();
 		}
 		return null;
 	}

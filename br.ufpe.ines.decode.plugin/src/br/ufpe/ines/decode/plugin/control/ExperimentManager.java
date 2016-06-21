@@ -21,15 +21,11 @@ import java.util.Set;
 import java.util.concurrent.CountDownLatch;
 import java.util.stream.Collectors;
 
-import org.apache.log4j.Logger;
-import org.eclipse.swt.graphics.Image;
-import org.eclipse.swt.widgets.Display;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import br.ufpe.ines.decode.plugin.Activator;
 import br.ufpe.ines.decode.plugin.model.ConfiguredExperiment;
+import br.ufpe.ines.decode.plugin.model.ConfiguredExperiment.ExperimentStatus;
 import br.ufpe.ines.decode.plugin.model.Experiment;
 import br.ufpe.ines.decode.plugin.model.LoggedAction;
 import br.ufpe.ines.decode.plugin.util.FileUtil;
@@ -37,7 +33,7 @@ import br.ufpe.ines.decode.plugin.util.FileUtil;
 public class ExperimentManager {
 
 	protected static ExperimentManager singleton = new ExperimentManager();
-	private static final Logger logger = Logger.getLogger(ExperimentManager.class);
+	//private static final Logger logger = Logger.getLogger(ExperimentManager.class);
 
 	private Experiment selectedExperiment;
 	private Experiment currentRunning;
@@ -55,12 +51,12 @@ public class ExperimentManager {
 	protected ExperimentManager() {
 	}
 
-	public Collection<Experiment> getExperiments() {
-		return loadedExperiments.stream().map(exp -> exp.getBasicExperiment()).collect(Collectors.toList());
+	public Collection<ConfiguredExperiment> getLoadedExperiments() {
+		return loadedExperiments;
 	}
 
-	public synchronized void setSelectedExperiment(Experiment newSelectedExperiment) {
-		selectedExperiment = newSelectedExperiment;
+	public synchronized void setSelectedExperiment(ConfiguredExperiment exp) {
+		selectedExperiment = exp.getBasicExperiment();
 		latchAction = new CountDownLatch(1);
 	}
 
@@ -73,7 +69,6 @@ public class ExperimentManager {
 		expActions.clear();
 		selectedExperiment = null;
 		currentRunning = null;
-		logger.debug("CLEARED!");
 	}
 
 	public void experimentFromFile2(String filePath) throws Exception {
@@ -105,7 +100,6 @@ public class ExperimentManager {
 		}
 
 		loadedExperiments.add(new ConfiguredExperiment(countryObj, contentMap));
-		// loadedExperiments.put(countryObj, otherFiles);
 
 		expActions.put(countryObj, new LinkedList<LoggedAction>());
 	}
@@ -114,23 +108,6 @@ public class ExperimentManager {
 		ConfiguredExperiment exp = loadedExperiments.stream()
 				.filter(exp1 -> exp1.getBasicExperiment().getId().equals(id)).findFirst().get();
 		return exp.getDefaultFileContent(file);
-		// return loadedExperiments.get(exp).stream()
-		// .filter(f -> f.getName().equals(file))
-		// .findFirst().get();
-	}
-
-	public Image getImage(Experiment exp) {
-		return new Image(Display.getDefault(), Activator.class.getResourceAsStream("/icons/sample.gif"));
-	}
-
-	public String getStatus(Experiment exp) {
-		if (exp == null)
-			return "ERROR";
-		if (exp.equals(currentRunning))
-			return "Started";
-		if (exp.equals(selectedExperiment))
-			return "Selected";
-		return "Ok";
 	}
 
 	public List<String> getLoggedActions(Experiment exp) {
@@ -146,7 +123,6 @@ public class ExperimentManager {
 		la.setFile(fileName);
 		la.setTimeStamp(localDateTime);
 		expActions.get(exp).add(la);
-		logger.debug("Adicionei=" + localDateTime);
 		synchronized (localDateTime) {
 			latchAction.countDown();
 			latchAction = new CountDownLatch(1);
@@ -164,7 +140,6 @@ public class ExperimentManager {
 
 	public void startSelected(String projectName) {
 		currentRunning = selectedExperiment;
-		// configurationExperiments.put(selectedExperiment, projectName);
 	}
 
 	public void export(String selected) throws IOException {
@@ -176,6 +151,10 @@ public class ExperimentManager {
 		writer.close();
 		selectedExperiment = null;
 		currentRunning = null;
+	}
+
+	public boolean hasStarted() {
+		return loadedExperiments.stream().anyMatch(exp -> exp.getStatus().equals(ExperimentStatus.IN_PROGRESS));
 	}
 
 }
