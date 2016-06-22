@@ -21,6 +21,8 @@ import java.util.Set;
 import java.util.concurrent.CountDownLatch;
 import java.util.stream.Collectors;
 
+import org.apache.log4j.Logger;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -35,11 +37,9 @@ public class ExperimentManager {
 
 	protected static ExperimentManager singleton = new ExperimentManager();
 
-	private Experiment selectedExperiment;
-	private ConfiguredExperiment selectedExperiment2;
-	private Experiment currentRunning;
 	private Set<ConfiguredExperiment> loadedExperiments = new HashSet<ConfiguredExperiment>();
-	private Map<Experiment, List<LoggedAction>> expActions = new LinkedHashMap<Experiment, List<LoggedAction>>();
+	private Map<ConfiguredExperiment, List<LoggedAction>> expActions = new LinkedHashMap<ConfiguredExperiment, List<LoggedAction>>();
+	static final Logger logger = Logger.getLogger(ExperimentManager.class);
 
 	private CountDownLatch latchAction = new CountDownLatch(1);
 
@@ -57,20 +57,12 @@ public class ExperimentManager {
 	}
 
 	public synchronized void setSelectedExperiment(ConfiguredExperiment exp) {
-		selectedExperiment = exp.getBasicExperiment();
-		selectedExperiment2 = exp;
 		latchAction = new CountDownLatch(1);
 	}
-//
-//	public Experiment getSelectedExperiment() {
-//		return selectedExperiment;
-//	}
 
 	public void cleanExperiment() {
 		loadedExperiments.clear();
 		expActions.clear();
-		selectedExperiment = null;
-		currentRunning = null;
 	}
 
 	public void experimentFromFile2(String filePath) throws Exception {
@@ -101,30 +93,38 @@ public class ExperimentManager {
 			contentMap.put(file2.getName(), content);
 		}
 
-		loadedExperiments.add(new ConfiguredExperiment(countryObj, contentMap));
+		ConfiguredExperiment confExp = new ConfiguredExperiment(countryObj, contentMap); 
+		loadedExperiments.add(confExp);
 
-		expActions.put(countryObj, new LinkedList<LoggedAction>());
+		expActions.put(confExp, new LinkedList<LoggedAction>());
 	}
 
 	public String getDefaultFile(String file) {
-//		ConfiguredExperiment exp = loadedExperiments.stream()
-//				.filter(exp1 -> exp1.getBasicExperiment().getId().equals(id)).findFirst().get();
-		return selectedExperiment2.getDefaultFileContent(file);
+		ConfiguredExperiment exp = findSelectedExperiment();
+		return exp.getDefaultFileContent(file);
+	}
+
+	private ConfiguredExperiment findSelectedExperiment() {
+		return loadedExperiments.stream().filter(exp1 -> exp1.getStatus().equals(ExperimentStatus.IN_PROGRESS))
+				.findFirst().get();
 	}
 
 	public List<String> getLoggedActions() {
-		return expActions.get(selectedExperiment).stream().map(p -> p.getFile()).collect(Collectors.toList());
+		logger.debug("selected=" + findSelectedExperiment());
+		logger.debug("map=" + expActions.get(findSelectedExperiment()));
+		return expActions.get(findSelectedExperiment()).stream().map(p -> p.getFile()).collect(Collectors.toList());
 	}
 
 	public List<Instant> getLoggedTimes() {
-		return expActions.get(selectedExperiment).stream().map(p -> p.getTimeStamp()).collect(Collectors.toList());
+		return expActions.get(findSelectedExperiment()).stream().map(p -> p.getTimeStamp())
+				.collect(Collectors.toList());
 	}
 
 	public void addAction(String fileName, Instant localDateTime) {
 		LoggedAction la = new LoggedAction();
 		la.setFile(fileName);
 		la.setTimeStamp(localDateTime);
-		expActions.get(selectedExperiment).add(la);
+		expActions.get(findSelectedExperiment()).add(la);
 		synchronized (localDateTime) {
 			latchAction.countDown();
 			latchAction = new CountDownLatch(1);
@@ -140,19 +140,13 @@ public class ExperimentManager {
 				.getDefaultFileNames();
 	}
 
-	public void startSelected(String projectName) {
-		currentRunning = selectedExperiment;
-	}
-
 	public void export(String selected) throws IOException {
 		File f = new File(selected);
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		String json = gson.toJson(expActions.get(currentRunning));
+		String json = gson.toJson(expActions.get(findSelectedExperiment()));
 		FileWriter writer = new FileWriter(f);
 		writer.write(json);
 		writer.close();
-		selectedExperiment = null;
-		currentRunning = null;
 	}
 
 	public boolean hasStarted() {
@@ -164,14 +158,14 @@ public class ExperimentManager {
 	}
 
 	public String getAvailableProjectName() {
-		return selectedExperiment.getId();
+		return findSelectedExperiment().getBasicExperiment().getId();
 	}
 
 	public String getCurrentDomain() {
-		return selectedExperiment.getDomain();
+		return findSelectedExperiment().getBasicExperiment().getDomain();
 	}
 
 	public List<SourceCode> getCurrentSources() {
-		return selectedExperiment.getSources();
+		return findSelectedExperiment().getBasicExperiment().getSources();
 	}
 }
