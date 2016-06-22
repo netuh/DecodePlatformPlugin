@@ -56,24 +56,24 @@
                id="CommandLog.toolbars.sampleToolbar2">
             <command
                   commandId="br.ufpe.ines.decode.plugin.handler.startExperiment"
-                  disabledIcon="icons/sample2.gif"
-                  icon="icons/sample.gif"
+                  disabledIcon="icons/ic_queue_play_next.png"
+                  icon="icons/ic_queue_play_next.png"
                   id="CommandLog.toolbars.StartExperiment"
                   style="push"
                   tooltip="Start Experiment">
             </command>
             <command
                   commandId="br.ufpe.ines.decode.plugin.handler.finishExperiment"
-                  disabledIcon="icons/sample2.gif"
-                  icon="icons/sample.gif"
+                  disabledIcon="icons/ic_done.png"
+                  icon="icons/ic_done.png"
                   id="CommandLog.toolbars.FinishExperiment"
                   style="push"
                   tooltip="Finish Experiment">
             </command>
             <command
                   commandId="br.ufpe.ines.decode.plugin.handler.selectExperiment"
-                  disabledIcon="icons/sample2.gif"
-                  icon="icons/sample.gif"
+                  disabledIcon="icons/ic_input.png"
+                  icon="icons/ic_input.png"
                   id="CommandLog.toolbars.SelectExperiment"
                   style="push"
                   tooltip="Select Experiment">

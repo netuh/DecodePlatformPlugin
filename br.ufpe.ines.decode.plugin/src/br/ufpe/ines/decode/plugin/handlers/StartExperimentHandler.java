@@ -70,7 +70,6 @@ public class StartExperimentHandler extends AbstractHandler {
 			fixClasspath(javaProject);
 			createSrc(project, javaProject);
 			ILaunchManager mgr = DebugPlugin.getDefault().getLaunchManager();
-			//mgr.addLaunchListener(new LaucherListerner(manager.getSelectedExperiment()));
 			mgr.addLaunchListener(new LaucherListerner());
 		} catch (CoreException | IOException e) {
 			logger.debug(e.getMessage());

@@ -34,12 +34,13 @@ public class FinishExperimentHandler  extends AbstractHandler {
 		String selected = NativeDialogFactory.fileSelectionDialog(
 				window.getShell(), "Save as...", SWT.OPEN);
 		try {
-			manager.export(selected);
+			if (selected != null)
+				manager.export(selected);
 		} catch (IOException e) {
 			e.printStackTrace();
 			MessageDialog.openInformation(window.getShell(), "CommandLog", "Experiment NOT Created");
 		}
-		MessageDialog.openInformation(window.getShell(), "CommandLog", "Experiment Started");
+		MessageDialog.openInformation(window.getShell(), "CommandLog", "Experiment Finished");
 		return null;
 	}
 }

@@ -77,13 +77,13 @@ public class ConfiguredExperiment {
 		INITIALIZED {
 	        @Override
 	        public Image getRelatedImage() {
-	            return new Image(Display.getDefault(), Activator.class.getResourceAsStream("/icons/sample.gif"));
+	            return new Image(Display.getDefault(), Activator.class.getResourceAsStream("/icons/ic_event_available.png"));
 	        }
 	    }, 
 		IN_PROGRESS {
 	        @Override
 	        public Image getRelatedImage() {
-	            return new Image(Display.getDefault(), Activator.class.getResourceAsStream("/icons/sample.gif"));
+	            return new Image(Display.getDefault(), Activator.class.getResourceAsStream("/icons/ic_event_note.png"));
 	        }
 	    },
 		COMPLETE {

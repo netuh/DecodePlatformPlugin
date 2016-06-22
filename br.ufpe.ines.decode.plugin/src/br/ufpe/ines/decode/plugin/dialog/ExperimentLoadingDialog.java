@@ -56,7 +56,7 @@ public class ExperimentLoadingDialog extends Dialog {
 		final Composite body = (Composite) super.createDialogArea(parent);
 		final Button buttonOpenMessage = new Button(body, SWT.PUSH);
 		Bundle bundle = Platform.getBundle(Activator.PLUGIN_ID);
-		final URL fullPathString = FileLocator.find(bundle, new Path("icons/sample.gif"), null);
+		final URL fullPathString = FileLocator.find(bundle, new Path("icons/ic_unarchive.png"), null);
 		ImageDescriptor imageDesc = ImageDescriptor.createFromURL(fullPathString);
 		Image image = imageDesc.createImage();
 		buttonOpenMessage.setImage(image);
