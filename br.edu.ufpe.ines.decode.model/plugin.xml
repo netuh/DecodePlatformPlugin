@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated modelDecode -->
+      <package
+            uri="http://www.example.org/modelDecode"
+            class="be.edu.ufpe.ines.decode.model.decode.DecodePackage"
+            genModel="model/modelDecode.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated modelDecode -->
+      <package
+            uri="taskDescription"
+            class="be.edu.ufpe.ines.decode.model.decode.taskDescription.TaskDescriptionPackage"
+            genModel="model/modelDecode.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated modelDecode -->
+      <package
+            uri="artifacts"
+            class="be.edu.ufpe.ines.decode.model.decode.artifacts.ArtifactsPackage"
+            genModel="model/modelDecode.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated modelDecode -->
+      <package
+            uri="measurement"
+            class="be.edu.ufpe.ines.decode.model.decode.measurement.MeasurementPackage"
+            genModel="model/modelDecode.genmodel"/>
+   </extension>
+</plugin>
