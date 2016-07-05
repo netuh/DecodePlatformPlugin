@@ -492,7 +492,7 @@ public class MeasurementPackageImpl extends EPackageImpl implements MeasurementP
 		initEClass(surveyEClass, Survey.class, "Survey", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(timeOnTaskEClass, TimeOnTask.class, "TimeOnTask", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTimeOnTask_RelatedTask(), theTaskDescriptionPackage.getModeledTask(), null, "relatedTask", null, 0, 1, TimeOnTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTimeOnTask_RelatedTask(), theTaskDescriptionPackage.getModeledTask(), null, "relatedTask", null, 0, -1, TimeOnTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(observingArtifactEClass, ObservingArtifact.class, "ObservingArtifact", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getObservingArtifact_Aspect(), this.getAspectObserved(), null, "aspect", null, 1, 1, ObservingArtifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

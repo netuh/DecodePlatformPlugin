@@ -1037,11 +1037,11 @@
               <layoutConstraint xmi:type="notation:Bounds" xmi:id="_n6PWQzyfEea0-63JXuZNQw" y="10"/>
             </children>
             <children xmi:type="notation:Node" xmi:id="_n6PWRDyfEea0-63JXuZNQw" type="6003">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_n6PWRTyfEea0-63JXuZNQw" y="10"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_n6PWRTyfEea0-63JXuZNQw" x="-6" y="10"/>
             </children>
             <styles xmi:type="notation:ConnectorStyle" xmi:id="_n6OvMTyfEea0-63JXuZNQw" routing="Tree"/>
             <styles xmi:type="notation:FontStyle" xmi:id="_n6OvMjyfEea0-63JXuZNQw" fontName=".SF NS Text" fontHeight="8"/>
-            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_n6OvMzyfEea0-63JXuZNQw" points="[0, 0, 0, 105]$[0, -105, 0, 0]"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_n6OvMzyfEea0-63JXuZNQw" points="[0, 0, -9, 107]$[0, -63, -9, 44]$[10, -63, 1, 44]$[10, -87, 1, 20]"/>
             <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_n6PWRjyfEea0-63JXuZNQw" id="(0.423728813559322,0.0)"/>
             <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_n6PWRzyfEea0-63JXuZNQw" id="(0.5,0.5)"/>
           </edges>
@@ -1509,7 +1509,7 @@
           </ownedElements>
         </ownedDiagramElements>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_qveokDygEea0-63JXuZNQw" name="[0..1] relatedTask" sourceNode="_G0kV4DyfEea0-63JXuZNQw" targetNode="_k9QyUDygEea0-63JXuZNQw">
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_qveokDygEea0-63JXuZNQw" name="[0..*] relatedTask" sourceNode="_G0kV4DyfEea0-63JXuZNQw" targetNode="_k9QyUDygEea0-63JXuZNQw">
         <target xmi:type="ecore:EReference" href="modelDecode.ecore#//measurement/TimeOnTask/relatedTask"/>
         <semanticElements xmi:type="ecore:EReference" href="modelDecode.ecore#//measurement/TimeOnTask/relatedTask"/>
         <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_qvfPoDygEea0-63JXuZNQw" routingStyle="manhattan" strokeColor="0,0,0">

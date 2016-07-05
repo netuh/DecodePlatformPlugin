@@ -3,6 +3,7 @@
 package be.edu.ufpe.ines.decode.model.decode.measurement;
 
 import be.edu.ufpe.ines.decode.model.decode.taskDescription.ModeledTask;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,29 +23,19 @@ import be.edu.ufpe.ines.decode.model.decode.taskDescription.ModeledTask;
  */
 public interface TimeOnTask extends AbstractMeasurement {
 	/**
-	 * Returns the value of the '<em><b>Related Task</b></em>' reference.
+	 * Returns the value of the '<em><b>Related Task</b></em>' reference list.
+	 * The list contents are of type {@link be.edu.ufpe.ines.decode.model.decode.taskDescription.ModeledTask}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Related Task</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Related Task</em>' reference.
-	 * @see #setRelatedTask(ModeledTask)
+	 * @return the value of the '<em>Related Task</em>' reference list.
 	 * @see be.edu.ufpe.ines.decode.model.decode.measurement.MeasurementPackage#getTimeOnTask_RelatedTask()
 	 * @model
 	 * @generated
 	 */
-	ModeledTask getRelatedTask();
-
-	/**
-	 * Sets the value of the '{@link be.edu.ufpe.ines.decode.model.decode.measurement.TimeOnTask#getRelatedTask <em>Related Task</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Related Task</em>' reference.
-	 * @see #getRelatedTask()
-	 * @generated
-	 */
-	void setRelatedTask(ModeledTask value);
+	EList<ModeledTask> getRelatedTask();
 
 } // TimeOnTask

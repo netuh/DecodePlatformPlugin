@@ -188,7 +188,7 @@ public interface MeasurementPackage extends EPackage {
 	int TIME_ON_TASK__NAME = ABSTRACT_MEASUREMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Related Task</b></em>' reference.
+	 * The feature id for the '<em><b>Related Task</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -600,10 +600,10 @@ public interface MeasurementPackage extends EPackage {
 	EClass getTimeOnTask();
 
 	/**
-	 * Returns the meta object for the reference '{@link be.edu.ufpe.ines.decode.model.decode.measurement.TimeOnTask#getRelatedTask <em>Related Task</em>}'.
+	 * Returns the meta object for the reference list '{@link be.edu.ufpe.ines.decode.model.decode.measurement.TimeOnTask#getRelatedTask <em>Related Task</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Related Task</em>'.
+	 * @return the meta object for the reference list '<em>Related Task</em>'.
 	 * @see be.edu.ufpe.ines.decode.model.decode.measurement.TimeOnTask#getRelatedTask()
 	 * @see #getTimeOnTask()
 	 * @generated
@@ -805,7 +805,7 @@ public interface MeasurementPackage extends EPackage {
 		EClass TIME_ON_TASK = eINSTANCE.getTimeOnTask();
 
 		/**
-		 * The meta object literal for the '<em><b>Related Task</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Related Task</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

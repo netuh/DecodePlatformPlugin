@@ -73,7 +73,8 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Survey" eSuperTypes="#//measurement/AbstractMeasurement"/>
     <eClassifiers xsi:type="ecore:EClass" name="TimeOnTask" eSuperTypes="#//measurement/AbstractMeasurement">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="relatedTask" eType="#//taskDescription/ModeledTask"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="relatedTask" upperBound="-1"
+          eType="#//taskDescription/ModeledTask"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ObservingArtifact" abstract="true"
         eSuperTypes="#//measurement/AbstractMeasurement">

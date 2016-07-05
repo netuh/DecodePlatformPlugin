@@ -7,12 +7,10 @@ import be.edu.ufpe.ines.decode.model.decode.measurement.TimeOnTask;
 
 import be.edu.ufpe.ines.decode.model.decode.taskDescription.ModeledTask;
 
-import org.eclipse.emf.common.notify.Notification;
-
+import java.util.Collection;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,14 +27,14 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class TimeOnTaskImpl extends AbstractMeasurementImpl implements TimeOnTask {
 	/**
-	 * The cached value of the '{@link #getRelatedTask() <em>Related Task</em>}' reference.
+	 * The cached value of the '{@link #getRelatedTask() <em>Related Task</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getRelatedTask()
 	 * @generated
 	 * @ordered
 	 */
-	protected ModeledTask relatedTask;
+	protected EList<ModeledTask> relatedTask;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -62,37 +60,11 @@ public class TimeOnTaskImpl extends AbstractMeasurementImpl implements TimeOnTas
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ModeledTask getRelatedTask() {
-		if (relatedTask != null && relatedTask.eIsProxy()) {
-			InternalEObject oldRelatedTask = (InternalEObject)relatedTask;
-			relatedTask = (ModeledTask)eResolveProxy(oldRelatedTask);
-			if (relatedTask != oldRelatedTask) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MeasurementPackage.TIME_ON_TASK__RELATED_TASK, oldRelatedTask, relatedTask));
-			}
+	public EList<ModeledTask> getRelatedTask() {
+		if (relatedTask == null) {
+			relatedTask = new EObjectResolvingEList<ModeledTask>(ModeledTask.class, this, MeasurementPackage.TIME_ON_TASK__RELATED_TASK);
 		}
 		return relatedTask;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ModeledTask basicGetRelatedTask() {
-		return relatedTask;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRelatedTask(ModeledTask newRelatedTask) {
-		ModeledTask oldRelatedTask = relatedTask;
-		relatedTask = newRelatedTask;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MeasurementPackage.TIME_ON_TASK__RELATED_TASK, oldRelatedTask, relatedTask));
 	}
 
 	/**
@@ -104,8 +76,7 @@ public class TimeOnTaskImpl extends AbstractMeasurementImpl implements TimeOnTas
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case MeasurementPackage.TIME_ON_TASK__RELATED_TASK:
-				if (resolve) return getRelatedTask();
-				return basicGetRelatedTask();
+				return getRelatedTask();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -115,11 +86,13 @@ public class TimeOnTaskImpl extends AbstractMeasurementImpl implements TimeOnTas
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case MeasurementPackage.TIME_ON_TASK__RELATED_TASK:
-				setRelatedTask((ModeledTask)newValue);
+				getRelatedTask().clear();
+				getRelatedTask().addAll((Collection<? extends ModeledTask>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -134,7 +107,7 @@ public class TimeOnTaskImpl extends AbstractMeasurementImpl implements TimeOnTas
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case MeasurementPackage.TIME_ON_TASK__RELATED_TASK:
-				setRelatedTask((ModeledTask)null);
+				getRelatedTask().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -149,7 +122,7 @@ public class TimeOnTaskImpl extends AbstractMeasurementImpl implements TimeOnTas
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case MeasurementPackage.TIME_ON_TASK__RELATED_TASK:
-				return relatedTask != null;
+				return relatedTask != null && !relatedTask.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

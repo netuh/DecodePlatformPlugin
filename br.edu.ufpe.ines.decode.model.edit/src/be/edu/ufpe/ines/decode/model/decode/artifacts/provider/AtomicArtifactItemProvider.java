@@ -91,8 +91,7 @@ public class AtomicArtifactItemProvider extends AbstractArtifactItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		AtomicArtifact artifact = (AtomicArtifact)object;
-		String label = artifact.getName();
+		String label = ((AtomicArtifact)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_AtomicArtifact_type") :
 			getString("_UI_AtomicArtifact_type") + ": " + label;
