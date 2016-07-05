@@ -148,6 +148,7 @@ import be.edu.ufpe.ines.decode.model.decode.measurement.provider.MeasurementItem
 
 import be.edu.ufpe.ines.decode.model.decode.artifacts.provider.ArtifactsItemProviderAdapterFactory;
 
+import be.edu.ufpe.ines.decode.model.decode.aux.provider.NewPackage4ItemProviderAdapterFactory;
 import be.edu.ufpe.ines.decode.model.decode.presentation.ModelDecodeEditorPlugin;
 
 import be.edu.ufpe.ines.decode.model.decode.provider.DecodeItemProviderAdapterFactory;
@@ -653,6 +654,7 @@ public class MeasurementEditor
 		adapterFactory.addAdapterFactory(new TaskDescriptionItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ArtifactsItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new MeasurementItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new NewPackage4ItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are executed.

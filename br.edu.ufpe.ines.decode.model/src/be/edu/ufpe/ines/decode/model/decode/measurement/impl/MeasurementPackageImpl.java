@@ -8,9 +8,12 @@ import be.edu.ufpe.ines.decode.model.decode.artifacts.ArtifactsPackage;
 
 import be.edu.ufpe.ines.decode.model.decode.artifacts.impl.ArtifactsPackageImpl;
 
+import be.edu.ufpe.ines.decode.model.decode.aux.NewPackage4Package;
+import be.edu.ufpe.ines.decode.model.decode.aux.impl.NewPackage4PackageImpl;
 import be.edu.ufpe.ines.decode.model.decode.impl.DecodePackageImpl;
 
 import be.edu.ufpe.ines.decode.model.decode.measurement.AbstractMeasurement;
+import be.edu.ufpe.ines.decode.model.decode.measurement.AnyAction;
 import be.edu.ufpe.ines.decode.model.decode.measurement.AspectObserved;
 import be.edu.ufpe.ines.decode.model.decode.measurement.Edition;
 import be.edu.ufpe.ines.decode.model.decode.measurement.Execution;
@@ -130,6 +133,13 @@ public class MeasurementPackageImpl extends EPackageImpl implements MeasurementP
 	private EClass abstractMeasurementEClass = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass anyActionEClass = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -182,18 +192,21 @@ public class MeasurementPackageImpl extends EPackageImpl implements MeasurementP
 		DecodePackageImpl theDecodePackage = (DecodePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(DecodePackage.eNS_URI) instanceof DecodePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(DecodePackage.eNS_URI) : DecodePackage.eINSTANCE);
 		TaskDescriptionPackageImpl theTaskDescriptionPackage = (TaskDescriptionPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TaskDescriptionPackage.eNS_URI) instanceof TaskDescriptionPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TaskDescriptionPackage.eNS_URI) : TaskDescriptionPackage.eINSTANCE);
 		ArtifactsPackageImpl theArtifactsPackage = (ArtifactsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ArtifactsPackage.eNS_URI) instanceof ArtifactsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ArtifactsPackage.eNS_URI) : ArtifactsPackage.eINSTANCE);
+		NewPackage4PackageImpl theNewPackage4Package = (NewPackage4PackageImpl)(EPackage.Registry.INSTANCE.getEPackage(NewPackage4Package.eNS_URI) instanceof NewPackage4PackageImpl ? EPackage.Registry.INSTANCE.getEPackage(NewPackage4Package.eNS_URI) : NewPackage4Package.eINSTANCE);
 
 		// Create package meta-data objects
 		theMeasurementPackage.createPackageContents();
 		theDecodePackage.createPackageContents();
 		theTaskDescriptionPackage.createPackageContents();
 		theArtifactsPackage.createPackageContents();
+		theNewPackage4Package.createPackageContents();
 
 		// Initialize created meta-data
 		theMeasurementPackage.initializePackageContents();
 		theDecodePackage.initializePackageContents();
 		theTaskDescriptionPackage.initializePackageContents();
 		theArtifactsPackage.initializePackageContents();
+		theNewPackage4Package.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theMeasurementPackage.freeze();
@@ -362,6 +375,15 @@ public class MeasurementPackageImpl extends EPackageImpl implements MeasurementP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getAnyAction() {
+		return anyActionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public MeasurementFactory getMeasurementFactory() {
 		return (MeasurementFactory)getEFactoryInstance();
 	}
@@ -413,6 +435,8 @@ public class MeasurementPackageImpl extends EPackageImpl implements MeasurementP
 		createEAttribute(testingEClass, TESTING__OBSERVE_PASSED_TEST);
 
 		abstractMeasurementEClass = createEClass(ABSTRACT_MEASUREMENT);
+
+		anyActionEClass = createEClass(ANY_ACTION);
 	}
 
 	/**
@@ -442,6 +466,7 @@ public class MeasurementPackageImpl extends EPackageImpl implements MeasurementP
 		TaskDescriptionPackage theTaskDescriptionPackage = (TaskDescriptionPackage)EPackage.Registry.INSTANCE.getEPackage(TaskDescriptionPackage.eNS_URI);
 		ArtifactsPackage theArtifactsPackage = (ArtifactsPackage)EPackage.Registry.INSTANCE.getEPackage(ArtifactsPackage.eNS_URI);
 		XMLTypePackage theXMLTypePackage = (XMLTypePackage)EPackage.Registry.INSTANCE.getEPackage(XMLTypePackage.eNS_URI);
+		NewPackage4Package theNewPackage4Package = (NewPackage4Package)EPackage.Registry.INSTANCE.getEPackage(NewPackage4Package.eNS_URI);
 
 		// Create type parameters
 
@@ -457,6 +482,8 @@ public class MeasurementPackageImpl extends EPackageImpl implements MeasurementP
 		editionEClass.getESuperTypes().add(this.getAspectObserved());
 		executionEClass.getESuperTypes().add(this.getAspectObserved());
 		testingEClass.getESuperTypes().add(this.getExecution());
+		abstractMeasurementEClass.getESuperTypes().add(theNewPackage4Package.getNameable());
+		anyActionEClass.getESuperTypes().add(this.getAspectObserved());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(measurementsEClass, Measurements.class, "Measurements", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -471,7 +498,7 @@ public class MeasurementPackageImpl extends EPackageImpl implements MeasurementP
 		initEReference(getObservingArtifact_Aspect(), this.getAspectObserved(), null, "aspect", null, 1, 1, ObservingArtifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(observingProvidedArtifactEClass, ObservingProvidedArtifact.class, "ObservingProvidedArtifact", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getObservingProvidedArtifact_ObservedArtifact(), theArtifactsPackage.getProvidedArtifact(), null, "observedArtifact", null, 1, 1, ObservingProvidedArtifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getObservingProvidedArtifact_ObservedArtifact(), theArtifactsPackage.getAtomicArtifact(), null, "observedArtifact", null, 1, 1, ObservingProvidedArtifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(observingProducedArtifactEClass, ObservingProducedArtifact.class, "ObservingProducedArtifact", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -487,6 +514,8 @@ public class MeasurementPackageImpl extends EPackageImpl implements MeasurementP
 		initEAttribute(getTesting_ObservePassedTest(), theXMLTypePackage.getBooleanObject(), "ObservePassedTest", null, 0, 1, Testing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(abstractMeasurementEClass, AbstractMeasurement.class, "AbstractMeasurement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(anyActionEClass, AnyAction.class, "AnyAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 	}
 
 } //MeasurementPackageImpl

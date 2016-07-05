@@ -3,7 +3,7 @@
 package be.edu.ufpe.ines.decode.model.decode.taskDescription.provider;
 
 
-import be.edu.ufpe.ines.decode.model.decode.taskDescription.Aleatorio;
+import be.edu.ufpe.ines.decode.model.decode.taskDescription.Random;
 import be.edu.ufpe.ines.decode.model.decode.taskDescription.TaskDescriptionFactory;
 import be.edu.ufpe.ines.decode.model.decode.taskDescription.TaskDescriptionPackage;
 
@@ -19,19 +19,19 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link be.edu.ufpe.ines.decode.model.decode.taskDescription.Aleatorio} object.
+ * This is the item provider adapter for a {@link be.edu.ufpe.ines.decode.model.decode.taskDescription.Random} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class AleatorioItemProvider extends ComposedTaskItemProvider {
+public class RandomItemProvider extends ComposedTaskItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AleatorioItemProvider(AdapterFactory adapterFactory) {
+	public RandomItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -62,7 +62,7 @@ public class AleatorioItemProvider extends ComposedTaskItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(TaskDescriptionPackage.Literals.ALEATORIO__TASKS);
+			childrenFeatures.add(TaskDescriptionPackage.Literals.RANDOM__TASKS);
 		}
 		return childrenFeatures;
 	}
@@ -81,14 +81,14 @@ public class AleatorioItemProvider extends ComposedTaskItemProvider {
 	}
 
 	/**
-	 * This returns Aleatorio.gif.
+	 * This returns Random.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Aleatorio"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Random"));
 	}
 
 	/**
@@ -99,7 +99,7 @@ public class AleatorioItemProvider extends ComposedTaskItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Aleatorio_type");
+		return getString("_UI_Random_type");
 	}
 	
 
@@ -114,8 +114,8 @@ public class AleatorioItemProvider extends ComposedTaskItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Aleatorio.class)) {
-			case TaskDescriptionPackage.ALEATORIO__TASKS:
+		switch (notification.getFeatureID(Random.class)) {
+			case TaskDescriptionPackage.RANDOM__TASKS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -135,17 +135,17 @@ public class AleatorioItemProvider extends ComposedTaskItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(TaskDescriptionPackage.Literals.ALEATORIO__TASKS,
+				(TaskDescriptionPackage.Literals.RANDOM__TASKS,
 				 TaskDescriptionFactory.eINSTANCE.createSequencial()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(TaskDescriptionPackage.Literals.ALEATORIO__TASKS,
-				 TaskDescriptionFactory.eINSTANCE.createAleatorio()));
+				(TaskDescriptionPackage.Literals.RANDOM__TASKS,
+				 TaskDescriptionFactory.eINSTANCE.createRandom()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(TaskDescriptionPackage.Literals.ALEATORIO__TASKS,
+				(TaskDescriptionPackage.Literals.RANDOM__TASKS,
 				 TaskDescriptionFactory.eINSTANCE.createExperimentalTask()));
 	}
 

@@ -2,8 +2,7 @@
  */
 package be.edu.ufpe.ines.decode.model.decode.measurement.impl;
 
-import be.edu.ufpe.ines.decode.model.decode.artifacts.ProvidedArtifact;
-
+import be.edu.ufpe.ines.decode.model.decode.artifacts.AtomicArtifact;
 import be.edu.ufpe.ines.decode.model.decode.measurement.MeasurementPackage;
 import be.edu.ufpe.ines.decode.model.decode.measurement.ObservingProvidedArtifact;
 
@@ -36,7 +35,7 @@ public class ObservingProvidedArtifactImpl extends ObservingArtifactImpl impleme
 	 * @generated
 	 * @ordered
 	 */
-	protected ProvidedArtifact observedArtifact;
+	protected AtomicArtifact observedArtifact;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -62,10 +61,10 @@ public class ObservingProvidedArtifactImpl extends ObservingArtifactImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ProvidedArtifact getObservedArtifact() {
+	public AtomicArtifact getObservedArtifact() {
 		if (observedArtifact != null && observedArtifact.eIsProxy()) {
 			InternalEObject oldObservedArtifact = (InternalEObject)observedArtifact;
-			observedArtifact = (ProvidedArtifact)eResolveProxy(oldObservedArtifact);
+			observedArtifact = (AtomicArtifact)eResolveProxy(oldObservedArtifact);
 			if (observedArtifact != oldObservedArtifact) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MeasurementPackage.OBSERVING_PROVIDED_ARTIFACT__OBSERVED_ARTIFACT, oldObservedArtifact, observedArtifact));
@@ -79,7 +78,7 @@ public class ObservingProvidedArtifactImpl extends ObservingArtifactImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ProvidedArtifact basicGetObservedArtifact() {
+	public AtomicArtifact basicGetObservedArtifact() {
 		return observedArtifact;
 	}
 
@@ -88,8 +87,8 @@ public class ObservingProvidedArtifactImpl extends ObservingArtifactImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setObservedArtifact(ProvidedArtifact newObservedArtifact) {
-		ProvidedArtifact oldObservedArtifact = observedArtifact;
+	public void setObservedArtifact(AtomicArtifact newObservedArtifact) {
+		AtomicArtifact oldObservedArtifact = observedArtifact;
 		observedArtifact = newObservedArtifact;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, MeasurementPackage.OBSERVING_PROVIDED_ARTIFACT__OBSERVED_ARTIFACT, oldObservedArtifact, observedArtifact));
@@ -119,7 +118,7 @@ public class ObservingProvidedArtifactImpl extends ObservingArtifactImpl impleme
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case MeasurementPackage.OBSERVING_PROVIDED_ARTIFACT__OBSERVED_ARTIFACT:
-				setObservedArtifact((ProvidedArtifact)newValue);
+				setObservedArtifact((AtomicArtifact)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -134,7 +133,7 @@ public class ObservingProvidedArtifactImpl extends ObservingArtifactImpl impleme
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case MeasurementPackage.OBSERVING_PROVIDED_ARTIFACT__OBSERVED_ARTIFACT:
-				setObservedArtifact((ProvidedArtifact)null);
+				setObservedArtifact((AtomicArtifact)null);
 				return;
 		}
 		super.eUnset(featureID);

@@ -2,12 +2,11 @@
  */
 package be.edu.ufpe.ines.decode.model.decode.measurement.impl;
 
+import be.edu.ufpe.ines.decode.model.decode.aux.impl.NameableImpl;
 import be.edu.ufpe.ines.decode.model.decode.measurement.AbstractMeasurement;
 import be.edu.ufpe.ines.decode.model.decode.measurement.MeasurementPackage;
 
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -16,7 +15,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public abstract class AbstractMeasurementImpl extends MinimalEObjectImpl.Container implements AbstractMeasurement {
+public abstract class AbstractMeasurementImpl extends NameableImpl implements AbstractMeasurement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

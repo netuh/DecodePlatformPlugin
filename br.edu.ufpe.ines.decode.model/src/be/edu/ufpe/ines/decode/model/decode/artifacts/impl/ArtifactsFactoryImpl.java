@@ -57,7 +57,9 @@ public class ArtifactsFactoryImpl extends EFactoryImpl implements ArtifactsFacto
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case ArtifactsPackage.PROVIDED_ARTIFACT: return createProvidedArtifact();
+			case ArtifactsPackage.ATOMIC_ARTIFACT: return createAtomicArtifact();
+			case ArtifactsPackage.PROVIDED_ARTEFACTS: return createProvidedArtefacts();
+			case ArtifactsPackage.COMPLEX_ARTIFACT: return createComplexArtifact();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -73,6 +75,10 @@ public class ArtifactsFactoryImpl extends EFactoryImpl implements ArtifactsFacto
 		switch (eDataType.getClassifierID()) {
 			case ArtifactsPackage.ARTIFACT_TYPE:
 				return createArtifactTypeFromString(eDataType, initialValue);
+			case ArtifactsPackage.COMPLEX_ARTIFACT_TYPE:
+				return createComplexArtifactTypeFromString(eDataType, initialValue);
+			case ArtifactsPackage.ARTIFACT_LANGUAGE:
+				return createArtifactLanguageFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -88,6 +94,10 @@ public class ArtifactsFactoryImpl extends EFactoryImpl implements ArtifactsFacto
 		switch (eDataType.getClassifierID()) {
 			case ArtifactsPackage.ARTIFACT_TYPE:
 				return convertArtifactTypeToString(eDataType, instanceValue);
+			case ArtifactsPackage.COMPLEX_ARTIFACT_TYPE:
+				return convertComplexArtifactTypeToString(eDataType, instanceValue);
+			case ArtifactsPackage.ARTIFACT_LANGUAGE:
+				return convertArtifactLanguageToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -98,9 +108,29 @@ public class ArtifactsFactoryImpl extends EFactoryImpl implements ArtifactsFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ProvidedArtifact createProvidedArtifact() {
-		ProvidedArtifactImpl providedArtifact = new ProvidedArtifactImpl();
-		return providedArtifact;
+	public AtomicArtifact createAtomicArtifact() {
+		AtomicArtifactImpl atomicArtifact = new AtomicArtifactImpl();
+		return atomicArtifact;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ProvidedArtefacts createProvidedArtefacts() {
+		ProvidedArtefactsImpl providedArtefacts = new ProvidedArtefactsImpl();
+		return providedArtefacts;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ComplexArtifact createComplexArtifact() {
+		ComplexArtifactImpl complexArtifact = new ComplexArtifactImpl();
+		return complexArtifact;
 	}
 
 	/**
@@ -120,6 +150,46 @@ public class ArtifactsFactoryImpl extends EFactoryImpl implements ArtifactsFacto
 	 * @generated
 	 */
 	public String convertArtifactTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ComplexArtifactType createComplexArtifactTypeFromString(EDataType eDataType, String initialValue) {
+		ComplexArtifactType result = ComplexArtifactType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertComplexArtifactTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ArtifactLanguage createArtifactLanguageFromString(EDataType eDataType, String initialValue) {
+		ArtifactLanguage result = ArtifactLanguage.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertArtifactLanguageToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

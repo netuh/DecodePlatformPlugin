@@ -8,16 +8,17 @@ import be.edu.ufpe.ines.decode.model.decode.artifacts.ArtifactsPackage;
 
 import be.edu.ufpe.ines.decode.model.decode.artifacts.impl.ArtifactsPackageImpl;
 
+import be.edu.ufpe.ines.decode.model.decode.aux.NewPackage4Package;
+import be.edu.ufpe.ines.decode.model.decode.aux.impl.NewPackage4PackageImpl;
 import be.edu.ufpe.ines.decode.model.decode.impl.DecodePackageImpl;
 
 import be.edu.ufpe.ines.decode.model.decode.measurement.MeasurementPackage;
 
 import be.edu.ufpe.ines.decode.model.decode.measurement.impl.MeasurementPackageImpl;
-
-import be.edu.ufpe.ines.decode.model.decode.taskDescription.Aleatorio;
 import be.edu.ufpe.ines.decode.model.decode.taskDescription.ComposedTask;
 import be.edu.ufpe.ines.decode.model.decode.taskDescription.ExperimentalTask;
 import be.edu.ufpe.ines.decode.model.decode.taskDescription.ModeledTask;
+import be.edu.ufpe.ines.decode.model.decode.taskDescription.Random;
 import be.edu.ufpe.ines.decode.model.decode.taskDescription.Restriction;
 import be.edu.ufpe.ines.decode.model.decode.taskDescription.Sequencial;
 import be.edu.ufpe.ines.decode.model.decode.taskDescription.TaskDescriptionFactory;
@@ -58,7 +59,7 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass aleatorioEClass = null;
+	private EClass randomEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -134,18 +135,21 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 		DecodePackageImpl theDecodePackage = (DecodePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(DecodePackage.eNS_URI) instanceof DecodePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(DecodePackage.eNS_URI) : DecodePackage.eINSTANCE);
 		ArtifactsPackageImpl theArtifactsPackage = (ArtifactsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ArtifactsPackage.eNS_URI) instanceof ArtifactsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ArtifactsPackage.eNS_URI) : ArtifactsPackage.eINSTANCE);
 		MeasurementPackageImpl theMeasurementPackage = (MeasurementPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(MeasurementPackage.eNS_URI) instanceof MeasurementPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(MeasurementPackage.eNS_URI) : MeasurementPackage.eINSTANCE);
+		NewPackage4PackageImpl theNewPackage4Package = (NewPackage4PackageImpl)(EPackage.Registry.INSTANCE.getEPackage(NewPackage4Package.eNS_URI) instanceof NewPackage4PackageImpl ? EPackage.Registry.INSTANCE.getEPackage(NewPackage4Package.eNS_URI) : NewPackage4Package.eINSTANCE);
 
 		// Create package meta-data objects
 		theTaskDescriptionPackage.createPackageContents();
 		theDecodePackage.createPackageContents();
 		theArtifactsPackage.createPackageContents();
 		theMeasurementPackage.createPackageContents();
+		theNewPackage4Package.createPackageContents();
 
 		// Initialize created meta-data
 		theTaskDescriptionPackage.initializePackageContents();
 		theDecodePackage.initializePackageContents();
 		theArtifactsPackage.initializePackageContents();
 		theMeasurementPackage.initializePackageContents();
+		theNewPackage4Package.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theTaskDescriptionPackage.freeze();
@@ -197,8 +201,8 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getAleatorio() {
-		return aleatorioEClass;
+	public EClass getRandom() {
+		return randomEClass;
 	}
 
 	/**
@@ -206,8 +210,8 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAleatorio_Tasks() {
-		return (EReference)aleatorioEClass.getEStructuralFeatures().get(0);
+	public EReference getRandom_Tasks() {
+		return (EReference)randomEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -242,7 +246,7 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExperimentalTask_Dependency() {
+	public EReference getExperimentalTask_RequiredArtifacts() {
 		return (EReference)experimentalTaskEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -251,7 +255,7 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExperimentalTask_RequiredArtifact() {
+	public EReference getExperimentalTask_Depends() {
 		return (EReference)experimentalTaskEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -316,15 +320,15 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 		sequencialEClass = createEClass(SEQUENCIAL);
 		createEReference(sequencialEClass, SEQUENCIAL__TASKS);
 
-		aleatorioEClass = createEClass(ALEATORIO);
-		createEReference(aleatorioEClass, ALEATORIO__TASKS);
+		randomEClass = createEClass(RANDOM);
+		createEReference(randomEClass, RANDOM__TASKS);
 
 		composedTaskEClass = createEClass(COMPOSED_TASK);
 
 		experimentalTaskEClass = createEClass(EXPERIMENTAL_TASK);
 		createEAttribute(experimentalTaskEClass, EXPERIMENTAL_TASK__NEW_ATTRIBUTE);
-		createEReference(experimentalTaskEClass, EXPERIMENTAL_TASK__DEPENDENCY);
-		createEReference(experimentalTaskEClass, EXPERIMENTAL_TASK__REQUIRED_ARTIFACT);
+		createEReference(experimentalTaskEClass, EXPERIMENTAL_TASK__REQUIRED_ARTIFACTS);
+		createEReference(experimentalTaskEClass, EXPERIMENTAL_TASK__DEPENDS);
 
 		restrictionEClass = createEClass(RESTRICTION);
 		createEAttribute(restrictionEClass, RESTRICTION__DEADLINE);
@@ -355,6 +359,7 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
+		NewPackage4Package theNewPackage4Package = (NewPackage4Package)EPackage.Registry.INSTANCE.getEPackage(NewPackage4Package.eNS_URI);
 		XMLTypePackage theXMLTypePackage = (XMLTypePackage)EPackage.Registry.INSTANCE.getEPackage(XMLTypePackage.eNS_URI);
 		ArtifactsPackage theArtifactsPackage = (ArtifactsPackage)EPackage.Registry.INSTANCE.getEPackage(ArtifactsPackage.eNS_URI);
 
@@ -364,9 +369,10 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 
 		// Add supertypes to classes
 		sequencialEClass.getESuperTypes().add(this.getComposedTask());
-		aleatorioEClass.getESuperTypes().add(this.getComposedTask());
+		randomEClass.getESuperTypes().add(this.getComposedTask());
 		composedTaskEClass.getESuperTypes().add(this.getModeledTask());
 		experimentalTaskEClass.getESuperTypes().add(this.getModeledTask());
+		experimentalTaskEClass.getESuperTypes().add(theNewPackage4Package.getNameable());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(modeledTaskEClass, ModeledTask.class, "ModeledTask", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -375,15 +381,15 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 		initEClass(sequencialEClass, Sequencial.class, "Sequencial", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSequencial_Tasks(), this.getModeledTask(), null, "tasks", null, 0, -1, Sequencial.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(aleatorioEClass, Aleatorio.class, "Aleatorio", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAleatorio_Tasks(), this.getModeledTask(), null, "tasks", null, 0, -1, Aleatorio.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(randomEClass, Random.class, "Random", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRandom_Tasks(), this.getModeledTask(), null, "tasks", null, 0, -1, Random.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(composedTaskEClass, ComposedTask.class, "ComposedTask", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(experimentalTaskEClass, ExperimentalTask.class, "ExperimentalTask", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getExperimentalTask_NewAttribute(), theXMLTypePackage.getBooleanObject(), "newAttribute", null, 0, 1, ExperimentalTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getExperimentalTask_Dependency(), this.getExperimentalTask(), null, "dependency", null, 0, -1, ExperimentalTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getExperimentalTask_RequiredArtifact(), theArtifactsPackage.getProvidedArtifact(), null, "requiredArtifact", null, 0, -1, ExperimentalTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getExperimentalTask_RequiredArtifacts(), theArtifactsPackage.getAbstractArtifact(), null, "requiredArtifacts", null, 0, -1, ExperimentalTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getExperimentalTask_Depends(), this.getExperimentalTask(), null, "depends", null, 0, -1, ExperimentalTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(restrictionEClass, Restriction.class, "Restriction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRestriction_Deadline(), theXMLTypePackage.getDateTime(), "deadline", null, 0, 1, Restriction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

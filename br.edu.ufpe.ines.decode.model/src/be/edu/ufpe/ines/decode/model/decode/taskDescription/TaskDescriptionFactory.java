@@ -31,13 +31,13 @@ public interface TaskDescriptionFactory extends EFactory {
 	Sequencial createSequencial();
 
 	/**
-	 * Returns a new object of class '<em>Aleatorio</em>'.
+	 * Returns a new object of class '<em>Random</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Aleatorio</em>'.
+	 * @return a new object of class '<em>Random</em>'.
 	 * @generated
 	 */
-	Aleatorio createAleatorio();
+	Random createRandom();
 
 	/**
 	 * Returns a new object of class '<em>Experimental Task</em>'.

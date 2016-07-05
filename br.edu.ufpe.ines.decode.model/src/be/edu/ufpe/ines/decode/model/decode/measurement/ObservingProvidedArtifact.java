@@ -2,7 +2,7 @@
  */
 package be.edu.ufpe.ines.decode.model.decode.measurement;
 
-import be.edu.ufpe.ines.decode.model.decode.artifacts.ProvidedArtifact;
+import be.edu.ufpe.ines.decode.model.decode.artifacts.AtomicArtifact;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,12 +30,12 @@ public interface ObservingProvidedArtifact extends ObservingArtifact {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Observed Artifact</em>' reference.
-	 * @see #setObservedArtifact(ProvidedArtifact)
+	 * @see #setObservedArtifact(AtomicArtifact)
 	 * @see be.edu.ufpe.ines.decode.model.decode.measurement.MeasurementPackage#getObservingProvidedArtifact_ObservedArtifact()
 	 * @model required="true"
 	 * @generated
 	 */
-	ProvidedArtifact getObservedArtifact();
+	AtomicArtifact getObservedArtifact();
 
 	/**
 	 * Sets the value of the '{@link be.edu.ufpe.ines.decode.model.decode.measurement.ObservingProvidedArtifact#getObservedArtifact <em>Observed Artifact</em>}' reference.
@@ -45,6 +45,6 @@ public interface ObservingProvidedArtifact extends ObservingArtifact {
 	 * @see #getObservedArtifact()
 	 * @generated
 	 */
-	void setObservedArtifact(ProvidedArtifact value);
+	void setObservedArtifact(AtomicArtifact value);
 
 } // ObservingProvidedArtifact

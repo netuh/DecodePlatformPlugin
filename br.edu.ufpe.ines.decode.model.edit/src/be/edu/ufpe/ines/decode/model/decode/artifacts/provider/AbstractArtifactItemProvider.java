@@ -3,10 +3,9 @@
 package be.edu.ufpe.ines.decode.model.decode.artifacts.provider;
 
 
-import be.edu.ufpe.ines.decode.model.decode.artifacts.ArtifactType;
+import be.edu.ufpe.ines.decode.model.decode.artifacts.AbstractArtifact;
 import be.edu.ufpe.ines.decode.model.decode.artifacts.ArtifactsPackage;
-import be.edu.ufpe.ines.decode.model.decode.artifacts.ProvidedArtifact;
-
+import be.edu.ufpe.ines.decode.model.decode.aux.provider.NameableItemProvider;
 import be.edu.ufpe.ines.decode.model.decode.provider.ModelDecodeEditPlugin;
 
 import java.util.Collection;
@@ -18,37 +17,25 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link be.edu.ufpe.ines.decode.model.decode.artifacts.ProvidedArtifact} object.
+ * This is the item provider adapter for a {@link be.edu.ufpe.ines.decode.model.decode.artifacts.AbstractArtifact} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ProvidedArtifactItemProvider 
-	extends ItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+public class AbstractArtifactItemProvider 
+	extends NameableItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ProvidedArtifactItemProvider(AdapterFactory adapterFactory) {
+	public AbstractArtifactItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -63,25 +50,25 @@ public class ProvidedArtifactItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addTypePropertyDescriptor(object);
+			addArtifactDomainPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Type feature.
+	 * This adds a property descriptor for the Artifact Domain feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addTypePropertyDescriptor(Object object) {
+	protected void addArtifactDomainPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ProvidedArtifact_type_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ProvidedArtifact_type_feature", "_UI_ProvidedArtifact_type"),
-				 ArtifactsPackage.Literals.PROVIDED_ARTIFACT__TYPE,
+				 getString("_UI_AbstractArtifact_artifactDomain_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AbstractArtifact_artifactDomain_feature", "_UI_AbstractArtifact_type"),
+				 ArtifactsPackage.Literals.ABSTRACT_ARTIFACT__ARTIFACT_DOMAIN,
 				 true,
 				 false,
 				 false,
@@ -91,14 +78,14 @@ public class ProvidedArtifactItemProvider
 	}
 
 	/**
-	 * This returns ProvidedArtifact.gif.
+	 * This returns AbstractArtifact.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ProvidedArtifact"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/AbstractArtifact"));
 	}
 
 	/**
@@ -109,11 +96,10 @@ public class ProvidedArtifactItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		ArtifactType labelValue = ((ProvidedArtifact)object).getType();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((AbstractArtifact)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ProvidedArtifact_type") :
-			getString("_UI_ProvidedArtifact_type") + " " + label;
+			getString("_UI_AbstractArtifact_type") :
+			getString("_UI_AbstractArtifact_type") + ": " + label;
 	}
 	
 
@@ -128,8 +114,8 @@ public class ProvidedArtifactItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(ProvidedArtifact.class)) {
-			case ArtifactsPackage.PROVIDED_ARTIFACT__TYPE:
+		switch (notification.getFeatureID(AbstractArtifact.class)) {
+			case ArtifactsPackage.ABSTRACT_ARTIFACT__ARTIFACT_DOMAIN:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

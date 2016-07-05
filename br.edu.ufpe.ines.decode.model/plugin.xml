@@ -37,4 +37,12 @@
             class="be.edu.ufpe.ines.decode.model.decode.measurement.MeasurementPackage"
             genModel="model/modelDecode.genmodel"/>
    </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated modelDecode -->
+      <package
+            uri="aux"
+            class="be.edu.ufpe.ines.decode.model.decode.aux.NewPackage4Package"
+            genModel="model/modelDecode.genmodel"/>
+   </extension>
 </plugin>

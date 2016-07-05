@@ -2,7 +2,7 @@
  */
 package be.edu.ufpe.ines.decode.model.decode.measurement;
 
-import org.eclipse.emf.ecore.EObject;
+import be.edu.ufpe.ines.decode.model.decode.aux.Nameable;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,5 +14,5 @@ import org.eclipse.emf.ecore.EObject;
  * @model abstract="true"
  * @generated
  */
-public interface AbstractMeasurement extends EObject {
+public interface AbstractMeasurement extends Nameable {
 } // AbstractMeasurement

@@ -141,7 +141,7 @@ public class SequencialItemProvider extends ComposedTaskItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(TaskDescriptionPackage.Literals.SEQUENCIAL__TASKS,
-				 TaskDescriptionFactory.eINSTANCE.createAleatorio()));
+				 TaskDescriptionFactory.eINSTANCE.createRandom()));
 
 		newChildDescriptors.add
 			(createChildParameter

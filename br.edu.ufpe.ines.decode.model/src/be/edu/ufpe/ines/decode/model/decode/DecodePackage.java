@@ -2,6 +2,7 @@
  */
 package be.edu.ufpe.ines.decode.model.decode;
 
+import be.edu.ufpe.ines.decode.model.decode.aux.NewPackage4Package;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -66,22 +67,22 @@ public interface DecodePackage extends EPackage {
 	int CODING_EXPERIMENT = 0;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CODING_EXPERIMENT__NAME = NewPackage4Package.NAMEABLE__NAME;
+
+	/**
 	 * The feature id for the '<em><b>Task</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CODING_EXPERIMENT__TASK = 0;
-
-	/**
-	 * The feature id for the '<em><b>Artifacts</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CODING_EXPERIMENT__ARTIFACTS = 1;
+	int CODING_EXPERIMENT__TASK = NewPackage4Package.NAMEABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Measurements</b></em>' containment reference.
@@ -90,7 +91,16 @@ public interface DecodePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CODING_EXPERIMENT__MEASUREMENTS = 2;
+	int CODING_EXPERIMENT__MEASUREMENTS = NewPackage4Package.NAMEABLE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Provided Artefacts</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CODING_EXPERIMENT__PROVIDED_ARTEFACTS = NewPackage4Package.NAMEABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Coding Experiment</em>' class.
@@ -99,7 +109,7 @@ public interface DecodePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CODING_EXPERIMENT_FEATURE_COUNT = 3;
+	int CODING_EXPERIMENT_FEATURE_COUNT = NewPackage4Package.NAMEABLE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Coding Experiment</em>' class.
@@ -108,7 +118,7 @@ public interface DecodePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CODING_EXPERIMENT_OPERATION_COUNT = 0;
+	int CODING_EXPERIMENT_OPERATION_COUNT = NewPackage4Package.NAMEABLE_OPERATION_COUNT + 0;
 
 
 	/**
@@ -133,17 +143,6 @@ public interface DecodePackage extends EPackage {
 	EReference getCodingExperiment_Task();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link be.edu.ufpe.ines.decode.model.decode.CodingExperiment#getArtifacts <em>Artifacts</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Artifacts</em>'.
-	 * @see be.edu.ufpe.ines.decode.model.decode.CodingExperiment#getArtifacts()
-	 * @see #getCodingExperiment()
-	 * @generated
-	 */
-	EReference getCodingExperiment_Artifacts();
-
-	/**
 	 * Returns the meta object for the containment reference '{@link be.edu.ufpe.ines.decode.model.decode.CodingExperiment#getMeasurements <em>Measurements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -153,6 +152,17 @@ public interface DecodePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getCodingExperiment_Measurements();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link be.edu.ufpe.ines.decode.model.decode.CodingExperiment#getProvidedArtefacts <em>Provided Artefacts</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Provided Artefacts</em>'.
+	 * @see be.edu.ufpe.ines.decode.model.decode.CodingExperiment#getProvidedArtefacts()
+	 * @see #getCodingExperiment()
+	 * @generated
+	 */
+	EReference getCodingExperiment_ProvidedArtefacts();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -196,20 +206,20 @@ public interface DecodePackage extends EPackage {
 		EReference CODING_EXPERIMENT__TASK = eINSTANCE.getCodingExperiment_Task();
 
 		/**
-		 * The meta object literal for the '<em><b>Artifacts</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CODING_EXPERIMENT__ARTIFACTS = eINSTANCE.getCodingExperiment_Artifacts();
-
-		/**
 		 * The meta object literal for the '<em><b>Measurements</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference CODING_EXPERIMENT__MEASUREMENTS = eINSTANCE.getCodingExperiment_Measurements();
+
+		/**
+		 * The meta object literal for the '<em><b>Provided Artefacts</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CODING_EXPERIMENT__PROVIDED_ARTEFACTS = eINSTANCE.getCodingExperiment_ProvidedArtefacts();
 
 	}
 

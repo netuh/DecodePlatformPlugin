@@ -2,6 +2,7 @@
  */
 package be.edu.ufpe.ines.decode.model.decode.measurement;
 
+import be.edu.ufpe.ines.decode.model.decode.aux.NewPackage4Package;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -104,13 +105,22 @@ public interface MeasurementPackage extends EPackage {
 	int ABSTRACT_MEASUREMENT = 11;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_MEASUREMENT__NAME = NewPackage4Package.NAMEABLE__NAME;
+
+	/**
 	 * The number of structural features of the '<em>Abstract Measurement</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_MEASUREMENT_FEATURE_COUNT = 0;
+	int ABSTRACT_MEASUREMENT_FEATURE_COUNT = NewPackage4Package.NAMEABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Abstract Measurement</em>' class.
@@ -119,7 +129,7 @@ public interface MeasurementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_MEASUREMENT_OPERATION_COUNT = 0;
+	int ABSTRACT_MEASUREMENT_OPERATION_COUNT = NewPackage4Package.NAMEABLE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link be.edu.ufpe.ines.decode.model.decode.measurement.impl.SurveyImpl <em>Survey</em>}' class.
@@ -130,6 +140,15 @@ public interface MeasurementPackage extends EPackage {
 	 * @generated
 	 */
 	int SURVEY = 1;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SURVEY__NAME = ABSTRACT_MEASUREMENT__NAME;
 
 	/**
 	 * The number of structural features of the '<em>Survey</em>' class.
@@ -158,6 +177,15 @@ public interface MeasurementPackage extends EPackage {
 	 * @generated
 	 */
 	int TIME_ON_TASK = 2;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_ON_TASK__NAME = ABSTRACT_MEASUREMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Related Task</b></em>' reference.
@@ -197,6 +225,15 @@ public interface MeasurementPackage extends EPackage {
 	int OBSERVING_ARTIFACT = 3;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBSERVING_ARTIFACT__NAME = ABSTRACT_MEASUREMENT__NAME;
+
+	/**
 	 * The feature id for the '<em><b>Aspect</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -232,6 +269,15 @@ public interface MeasurementPackage extends EPackage {
 	 * @generated
 	 */
 	int OBSERVING_PROVIDED_ARTIFACT = 4;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBSERVING_PROVIDED_ARTIFACT__NAME = OBSERVING_ARTIFACT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Aspect</b></em>' containment reference.
@@ -280,6 +326,15 @@ public interface MeasurementPackage extends EPackage {
 	int OBSERVING_PRODUCED_ARTIFACT = 5;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBSERVING_PRODUCED_ARTIFACT__NAME = OBSERVING_ARTIFACT__NAME;
+
+	/**
 	 * The feature id for the '<em><b>Aspect</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -315,6 +370,15 @@ public interface MeasurementPackage extends EPackage {
 	 * @generated
 	 */
 	int OBSERVING_ALL_ARTIFACTS = 6;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBSERVING_ALL_ARTIFACTS__NAME = OBSERVING_ARTIFACT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Aspect</b></em>' containment reference.
@@ -463,6 +527,35 @@ public interface MeasurementPackage extends EPackage {
 	 * @ordered
 	 */
 	int TESTING_OPERATION_COUNT = EXECUTION_OPERATION_COUNT + 0;
+
+
+	/**
+	 * The meta object id for the '{@link be.edu.ufpe.ines.decode.model.decode.measurement.impl.AnyActionImpl <em>Any Action</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see be.edu.ufpe.ines.decode.model.decode.measurement.impl.AnyActionImpl
+	 * @see be.edu.ufpe.ines.decode.model.decode.measurement.impl.MeasurementPackageImpl#getAnyAction()
+	 * @generated
+	 */
+	int ANY_ACTION = 12;
+
+	/**
+	 * The number of structural features of the '<em>Any Action</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANY_ACTION_FEATURE_COUNT = ASPECT_OBSERVED_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Any Action</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANY_ACTION_OPERATION_COUNT = ASPECT_OBSERVED_OPERATION_COUNT + 0;
 
 
 	/**
@@ -639,6 +732,16 @@ public interface MeasurementPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getAbstractMeasurement();
+
+	/**
+	 * Returns the meta object for class '{@link be.edu.ufpe.ines.decode.model.decode.measurement.AnyAction <em>Any Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Any Action</em>'.
+	 * @see be.edu.ufpe.ines.decode.model.decode.measurement.AnyAction
+	 * @generated
+	 */
+	EClass getAnyAction();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -822,6 +925,16 @@ public interface MeasurementPackage extends EPackage {
 		 * @generated
 		 */
 		EClass ABSTRACT_MEASUREMENT = eINSTANCE.getAbstractMeasurement();
+
+		/**
+		 * The meta object literal for the '{@link be.edu.ufpe.ines.decode.model.decode.measurement.impl.AnyActionImpl <em>Any Action</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see be.edu.ufpe.ines.decode.model.decode.measurement.impl.AnyActionImpl
+		 * @see be.edu.ufpe.ines.decode.model.decode.measurement.impl.MeasurementPackageImpl#getAnyAction()
+		 * @generated
+		 */
+		EClass ANY_ACTION = eINSTANCE.getAnyAction();
 
 	}
 

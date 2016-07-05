@@ -65,6 +65,7 @@ public class MeasurementFactoryImpl extends EFactoryImpl implements MeasurementF
 			case MeasurementPackage.EDITION: return createEdition();
 			case MeasurementPackage.EXECUTION: return createExecution();
 			case MeasurementPackage.TESTING: return createTesting();
+			case MeasurementPackage.ANY_ACTION: return createAnyAction();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -158,6 +159,16 @@ public class MeasurementFactoryImpl extends EFactoryImpl implements MeasurementF
 	public Testing createTesting() {
 		TestingImpl testing = new TestingImpl();
 		return testing;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AnyAction createAnyAction() {
+		AnyActionImpl anyAction = new AnyActionImpl();
+		return anyAction;
 	}
 
 	/**

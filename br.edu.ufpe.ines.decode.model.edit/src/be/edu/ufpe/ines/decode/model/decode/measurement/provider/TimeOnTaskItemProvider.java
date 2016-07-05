@@ -5,6 +5,7 @@ package be.edu.ufpe.ines.decode.model.decode.measurement.provider;
 
 import be.edu.ufpe.ines.decode.model.decode.measurement.MeasurementPackage;
 
+import be.edu.ufpe.ines.decode.model.decode.measurement.TimeOnTask;
 import java.util.Collection;
 import java.util.List;
 
@@ -88,7 +89,10 @@ public class TimeOnTaskItemProvider extends AbstractMeasurementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_TimeOnTask_type");
+		String label = ((TimeOnTask)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_TimeOnTask_type") :
+			getString("_UI_TimeOnTask_type") + ": " + label;
 	}
 	
 

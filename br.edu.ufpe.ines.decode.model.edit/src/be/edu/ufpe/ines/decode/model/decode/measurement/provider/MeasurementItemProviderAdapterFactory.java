@@ -279,6 +279,29 @@ public class MeasurementItemProviderAdapterFactory extends MeasurementAdapterFac
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link be.edu.ufpe.ines.decode.model.decode.measurement.AnyAction} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AnyActionItemProvider anyActionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link be.edu.ufpe.ines.decode.model.decode.measurement.AnyAction}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAnyActionAdapter() {
+		if (anyActionItemProvider == null) {
+			anyActionItemProvider = new AnyActionItemProvider(this);
+		}
+
+		return anyActionItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -386,6 +409,7 @@ public class MeasurementItemProviderAdapterFactory extends MeasurementAdapterFac
 		if (editionItemProvider != null) editionItemProvider.dispose();
 		if (executionItemProvider != null) executionItemProvider.dispose();
 		if (testingItemProvider != null) testingItemProvider.dispose();
+		if (anyActionItemProvider != null) anyActionItemProvider.dispose();
 	}
 
 }

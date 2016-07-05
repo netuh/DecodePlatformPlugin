@@ -95,26 +95,26 @@ public class TaskDescriptionItemProviderAdapterFactory extends TaskDescriptionAd
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link be.edu.ufpe.ines.decode.model.decode.taskDescription.Aleatorio} instances.
+	 * This keeps track of the one adapter used for all {@link be.edu.ufpe.ines.decode.model.decode.taskDescription.Random} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AleatorioItemProvider aleatorioItemProvider;
+	protected RandomItemProvider randomItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link be.edu.ufpe.ines.decode.model.decode.taskDescription.Aleatorio}.
+	 * This creates an adapter for a {@link be.edu.ufpe.ines.decode.model.decode.taskDescription.Random}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createAleatorioAdapter() {
-		if (aleatorioItemProvider == null) {
-			aleatorioItemProvider = new AleatorioItemProvider(this);
+	public Adapter createRandomAdapter() {
+		if (randomItemProvider == null) {
+			randomItemProvider = new RandomItemProvider(this);
 		}
 
-		return aleatorioItemProvider;
+		return randomItemProvider;
 	}
 
 	/**
@@ -263,7 +263,7 @@ public class TaskDescriptionItemProviderAdapterFactory extends TaskDescriptionAd
 	 */
 	public void dispose() {
 		if (sequencialItemProvider != null) sequencialItemProvider.dispose();
-		if (aleatorioItemProvider != null) aleatorioItemProvider.dispose();
+		if (randomItemProvider != null) randomItemProvider.dispose();
 		if (experimentalTaskItemProvider != null) experimentalTaskItemProvider.dispose();
 		if (restrictionItemProvider != null) restrictionItemProvider.dispose();
 	}

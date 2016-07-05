@@ -8,6 +8,7 @@ Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: be.edu.ufpe.ines.decode.model.decode.artifacts.tests,
+ be.edu.ufpe.ines.decode.model.decode.aux.tests,
  be.edu.ufpe.ines.decode.model.decode.measurement.tests,
  be.edu.ufpe.ines.decode.model.decode.taskDescription.tests,
  be.edu.ufpe.ines.decode.model.decode.tests

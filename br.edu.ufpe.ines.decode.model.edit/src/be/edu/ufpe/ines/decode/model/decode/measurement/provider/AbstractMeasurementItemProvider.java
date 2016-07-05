@@ -3,6 +3,8 @@
 package be.edu.ufpe.ines.decode.model.decode.measurement.provider;
 
 
+import be.edu.ufpe.ines.decode.model.decode.aux.provider.NameableItemProvider;
+import be.edu.ufpe.ines.decode.model.decode.measurement.AbstractMeasurement;
 import be.edu.ufpe.ines.decode.model.decode.provider.ModelDecodeEditPlugin;
 
 import java.util.Collection;
@@ -12,14 +14,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
-
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 
 /**
  * This is the item provider adapter for a {@link be.edu.ufpe.ines.decode.model.decode.measurement.AbstractMeasurement} object.
@@ -28,13 +23,7 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
  * @generated
  */
 public class AbstractMeasurementItemProvider 
-	extends ItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends NameableItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -68,7 +57,10 @@ public class AbstractMeasurementItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_AbstractMeasurement_type");
+		String label = ((AbstractMeasurement)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_AbstractMeasurement_type") :
+			getString("_UI_AbstractMeasurement_type") + ": " + label;
 	}
 	
 

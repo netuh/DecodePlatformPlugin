@@ -4,6 +4,7 @@ package be.edu.ufpe.ines.decode.model.decode.util;
 
 import be.edu.ufpe.ines.decode.model.decode.*;
 
+import be.edu.ufpe.ines.decode.model.decode.aux.Nameable;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 
@@ -72,6 +73,10 @@ public class DecodeAdapterFactory extends AdapterFactoryImpl {
 				return createCodingExperimentAdapter();
 			}
 			@Override
+			public Adapter caseNameable(Nameable object) {
+				return createNameableAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -102,6 +107,20 @@ public class DecodeAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createCodingExperimentAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link be.edu.ufpe.ines.decode.model.decode.aux.Nameable <em>Nameable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see be.edu.ufpe.ines.decode.model.decode.aux.Nameable
+	 * @generated
+	 */
+	public Adapter createNameableAdapter() {
 		return null;
 	}
 

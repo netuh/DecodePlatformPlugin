@@ -2,6 +2,7 @@
  */
 package be.edu.ufpe.ines.decode.model.decode.taskDescription.util;
 
+import be.edu.ufpe.ines.decode.model.decode.aux.Nameable;
 import be.edu.ufpe.ines.decode.model.decode.taskDescription.*;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -76,8 +77,8 @@ public class TaskDescriptionAdapterFactory extends AdapterFactoryImpl {
 				return createSequencialAdapter();
 			}
 			@Override
-			public Adapter caseAleatorio(Aleatorio object) {
-				return createAleatorioAdapter();
+			public Adapter caseRandom(Random object) {
+				return createRandomAdapter();
 			}
 			@Override
 			public Adapter caseComposedTask(ComposedTask object) {
@@ -90,6 +91,10 @@ public class TaskDescriptionAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseRestriction(Restriction object) {
 				return createRestrictionAdapter();
+			}
+			@Override
+			public Adapter caseNameable(Nameable object) {
+				return createNameableAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -140,16 +145,16 @@ public class TaskDescriptionAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link be.edu.ufpe.ines.decode.model.decode.taskDescription.Aleatorio <em>Aleatorio</em>}'.
+	 * Creates a new adapter for an object of class '{@link be.edu.ufpe.ines.decode.model.decode.taskDescription.Random <em>Random</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see be.edu.ufpe.ines.decode.model.decode.taskDescription.Aleatorio
+	 * @see be.edu.ufpe.ines.decode.model.decode.taskDescription.Random
 	 * @generated
 	 */
-	public Adapter createAleatorioAdapter() {
+	public Adapter createRandomAdapter() {
 		return null;
 	}
 
@@ -192,6 +197,20 @@ public class TaskDescriptionAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createRestrictionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link be.edu.ufpe.ines.decode.model.decode.aux.Nameable <em>Nameable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see be.edu.ufpe.ines.decode.model.decode.aux.Nameable
+	 * @generated
+	 */
+	public Adapter createNameableAdapter() {
 		return null;
 	}
 

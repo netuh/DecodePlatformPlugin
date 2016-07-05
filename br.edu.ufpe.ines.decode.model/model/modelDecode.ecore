@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="decode" nsURI="http://www.example.org/modelDecode" nsPrefix="modelDecode">
-  <eClassifiers xsi:type="ecore:EClass" name="CodingExperiment">
+  <eClassifiers xsi:type="ecore:EClass" name="CodingExperiment" eSuperTypes="#//aux/Nameable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="task" lowerBound="1" eType="#//taskDescription/ModeledTask"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="artifacts" upperBound="-1"
-        eType="#//artifacts/ProvidedArtifact" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="measurements" lowerBound="1"
         eType="#//measurement/Measurements" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="providedArtefacts" lowerBound="1"
+        eType="#//artifacts/ProvidedArtefacts" containment="true"/>
   </eClassifiers>
   <eSubpackages name="taskDescription" nsURI="taskDescription" nsPrefix="taskDescription">
     <eClassifiers xsi:type="ecore:EClass" name="ModeledTask" abstract="true">
@@ -18,17 +18,17 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="tasks" upperBound="-1"
           eType="#//taskDescription/ModeledTask" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Aleatorio" eSuperTypes="#//taskDescription/ComposedTask">
+    <eClassifiers xsi:type="ecore:EClass" name="Random" eSuperTypes="#//taskDescription/ComposedTask">
       <eStructuralFeatures xsi:type="ecore:EReference" name="tasks" ordered="false"
           upperBound="-1" eType="#//taskDescription/ModeledTask" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ComposedTask" abstract="true" eSuperTypes="#//taskDescription/ModeledTask"/>
-    <eClassifiers xsi:type="ecore:EClass" name="ExperimentalTask" eSuperTypes="#//taskDescription/ModeledTask">
+    <eClassifiers xsi:type="ecore:EClass" name="ExperimentalTask" eSuperTypes="#//taskDescription/ModeledTask #//aux/Nameable">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="newAttribute" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//BooleanObject"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="dependency" upperBound="-1"
-          eType="#//taskDescription/ExperimentalTask" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="requiredArtifact" upperBound="-1"
-          eType="#//artifacts/ProvidedArtifact"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="requiredArtifacts" upperBound="-1"
+          eType="#//artifacts/AbstractArtifact"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="depends" upperBound="-1"
+          eType="#//taskDescription/ExperimentalTask"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Restriction">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="deadline" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
@@ -36,7 +36,7 @@
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="artifacts" nsURI="artifacts" nsPrefix="artifacts">
-    <eClassifiers xsi:type="ecore:EClass" name="ProvidedArtifact">
+    <eClassifiers xsi:type="ecore:EClass" name="AtomicArtifact" eSuperTypes="#//artifacts/AbstractArtifact">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//artifacts/ArtifactType"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="ArtifactType">
@@ -44,6 +44,26 @@
       <eLiterals name="Test" value="1"/>
       <eLiterals name="Description" value="2"/>
       <eLiterals name="Design" value="3"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ProvidedArtefacts">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="artifact" upperBound="-1"
+          eType="#//artifacts/AbstractArtifact" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ComplexArtifact" eSuperTypes="#//artifacts/AbstractArtifact">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//artifacts/ComplexArtifactType"
+          defaultValueLiteral="Project"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="ComplexArtifactType">
+      <eLiterals name="Project"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AbstractArtifact" abstract="true"
+        eSuperTypes="#//aux/Nameable">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="artifactDomain" eType="#//artifacts/ArtifactLanguage"
+          defaultValueLiteral="Common"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="ArtifactLanguage">
+      <eLiterals name="Java"/>
+      <eLiterals name="Common" value="1"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="measurement" nsURI="measurement" nsPrefix="measurement">
@@ -62,7 +82,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ObservingProvidedArtifact" eSuperTypes="#//measurement/ObservingArtifact">
       <eStructuralFeatures xsi:type="ecore:EReference" name="observedArtifact" lowerBound="1"
-          eType="#//artifacts/ProvidedArtifact"/>
+          eType="#//artifacts/AtomicArtifact"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ObservingProducedArtifact" eSuperTypes="#//measurement/ObservingArtifact"/>
     <eClassifiers xsi:type="ecore:EClass" name="ObservingAllArtifacts" eSuperTypes="#//measurement/ObservingArtifact"/>
@@ -72,6 +92,13 @@
     <eClassifiers xsi:type="ecore:EClass" name="Testing" eSuperTypes="#//measurement/Execution">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="ObservePassedTest" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//BooleanObject"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="AbstractMeasurement" abstract="true"/>
+    <eClassifiers xsi:type="ecore:EClass" name="AbstractMeasurement" abstract="true"
+        eSuperTypes="#//aux/Nameable"/>
+    <eClassifiers xsi:type="ecore:EClass" name="AnyAction" eSuperTypes="#//measurement/AspectObserved"/>
+  </eSubpackages>
+  <eSubpackages name="aux" nsURI="aux" nsPrefix="aux">
+    <eClassifiers xsi:type="ecore:EClass" name="Nameable" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>

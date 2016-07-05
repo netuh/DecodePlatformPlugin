@@ -8,6 +8,7 @@ import be.edu.ufpe.ines.decode.model.decode.DecodePackage;
 
 import be.edu.ufpe.ines.decode.model.decode.artifacts.ArtifactsFactory;
 
+import be.edu.ufpe.ines.decode.model.decode.aux.provider.NameableItemProvider;
 import be.edu.ufpe.ines.decode.model.decode.measurement.MeasurementFactory;
 
 import be.edu.ufpe.ines.decode.model.decode.taskDescription.TaskDescriptionFactory;
@@ -21,14 +22,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
-
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -38,13 +32,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class CodingExperimentItemProvider 
-	extends ItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends NameableItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -83,8 +71,8 @@ public class CodingExperimentItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(DecodePackage.Literals.CODING_EXPERIMENT__TASK);
-			childrenFeatures.add(DecodePackage.Literals.CODING_EXPERIMENT__ARTIFACTS);
 			childrenFeatures.add(DecodePackage.Literals.CODING_EXPERIMENT__MEASUREMENTS);
+			childrenFeatures.add(DecodePackage.Literals.CODING_EXPERIMENT__PROVIDED_ARTEFACTS);
 		}
 		return childrenFeatures;
 	}
@@ -121,7 +109,10 @@ public class CodingExperimentItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_CodingExperiment_type");
+		String label = ((CodingExperiment)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_CodingExperiment_type") :
+			getString("_UI_CodingExperiment_type") + ": " + label;
 	}
 	
 
@@ -138,8 +129,8 @@ public class CodingExperimentItemProvider
 
 		switch (notification.getFeatureID(CodingExperiment.class)) {
 			case DecodePackage.CODING_EXPERIMENT__TASK:
-			case DecodePackage.CODING_EXPERIMENT__ARTIFACTS:
 			case DecodePackage.CODING_EXPERIMENT__MEASUREMENTS:
+			case DecodePackage.CODING_EXPERIMENT__PROVIDED_ARTEFACTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -165,7 +156,7 @@ public class CodingExperimentItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DecodePackage.Literals.CODING_EXPERIMENT__TASK,
-				 TaskDescriptionFactory.eINSTANCE.createAleatorio()));
+				 TaskDescriptionFactory.eINSTANCE.createRandom()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -174,13 +165,13 @@ public class CodingExperimentItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DecodePackage.Literals.CODING_EXPERIMENT__ARTIFACTS,
-				 ArtifactsFactory.eINSTANCE.createProvidedArtifact()));
+				(DecodePackage.Literals.CODING_EXPERIMENT__MEASUREMENTS,
+				 MeasurementFactory.eINSTANCE.createMeasurements()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DecodePackage.Literals.CODING_EXPERIMENT__MEASUREMENTS,
-				 MeasurementFactory.eINSTANCE.createMeasurements()));
+				(DecodePackage.Literals.CODING_EXPERIMENT__PROVIDED_ARTEFACTS,
+				 ArtifactsFactory.eINSTANCE.createProvidedArtefacts()));
 	}
 
 	/**

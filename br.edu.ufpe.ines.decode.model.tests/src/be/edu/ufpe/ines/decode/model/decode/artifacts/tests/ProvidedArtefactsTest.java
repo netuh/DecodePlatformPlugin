@@ -3,7 +3,7 @@
 package be.edu.ufpe.ines.decode.model.decode.artifacts.tests;
 
 import be.edu.ufpe.ines.decode.model.decode.artifacts.ArtifactsFactory;
-import be.edu.ufpe.ines.decode.model.decode.artifacts.ProvidedArtifact;
+import be.edu.ufpe.ines.decode.model.decode.artifacts.ProvidedArtefacts;
 
 import junit.framework.TestCase;
 
@@ -11,19 +11,19 @@ import junit.textui.TestRunner;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Provided Artifact</b></em>'.
+ * A test case for the model object '<em><b>Provided Artefacts</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class ProvidedArtifactTest extends TestCase {
+public class ProvidedArtefactsTest extends TestCase {
 
 	/**
-	 * The fixture for this Provided Artifact test case.
+	 * The fixture for this Provided Artefacts test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ProvidedArtifact fixture = null;
+	protected ProvidedArtefacts fixture = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -31,36 +31,36 @@ public class ProvidedArtifactTest extends TestCase {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(ProvidedArtifactTest.class);
+		TestRunner.run(ProvidedArtefactsTest.class);
 	}
 
 	/**
-	 * Constructs a new Provided Artifact test case with the given name.
+	 * Constructs a new Provided Artefacts test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ProvidedArtifactTest(String name) {
+	public ProvidedArtefactsTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Sets the fixture for this Provided Artifact test case.
+	 * Sets the fixture for this Provided Artefacts test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void setFixture(ProvidedArtifact fixture) {
+	protected void setFixture(ProvidedArtefacts fixture) {
 		this.fixture = fixture;
 	}
 
 	/**
-	 * Returns the fixture for this Provided Artifact test case.
+	 * Returns the fixture for this Provided Artefacts test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ProvidedArtifact getFixture() {
+	protected ProvidedArtefacts getFixture() {
 		return fixture;
 	}
 
@@ -72,7 +72,7 @@ public class ProvidedArtifactTest extends TestCase {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(ArtifactsFactory.eINSTANCE.createProvidedArtifact());
+		setFixture(ArtifactsFactory.eINSTANCE.createProvidedArtefacts());
 	}
 
 	/**
@@ -86,4 +86,4 @@ public class ProvidedArtifactTest extends TestCase {
 		setFixture(null);
 	}
 
-} //ProvidedArtifactTest
+} //ProvidedArtefactsTest

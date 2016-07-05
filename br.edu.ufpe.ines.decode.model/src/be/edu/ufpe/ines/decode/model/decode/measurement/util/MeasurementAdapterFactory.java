@@ -2,6 +2,7 @@
  */
 package be.edu.ufpe.ines.decode.model.decode.measurement.util;
 
+import be.edu.ufpe.ines.decode.model.decode.aux.Nameable;
 import be.edu.ufpe.ines.decode.model.decode.measurement.*;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -114,6 +115,14 @@ public class MeasurementAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseAbstractMeasurement(AbstractMeasurement object) {
 				return createAbstractMeasurementAdapter();
+			}
+			@Override
+			public Adapter caseAnyAction(AnyAction object) {
+				return createAnyActionAdapter();
+			}
+			@Override
+			public Adapter caseNameable(Nameable object) {
+				return createNameableAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -300,6 +309,34 @@ public class MeasurementAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAbstractMeasurementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link be.edu.ufpe.ines.decode.model.decode.measurement.AnyAction <em>Any Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see be.edu.ufpe.ines.decode.model.decode.measurement.AnyAction
+	 * @generated
+	 */
+	public Adapter createAnyActionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link be.edu.ufpe.ines.decode.model.decode.aux.Nameable <em>Nameable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see be.edu.ufpe.ines.decode.model.decode.aux.Nameable
+	 * @generated
+	 */
+	public Adapter createNameableAdapter() {
 		return null;
 	}
 

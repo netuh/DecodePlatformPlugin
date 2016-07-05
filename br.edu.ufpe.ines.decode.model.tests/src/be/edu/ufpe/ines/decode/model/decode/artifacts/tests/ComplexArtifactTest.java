@@ -1,19 +1,19 @@
 /**
  */
-package be.edu.ufpe.ines.decode.model.decode.taskDescription.tests;
+package be.edu.ufpe.ines.decode.model.decode.artifacts.tests;
 
-import be.edu.ufpe.ines.decode.model.decode.taskDescription.Aleatorio;
-import be.edu.ufpe.ines.decode.model.decode.taskDescription.TaskDescriptionFactory;
+import be.edu.ufpe.ines.decode.model.decode.artifacts.ArtifactsFactory;
+import be.edu.ufpe.ines.decode.model.decode.artifacts.ComplexArtifact;
 
 import junit.textui.TestRunner;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Aleatorio</b></em>'.
+ * A test case for the model object '<em><b>Complex Artifact</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class AleatorioTest extends ComposedTaskTest {
+public class ComplexArtifactTest extends AbstractArtifactTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -21,28 +21,28 @@ public class AleatorioTest extends ComposedTaskTest {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(AleatorioTest.class);
+		TestRunner.run(ComplexArtifactTest.class);
 	}
 
 	/**
-	 * Constructs a new Aleatorio test case with the given name.
+	 * Constructs a new Complex Artifact test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AleatorioTest(String name) {
+	public ComplexArtifactTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Returns the fixture for this Aleatorio test case.
+	 * Returns the fixture for this Complex Artifact test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	protected Aleatorio getFixture() {
-		return (Aleatorio)fixture;
+	protected ComplexArtifact getFixture() {
+		return (ComplexArtifact)fixture;
 	}
 
 	/**
@@ -53,7 +53,7 @@ public class AleatorioTest extends ComposedTaskTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(TaskDescriptionFactory.eINSTANCE.createAleatorio());
+		setFixture(ArtifactsFactory.eINSTANCE.createComplexArtifact());
 	}
 
 	/**
@@ -67,4 +67,4 @@ public class AleatorioTest extends ComposedTaskTest {
 		setFixture(null);
 	}
 
-} //AleatorioTest
+} //ComplexArtifactTest

@@ -137,7 +137,7 @@ public class RestrictionItemProvider
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Restriction_type") :
-			getString("_UI_Restriction_type") + " " + label;
+			getString("_UI_Restriction_type") + ": " + label;
 	}
 	
 

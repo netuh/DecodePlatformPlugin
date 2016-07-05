@@ -22,13 +22,31 @@ public interface ArtifactsFactory extends EFactory {
 	ArtifactsFactory eINSTANCE = be.edu.ufpe.ines.decode.model.decode.artifacts.impl.ArtifactsFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Provided Artifact</em>'.
+	 * Returns a new object of class '<em>Atomic Artifact</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Provided Artifact</em>'.
+	 * @return a new object of class '<em>Atomic Artifact</em>'.
 	 * @generated
 	 */
-	ProvidedArtifact createProvidedArtifact();
+	AtomicArtifact createAtomicArtifact();
+
+	/**
+	 * Returns a new object of class '<em>Provided Artefacts</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Provided Artefacts</em>'.
+	 * @generated
+	 */
+	ProvidedArtefacts createProvidedArtefacts();
+
+	/**
+	 * Returns a new object of class '<em>Complex Artifact</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Complex Artifact</em>'.
+	 * @generated
+	 */
+	ComplexArtifact createComplexArtifact();
 
 	/**
 	 * Returns the package supported by this factory.

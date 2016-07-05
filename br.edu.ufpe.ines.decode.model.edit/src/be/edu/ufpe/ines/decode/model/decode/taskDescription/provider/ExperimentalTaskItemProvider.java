@@ -3,8 +3,8 @@
 package be.edu.ufpe.ines.decode.model.decode.taskDescription.provider;
 
 
+import be.edu.ufpe.ines.decode.model.decode.aux.NewPackage4Package;
 import be.edu.ufpe.ines.decode.model.decode.taskDescription.ExperimentalTask;
-import be.edu.ufpe.ines.decode.model.decode.taskDescription.TaskDescriptionFactory;
 import be.edu.ufpe.ines.decode.model.decode.taskDescription.TaskDescriptionPackage;
 
 import java.util.Collection;
@@ -12,9 +12,6 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -48,10 +45,34 @@ public class ExperimentalTaskItemProvider extends ModeledTaskItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addNamePropertyDescriptor(object);
 			addNewAttributePropertyDescriptor(object);
-			addRequiredArtifactPropertyDescriptor(object);
+			addRequiredArtifactsPropertyDescriptor(object);
+			addDependsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Nameable_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Nameable_name_feature", "_UI_Nameable_type"),
+				 NewPackage4Package.Literals.NAMEABLE__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -77,19 +98,19 @@ public class ExperimentalTaskItemProvider extends ModeledTaskItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Required Artifact feature.
+	 * This adds a property descriptor for the Required Artifacts feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addRequiredArtifactPropertyDescriptor(Object object) {
+	protected void addRequiredArtifactsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ExperimentalTask_requiredArtifact_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ExperimentalTask_requiredArtifact_feature", "_UI_ExperimentalTask_type"),
-				 TaskDescriptionPackage.Literals.EXPERIMENTAL_TASK__REQUIRED_ARTIFACT,
+				 getString("_UI_ExperimentalTask_requiredArtifacts_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ExperimentalTask_requiredArtifacts_feature", "_UI_ExperimentalTask_type"),
+				 TaskDescriptionPackage.Literals.EXPERIMENTAL_TASK__REQUIRED_ARTIFACTS,
 				 true,
 				 false,
 				 true,
@@ -99,33 +120,25 @@ public class ExperimentalTaskItemProvider extends ModeledTaskItemProvider {
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * This adds a property descriptor for the Depends feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(TaskDescriptionPackage.Literals.EXPERIMENTAL_TASK__DEPENDENCY);
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
+	protected void addDependsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ExperimentalTask_depends_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ExperimentalTask_depends_feature", "_UI_ExperimentalTask_type"),
+				 TaskDescriptionPackage.Literals.EXPERIMENTAL_TASK__DEPENDS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -147,11 +160,10 @@ public class ExperimentalTaskItemProvider extends ModeledTaskItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		Boolean labelValue = ((ExperimentalTask)object).getNewAttribute();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((ExperimentalTask)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_ExperimentalTask_type") :
-			getString("_UI_ExperimentalTask_type") + " " + label;
+			getString("_UI_ExperimentalTask_type") + ": " + label;
 	}
 	
 
@@ -167,11 +179,9 @@ public class ExperimentalTaskItemProvider extends ModeledTaskItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ExperimentalTask.class)) {
+			case TaskDescriptionPackage.EXPERIMENTAL_TASK__NAME:
 			case TaskDescriptionPackage.EXPERIMENTAL_TASK__NEW_ATTRIBUTE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case TaskDescriptionPackage.EXPERIMENTAL_TASK__DEPENDENCY:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -187,11 +197,6 @@ public class ExperimentalTaskItemProvider extends ModeledTaskItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(TaskDescriptionPackage.Literals.EXPERIMENTAL_TASK__DEPENDENCY,
-				 TaskDescriptionFactory.eINSTANCE.createExperimentalTask()));
 	}
 
 }

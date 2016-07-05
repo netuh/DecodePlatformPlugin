@@ -103,6 +103,15 @@ public interface MeasurementFactory extends EFactory {
 	Testing createTesting();
 
 	/**
+	 * Returns a new object of class '<em>Any Action</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Any Action</em>'.
+	 * @generated
+	 */
+	AnyAction createAnyAction();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

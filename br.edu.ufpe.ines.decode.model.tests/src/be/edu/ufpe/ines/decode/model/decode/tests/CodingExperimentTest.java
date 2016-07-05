@@ -5,8 +5,7 @@ package be.edu.ufpe.ines.decode.model.decode.tests;
 import be.edu.ufpe.ines.decode.model.decode.CodingExperiment;
 import be.edu.ufpe.ines.decode.model.decode.DecodeFactory;
 
-import junit.framework.TestCase;
-
+import be.edu.ufpe.ines.decode.model.decode.aux.tests.NameableTest;
 import junit.textui.TestRunner;
 
 /**
@@ -15,15 +14,7 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class CodingExperimentTest extends TestCase {
-
-	/**
-	 * The fixture for this Coding Experiment test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected CodingExperiment fixture = null;
+public class CodingExperimentTest extends NameableTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -45,23 +36,14 @@ public class CodingExperimentTest extends TestCase {
 	}
 
 	/**
-	 * Sets the fixture for this Coding Experiment test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void setFixture(CodingExperiment fixture) {
-		this.fixture = fixture;
-	}
-
-	/**
 	 * Returns the fixture for this Coding Experiment test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected CodingExperiment getFixture() {
-		return fixture;
+		return (CodingExperiment)fixture;
 	}
 
 	/**

@@ -2,57 +2,55 @@
  */
 package be.edu.ufpe.ines.decode.model.decode.artifacts.impl;
 
-import be.edu.ufpe.ines.decode.model.decode.artifacts.ArtifactType;
+import be.edu.ufpe.ines.decode.model.decode.artifacts.AbstractArtifact;
+import be.edu.ufpe.ines.decode.model.decode.artifacts.ArtifactLanguage;
 import be.edu.ufpe.ines.decode.model.decode.artifacts.ArtifactsPackage;
-import be.edu.ufpe.ines.decode.model.decode.artifacts.ProvidedArtifact;
 
+import be.edu.ufpe.ines.decode.model.decode.aux.impl.NameableImpl;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Provided Artifact</b></em>'.
+ * An implementation of the model object '<em><b>Abstract Artifact</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link be.edu.ufpe.ines.decode.model.decode.artifacts.impl.ProvidedArtifactImpl#getType <em>Type</em>}</li>
+ *   <li>{@link be.edu.ufpe.ines.decode.model.decode.artifacts.impl.AbstractArtifactImpl#getArtifactDomain <em>Artifact Domain</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ProvidedArtifactImpl extends MinimalEObjectImpl.Container implements ProvidedArtifact {
+public abstract class AbstractArtifactImpl extends NameableImpl implements AbstractArtifact {
 	/**
-	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * The default value of the '{@link #getArtifactDomain() <em>Artifact Domain</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getType()
+	 * @see #getArtifactDomain()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final ArtifactType TYPE_EDEFAULT = ArtifactType.CODE;
-
+	protected static final ArtifactLanguage ARTIFACT_DOMAIN_EDEFAULT = ArtifactLanguage.COMMON;
 	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * The cached value of the '{@link #getArtifactDomain() <em>Artifact Domain</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getType()
+	 * @see #getArtifactDomain()
 	 * @generated
 	 * @ordered
 	 */
-	protected ArtifactType type = TYPE_EDEFAULT;
+	protected ArtifactLanguage artifactDomain = ARTIFACT_DOMAIN_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ProvidedArtifactImpl() {
+	protected AbstractArtifactImpl() {
 		super();
 	}
 
@@ -63,7 +61,7 @@ public class ProvidedArtifactImpl extends MinimalEObjectImpl.Container implement
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ArtifactsPackage.Literals.PROVIDED_ARTIFACT;
+		return ArtifactsPackage.Literals.ABSTRACT_ARTIFACT;
 	}
 
 	/**
@@ -71,8 +69,8 @@ public class ProvidedArtifactImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ArtifactType getType() {
-		return type;
+	public ArtifactLanguage getArtifactDomain() {
+		return artifactDomain;
 	}
 
 	/**
@@ -80,11 +78,11 @@ public class ProvidedArtifactImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setType(ArtifactType newType) {
-		ArtifactType oldType = type;
-		type = newType == null ? TYPE_EDEFAULT : newType;
+	public void setArtifactDomain(ArtifactLanguage newArtifactDomain) {
+		ArtifactLanguage oldArtifactDomain = artifactDomain;
+		artifactDomain = newArtifactDomain == null ? ARTIFACT_DOMAIN_EDEFAULT : newArtifactDomain;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ArtifactsPackage.PROVIDED_ARTIFACT__TYPE, oldType, type));
+			eNotify(new ENotificationImpl(this, Notification.SET, ArtifactsPackage.ABSTRACT_ARTIFACT__ARTIFACT_DOMAIN, oldArtifactDomain, artifactDomain));
 	}
 
 	/**
@@ -95,8 +93,8 @@ public class ProvidedArtifactImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ArtifactsPackage.PROVIDED_ARTIFACT__TYPE:
-				return getType();
+			case ArtifactsPackage.ABSTRACT_ARTIFACT__ARTIFACT_DOMAIN:
+				return getArtifactDomain();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -109,8 +107,8 @@ public class ProvidedArtifactImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ArtifactsPackage.PROVIDED_ARTIFACT__TYPE:
-				setType((ArtifactType)newValue);
+			case ArtifactsPackage.ABSTRACT_ARTIFACT__ARTIFACT_DOMAIN:
+				setArtifactDomain((ArtifactLanguage)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -124,8 +122,8 @@ public class ProvidedArtifactImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ArtifactsPackage.PROVIDED_ARTIFACT__TYPE:
-				setType(TYPE_EDEFAULT);
+			case ArtifactsPackage.ABSTRACT_ARTIFACT__ARTIFACT_DOMAIN:
+				setArtifactDomain(ARTIFACT_DOMAIN_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -139,8 +137,8 @@ public class ProvidedArtifactImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ArtifactsPackage.PROVIDED_ARTIFACT__TYPE:
-				return type != TYPE_EDEFAULT;
+			case ArtifactsPackage.ABSTRACT_ARTIFACT__ARTIFACT_DOMAIN:
+				return artifactDomain != ARTIFACT_DOMAIN_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -155,10 +153,10 @@ public class ProvidedArtifactImpl extends MinimalEObjectImpl.Container implement
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (type: ");
-		result.append(type);
+		result.append(" (artifactDomain: ");
+		result.append(artifactDomain);
 		result.append(')');
 		return result.toString();
 	}
 
-} //ProvidedArtifactImpl
+} //AbstractArtifactImpl

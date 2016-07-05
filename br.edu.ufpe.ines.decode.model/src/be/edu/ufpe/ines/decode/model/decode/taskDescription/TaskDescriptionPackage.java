@@ -177,14 +177,14 @@ public interface TaskDescriptionPackage extends EPackage {
 	int SEQUENCIAL_OPERATION_COUNT = COMPOSED_TASK_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link be.edu.ufpe.ines.decode.model.decode.taskDescription.impl.AleatorioImpl <em>Aleatorio</em>}' class.
+	 * The meta object id for the '{@link be.edu.ufpe.ines.decode.model.decode.taskDescription.impl.RandomImpl <em>Random</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see be.edu.ufpe.ines.decode.model.decode.taskDescription.impl.AleatorioImpl
-	 * @see be.edu.ufpe.ines.decode.model.decode.taskDescription.impl.TaskDescriptionPackageImpl#getAleatorio()
+	 * @see be.edu.ufpe.ines.decode.model.decode.taskDescription.impl.RandomImpl
+	 * @see be.edu.ufpe.ines.decode.model.decode.taskDescription.impl.TaskDescriptionPackageImpl#getRandom()
 	 * @generated
 	 */
-	int ALEATORIO = 2;
+	int RANDOM = 2;
 
 	/**
 	 * The feature id for the '<em><b>Restriction</b></em>' containment reference.
@@ -193,7 +193,7 @@ public interface TaskDescriptionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ALEATORIO__RESTRICTION = COMPOSED_TASK__RESTRICTION;
+	int RANDOM__RESTRICTION = COMPOSED_TASK__RESTRICTION;
 
 	/**
 	 * The feature id for the '<em><b>Tasks</b></em>' containment reference list.
@@ -202,25 +202,25 @@ public interface TaskDescriptionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ALEATORIO__TASKS = COMPOSED_TASK_FEATURE_COUNT + 0;
+	int RANDOM__TASKS = COMPOSED_TASK_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Aleatorio</em>' class.
+	 * The number of structural features of the '<em>Random</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ALEATORIO_FEATURE_COUNT = COMPOSED_TASK_FEATURE_COUNT + 1;
+	int RANDOM_FEATURE_COUNT = COMPOSED_TASK_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of operations of the '<em>Aleatorio</em>' class.
+	 * The number of operations of the '<em>Random</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ALEATORIO_OPERATION_COUNT = COMPOSED_TASK_OPERATION_COUNT + 0;
+	int RANDOM_OPERATION_COUNT = COMPOSED_TASK_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link be.edu.ufpe.ines.decode.model.decode.taskDescription.impl.ExperimentalTaskImpl <em>Experimental Task</em>}' class.
@@ -242,31 +242,40 @@ public interface TaskDescriptionPackage extends EPackage {
 	int EXPERIMENTAL_TASK__RESTRICTION = MODELED_TASK__RESTRICTION;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPERIMENTAL_TASK__NAME = MODELED_TASK_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>New Attribute</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXPERIMENTAL_TASK__NEW_ATTRIBUTE = MODELED_TASK_FEATURE_COUNT + 0;
+	int EXPERIMENTAL_TASK__NEW_ATTRIBUTE = MODELED_TASK_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Dependency</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Required Artifacts</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXPERIMENTAL_TASK__DEPENDENCY = MODELED_TASK_FEATURE_COUNT + 1;
+	int EXPERIMENTAL_TASK__REQUIRED_ARTIFACTS = MODELED_TASK_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Required Artifact</b></em>' reference list.
+	 * The feature id for the '<em><b>Depends</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXPERIMENTAL_TASK__REQUIRED_ARTIFACT = MODELED_TASK_FEATURE_COUNT + 2;
+	int EXPERIMENTAL_TASK__DEPENDS = MODELED_TASK_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Experimental Task</em>' class.
@@ -275,7 +284,7 @@ public interface TaskDescriptionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXPERIMENTAL_TASK_FEATURE_COUNT = MODELED_TASK_FEATURE_COUNT + 3;
+	int EXPERIMENTAL_TASK_FEATURE_COUNT = MODELED_TASK_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Experimental Task</em>' class.
@@ -376,25 +385,25 @@ public interface TaskDescriptionPackage extends EPackage {
 	EReference getSequencial_Tasks();
 
 	/**
-	 * Returns the meta object for class '{@link be.edu.ufpe.ines.decode.model.decode.taskDescription.Aleatorio <em>Aleatorio</em>}'.
+	 * Returns the meta object for class '{@link be.edu.ufpe.ines.decode.model.decode.taskDescription.Random <em>Random</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Aleatorio</em>'.
-	 * @see be.edu.ufpe.ines.decode.model.decode.taskDescription.Aleatorio
+	 * @return the meta object for class '<em>Random</em>'.
+	 * @see be.edu.ufpe.ines.decode.model.decode.taskDescription.Random
 	 * @generated
 	 */
-	EClass getAleatorio();
+	EClass getRandom();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link be.edu.ufpe.ines.decode.model.decode.taskDescription.Aleatorio#getTasks <em>Tasks</em>}'.
+	 * Returns the meta object for the containment reference list '{@link be.edu.ufpe.ines.decode.model.decode.taskDescription.Random#getTasks <em>Tasks</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Tasks</em>'.
-	 * @see be.edu.ufpe.ines.decode.model.decode.taskDescription.Aleatorio#getTasks()
-	 * @see #getAleatorio()
+	 * @see be.edu.ufpe.ines.decode.model.decode.taskDescription.Random#getTasks()
+	 * @see #getRandom()
 	 * @generated
 	 */
-	EReference getAleatorio_Tasks();
+	EReference getRandom_Tasks();
 
 	/**
 	 * Returns the meta object for class '{@link be.edu.ufpe.ines.decode.model.decode.taskDescription.ComposedTask <em>Composed Task</em>}'.
@@ -428,26 +437,26 @@ public interface TaskDescriptionPackage extends EPackage {
 	EAttribute getExperimentalTask_NewAttribute();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link be.edu.ufpe.ines.decode.model.decode.taskDescription.ExperimentalTask#getDependency <em>Dependency</em>}'.
+	 * Returns the meta object for the reference list '{@link be.edu.ufpe.ines.decode.model.decode.taskDescription.ExperimentalTask#getRequiredArtifacts <em>Required Artifacts</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Dependency</em>'.
-	 * @see be.edu.ufpe.ines.decode.model.decode.taskDescription.ExperimentalTask#getDependency()
+	 * @return the meta object for the reference list '<em>Required Artifacts</em>'.
+	 * @see be.edu.ufpe.ines.decode.model.decode.taskDescription.ExperimentalTask#getRequiredArtifacts()
 	 * @see #getExperimentalTask()
 	 * @generated
 	 */
-	EReference getExperimentalTask_Dependency();
+	EReference getExperimentalTask_RequiredArtifacts();
 
 	/**
-	 * Returns the meta object for the reference list '{@link be.edu.ufpe.ines.decode.model.decode.taskDescription.ExperimentalTask#getRequiredArtifact <em>Required Artifact</em>}'.
+	 * Returns the meta object for the reference list '{@link be.edu.ufpe.ines.decode.model.decode.taskDescription.ExperimentalTask#getDepends <em>Depends</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Required Artifact</em>'.
-	 * @see be.edu.ufpe.ines.decode.model.decode.taskDescription.ExperimentalTask#getRequiredArtifact()
+	 * @return the meta object for the reference list '<em>Depends</em>'.
+	 * @see be.edu.ufpe.ines.decode.model.decode.taskDescription.ExperimentalTask#getDepends()
 	 * @see #getExperimentalTask()
 	 * @generated
 	 */
-	EReference getExperimentalTask_RequiredArtifact();
+	EReference getExperimentalTask_Depends();
 
 	/**
 	 * Returns the meta object for class '{@link be.edu.ufpe.ines.decode.model.decode.taskDescription.Restriction <em>Restriction</em>}'.
@@ -541,14 +550,14 @@ public interface TaskDescriptionPackage extends EPackage {
 		EReference SEQUENCIAL__TASKS = eINSTANCE.getSequencial_Tasks();
 
 		/**
-		 * The meta object literal for the '{@link be.edu.ufpe.ines.decode.model.decode.taskDescription.impl.AleatorioImpl <em>Aleatorio</em>}' class.
+		 * The meta object literal for the '{@link be.edu.ufpe.ines.decode.model.decode.taskDescription.impl.RandomImpl <em>Random</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see be.edu.ufpe.ines.decode.model.decode.taskDescription.impl.AleatorioImpl
-		 * @see be.edu.ufpe.ines.decode.model.decode.taskDescription.impl.TaskDescriptionPackageImpl#getAleatorio()
+		 * @see be.edu.ufpe.ines.decode.model.decode.taskDescription.impl.RandomImpl
+		 * @see be.edu.ufpe.ines.decode.model.decode.taskDescription.impl.TaskDescriptionPackageImpl#getRandom()
 		 * @generated
 		 */
-		EClass ALEATORIO = eINSTANCE.getAleatorio();
+		EClass RANDOM = eINSTANCE.getRandom();
 
 		/**
 		 * The meta object literal for the '<em><b>Tasks</b></em>' containment reference list feature.
@@ -556,7 +565,7 @@ public interface TaskDescriptionPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ALEATORIO__TASKS = eINSTANCE.getAleatorio_Tasks();
+		EReference RANDOM__TASKS = eINSTANCE.getRandom_Tasks();
 
 		/**
 		 * The meta object literal for the '{@link be.edu.ufpe.ines.decode.model.decode.taskDescription.impl.ComposedTaskImpl <em>Composed Task</em>}' class.
@@ -587,20 +596,20 @@ public interface TaskDescriptionPackage extends EPackage {
 		EAttribute EXPERIMENTAL_TASK__NEW_ATTRIBUTE = eINSTANCE.getExperimentalTask_NewAttribute();
 
 		/**
-		 * The meta object literal for the '<em><b>Dependency</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Required Artifacts</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference EXPERIMENTAL_TASK__DEPENDENCY = eINSTANCE.getExperimentalTask_Dependency();
+		EReference EXPERIMENTAL_TASK__REQUIRED_ARTIFACTS = eINSTANCE.getExperimentalTask_RequiredArtifacts();
 
 		/**
-		 * The meta object literal for the '<em><b>Required Artifact</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Depends</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference EXPERIMENTAL_TASK__REQUIRED_ARTIFACT = eINSTANCE.getExperimentalTask_RequiredArtifact();
+		EReference EXPERIMENTAL_TASK__DEPENDS = eINSTANCE.getExperimentalTask_Depends();
 
 		/**
 		 * The meta object literal for the '{@link be.edu.ufpe.ines.decode.model.decode.taskDescription.impl.RestrictionImpl <em>Restriction</em>}' class.

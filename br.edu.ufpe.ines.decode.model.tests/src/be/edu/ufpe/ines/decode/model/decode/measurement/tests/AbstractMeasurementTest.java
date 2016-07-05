@@ -2,9 +2,8 @@
  */
 package be.edu.ufpe.ines.decode.model.decode.measurement.tests;
 
+import be.edu.ufpe.ines.decode.model.decode.aux.tests.NameableTest;
 import be.edu.ufpe.ines.decode.model.decode.measurement.AbstractMeasurement;
-
-import junit.framework.TestCase;
 
 /**
  * <!-- begin-user-doc -->
@@ -12,15 +11,7 @@ import junit.framework.TestCase;
  * <!-- end-user-doc -->
  * @generated
  */
-public abstract class AbstractMeasurementTest extends TestCase {
-
-	/**
-	 * The fixture for this Abstract Measurement test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected AbstractMeasurement fixture = null;
+public abstract class AbstractMeasurementTest extends NameableTest {
 
 	/**
 	 * Constructs a new Abstract Measurement test case with the given name.
@@ -33,23 +24,14 @@ public abstract class AbstractMeasurementTest extends TestCase {
 	}
 
 	/**
-	 * Sets the fixture for this Abstract Measurement test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void setFixture(AbstractMeasurement fixture) {
-		this.fixture = fixture;
-	}
-
-	/**
 	 * Returns the fixture for this Abstract Measurement test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected AbstractMeasurement getFixture() {
-		return fixture;
+		return (AbstractMeasurement)fixture;
 	}
 
 } //AbstractMeasurementTest

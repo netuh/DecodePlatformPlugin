@@ -3,6 +3,7 @@
 package be.edu.ufpe.ines.decode.model.decode.measurement.provider;
 
 
+import be.edu.ufpe.ines.decode.model.decode.measurement.ObservingAllArtifacts;
 import java.util.Collection;
 import java.util.List;
 
@@ -62,7 +63,10 @@ public class ObservingAllArtifactsItemProvider extends ObservingArtifactItemProv
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ObservingAllArtifacts_type");
+		String label = ((ObservingAllArtifacts)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ObservingAllArtifacts_type") :
+			getString("_UI_ObservingAllArtifacts_type") + ": " + label;
 	}
 	
 

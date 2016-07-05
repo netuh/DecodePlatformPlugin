@@ -88,7 +88,10 @@ public class ObservingArtifactItemProvider extends AbstractMeasurementItemProvid
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ObservingArtifact_type");
+		String label = ((ObservingArtifact)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ObservingArtifact_type") :
+			getString("_UI_ObservingArtifact_type") + ": " + label;
 	}
 	
 
@@ -136,6 +139,11 @@ public class ObservingArtifactItemProvider extends AbstractMeasurementItemProvid
 			(createChildParameter
 				(MeasurementPackage.Literals.OBSERVING_ARTIFACT__ASPECT,
 				 MeasurementFactory.eINSTANCE.createTesting()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MeasurementPackage.Literals.OBSERVING_ARTIFACT__ASPECT,
+				 MeasurementFactory.eINSTANCE.createAnyAction()));
 	}
 
 }

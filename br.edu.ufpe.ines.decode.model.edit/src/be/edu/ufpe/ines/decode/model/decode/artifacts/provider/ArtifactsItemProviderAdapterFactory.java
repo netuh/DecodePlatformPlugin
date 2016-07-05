@@ -72,26 +72,72 @@ public class ArtifactsItemProviderAdapterFactory extends ArtifactsAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link be.edu.ufpe.ines.decode.model.decode.artifacts.ProvidedArtifact} instances.
+	 * This keeps track of the one adapter used for all {@link be.edu.ufpe.ines.decode.model.decode.artifacts.AtomicArtifact} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ProvidedArtifactItemProvider providedArtifactItemProvider;
+	protected AtomicArtifactItemProvider atomicArtifactItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link be.edu.ufpe.ines.decode.model.decode.artifacts.ProvidedArtifact}.
+	 * This creates an adapter for a {@link be.edu.ufpe.ines.decode.model.decode.artifacts.AtomicArtifact}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createProvidedArtifactAdapter() {
-		if (providedArtifactItemProvider == null) {
-			providedArtifactItemProvider = new ProvidedArtifactItemProvider(this);
+	public Adapter createAtomicArtifactAdapter() {
+		if (atomicArtifactItemProvider == null) {
+			atomicArtifactItemProvider = new AtomicArtifactItemProvider(this);
 		}
 
-		return providedArtifactItemProvider;
+		return atomicArtifactItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link be.edu.ufpe.ines.decode.model.decode.artifacts.ProvidedArtefacts} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ProvidedArtefactsItemProvider providedArtefactsItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link be.edu.ufpe.ines.decode.model.decode.artifacts.ProvidedArtefacts}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createProvidedArtefactsAdapter() {
+		if (providedArtefactsItemProvider == null) {
+			providedArtefactsItemProvider = new ProvidedArtefactsItemProvider(this);
+		}
+
+		return providedArtefactsItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link be.edu.ufpe.ines.decode.model.decode.artifacts.ComplexArtifact} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ComplexArtifactItemProvider complexArtifactItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link be.edu.ufpe.ines.decode.model.decode.artifacts.ComplexArtifact}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createComplexArtifactAdapter() {
+		if (complexArtifactItemProvider == null) {
+			complexArtifactItemProvider = new ComplexArtifactItemProvider(this);
+		}
+
+		return complexArtifactItemProvider;
 	}
 
 	/**
@@ -193,7 +239,9 @@ public class ArtifactsItemProviderAdapterFactory extends ArtifactsAdapterFactory
 	 * @generated
 	 */
 	public void dispose() {
-		if (providedArtifactItemProvider != null) providedArtifactItemProvider.dispose();
+		if (atomicArtifactItemProvider != null) atomicArtifactItemProvider.dispose();
+		if (providedArtefactsItemProvider != null) providedArtefactsItemProvider.dispose();
+		if (complexArtifactItemProvider != null) complexArtifactItemProvider.dispose();
 	}
 
 }

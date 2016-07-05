@@ -2,6 +2,7 @@
  */
 package be.edu.ufpe.ines.decode.model.decode.taskDescription.util;
 
+import be.edu.ufpe.ines.decode.model.decode.aux.Nameable;
 import be.edu.ufpe.ines.decode.model.decode.taskDescription.*;
 
 import org.eclipse.emf.ecore.EObject;
@@ -80,11 +81,11 @@ public class TaskDescriptionSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TaskDescriptionPackage.ALEATORIO: {
-				Aleatorio aleatorio = (Aleatorio)theEObject;
-				T result = caseAleatorio(aleatorio);
-				if (result == null) result = caseComposedTask(aleatorio);
-				if (result == null) result = caseModeledTask(aleatorio);
+			case TaskDescriptionPackage.RANDOM: {
+				Random random = (Random)theEObject;
+				T result = caseRandom(random);
+				if (result == null) result = caseComposedTask(random);
+				if (result == null) result = caseModeledTask(random);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -99,6 +100,7 @@ public class TaskDescriptionSwitch<T> extends Switch<T> {
 				ExperimentalTask experimentalTask = (ExperimentalTask)theEObject;
 				T result = caseExperimentalTask(experimentalTask);
 				if (result == null) result = caseModeledTask(experimentalTask);
+				if (result == null) result = caseNameable(experimentalTask);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -143,17 +145,17 @@ public class TaskDescriptionSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Aleatorio</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Random</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Aleatorio</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Random</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseAleatorio(Aleatorio object) {
+	public T caseRandom(Random object) {
 		return null;
 	}
 
@@ -199,6 +201,21 @@ public class TaskDescriptionSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseRestriction(Restriction object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Nameable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Nameable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNameable(Nameable object) {
 		return null;
 	}
 

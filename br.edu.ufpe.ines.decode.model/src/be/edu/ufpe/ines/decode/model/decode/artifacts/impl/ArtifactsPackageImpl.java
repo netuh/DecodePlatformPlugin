@@ -4,11 +4,17 @@ package be.edu.ufpe.ines.decode.model.decode.artifacts.impl;
 
 import be.edu.ufpe.ines.decode.model.decode.DecodePackage;
 
+import be.edu.ufpe.ines.decode.model.decode.artifacts.AbstractArtifact;
+import be.edu.ufpe.ines.decode.model.decode.artifacts.ArtifactLanguage;
 import be.edu.ufpe.ines.decode.model.decode.artifacts.ArtifactType;
 import be.edu.ufpe.ines.decode.model.decode.artifacts.ArtifactsFactory;
 import be.edu.ufpe.ines.decode.model.decode.artifacts.ArtifactsPackage;
-import be.edu.ufpe.ines.decode.model.decode.artifacts.ProvidedArtifact;
-
+import be.edu.ufpe.ines.decode.model.decode.artifacts.AtomicArtifact;
+import be.edu.ufpe.ines.decode.model.decode.artifacts.ComplexArtifact;
+import be.edu.ufpe.ines.decode.model.decode.artifacts.ComplexArtifactType;
+import be.edu.ufpe.ines.decode.model.decode.artifacts.ProvidedArtefacts;
+import be.edu.ufpe.ines.decode.model.decode.aux.NewPackage4Package;
+import be.edu.ufpe.ines.decode.model.decode.aux.impl.NewPackage4PackageImpl;
 import be.edu.ufpe.ines.decode.model.decode.impl.DecodePackageImpl;
 
 import be.edu.ufpe.ines.decode.model.decode.measurement.MeasurementPackage;
@@ -24,6 +30,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -38,7 +45,28 @@ public class ArtifactsPackageImpl extends EPackageImpl implements ArtifactsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass providedArtifactEClass = null;
+	private EClass atomicArtifactEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass providedArtefactsEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass complexArtifactEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass abstractArtifactEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -46,6 +74,20 @@ public class ArtifactsPackageImpl extends EPackageImpl implements ArtifactsPacka
 	 * @generated
 	 */
 	private EEnum artifactTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum complexArtifactTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum artifactLanguageEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -97,18 +139,21 @@ public class ArtifactsPackageImpl extends EPackageImpl implements ArtifactsPacka
 		DecodePackageImpl theDecodePackage = (DecodePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(DecodePackage.eNS_URI) instanceof DecodePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(DecodePackage.eNS_URI) : DecodePackage.eINSTANCE);
 		TaskDescriptionPackageImpl theTaskDescriptionPackage = (TaskDescriptionPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TaskDescriptionPackage.eNS_URI) instanceof TaskDescriptionPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TaskDescriptionPackage.eNS_URI) : TaskDescriptionPackage.eINSTANCE);
 		MeasurementPackageImpl theMeasurementPackage = (MeasurementPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(MeasurementPackage.eNS_URI) instanceof MeasurementPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(MeasurementPackage.eNS_URI) : MeasurementPackage.eINSTANCE);
+		NewPackage4PackageImpl theNewPackage4Package = (NewPackage4PackageImpl)(EPackage.Registry.INSTANCE.getEPackage(NewPackage4Package.eNS_URI) instanceof NewPackage4PackageImpl ? EPackage.Registry.INSTANCE.getEPackage(NewPackage4Package.eNS_URI) : NewPackage4Package.eINSTANCE);
 
 		// Create package meta-data objects
 		theArtifactsPackage.createPackageContents();
 		theDecodePackage.createPackageContents();
 		theTaskDescriptionPackage.createPackageContents();
 		theMeasurementPackage.createPackageContents();
+		theNewPackage4Package.createPackageContents();
 
 		// Initialize created meta-data
 		theArtifactsPackage.initializePackageContents();
 		theDecodePackage.initializePackageContents();
 		theTaskDescriptionPackage.initializePackageContents();
 		theMeasurementPackage.initializePackageContents();
+		theNewPackage4Package.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theArtifactsPackage.freeze();
@@ -124,8 +169,8 @@ public class ArtifactsPackageImpl extends EPackageImpl implements ArtifactsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getProvidedArtifact() {
-		return providedArtifactEClass;
+	public EClass getAtomicArtifact() {
+		return atomicArtifactEClass;
 	}
 
 	/**
@@ -133,8 +178,62 @@ public class ArtifactsPackageImpl extends EPackageImpl implements ArtifactsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getProvidedArtifact_Type() {
-		return (EAttribute)providedArtifactEClass.getEStructuralFeatures().get(0);
+	public EAttribute getAtomicArtifact_Type() {
+		return (EAttribute)atomicArtifactEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getProvidedArtefacts() {
+		return providedArtefactsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getProvidedArtefacts_Artifact() {
+		return (EReference)providedArtefactsEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getComplexArtifact() {
+		return complexArtifactEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getComplexArtifact_Type() {
+		return (EAttribute)complexArtifactEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAbstractArtifact() {
+		return abstractArtifactEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAbstractArtifact_ArtifactDomain() {
+		return (EAttribute)abstractArtifactEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -144,6 +243,24 @@ public class ArtifactsPackageImpl extends EPackageImpl implements ArtifactsPacka
 	 */
 	public EEnum getArtifactType() {
 		return artifactTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getComplexArtifactType() {
+		return complexArtifactTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getArtifactLanguage() {
+		return artifactLanguageEEnum;
 	}
 
 	/**
@@ -174,11 +291,22 @@ public class ArtifactsPackageImpl extends EPackageImpl implements ArtifactsPacka
 		isCreated = true;
 
 		// Create classes and their features
-		providedArtifactEClass = createEClass(PROVIDED_ARTIFACT);
-		createEAttribute(providedArtifactEClass, PROVIDED_ARTIFACT__TYPE);
+		atomicArtifactEClass = createEClass(ATOMIC_ARTIFACT);
+		createEAttribute(atomicArtifactEClass, ATOMIC_ARTIFACT__TYPE);
+
+		providedArtefactsEClass = createEClass(PROVIDED_ARTEFACTS);
+		createEReference(providedArtefactsEClass, PROVIDED_ARTEFACTS__ARTIFACT);
+
+		complexArtifactEClass = createEClass(COMPLEX_ARTIFACT);
+		createEAttribute(complexArtifactEClass, COMPLEX_ARTIFACT__TYPE);
+
+		abstractArtifactEClass = createEClass(ABSTRACT_ARTIFACT);
+		createEAttribute(abstractArtifactEClass, ABSTRACT_ARTIFACT__ARTIFACT_DOMAIN);
 
 		// Create enums
 		artifactTypeEEnum = createEEnum(ARTIFACT_TYPE);
+		complexArtifactTypeEEnum = createEEnum(COMPLEX_ARTIFACT_TYPE);
+		artifactLanguageEEnum = createEEnum(ARTIFACT_LANGUAGE);
 	}
 
 	/**
@@ -204,15 +332,30 @@ public class ArtifactsPackageImpl extends EPackageImpl implements ArtifactsPacka
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
 
+		// Obtain other dependent packages
+		NewPackage4Package theNewPackage4Package = (NewPackage4Package)EPackage.Registry.INSTANCE.getEPackage(NewPackage4Package.eNS_URI);
+
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		atomicArtifactEClass.getESuperTypes().add(this.getAbstractArtifact());
+		complexArtifactEClass.getESuperTypes().add(this.getAbstractArtifact());
+		abstractArtifactEClass.getESuperTypes().add(theNewPackage4Package.getNameable());
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(providedArtifactEClass, ProvidedArtifact.class, "ProvidedArtifact", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getProvidedArtifact_Type(), this.getArtifactType(), "type", null, 0, 1, ProvidedArtifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(atomicArtifactEClass, AtomicArtifact.class, "AtomicArtifact", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAtomicArtifact_Type(), this.getArtifactType(), "type", null, 0, 1, AtomicArtifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(providedArtefactsEClass, ProvidedArtefacts.class, "ProvidedArtefacts", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getProvidedArtefacts_Artifact(), this.getAbstractArtifact(), null, "artifact", null, 0, -1, ProvidedArtefacts.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(complexArtifactEClass, ComplexArtifact.class, "ComplexArtifact", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getComplexArtifact_Type(), this.getComplexArtifactType(), "type", "Project", 0, 1, ComplexArtifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(abstractArtifactEClass, AbstractArtifact.class, "AbstractArtifact", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAbstractArtifact_ArtifactDomain(), this.getArtifactLanguage(), "artifactDomain", "Common", 0, 1, AbstractArtifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(artifactTypeEEnum, ArtifactType.class, "ArtifactType");
@@ -220,6 +363,13 @@ public class ArtifactsPackageImpl extends EPackageImpl implements ArtifactsPacka
 		addEEnumLiteral(artifactTypeEEnum, ArtifactType.TEST);
 		addEEnumLiteral(artifactTypeEEnum, ArtifactType.DESCRIPTION);
 		addEEnumLiteral(artifactTypeEEnum, ArtifactType.DESIGN);
+
+		initEEnum(complexArtifactTypeEEnum, ComplexArtifactType.class, "ComplexArtifactType");
+		addEEnumLiteral(complexArtifactTypeEEnum, ComplexArtifactType.PROJECT);
+
+		initEEnum(artifactLanguageEEnum, ArtifactLanguage.class, "ArtifactLanguage");
+		addEEnumLiteral(artifactLanguageEEnum, ArtifactLanguage.JAVA);
+		addEEnumLiteral(artifactLanguageEEnum, ArtifactLanguage.COMMON);
 	}
 
 } //ArtifactsPackageImpl

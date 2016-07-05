@@ -2,6 +2,7 @@
  */
 package be.edu.ufpe.ines.decode.model.decode.measurement.util;
 
+import be.edu.ufpe.ines.decode.model.decode.aux.Nameable;
 import be.edu.ufpe.ines.decode.model.decode.measurement.*;
 
 import org.eclipse.emf.ecore.EObject;
@@ -76,6 +77,7 @@ public class MeasurementSwitch<T> extends Switch<T> {
 				Survey survey = (Survey)theEObject;
 				T result = caseSurvey(survey);
 				if (result == null) result = caseAbstractMeasurement(survey);
+				if (result == null) result = caseNameable(survey);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -83,6 +85,7 @@ public class MeasurementSwitch<T> extends Switch<T> {
 				TimeOnTask timeOnTask = (TimeOnTask)theEObject;
 				T result = caseTimeOnTask(timeOnTask);
 				if (result == null) result = caseAbstractMeasurement(timeOnTask);
+				if (result == null) result = caseNameable(timeOnTask);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -90,6 +93,7 @@ public class MeasurementSwitch<T> extends Switch<T> {
 				ObservingArtifact observingArtifact = (ObservingArtifact)theEObject;
 				T result = caseObservingArtifact(observingArtifact);
 				if (result == null) result = caseAbstractMeasurement(observingArtifact);
+				if (result == null) result = caseNameable(observingArtifact);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -98,6 +102,7 @@ public class MeasurementSwitch<T> extends Switch<T> {
 				T result = caseObservingProvidedArtifact(observingProvidedArtifact);
 				if (result == null) result = caseObservingArtifact(observingProvidedArtifact);
 				if (result == null) result = caseAbstractMeasurement(observingProvidedArtifact);
+				if (result == null) result = caseNameable(observingProvidedArtifact);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -106,6 +111,7 @@ public class MeasurementSwitch<T> extends Switch<T> {
 				T result = caseObservingProducedArtifact(observingProducedArtifact);
 				if (result == null) result = caseObservingArtifact(observingProducedArtifact);
 				if (result == null) result = caseAbstractMeasurement(observingProducedArtifact);
+				if (result == null) result = caseNameable(observingProducedArtifact);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -114,6 +120,7 @@ public class MeasurementSwitch<T> extends Switch<T> {
 				T result = caseObservingAllArtifacts(observingAllArtifacts);
 				if (result == null) result = caseObservingArtifact(observingAllArtifacts);
 				if (result == null) result = caseAbstractMeasurement(observingAllArtifacts);
+				if (result == null) result = caseNameable(observingAllArtifacts);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -148,6 +155,14 @@ public class MeasurementSwitch<T> extends Switch<T> {
 			case MeasurementPackage.ABSTRACT_MEASUREMENT: {
 				AbstractMeasurement abstractMeasurement = (AbstractMeasurement)theEObject;
 				T result = caseAbstractMeasurement(abstractMeasurement);
+				if (result == null) result = caseNameable(abstractMeasurement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MeasurementPackage.ANY_ACTION: {
+				AnyAction anyAction = (AnyAction)theEObject;
+				T result = caseAnyAction(anyAction);
+				if (result == null) result = caseAspectObserved(anyAction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -332,6 +347,36 @@ public class MeasurementSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseAbstractMeasurement(AbstractMeasurement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Any Action</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Any Action</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAnyAction(AnyAction object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Nameable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Nameable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNameable(Nameable object) {
 		return null;
 	}
 

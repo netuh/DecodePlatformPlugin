@@ -2,8 +2,8 @@
  */
 package be.edu.ufpe.ines.decode.model.decode.taskDescription.impl;
 
-import be.edu.ufpe.ines.decode.model.decode.taskDescription.Aleatorio;
 import be.edu.ufpe.ines.decode.model.decode.taskDescription.ModeledTask;
+import be.edu.ufpe.ines.decode.model.decode.taskDescription.Random;
 import be.edu.ufpe.ines.decode.model.decode.taskDescription.TaskDescriptionPackage;
 
 import java.util.Collection;
@@ -20,18 +20,18 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Aleatorio</b></em>'.
+ * An implementation of the model object '<em><b>Random</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link be.edu.ufpe.ines.decode.model.decode.taskDescription.impl.AleatorioImpl#getTasks <em>Tasks</em>}</li>
+ *   <li>{@link be.edu.ufpe.ines.decode.model.decode.taskDescription.impl.RandomImpl#getTasks <em>Tasks</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class AleatorioImpl extends ComposedTaskImpl implements Aleatorio {
+public class RandomImpl extends ComposedTaskImpl implements Random {
 	/**
 	 * The cached value of the '{@link #getTasks() <em>Tasks</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -47,7 +47,7 @@ public class AleatorioImpl extends ComposedTaskImpl implements Aleatorio {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AleatorioImpl() {
+	protected RandomImpl() {
 		super();
 	}
 
@@ -58,7 +58,7 @@ public class AleatorioImpl extends ComposedTaskImpl implements Aleatorio {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return TaskDescriptionPackage.Literals.ALEATORIO;
+		return TaskDescriptionPackage.Literals.RANDOM;
 	}
 
 	/**
@@ -68,7 +68,7 @@ public class AleatorioImpl extends ComposedTaskImpl implements Aleatorio {
 	 */
 	public EList<ModeledTask> getTasks() {
 		if (tasks == null) {
-			tasks = new EObjectContainmentEList<ModeledTask>(ModeledTask.class, this, TaskDescriptionPackage.ALEATORIO__TASKS);
+			tasks = new EObjectContainmentEList<ModeledTask>(ModeledTask.class, this, TaskDescriptionPackage.RANDOM__TASKS);
 		}
 		return tasks;
 	}
@@ -81,7 +81,7 @@ public class AleatorioImpl extends ComposedTaskImpl implements Aleatorio {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case TaskDescriptionPackage.ALEATORIO__TASKS:
+			case TaskDescriptionPackage.RANDOM__TASKS:
 				return ((InternalEList<?>)getTasks()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -95,7 +95,7 @@ public class AleatorioImpl extends ComposedTaskImpl implements Aleatorio {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case TaskDescriptionPackage.ALEATORIO__TASKS:
+			case TaskDescriptionPackage.RANDOM__TASKS:
 				return getTasks();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -110,7 +110,7 @@ public class AleatorioImpl extends ComposedTaskImpl implements Aleatorio {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case TaskDescriptionPackage.ALEATORIO__TASKS:
+			case TaskDescriptionPackage.RANDOM__TASKS:
 				getTasks().clear();
 				getTasks().addAll((Collection<? extends ModeledTask>)newValue);
 				return;
@@ -126,7 +126,7 @@ public class AleatorioImpl extends ComposedTaskImpl implements Aleatorio {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case TaskDescriptionPackage.ALEATORIO__TASKS:
+			case TaskDescriptionPackage.RANDOM__TASKS:
 				getTasks().clear();
 				return;
 		}
@@ -141,10 +141,10 @@ public class AleatorioImpl extends ComposedTaskImpl implements Aleatorio {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case TaskDescriptionPackage.ALEATORIO__TASKS:
+			case TaskDescriptionPackage.RANDOM__TASKS:
 				return tasks != null && !tasks.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //AleatorioImpl
+} //RandomImpl

@@ -4,6 +4,7 @@ package be.edu.ufpe.ines.decode.model.decode.artifacts.util;
 
 import be.edu.ufpe.ines.decode.model.decode.artifacts.*;
 
+import be.edu.ufpe.ines.decode.model.decode.aux.Nameable;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 
@@ -68,8 +69,24 @@ public class ArtifactsAdapterFactory extends AdapterFactoryImpl {
 	protected ArtifactsSwitch<Adapter> modelSwitch =
 		new ArtifactsSwitch<Adapter>() {
 			@Override
-			public Adapter caseProvidedArtifact(ProvidedArtifact object) {
-				return createProvidedArtifactAdapter();
+			public Adapter caseAtomicArtifact(AtomicArtifact object) {
+				return createAtomicArtifactAdapter();
+			}
+			@Override
+			public Adapter caseProvidedArtefacts(ProvidedArtefacts object) {
+				return createProvidedArtefactsAdapter();
+			}
+			@Override
+			public Adapter caseComplexArtifact(ComplexArtifact object) {
+				return createComplexArtifactAdapter();
+			}
+			@Override
+			public Adapter caseAbstractArtifact(AbstractArtifact object) {
+				return createAbstractArtifactAdapter();
+			}
+			@Override
+			public Adapter caseNameable(Nameable object) {
+				return createNameableAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -92,16 +109,72 @@ public class ArtifactsAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link be.edu.ufpe.ines.decode.model.decode.artifacts.ProvidedArtifact <em>Provided Artifact</em>}'.
+	 * Creates a new adapter for an object of class '{@link be.edu.ufpe.ines.decode.model.decode.artifacts.AtomicArtifact <em>Atomic Artifact</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see be.edu.ufpe.ines.decode.model.decode.artifacts.ProvidedArtifact
+	 * @see be.edu.ufpe.ines.decode.model.decode.artifacts.AtomicArtifact
 	 * @generated
 	 */
-	public Adapter createProvidedArtifactAdapter() {
+	public Adapter createAtomicArtifactAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link be.edu.ufpe.ines.decode.model.decode.artifacts.ProvidedArtefacts <em>Provided Artefacts</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see be.edu.ufpe.ines.decode.model.decode.artifacts.ProvidedArtefacts
+	 * @generated
+	 */
+	public Adapter createProvidedArtefactsAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link be.edu.ufpe.ines.decode.model.decode.artifacts.ComplexArtifact <em>Complex Artifact</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see be.edu.ufpe.ines.decode.model.decode.artifacts.ComplexArtifact
+	 * @generated
+	 */
+	public Adapter createComplexArtifactAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link be.edu.ufpe.ines.decode.model.decode.artifacts.AbstractArtifact <em>Abstract Artifact</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see be.edu.ufpe.ines.decode.model.decode.artifacts.AbstractArtifact
+	 * @generated
+	 */
+	public Adapter createAbstractArtifactAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link be.edu.ufpe.ines.decode.model.decode.aux.Nameable <em>Nameable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see be.edu.ufpe.ines.decode.model.decode.aux.Nameable
+	 * @generated
+	 */
+	public Adapter createNameableAdapter() {
 		return null;
 	}
 

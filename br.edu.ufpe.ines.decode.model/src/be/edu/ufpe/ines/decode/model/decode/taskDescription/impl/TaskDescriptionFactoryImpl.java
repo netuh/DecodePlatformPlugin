@@ -57,7 +57,7 @@ public class TaskDescriptionFactoryImpl extends EFactoryImpl implements TaskDesc
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case TaskDescriptionPackage.SEQUENCIAL: return createSequencial();
-			case TaskDescriptionPackage.ALEATORIO: return createAleatorio();
+			case TaskDescriptionPackage.RANDOM: return createRandom();
 			case TaskDescriptionPackage.EXPERIMENTAL_TASK: return createExperimentalTask();
 			case TaskDescriptionPackage.RESTRICTION: return createRestriction();
 			default:
@@ -80,9 +80,9 @@ public class TaskDescriptionFactoryImpl extends EFactoryImpl implements TaskDesc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Aleatorio createAleatorio() {
-		AleatorioImpl aleatorio = new AleatorioImpl();
-		return aleatorio;
+	public Random createRandom() {
+		RandomImpl random = new RandomImpl();
+		return random;
 	}
 
 	/**

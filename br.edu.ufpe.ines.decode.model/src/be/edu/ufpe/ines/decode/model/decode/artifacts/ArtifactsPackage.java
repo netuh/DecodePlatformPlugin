@@ -2,10 +2,12 @@
  */
 package be.edu.ufpe.ines.decode.model.decode.artifacts;
 
+import be.edu.ufpe.ines.decode.model.decode.aux.NewPackage4Package;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
 
 /**
  * <!-- begin-user-doc -->
@@ -57,14 +59,78 @@ public interface ArtifactsPackage extends EPackage {
 	ArtifactsPackage eINSTANCE = be.edu.ufpe.ines.decode.model.decode.artifacts.impl.ArtifactsPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link be.edu.ufpe.ines.decode.model.decode.artifacts.impl.ProvidedArtifactImpl <em>Provided Artifact</em>}' class.
+	 * The meta object id for the '{@link be.edu.ufpe.ines.decode.model.decode.artifacts.impl.AbstractArtifactImpl <em>Abstract Artifact</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see be.edu.ufpe.ines.decode.model.decode.artifacts.impl.ProvidedArtifactImpl
-	 * @see be.edu.ufpe.ines.decode.model.decode.artifacts.impl.ArtifactsPackageImpl#getProvidedArtifact()
+	 * @see be.edu.ufpe.ines.decode.model.decode.artifacts.impl.AbstractArtifactImpl
+	 * @see be.edu.ufpe.ines.decode.model.decode.artifacts.impl.ArtifactsPackageImpl#getAbstractArtifact()
 	 * @generated
 	 */
-	int PROVIDED_ARTIFACT = 0;
+	int ABSTRACT_ARTIFACT = 3;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_ARTIFACT__NAME = NewPackage4Package.NAMEABLE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Artifact Domain</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_ARTIFACT__ARTIFACT_DOMAIN = NewPackage4Package.NAMEABLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Abstract Artifact</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_ARTIFACT_FEATURE_COUNT = NewPackage4Package.NAMEABLE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Abstract Artifact</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_ARTIFACT_OPERATION_COUNT = NewPackage4Package.NAMEABLE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link be.edu.ufpe.ines.decode.model.decode.artifacts.impl.AtomicArtifactImpl <em>Atomic Artifact</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see be.edu.ufpe.ines.decode.model.decode.artifacts.impl.AtomicArtifactImpl
+	 * @see be.edu.ufpe.ines.decode.model.decode.artifacts.impl.ArtifactsPackageImpl#getAtomicArtifact()
+	 * @generated
+	 */
+	int ATOMIC_ARTIFACT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATOMIC_ARTIFACT__NAME = ABSTRACT_ARTIFACT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Artifact Domain</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATOMIC_ARTIFACT__ARTIFACT_DOMAIN = ABSTRACT_ARTIFACT__ARTIFACT_DOMAIN;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -73,25 +139,117 @@ public interface ArtifactsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROVIDED_ARTIFACT__TYPE = 0;
+	int ATOMIC_ARTIFACT__TYPE = ABSTRACT_ARTIFACT_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Provided Artifact</em>' class.
+	 * The number of structural features of the '<em>Atomic Artifact</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROVIDED_ARTIFACT_FEATURE_COUNT = 1;
+	int ATOMIC_ARTIFACT_FEATURE_COUNT = ABSTRACT_ARTIFACT_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of operations of the '<em>Provided Artifact</em>' class.
+	 * The number of operations of the '<em>Atomic Artifact</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROVIDED_ARTIFACT_OPERATION_COUNT = 0;
+	int ATOMIC_ARTIFACT_OPERATION_COUNT = ABSTRACT_ARTIFACT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link be.edu.ufpe.ines.decode.model.decode.artifacts.impl.ProvidedArtefactsImpl <em>Provided Artefacts</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see be.edu.ufpe.ines.decode.model.decode.artifacts.impl.ProvidedArtefactsImpl
+	 * @see be.edu.ufpe.ines.decode.model.decode.artifacts.impl.ArtifactsPackageImpl#getProvidedArtefacts()
+	 * @generated
+	 */
+	int PROVIDED_ARTEFACTS = 1;
+
+	/**
+	 * The feature id for the '<em><b>Artifact</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROVIDED_ARTEFACTS__ARTIFACT = 0;
+
+	/**
+	 * The number of structural features of the '<em>Provided Artefacts</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROVIDED_ARTEFACTS_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Provided Artefacts</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROVIDED_ARTEFACTS_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link be.edu.ufpe.ines.decode.model.decode.artifacts.impl.ComplexArtifactImpl <em>Complex Artifact</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see be.edu.ufpe.ines.decode.model.decode.artifacts.impl.ComplexArtifactImpl
+	 * @see be.edu.ufpe.ines.decode.model.decode.artifacts.impl.ArtifactsPackageImpl#getComplexArtifact()
+	 * @generated
+	 */
+	int COMPLEX_ARTIFACT = 2;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_ARTIFACT__NAME = ABSTRACT_ARTIFACT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Artifact Domain</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_ARTIFACT__ARTIFACT_DOMAIN = ABSTRACT_ARTIFACT__ARTIFACT_DOMAIN;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_ARTIFACT__TYPE = ABSTRACT_ARTIFACT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Complex Artifact</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_ARTIFACT_FEATURE_COUNT = ABSTRACT_ARTIFACT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Complex Artifact</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_ARTIFACT_OPERATION_COUNT = ABSTRACT_ARTIFACT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link be.edu.ufpe.ines.decode.model.decode.artifacts.ArtifactType <em>Artifact Type</em>}' enum.
@@ -101,29 +259,114 @@ public interface ArtifactsPackage extends EPackage {
 	 * @see be.edu.ufpe.ines.decode.model.decode.artifacts.impl.ArtifactsPackageImpl#getArtifactType()
 	 * @generated
 	 */
-	int ARTIFACT_TYPE = 1;
+	int ARTIFACT_TYPE = 4;
 
 
 	/**
-	 * Returns the meta object for class '{@link be.edu.ufpe.ines.decode.model.decode.artifacts.ProvidedArtifact <em>Provided Artifact</em>}'.
+	 * The meta object id for the '{@link be.edu.ufpe.ines.decode.model.decode.artifacts.ComplexArtifactType <em>Complex Artifact Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Provided Artifact</em>'.
-	 * @see be.edu.ufpe.ines.decode.model.decode.artifacts.ProvidedArtifact
+	 * @see be.edu.ufpe.ines.decode.model.decode.artifacts.ComplexArtifactType
+	 * @see be.edu.ufpe.ines.decode.model.decode.artifacts.impl.ArtifactsPackageImpl#getComplexArtifactType()
 	 * @generated
 	 */
-	EClass getProvidedArtifact();
+	int COMPLEX_ARTIFACT_TYPE = 5;
+
 
 	/**
-	 * Returns the meta object for the attribute '{@link be.edu.ufpe.ines.decode.model.decode.artifacts.ProvidedArtifact#getType <em>Type</em>}'.
+	 * The meta object id for the '{@link be.edu.ufpe.ines.decode.model.decode.artifacts.ArtifactLanguage <em>Artifact Language</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see be.edu.ufpe.ines.decode.model.decode.artifacts.ArtifactLanguage
+	 * @see be.edu.ufpe.ines.decode.model.decode.artifacts.impl.ArtifactsPackageImpl#getArtifactLanguage()
+	 * @generated
+	 */
+	int ARTIFACT_LANGUAGE = 6;
+
+
+	/**
+	 * Returns the meta object for class '{@link be.edu.ufpe.ines.decode.model.decode.artifacts.AtomicArtifact <em>Atomic Artifact</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Atomic Artifact</em>'.
+	 * @see be.edu.ufpe.ines.decode.model.decode.artifacts.AtomicArtifact
+	 * @generated
+	 */
+	EClass getAtomicArtifact();
+
+	/**
+	 * Returns the meta object for the attribute '{@link be.edu.ufpe.ines.decode.model.decode.artifacts.AtomicArtifact#getType <em>Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Type</em>'.
-	 * @see be.edu.ufpe.ines.decode.model.decode.artifacts.ProvidedArtifact#getType()
-	 * @see #getProvidedArtifact()
+	 * @see be.edu.ufpe.ines.decode.model.decode.artifacts.AtomicArtifact#getType()
+	 * @see #getAtomicArtifact()
 	 * @generated
 	 */
-	EAttribute getProvidedArtifact_Type();
+	EAttribute getAtomicArtifact_Type();
+
+	/**
+	 * Returns the meta object for class '{@link be.edu.ufpe.ines.decode.model.decode.artifacts.ProvidedArtefacts <em>Provided Artefacts</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Provided Artefacts</em>'.
+	 * @see be.edu.ufpe.ines.decode.model.decode.artifacts.ProvidedArtefacts
+	 * @generated
+	 */
+	EClass getProvidedArtefacts();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link be.edu.ufpe.ines.decode.model.decode.artifacts.ProvidedArtefacts#getArtifact <em>Artifact</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Artifact</em>'.
+	 * @see be.edu.ufpe.ines.decode.model.decode.artifacts.ProvidedArtefacts#getArtifact()
+	 * @see #getProvidedArtefacts()
+	 * @generated
+	 */
+	EReference getProvidedArtefacts_Artifact();
+
+	/**
+	 * Returns the meta object for class '{@link be.edu.ufpe.ines.decode.model.decode.artifacts.ComplexArtifact <em>Complex Artifact</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Complex Artifact</em>'.
+	 * @see be.edu.ufpe.ines.decode.model.decode.artifacts.ComplexArtifact
+	 * @generated
+	 */
+	EClass getComplexArtifact();
+
+	/**
+	 * Returns the meta object for the attribute '{@link be.edu.ufpe.ines.decode.model.decode.artifacts.ComplexArtifact#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see be.edu.ufpe.ines.decode.model.decode.artifacts.ComplexArtifact#getType()
+	 * @see #getComplexArtifact()
+	 * @generated
+	 */
+	EAttribute getComplexArtifact_Type();
+
+	/**
+	 * Returns the meta object for class '{@link be.edu.ufpe.ines.decode.model.decode.artifacts.AbstractArtifact <em>Abstract Artifact</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Abstract Artifact</em>'.
+	 * @see be.edu.ufpe.ines.decode.model.decode.artifacts.AbstractArtifact
+	 * @generated
+	 */
+	EClass getAbstractArtifact();
+
+	/**
+	 * Returns the meta object for the attribute '{@link be.edu.ufpe.ines.decode.model.decode.artifacts.AbstractArtifact#getArtifactDomain <em>Artifact Domain</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Artifact Domain</em>'.
+	 * @see be.edu.ufpe.ines.decode.model.decode.artifacts.AbstractArtifact#getArtifactDomain()
+	 * @see #getAbstractArtifact()
+	 * @generated
+	 */
+	EAttribute getAbstractArtifact_ArtifactDomain();
 
 	/**
 	 * Returns the meta object for enum '{@link be.edu.ufpe.ines.decode.model.decode.artifacts.ArtifactType <em>Artifact Type</em>}'.
@@ -134,6 +377,26 @@ public interface ArtifactsPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getArtifactType();
+
+	/**
+	 * Returns the meta object for enum '{@link be.edu.ufpe.ines.decode.model.decode.artifacts.ComplexArtifactType <em>Complex Artifact Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Complex Artifact Type</em>'.
+	 * @see be.edu.ufpe.ines.decode.model.decode.artifacts.ComplexArtifactType
+	 * @generated
+	 */
+	EEnum getComplexArtifactType();
+
+	/**
+	 * Returns the meta object for enum '{@link be.edu.ufpe.ines.decode.model.decode.artifacts.ArtifactLanguage <em>Artifact Language</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Artifact Language</em>'.
+	 * @see be.edu.ufpe.ines.decode.model.decode.artifacts.ArtifactLanguage
+	 * @generated
+	 */
+	EEnum getArtifactLanguage();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -159,14 +422,14 @@ public interface ArtifactsPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link be.edu.ufpe.ines.decode.model.decode.artifacts.impl.ProvidedArtifactImpl <em>Provided Artifact</em>}' class.
+		 * The meta object literal for the '{@link be.edu.ufpe.ines.decode.model.decode.artifacts.impl.AtomicArtifactImpl <em>Atomic Artifact</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see be.edu.ufpe.ines.decode.model.decode.artifacts.impl.ProvidedArtifactImpl
-		 * @see be.edu.ufpe.ines.decode.model.decode.artifacts.impl.ArtifactsPackageImpl#getProvidedArtifact()
+		 * @see be.edu.ufpe.ines.decode.model.decode.artifacts.impl.AtomicArtifactImpl
+		 * @see be.edu.ufpe.ines.decode.model.decode.artifacts.impl.ArtifactsPackageImpl#getAtomicArtifact()
 		 * @generated
 		 */
-		EClass PROVIDED_ARTIFACT = eINSTANCE.getProvidedArtifact();
+		EClass ATOMIC_ARTIFACT = eINSTANCE.getAtomicArtifact();
 
 		/**
 		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
@@ -174,7 +437,61 @@ public interface ArtifactsPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PROVIDED_ARTIFACT__TYPE = eINSTANCE.getProvidedArtifact_Type();
+		EAttribute ATOMIC_ARTIFACT__TYPE = eINSTANCE.getAtomicArtifact_Type();
+
+		/**
+		 * The meta object literal for the '{@link be.edu.ufpe.ines.decode.model.decode.artifacts.impl.ProvidedArtefactsImpl <em>Provided Artefacts</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see be.edu.ufpe.ines.decode.model.decode.artifacts.impl.ProvidedArtefactsImpl
+		 * @see be.edu.ufpe.ines.decode.model.decode.artifacts.impl.ArtifactsPackageImpl#getProvidedArtefacts()
+		 * @generated
+		 */
+		EClass PROVIDED_ARTEFACTS = eINSTANCE.getProvidedArtefacts();
+
+		/**
+		 * The meta object literal for the '<em><b>Artifact</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROVIDED_ARTEFACTS__ARTIFACT = eINSTANCE.getProvidedArtefacts_Artifact();
+
+		/**
+		 * The meta object literal for the '{@link be.edu.ufpe.ines.decode.model.decode.artifacts.impl.ComplexArtifactImpl <em>Complex Artifact</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see be.edu.ufpe.ines.decode.model.decode.artifacts.impl.ComplexArtifactImpl
+		 * @see be.edu.ufpe.ines.decode.model.decode.artifacts.impl.ArtifactsPackageImpl#getComplexArtifact()
+		 * @generated
+		 */
+		EClass COMPLEX_ARTIFACT = eINSTANCE.getComplexArtifact();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMPLEX_ARTIFACT__TYPE = eINSTANCE.getComplexArtifact_Type();
+
+		/**
+		 * The meta object literal for the '{@link be.edu.ufpe.ines.decode.model.decode.artifacts.impl.AbstractArtifactImpl <em>Abstract Artifact</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see be.edu.ufpe.ines.decode.model.decode.artifacts.impl.AbstractArtifactImpl
+		 * @see be.edu.ufpe.ines.decode.model.decode.artifacts.impl.ArtifactsPackageImpl#getAbstractArtifact()
+		 * @generated
+		 */
+		EClass ABSTRACT_ARTIFACT = eINSTANCE.getAbstractArtifact();
+
+		/**
+		 * The meta object literal for the '<em><b>Artifact Domain</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_ARTIFACT__ARTIFACT_DOMAIN = eINSTANCE.getAbstractArtifact_ArtifactDomain();
 
 		/**
 		 * The meta object literal for the '{@link be.edu.ufpe.ines.decode.model.decode.artifacts.ArtifactType <em>Artifact Type</em>}' enum.
@@ -185,6 +502,26 @@ public interface ArtifactsPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum ARTIFACT_TYPE = eINSTANCE.getArtifactType();
+
+		/**
+		 * The meta object literal for the '{@link be.edu.ufpe.ines.decode.model.decode.artifacts.ComplexArtifactType <em>Complex Artifact Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see be.edu.ufpe.ines.decode.model.decode.artifacts.ComplexArtifactType
+		 * @see be.edu.ufpe.ines.decode.model.decode.artifacts.impl.ArtifactsPackageImpl#getComplexArtifactType()
+		 * @generated
+		 */
+		EEnum COMPLEX_ARTIFACT_TYPE = eINSTANCE.getComplexArtifactType();
+
+		/**
+		 * The meta object literal for the '{@link be.edu.ufpe.ines.decode.model.decode.artifacts.ArtifactLanguage <em>Artifact Language</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see be.edu.ufpe.ines.decode.model.decode.artifacts.ArtifactLanguage
+		 * @see be.edu.ufpe.ines.decode.model.decode.artifacts.impl.ArtifactsPackageImpl#getArtifactLanguage()
+		 * @generated
+		 */
+		EEnum ARTIFACT_LANGUAGE = eINSTANCE.getArtifactLanguage();
 
 	}
 
