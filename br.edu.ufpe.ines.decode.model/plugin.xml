@@ -10,7 +10,7 @@
       <!-- @generated modelDecode -->
       <package
             uri="http://www.example.org/modelDecode"
-            class="be.edu.ufpe.ines.decode.model.decode.DecodePackage"
+            class="be.edu.ufpe.ines.decode.DecodePackage"
             genModel="model/modelDecode.genmodel"/>
    </extension>
 
@@ -18,7 +18,7 @@
       <!-- @generated modelDecode -->
       <package
             uri="taskDescription"
-            class="be.edu.ufpe.ines.decode.model.decode.taskDescription.TaskDescriptionPackage"
+            class="be.edu.ufpe.ines.decode.taskDescription.TaskDescriptionPackage"
             genModel="model/modelDecode.genmodel"/>
    </extension>
 
@@ -26,7 +26,7 @@
       <!-- @generated modelDecode -->
       <package
             uri="artifacts"
-            class="be.edu.ufpe.ines.decode.model.decode.artifacts.ArtifactsPackage"
+            class="be.edu.ufpe.ines.decode.artifacts.ArtifactsPackage"
             genModel="model/modelDecode.genmodel"/>
    </extension>
 
@@ -34,7 +34,7 @@
       <!-- @generated modelDecode -->
       <package
             uri="measurement"
-            class="be.edu.ufpe.ines.decode.model.decode.measurement.MeasurementPackage"
+            class="be.edu.ufpe.ines.decode.measurement.MeasurementPackage"
             genModel="model/modelDecode.genmodel"/>
    </extension>
 
@@ -42,7 +42,7 @@
       <!-- @generated modelDecode -->
       <package
             uri="aux"
-            class="be.edu.ufpe.ines.decode.model.decode.aux.NewPackage4Package"
+            class="be.edu.ufpe.ines.decode.aux.AuxPackage"
             genModel="model/modelDecode.genmodel"/>
    </extension>
 </plugin>

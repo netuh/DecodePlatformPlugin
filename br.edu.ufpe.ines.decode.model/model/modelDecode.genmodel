@@ -5,16 +5,15 @@
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
     operationReflection="true" importOrganizing="true">
   <foreignModel>modelDecode.ecore</foreignModel>
-  <genPackages prefix="Decode" basePackage="be.edu.ufpe.ines.decode.model" disposableProviderFactory="true"
+  <genPackages prefix="Decode" basePackage="be.edu.ufpe.ines" disposableProviderFactory="true"
       ecorePackage="modelDecode.ecore#/">
     <genClasses ecoreClass="modelDecode.ecore#//CodingExperiment">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modelDecode.ecore#//CodingExperiment/task"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modelDecode.ecore#//CodingExperiment/measurements"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modelDecode.ecore#//CodingExperiment/providedArtefacts"/>
     </genClasses>
-    <nestedGenPackages prefix="TaskDescription" basePackage="be.edu.ufpe.ines.decode.model.decode"
-        disposableProviderFactory="true" multipleEditorPages="false" generateModelWizard="false"
-        ecorePackage="modelDecode.ecore#//taskDescription">
+    <nestedGenPackages prefix="TaskDescription" disposableProviderFactory="true" multipleEditorPages="false"
+        generateModelWizard="false" ecorePackage="modelDecode.ecore#//taskDescription">
       <genClasses image="false" ecoreClass="modelDecode.ecore#//taskDescription/ModeledTask">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modelDecode.ecore#//taskDescription/ModeledTask/restriction"/>
       </genClasses>
@@ -37,9 +36,8 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//taskDescription/Restriction/timeFrame"/>
       </genClasses>
     </nestedGenPackages>
-    <nestedGenPackages prefix="Artifacts" basePackage="be.edu.ufpe.ines.decode.model.decode"
-        disposableProviderFactory="true" multipleEditorPages="false" generateModelWizard="false"
-        ecorePackage="modelDecode.ecore#//artifacts">
+    <nestedGenPackages prefix="Artifacts" disposableProviderFactory="true" multipleEditorPages="false"
+        generateModelWizard="false" ecorePackage="modelDecode.ecore#//artifacts">
       <genEnums typeSafeEnumCompatible="false" ecoreEnum="modelDecode.ecore#//artifacts/ArtifactType">
         <genEnumLiterals ecoreEnumLiteral="modelDecode.ecore#//artifacts/ArtifactType/Code"/>
         <genEnumLiterals ecoreEnumLiteral="modelDecode.ecore#//artifacts/ArtifactType/Test"/>
@@ -62,13 +60,13 @@
       <genClasses ecoreClass="modelDecode.ecore#//artifacts/ComplexArtifact">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//artifacts/ComplexArtifact/type"/>
       </genClasses>
-      <genClasses ecoreClass="modelDecode.ecore#//artifacts/AbstractArtifact">
+      <genClasses image="false" ecoreClass="modelDecode.ecore#//artifacts/AbstractArtifact">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//artifacts/AbstractArtifact/artifactDomain"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//artifacts/AbstractArtifact/file"/>
       </genClasses>
     </nestedGenPackages>
-    <nestedGenPackages prefix="Measurement" basePackage="be.edu.ufpe.ines.decode.model.decode"
-        disposableProviderFactory="true" multipleEditorPages="false" generateModelWizard="false"
-        ecorePackage="modelDecode.ecore#//measurement">
+    <nestedGenPackages prefix="Measurement" disposableProviderFactory="true" multipleEditorPages="false"
+        generateModelWizard="false" ecorePackage="modelDecode.ecore#//measurement">
       <genClasses ecoreClass="modelDecode.ecore#//measurement/Measurements">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modelDecode.ecore#//measurement/Measurements/measurements"/>
       </genClasses>
@@ -95,9 +93,9 @@
       <genClasses image="false" ecoreClass="modelDecode.ecore#//measurement/AbstractMeasurement"/>
       <genClasses ecoreClass="modelDecode.ecore#//measurement/AnyAction"/>
     </nestedGenPackages>
-    <nestedGenPackages prefix="NewPackage4" basePackage="be.edu.ufpe.ines.decode.model.decode"
-        disposableProviderFactory="true" ecorePackage="modelDecode.ecore#//aux">
-      <genClasses ecoreClass="modelDecode.ecore#//aux/Nameable">
+    <nestedGenPackages prefix="Aux" disposableProviderFactory="true" multipleEditorPages="false"
+        generateModelWizard="false" ecorePackage="modelDecode.ecore#//aux">
+      <genClasses image="false" ecoreClass="modelDecode.ecore#//aux/Nameable">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//aux/Nameable/name"/>
       </genClasses>
     </nestedGenPackages>
