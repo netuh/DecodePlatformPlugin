@@ -12,8 +12,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modelDecode.ecore#//CodingExperiment/measurements"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modelDecode.ecore#//CodingExperiment/providedArtefacts"/>
     </genClasses>
-    <nestedGenPackages prefix="TaskDescription" disposableProviderFactory="true" multipleEditorPages="false"
-        generateModelWizard="false" ecorePackage="modelDecode.ecore#//taskDescription">
+    <nestedGenPackages prefix="TaskDescription" basePackage="be.edu.ufpe.ines.decode"
+        disposableProviderFactory="true" multipleEditorPages="false" generateModelWizard="false"
+        ecorePackage="modelDecode.ecore#//taskDescription">
       <genClasses image="false" ecoreClass="modelDecode.ecore#//taskDescription/ModeledTask">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modelDecode.ecore#//taskDescription/ModeledTask/restriction"/>
       </genClasses>
@@ -36,8 +37,8 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//taskDescription/Restriction/timeFrame"/>
       </genClasses>
     </nestedGenPackages>
-    <nestedGenPackages prefix="Artifacts" disposableProviderFactory="true" multipleEditorPages="false"
-        generateModelWizard="false" ecorePackage="modelDecode.ecore#//artifacts">
+    <nestedGenPackages prefix="Artifacts" basePackage="be.edu.ufpe.ines.decode" disposableProviderFactory="true"
+        multipleEditorPages="false" generateModelWizard="false" ecorePackage="modelDecode.ecore#//artifacts">
       <genEnums typeSafeEnumCompatible="false" ecoreEnum="modelDecode.ecore#//artifacts/ArtifactType">
         <genEnumLiterals ecoreEnumLiteral="modelDecode.ecore#//artifacts/ArtifactType/Code"/>
         <genEnumLiterals ecoreEnumLiteral="modelDecode.ecore#//artifacts/ArtifactType/Test"/>
@@ -62,11 +63,13 @@
       </genClasses>
       <genClasses image="false" ecoreClass="modelDecode.ecore#//artifacts/AbstractArtifact">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//artifacts/AbstractArtifact/artifactDomain"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//artifacts/AbstractArtifact/file"/>
+        <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//artifacts/AbstractArtifact/file"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//artifacts/AbstractArtifact/filePath"/>
       </genClasses>
     </nestedGenPackages>
-    <nestedGenPackages prefix="Measurement" disposableProviderFactory="true" multipleEditorPages="false"
-        generateModelWizard="false" ecorePackage="modelDecode.ecore#//measurement">
+    <nestedGenPackages prefix="Measurement" basePackage="be.edu.ufpe.ines.decode"
+        disposableProviderFactory="true" multipleEditorPages="false" generateModelWizard="false"
+        ecorePackage="modelDecode.ecore#//measurement">
       <genClasses ecoreClass="modelDecode.ecore#//measurement/Measurements">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modelDecode.ecore#//measurement/Measurements/measurements"/>
       </genClasses>
@@ -93,8 +96,8 @@
       <genClasses image="false" ecoreClass="modelDecode.ecore#//measurement/AbstractMeasurement"/>
       <genClasses ecoreClass="modelDecode.ecore#//measurement/AnyAction"/>
     </nestedGenPackages>
-    <nestedGenPackages prefix="Aux" disposableProviderFactory="true" multipleEditorPages="false"
-        generateModelWizard="false" ecorePackage="modelDecode.ecore#//aux">
+    <nestedGenPackages prefix="Aux" basePackage="be.edu.ufpe.ines.decode" disposableProviderFactory="true"
+        multipleEditorPages="false" generateModelWizard="false" ecorePackage="modelDecode.ecore#//aux">
       <genClasses image="false" ecoreClass="modelDecode.ecore#//aux/Nameable">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//aux/Nameable/name"/>
       </genClasses>

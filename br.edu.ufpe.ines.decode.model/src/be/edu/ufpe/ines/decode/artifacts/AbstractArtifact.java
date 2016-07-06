@@ -15,6 +15,7 @@ import be.edu.ufpe.ines.decode.aux.Nameable;
  * <ul>
  *   <li>{@link be.edu.ufpe.ines.decode.artifacts.AbstractArtifact#getArtifactDomain <em>Artifact Domain</em>}</li>
  *   <li>{@link be.edu.ufpe.ines.decode.artifacts.AbstractArtifact#getFile <em>File</em>}</li>
+ *   <li>{@link be.edu.ufpe.ines.decode.artifacts.AbstractArtifact#getFilePath <em>File Path</em>}</li>
  * </ul>
  *
  * @see be.edu.ufpe.ines.decode.artifacts.ArtifactsPackage#getAbstractArtifact()
@@ -77,5 +78,31 @@ public interface AbstractArtifact extends Nameable {
 	 * @generated
 	 */
 	void setFile(byte[] value);
+
+	/**
+	 * Returns the value of the '<em><b>File Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>File Path</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>File Path</em>' attribute.
+	 * @see #setFilePath(String)
+	 * @see be.edu.ufpe.ines.decode.artifacts.ArtifactsPackage#getAbstractArtifact_FilePath()
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
+	 * @generated
+	 */
+	String getFilePath();
+
+	/**
+	 * Sets the value of the '{@link be.edu.ufpe.ines.decode.artifacts.AbstractArtifact#getFilePath <em>File Path</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>File Path</em>' attribute.
+	 * @see #getFilePath()
+	 * @generated
+	 */
+	void setFilePath(String value);
 
 } // AbstractArtifact

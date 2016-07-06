@@ -2,17 +2,19 @@
  */
 package be.edu.ufpe.ines.decode.artifacts.impl;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import be.edu.ufpe.ines.decode.artifacts.AbstractArtifact;
 import be.edu.ufpe.ines.decode.artifacts.ArtifactLanguage;
 import be.edu.ufpe.ines.decode.artifacts.ArtifactsPackage;
-
 import be.edu.ufpe.ines.decode.aux.impl.NameableImpl;
-
-import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +26,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link be.edu.ufpe.ines.decode.artifacts.impl.AbstractArtifactImpl#getArtifactDomain <em>Artifact Domain</em>}</li>
  *   <li>{@link be.edu.ufpe.ines.decode.artifacts.impl.AbstractArtifactImpl#getFile <em>File</em>}</li>
+ *   <li>{@link be.edu.ufpe.ines.decode.artifacts.impl.AbstractArtifactImpl#getFilePath <em>File Path</em>}</li>
  * </ul>
  *
  * @generated
@@ -68,6 +71,26 @@ public abstract class AbstractArtifactImpl extends NameableImpl implements Abstr
 	 * @ordered
 	 */
 	protected byte[] file = FILE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getFilePath() <em>File Path</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFilePath()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String FILE_PATH_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getFilePath() <em>File Path</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFilePath()
+	 * @generated
+	 * @ordered
+	 */
+	protected String filePath = FILE_PATH_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -135,6 +158,37 @@ public abstract class AbstractArtifactImpl extends NameableImpl implements Abstr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getFilePath() {
+		return filePath;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFilePath(String newFilePath) {
+		String oldFilePath = filePath;
+		Path path = Paths.get(newFilePath);
+	    byte[] data = null;
+		try {
+			data = Files.readAllBytes(path);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if (data != null)
+			setFile(data);
+		filePath = newFilePath;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ArtifactsPackage.ABSTRACT_ARTIFACT__FILE_PATH, oldFilePath, filePath));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -142,6 +196,8 @@ public abstract class AbstractArtifactImpl extends NameableImpl implements Abstr
 				return getArtifactDomain();
 			case ArtifactsPackage.ABSTRACT_ARTIFACT__FILE:
 				return getFile();
+			case ArtifactsPackage.ABSTRACT_ARTIFACT__FILE_PATH:
+				return getFilePath();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -159,6 +215,9 @@ public abstract class AbstractArtifactImpl extends NameableImpl implements Abstr
 				return;
 			case ArtifactsPackage.ABSTRACT_ARTIFACT__FILE:
 				setFile((byte[])newValue);
+				return;
+			case ArtifactsPackage.ABSTRACT_ARTIFACT__FILE_PATH:
+				setFilePath((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -178,6 +237,9 @@ public abstract class AbstractArtifactImpl extends NameableImpl implements Abstr
 			case ArtifactsPackage.ABSTRACT_ARTIFACT__FILE:
 				setFile(FILE_EDEFAULT);
 				return;
+			case ArtifactsPackage.ABSTRACT_ARTIFACT__FILE_PATH:
+				setFilePath(FILE_PATH_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -194,6 +256,8 @@ public abstract class AbstractArtifactImpl extends NameableImpl implements Abstr
 				return artifactDomain != ARTIFACT_DOMAIN_EDEFAULT;
 			case ArtifactsPackage.ABSTRACT_ARTIFACT__FILE:
 				return FILE_EDEFAULT == null ? file != null : !FILE_EDEFAULT.equals(file);
+			case ArtifactsPackage.ABSTRACT_ARTIFACT__FILE_PATH:
+				return FILE_PATH_EDEFAULT == null ? filePath != null : !FILE_PATH_EDEFAULT.equals(filePath);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -212,6 +276,8 @@ public abstract class AbstractArtifactImpl extends NameableImpl implements Abstr
 		result.append(artifactDomain);
 		result.append(", file: ");
 		result.append(file);
+		result.append(", filePath: ");
+		result.append(filePath);
 		result.append(')');
 		return result.toString();
 	}

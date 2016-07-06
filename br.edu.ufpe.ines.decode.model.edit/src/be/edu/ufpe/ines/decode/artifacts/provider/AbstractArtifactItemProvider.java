@@ -52,7 +52,7 @@ public class AbstractArtifactItemProvider extends NameableItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addArtifactDomainPropertyDescriptor(object);
-			addFilePropertyDescriptor(object);
+			addFilePathPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -80,19 +80,19 @@ public class AbstractArtifactItemProvider extends NameableItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the File feature.
+	 * This adds a property descriptor for the File Path feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addFilePropertyDescriptor(Object object) {
+	protected void addFilePathPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_AbstractArtifact_file_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AbstractArtifact_file_feature", "_UI_AbstractArtifact_type"),
-				 ArtifactsPackage.Literals.ABSTRACT_ARTIFACT__FILE,
+				 getString("_UI_AbstractArtifact_filePath_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AbstractArtifact_filePath_feature", "_UI_AbstractArtifact_type"),
+				 ArtifactsPackage.Literals.ABSTRACT_ARTIFACT__FILE_PATH,
 				 true,
 				 false,
 				 false,
@@ -130,6 +130,7 @@ public class AbstractArtifactItemProvider extends NameableItemProvider {
 		switch (notification.getFeatureID(AbstractArtifact.class)) {
 			case ArtifactsPackage.ABSTRACT_ARTIFACT__ARTIFACT_DOMAIN:
 			case ArtifactsPackage.ABSTRACT_ARTIFACT__FILE:
+			case ArtifactsPackage.ABSTRACT_ARTIFACT__FILE_PATH:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
