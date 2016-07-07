@@ -48,7 +48,7 @@ public class AbstractArtifactItemProvider extends NameableItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addArtifactDomainPropertyDescriptor(object);
-			addFilePathPropertyDescriptor(object);
+			addFilePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -76,20 +76,20 @@ public class AbstractArtifactItemProvider extends NameableItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the File Path feature.
+	 * This adds a property descriptor for the File feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addFilePathPropertyDescriptor(Object object) {
+	protected void addFilePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_AbstractArtifact_filePath_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AbstractArtifact_filePath_feature", "_UI_AbstractArtifact_type"),
-				 ArtifactsPackage.Literals.ABSTRACT_ARTIFACT__FILE_PATH,
-				 false,
+				 getString("_UI_AbstractArtifact_file_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AbstractArtifact_file_feature", "_UI_AbstractArtifact_type"),
+				 ArtifactsPackage.Literals.ABSTRACT_ARTIFACT__FILE,
+				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
@@ -122,10 +122,10 @@ public class AbstractArtifactItemProvider extends NameableItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
 		switch (notification.getFeatureID(AbstractArtifact.class)) {
 			case ArtifactsPackage.ABSTRACT_ARTIFACT__ARTIFACT_DOMAIN:
 			case ArtifactsPackage.ABSTRACT_ARTIFACT__FILE:
-			case ArtifactsPackage.ABSTRACT_ARTIFACT__FILE_PATH:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

@@ -61,6 +61,7 @@ import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.emf.edit.ui.provider.UnwrappingSelectionProvider;
 import org.eclipse.emf.edit.ui.util.EditUIMarkerHelper;
 import org.eclipse.emf.edit.ui.util.EditUIUtil;
+import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.IStatusLineManager;
@@ -122,7 +123,6 @@ import be.edu.ufpe.ines.decode.aux.provider.AuxItemProviderAdapterFactory;
 import be.edu.ufpe.ines.decode.measurement.provider.MeasurementItemProviderAdapterFactory;
 import be.edu.ufpe.ines.decode.provider.DecodeItemProviderAdapterFactory;
 import be.edu.ufpe.ines.decode.sheetpage.MyAdapterFactoryContentProvider;
-import be.edu.ufpe.ines.decode.sheetpage.MyPropertySheetPage;
 import be.edu.ufpe.ines.decode.taskDescription.provider.TaskDescriptionItemProviderAdapterFactory;
 
 
@@ -1364,26 +1364,24 @@ public class DecodeEditor
 	 * This accesses a cached version of the property sheet.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public IPropertySheetPage getPropertySheetPage() {
-//		PropertySheetPage propertySheetPage =
-//			new ExtendedPropertySheetPage(editingDomain) {
-//				@Override
-//				public void setSelectionToViewer(List<?> selection) {
-//					DecodeEditor.this.setSelectionToViewer(selection);
-//					DecodeEditor.this.setFocus();
-//					System.out.println("aqui11!!!");
-//				}
-//
-//				@Override
-//				public void setActionBars(IActionBars actionBars) {
-//					super.setActionBars(actionBars);
-//					getActionBarContributor().shareGlobalActions(this, actionBars);
-//					System.out.println("aqui22!!!");
-//				}
-//			};
-		PropertySheetPage propertySheetPage = new MyPropertySheetPage(editingDomain, this);
+		PropertySheetPage propertySheetPage =
+			new ExtendedPropertySheetPage(editingDomain) {
+				@Override
+				public void setSelectionToViewer(List<?> selection) {
+					DecodeEditor.this.setSelectionToViewer(selection);
+					DecodeEditor.this.setFocus();
+				}
+
+				@Override
+				public void setActionBars(IActionBars actionBars) {
+					super.setActionBars(actionBars);
+					getActionBarContributor().shareGlobalActions(this, actionBars);
+				}
+			};
+		//propertySheetPage.setPropertySourceProvider(new AdapterFactoryContentProvider(adapterFactory));
 		propertySheetPage.setPropertySourceProvider(new MyAdapterFactoryContentProvider(adapterFactory));
 		propertySheetPages.add(propertySheetPage);
 

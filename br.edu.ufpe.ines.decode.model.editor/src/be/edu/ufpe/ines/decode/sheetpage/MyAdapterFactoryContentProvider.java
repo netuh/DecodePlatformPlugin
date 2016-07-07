@@ -39,8 +39,7 @@ public class MyAdapterFactoryContentProvider extends AdapterFactoryContentProvid
                   Object feature = itemPropertyDescriptor.getFeature(this.object);
                   if (feature instanceof EAttribute){
                 	EAttribute att = (EAttribute)feature;
-                	if (att.getName().equals("filePath")){
-                		System.out.println("aqui!!!!!!!qqqq2");
+                	if (att.getName().equals("file")){
                 		return new MyPropertyEditor(composite);
                 	}
                   }

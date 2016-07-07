@@ -97,22 +97,13 @@ public interface ArtifactsPackage extends EPackage {
 	int ABSTRACT_ARTIFACT__FILE = AuxPackage.NAMEABLE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>File Path</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ABSTRACT_ARTIFACT__FILE_PATH = AuxPackage.NAMEABLE_FEATURE_COUNT + 2;
-
-	/**
 	 * The number of structural features of the '<em>Abstract Artifact</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_ARTIFACT_FEATURE_COUNT = AuxPackage.NAMEABLE_FEATURE_COUNT + 3;
+	int ABSTRACT_ARTIFACT_FEATURE_COUNT = AuxPackage.NAMEABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Abstract Artifact</em>' class.
@@ -159,15 +150,6 @@ public interface ArtifactsPackage extends EPackage {
 	 * @ordered
 	 */
 	int ATOMIC_ARTIFACT__FILE = ABSTRACT_ARTIFACT__FILE;
-
-	/**
-	 * The feature id for the '<em><b>File Path</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ATOMIC_ARTIFACT__FILE_PATH = ABSTRACT_ARTIFACT__FILE_PATH;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -269,15 +251,6 @@ public interface ArtifactsPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPLEX_ARTIFACT__FILE = ABSTRACT_ARTIFACT__FILE;
-
-	/**
-	 * The feature id for the '<em><b>File Path</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPLEX_ARTIFACT__FILE_PATH = ABSTRACT_ARTIFACT__FILE_PATH;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -433,17 +406,6 @@ public interface ArtifactsPackage extends EPackage {
 	EAttribute getAbstractArtifact_File();
 
 	/**
-	 * Returns the meta object for the attribute '{@link be.edu.ufpe.ines.decode.artifacts.AbstractArtifact#getFilePath <em>File Path</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>File Path</em>'.
-	 * @see be.edu.ufpe.ines.decode.artifacts.AbstractArtifact#getFilePath()
-	 * @see #getAbstractArtifact()
-	 * @generated
-	 */
-	EAttribute getAbstractArtifact_FilePath();
-
-	/**
 	 * Returns the meta object for enum '{@link be.edu.ufpe.ines.decode.artifacts.ArtifactType <em>Artifact Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -575,14 +537,6 @@ public interface ArtifactsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ABSTRACT_ARTIFACT__FILE = eINSTANCE.getAbstractArtifact_File();
-
-		/**
-		 * The meta object literal for the '<em><b>File Path</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ABSTRACT_ARTIFACT__FILE_PATH = eINSTANCE.getAbstractArtifact_FilePath();
 
 		/**
 		 * The meta object literal for the '{@link be.edu.ufpe.ines.decode.artifacts.ArtifactType <em>Artifact Type</em>}' enum.
