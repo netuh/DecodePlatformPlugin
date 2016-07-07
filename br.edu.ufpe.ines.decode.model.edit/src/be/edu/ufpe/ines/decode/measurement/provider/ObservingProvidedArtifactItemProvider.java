@@ -92,7 +92,7 @@ public class ObservingProvidedArtifactItemProvider extends ObservingArtifactItem
 		String label = ((ObservingProvidedArtifact)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_ObservingProvidedArtifact_type") :
-			getString("_UI_ObservingProvidedArtifact_type") + ": " + label;
+			getString("_UI_ObservingProvidedArtifact_type") + " " + label;
 	}
 	
 

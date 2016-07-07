@@ -165,7 +165,7 @@ public class ExperimentalTaskItemProvider extends ModeledTaskItemProvider {
 		String label = ((ExperimentalTask)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_ExperimentalTask_type") :
-			getString("_UI_ExperimentalTask_type") + ": " + label;
+			getString("_UI_ExperimentalTask_type") + " " + label;
 	}
 	
 

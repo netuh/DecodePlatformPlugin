@@ -94,7 +94,7 @@ public class ComplexArtifactItemProvider extends AbstractArtifactItemProvider {
 		String label = ((ComplexArtifact)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_ComplexArtifact_type") :
-			getString("_UI_ComplexArtifact_type") + ": " + label;
+			getString("_UI_ComplexArtifact_type") + " " + label;
 	}
 	
 

@@ -165,21 +165,22 @@ public abstract class AbstractArtifactImpl extends NameableImpl implements Abstr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public void setFilePath(String newFilePath) {
 		String oldFilePath = filePath;
-		Path path = Paths.get(newFilePath);
-	    byte[] data = null;
-		try {
-			data = Files.readAllBytes(path);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		if (data != null)
-			setFile(data);
 		filePath = newFilePath;
+		
+		Path path = Paths.get(filePath);
+		if (path.toFile().exists()){
+		    try {
+				byte[] data = Files.readAllBytes(path);
+				setFile(data);
+			} catch (IOException e) {
+				filePath = oldFilePath;
+			}
+		}
+		
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ArtifactsPackage.ABSTRACT_ARTIFACT__FILE_PATH, oldFilePath, filePath));
 	}

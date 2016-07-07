@@ -64,7 +64,8 @@
       <genClasses image="false" ecoreClass="modelDecode.ecore#//artifacts/AbstractArtifact">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//artifacts/AbstractArtifact/artifactDomain"/>
         <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//artifacts/AbstractArtifact/file"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//artifacts/AbstractArtifact/filePath"/>
+        <genFeatures property="Readonly" createChild="false" propertyCategory="" propertyDescription=""
+            ecoreFeature="ecore:EAttribute modelDecode.ecore#//artifacts/AbstractArtifact/filePath"/>
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Measurement" basePackage="be.edu.ufpe.ines.decode"

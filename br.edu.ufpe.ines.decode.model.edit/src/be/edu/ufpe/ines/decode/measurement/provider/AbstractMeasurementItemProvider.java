@@ -62,7 +62,7 @@ public class AbstractMeasurementItemProvider extends NameableItemProvider {
 		String label = ((AbstractMeasurement)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_AbstractMeasurement_type") :
-			getString("_UI_AbstractMeasurement_type") + ": " + label;
+			getString("_UI_AbstractMeasurement_type") + " " + label;
 	}
 	
 
