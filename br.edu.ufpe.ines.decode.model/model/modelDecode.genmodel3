@@ -83,9 +83,8 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference modelDecode.ecore#//artifacts/Questionnaire/placementquestionnaire"/>
       </genClasses>
-      <nestedGenPackages prefix="Questionnaire" basePackage="be.edu.ufpe.ines.decode.artifacts"
-          disposableProviderFactory="true" multipleEditorPages="false" generateModelWizard="false"
-          ecorePackage="modelDecode.ecore#//artifacts/questionnaire">
+      <nestedGenPackages prefix="NewPackage1" basePackage="be.edu.ufpe.ines.decode.artifacts"
+          disposableProviderFactory="true" ecorePackage="modelDecode.ecore#//artifacts/questionnaire">
         <genClasses ecoreClass="modelDecode.ecore#//artifacts/questionnaire/ElementaryComponent">
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modelDecode.ecore#//artifacts/questionnaire/ElementaryComponent/restriction"/>
         </genClasses>

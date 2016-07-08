@@ -5,6 +5,7 @@
   <semanticResources>modelDecode.genmodel2</semanticResources>
   <semanticResources>modelDecode.genmodel</semanticResources>
   <semanticResources>http://www.eclipse.org/emf/2002/Ecore</semanticResources>
+  <semanticResources>modelDecode.genmodel3</semanticResources>
   <ownedViews xmi:type="viewpoint:DView" xmi:id="_1tug0DyKEea0-63JXuZNQw">
     <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
     <ownedRepresentations xmi:type="diagram:DSemanticDiagram" xmi:id="_15ym4DyKEea0-63JXuZNQw" name="modelDecode">
