@@ -15,8 +15,14 @@
     <nestedGenPackages prefix="TaskDescription" basePackage="be.edu.ufpe.ines.decode"
         disposableProviderFactory="true" multipleEditorPages="false" generateModelWizard="false"
         ecorePackage="modelDecode.ecore#//taskDescription">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="modelDecode.ecore#//taskDescription/PlacementType">
+        <genEnumLiterals ecoreEnumLiteral="modelDecode.ecore#//taskDescription/PlacementType/After"/>
+        <genEnumLiterals ecoreEnumLiteral="modelDecode.ecore#//taskDescription/PlacementType/Before"/>
+        <genEnumLiterals ecoreEnumLiteral="modelDecode.ecore#//taskDescription/PlacementType/During"/>
+      </genEnums>
       <genClasses image="false" ecoreClass="modelDecode.ecore#//taskDescription/ModeledTask">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modelDecode.ecore#//taskDescription/ModeledTask/restriction"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modelDecode.ecore#//taskDescription/ModeledTask/placement"/>
       </genClasses>
       <genClasses ecoreClass="modelDecode.ecore#//taskDescription/Sequencial">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modelDecode.ecore#//taskDescription/Sequencial/tasks"/>
@@ -35,6 +41,11 @@
       <genClasses ecoreClass="modelDecode.ecore#//taskDescription/Restriction">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//taskDescription/Restriction/deadline"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//taskDescription/Restriction/timeFrame"/>
+      </genClasses>
+      <genClasses ecoreClass="modelDecode.ecore#//taskDescription/PlacementQuestionnaire">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//taskDescription/PlacementQuestionnaire/placement"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference modelDecode.ecore#//taskDescription/PlacementQuestionnaire/questionnaire"/>
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Artifacts" basePackage="be.edu.ufpe.ines.decode" disposableProviderFactory="true"
@@ -61,11 +72,55 @@
       <genClasses ecoreClass="modelDecode.ecore#//artifacts/ComplexArtifact">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//artifacts/ComplexArtifact/type"/>
       </genClasses>
-      <genClasses image="false" ecoreClass="modelDecode.ecore#//artifacts/AbstractArtifact">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//artifacts/AbstractArtifact/artifactDomain"/>
-        <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//artifacts/AbstractArtifact/file"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//artifacts/AbstractArtifact/localFilePath"/>
+      <genClasses image="false" ecoreClass="modelDecode.ecore#//artifacts/FileArtifact">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//artifacts/FileArtifact/artifactDomain"/>
+        <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//artifacts/FileArtifact/file"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//artifacts/FileArtifact/localFilePath"/>
       </genClasses>
+      <genClasses ecoreClass="modelDecode.ecore#//artifacts/AbstractArtifact"/>
+      <genClasses ecoreClass="modelDecode.ecore#//artifacts/Questionnaire">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modelDecode.ecore#//artifacts/Questionnaire/elements"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference modelDecode.ecore#//artifacts/Questionnaire/placementquestionnaire"/>
+      </genClasses>
+      <nestedGenPackages prefix="NewPackage1" disposableProviderFactory="true" ecorePackage="modelDecode.ecore#//artifacts/questionnaire">
+        <genClasses ecoreClass="modelDecode.ecore#//artifacts/questionnaire/ElementaryComponent">
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modelDecode.ecore#//artifacts/questionnaire/ElementaryComponent/restriction"/>
+        </genClasses>
+        <genClasses ecoreClass="modelDecode.ecore#//artifacts/questionnaire/Block">
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modelDecode.ecore#//artifacts/questionnaire/Block/chidren"/>
+        </genClasses>
+        <genClasses ecoreClass="modelDecode.ecore#//artifacts/questionnaire/Question"/>
+        <genClasses ecoreClass="modelDecode.ecore#//artifacts/questionnaire/TextField"/>
+        <genClasses ecoreClass="modelDecode.ecore#//artifacts/questionnaire/ComposedQuestion">
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modelDecode.ecore#//artifacts/questionnaire/ComposedQuestion/choice"/>
+        </genClasses>
+        <genClasses ecoreClass="modelDecode.ecore#//artifacts/questionnaire/Choice"/>
+        <genClasses ecoreClass="modelDecode.ecore#//artifacts/questionnaire/SimpleChoice"/>
+        <genClasses ecoreClass="modelDecode.ecore#//artifacts/questionnaire/MultiChoice">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//artifacts/questionnaire/MultiChoice/min"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//artifacts/questionnaire/MultiChoice/max"/>
+        </genClasses>
+        <genClasses ecoreClass="modelDecode.ecore#//artifacts/questionnaire/Restriction"/>
+        <genClasses ecoreClass="modelDecode.ecore#//artifacts/questionnaire/Appendable">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//artifacts/questionnaire/Appendable/defaultQuantity"/>
+        </genClasses>
+        <genClasses ecoreClass="modelDecode.ecore#//artifacts/questionnaire/Dependent">
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference modelDecode.ecore#//artifacts/questionnaire/Dependent/question"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//artifacts/questionnaire/Dependent/expectedValue"/>
+        </genClasses>
+        <genClasses ecoreClass="modelDecode.ecore#//artifacts/questionnaire/Labelable">
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modelDecode.ecore#//artifacts/questionnaire/Labelable/content"/>
+        </genClasses>
+        <genClasses ecoreClass="modelDecode.ecore#//artifacts/questionnaire/Content">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//artifacts/questionnaire/Content/text"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//artifacts/questionnaire/Content/language"/>
+        </genClasses>
+        <genClasses ecoreClass="modelDecode.ecore#//artifacts/Questionnaire">
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modelDecode.ecore#//artifacts/Questionnaire/elements"/>
+        </genClasses>
+      </nestedGenPackages>
     </nestedGenPackages>
     <nestedGenPackages prefix="Measurement" basePackage="be.edu.ufpe.ines.decode"
         disposableProviderFactory="true" multipleEditorPages="false" generateModelWizard="false"

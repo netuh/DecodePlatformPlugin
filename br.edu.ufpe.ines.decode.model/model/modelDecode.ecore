@@ -13,6 +13,8 @@
     <eClassifiers xsi:type="ecore:EClass" name="ModeledTask" abstract="true">
       <eStructuralFeatures xsi:type="ecore:EReference" name="restriction" eType="#//taskDescription/Restriction"
           containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="placement" eType="#//taskDescription/PlacementQuestionnaire"
+          containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Sequencial" eSuperTypes="#//taskDescription/ComposedTask">
       <eStructuralFeatures xsi:type="ecore:EReference" name="tasks" upperBound="-1"
@@ -26,7 +28,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="ExperimentalTask" eSuperTypes="#//taskDescription/ModeledTask #//aux/Nameable">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="newAttribute" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//BooleanObject"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="requiredArtifacts" upperBound="-1"
-          eType="#//artifacts/AbstractArtifact"/>
+          eType="#//artifacts/FileArtifact"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="depends" upperBound="-1"
           eType="#//taskDescription/ExperimentalTask"/>
     </eClassifiers>
@@ -34,9 +36,20 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="deadline" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeFrame" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Integer"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PlacementQuestionnaire">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="placement" eType="#//taskDescription/PlacementType"
+          defaultValueLiteral="Before"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="questionnaire" eType="#//artifacts/Questionnaire"
+          eOpposite="#//artifacts/Questionnaire/placementquestionnaire"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="PlacementType">
+      <eLiterals name="After"/>
+      <eLiterals name="Before" value="1"/>
+      <eLiterals name="During" value="2"/>
+    </eClassifiers>
   </eSubpackages>
   <eSubpackages name="artifacts" nsURI="artifacts" nsPrefix="artifacts">
-    <eClassifiers xsi:type="ecore:EClass" name="AtomicArtifact" eSuperTypes="#//artifacts/AbstractArtifact">
+    <eClassifiers xsi:type="ecore:EClass" name="AtomicArtifact" eSuperTypes="#//artifacts/FileArtifact">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//artifacts/ArtifactType"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="ArtifactType">
@@ -49,15 +62,14 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="artifact" upperBound="-1"
           eType="#//artifacts/AbstractArtifact" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ComplexArtifact" eSuperTypes="#//artifacts/AbstractArtifact">
+    <eClassifiers xsi:type="ecore:EClass" name="ComplexArtifact" eSuperTypes="#//artifacts/FileArtifact">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//artifacts/ComplexArtifactType"
           defaultValueLiteral="Project"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="ComplexArtifactType">
       <eLiterals name="Project"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="AbstractArtifact" abstract="true"
-        eSuperTypes="#//aux/Nameable">
+    <eClassifiers xsi:type="ecore:EClass" name="FileArtifact" abstract="true" eSuperTypes="#//aux/Nameable #//artifacts/AbstractArtifact">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="artifactDomain" eType="#//artifacts/ArtifactLanguage"
           defaultValueLiteral="Common"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="file" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Base64Binary"/>
@@ -67,6 +79,55 @@
       <eLiterals name="Java"/>
       <eLiterals name="Common" value="1"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AbstractArtifact" abstract="true"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Questionnaire" eSuperTypes="#//artifacts/AbstractArtifact">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="elements" lowerBound="1"
+          upperBound="-1" eType="#//artifacts/questionnaire/ElementaryComponent" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="placementquestionnaire"
+          lowerBound="1" eType="#//taskDescription/PlacementQuestionnaire" eOpposite="#//taskDescription/PlacementQuestionnaire/questionnaire"/>
+    </eClassifiers>
+    <eSubpackages name="questionnaire" nsURI="questionnaire" nsPrefix="questionnaire">
+      <eClassifiers xsi:type="ecore:EClass" name="ElementaryComponent" abstract="true"
+          eSuperTypes="#//artifacts/questionnaire/Labelable">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="restriction" eType="#//artifacts/questionnaire/Restriction"
+            containment="true"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Block" eSuperTypes="#//artifacts/questionnaire/ElementaryComponent">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="chidren" lowerBound="1"
+            upperBound="-1" eType="#//artifacts/questionnaire/ElementaryComponent"
+            containment="true"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Question" abstract="true" eSuperTypes="#//artifacts/questionnaire/ElementaryComponent"/>
+      <eClassifiers xsi:type="ecore:EClass" name="TextField" eSuperTypes="#//artifacts/questionnaire/Question"/>
+      <eClassifiers xsi:type="ecore:EClass" name="ComposedQuestion" abstract="true"
+          eSuperTypes="#//artifacts/questionnaire/Question">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="choice" lowerBound="2"
+            upperBound="-1" eType="#//artifacts/questionnaire/Choice" containment="true"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Choice" eSuperTypes="#//artifacts/questionnaire/Labelable"/>
+      <eClassifiers xsi:type="ecore:EClass" name="SimpleChoice" eSuperTypes="#//artifacts/questionnaire/ComposedQuestion"/>
+      <eClassifiers xsi:type="ecore:EClass" name="MultiChoice" eSuperTypes="#//artifacts/questionnaire/ComposedQuestion">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="min" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="max" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Restriction" abstract="true"/>
+      <eClassifiers xsi:type="ecore:EClass" name="Appendable" eSuperTypes="#//artifacts/questionnaire/Restriction">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultQuantity" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//IntObject"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Dependent" eSuperTypes="#//artifacts/questionnaire/Restriction">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="question" lowerBound="1"
+            eType="#//artifacts/questionnaire/Question"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="expectedValue" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Labelable" abstract="true">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="content" lowerBound="1"
+            upperBound="-1" eType="#//artifacts/questionnaire/Content" containment="true"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Content">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="language" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eClassifiers>
+    </eSubpackages>
   </eSubpackages>
   <eSubpackages name="measurement" nsURI="measurement" nsPrefix="measurement">
     <eClassifiers xsi:type="ecore:EClass" name="Measurements">
