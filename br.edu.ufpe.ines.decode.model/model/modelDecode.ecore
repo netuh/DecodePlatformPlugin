@@ -61,6 +61,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="artifactDomain" eType="#//artifacts/ArtifactLanguage"
           defaultValueLiteral="Common"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="file" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Base64Binary"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="localFilePath" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="ArtifactLanguage">
       <eLiterals name="Java"/>

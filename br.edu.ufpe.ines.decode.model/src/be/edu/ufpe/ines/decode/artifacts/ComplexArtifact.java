@@ -2,6 +2,7 @@
  */
 package be.edu.ufpe.ines.decode.artifacts;
 
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Complex Artifact</b></em>'.

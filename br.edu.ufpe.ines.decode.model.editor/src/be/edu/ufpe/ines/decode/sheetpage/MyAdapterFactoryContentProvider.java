@@ -33,13 +33,13 @@ public class MyAdapterFactoryContentProvider extends AdapterFactoryContentProvid
                 @Override
                 public CellEditor createPropertyEditor(Composite composite)
                 {
-                  // Test for your case based on the feature or the type of the feature.
-                  // See the super method for details.
-                  //
                   Object feature = itemPropertyDescriptor.getFeature(this.object);
                   if (feature instanceof EAttribute){
                 	EAttribute att = (EAttribute)feature;
-                	if (att.getName().equals("file")){
+                	System.out.println("att.getDefaultValueLiteral()="+att.getDefaultValueLiteral());
+                	System.out.println("att.getName()="+att.getName());
+                	System.out.println("att.getDefaultValue()="+att.getDefaultValue());
+                	if (att.getName().equals("localFilePath")){
                 		return new MyPropertyEditor(composite);
                 	}
                   }

@@ -118,6 +118,9 @@
         <genFeatures createChild="false">
           <ecoreFeature xsi:type="ecore:EAttribute" href="modelDecode.ecore#//artifacts/AbstractArtifact/file"/>
         </genFeatures>
+        <genFeatures createChild="false">
+          <ecoreFeature xsi:type="ecore:EAttribute" href="modelDecode.ecore#//artifacts/AbstractArtifact/localFilePath"/>
+        </genFeatures>
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Measurement" basePackage="be.edu.ufpe.ines.decode.model.decode" disposableProviderFactory="true" multipleEditorPages="false" generateModelWizard="false">

@@ -41,6 +41,7 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 
 import org.eclipse.jface.util.LocalSelectionTransfer;
+
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.ISelectionProvider;
@@ -63,9 +64,11 @@ import org.eclipse.swt.events.ControlAdapter;
 import org.eclipse.swt.events.ControlEvent;
 
 import org.eclipse.swt.graphics.Point;
+
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.Tree;
+
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
@@ -98,6 +101,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.ui.MarkerHelper;
+
 import org.eclipse.emf.common.ui.editor.ProblemEditorPart;
 
 import org.eclipse.emf.common.ui.viewer.IViewerProvider;
@@ -1059,7 +1063,7 @@ public class ArtifactsEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@SuppressWarnings("rawtypes")
 	@Override
 	public Object getAdapter(Class key) {
 		if (key.equals(IContentOutlinePage.class)) {

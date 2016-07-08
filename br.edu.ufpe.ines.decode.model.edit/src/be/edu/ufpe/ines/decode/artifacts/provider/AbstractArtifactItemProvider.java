@@ -3,21 +3,25 @@
 package be.edu.ufpe.ines.decode.artifacts.provider;
 
 
+import be.edu.ufpe.ines.decode.artifacts.AbstractArtifact;
+import be.edu.ufpe.ines.decode.artifacts.ArtifactsPackage;
+
+import be.edu.ufpe.ines.decode.aux.provider.NameableItemProvider;
+
+import be.edu.ufpe.ines.decode.provider.ModelDecodeEditPlugin;
+
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
-import be.edu.ufpe.ines.decode.artifacts.AbstractArtifact;
-import be.edu.ufpe.ines.decode.artifacts.ArtifactsPackage;
-import be.edu.ufpe.ines.decode.aux.provider.NameableItemProvider;
-import be.edu.ufpe.ines.decode.provider.ModelDecodeEditPlugin;
 
 /**
  * This is the item provider adapter for a {@link be.edu.ufpe.ines.decode.artifacts.AbstractArtifact} object.
@@ -48,7 +52,7 @@ public class AbstractArtifactItemProvider extends NameableItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addArtifactDomainPropertyDescriptor(object);
-			addFilePropertyDescriptor(object);
+			addLocalFilePathPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -76,19 +80,19 @@ public class AbstractArtifactItemProvider extends NameableItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the File feature.
+	 * This adds a property descriptor for the Local File Path feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addFilePropertyDescriptor(Object object) {
+	protected void addLocalFilePathPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_AbstractArtifact_file_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AbstractArtifact_file_feature", "_UI_AbstractArtifact_type"),
-				 ArtifactsPackage.Literals.ABSTRACT_ARTIFACT__FILE,
+				 getString("_UI_AbstractArtifact_localFilePath_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AbstractArtifact_localFilePath_feature", "_UI_AbstractArtifact_type"),
+				 ArtifactsPackage.Literals.ABSTRACT_ARTIFACT__LOCAL_FILE_PATH,
 				 true,
 				 false,
 				 false,
@@ -126,6 +130,7 @@ public class AbstractArtifactItemProvider extends NameableItemProvider {
 		switch (notification.getFeatureID(AbstractArtifact.class)) {
 			case ArtifactsPackage.ABSTRACT_ARTIFACT__ARTIFACT_DOMAIN:
 			case ArtifactsPackage.ABSTRACT_ARTIFACT__FILE:
+			case ArtifactsPackage.ABSTRACT_ARTIFACT__LOCAL_FILE_PATH:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

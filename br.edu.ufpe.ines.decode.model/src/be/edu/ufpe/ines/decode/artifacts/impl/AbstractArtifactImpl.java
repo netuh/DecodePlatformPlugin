@@ -2,6 +2,11 @@
  */
 package be.edu.ufpe.ines.decode.artifacts.impl;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -21,6 +26,7 @@ import be.edu.ufpe.ines.decode.aux.impl.NameableImpl;
  * <ul>
  *   <li>{@link be.edu.ufpe.ines.decode.artifacts.impl.AbstractArtifactImpl#getArtifactDomain <em>Artifact Domain</em>}</li>
  *   <li>{@link be.edu.ufpe.ines.decode.artifacts.impl.AbstractArtifactImpl#getFile <em>File</em>}</li>
+ *   <li>{@link be.edu.ufpe.ines.decode.artifacts.impl.AbstractArtifactImpl#getLocalFilePath <em>Local File Path</em>}</li>
  * </ul>
  *
  * @generated
@@ -65,6 +71,26 @@ public abstract class AbstractArtifactImpl extends NameableImpl implements Abstr
 	 * @ordered
 	 */
 	protected byte[] file = FILE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getLocalFilePath() <em>Local File Path</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLocalFilePath()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String LOCAL_FILE_PATH_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getLocalFilePath() <em>Local File Path</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLocalFilePath()
+	 * @generated
+	 * @ordered
+	 */
+	protected String localFilePath = LOCAL_FILE_PATH_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -118,48 +144,48 @@ public abstract class AbstractArtifactImpl extends NameableImpl implements Abstr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	public void setFile(byte[] newFile) {
 		byte[] oldFile = file;
 		file = newFile;
-//		System.out.println("decode!");
-//		if(newFile != null){
-//			try {
-//				String decoded = new String(newFile, "UTF-8");
-//				Path path = Paths.get(decoded);
-//				if (path.toFile().exists())
-//					file = Files.readAllBytes(path);
-//			} catch (IOException e) {
-//				file = oldFile;
-//			}  
-//		}
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ArtifactsPackage.ABSTRACT_ARTIFACT__FILE, oldFile, file));
 	}
 
-//	/**
-//	 * <!-- begin-user-doc -->
-//	 * <!-- end-user-doc -->
-//	 * @generated NOT
-//	 */
-//	public void setFilePath(String newFilePath) {
-//		String oldFilePath = filePath;
-//		filePath = newFilePath;
-//		
-//		Path path = Paths.get(filePath);
-//		if (path.toFile().exists()){
-//		    try {
-//				byte[] data = Files.readAllBytes(path);
-//				setFile(data);
-//			} catch (IOException e) {
-//				filePath = oldFilePath;
-//			}
-//		}
-//		
-//		if (eNotificationRequired())
-//			eNotify(new ENotificationImpl(this, Notification.SET, ArtifactsPackage.ABSTRACT_ARTIFACT__FILE_PATH, oldFilePath, filePath));
-//	}
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getLocalFilePath() {
+		return localFilePath;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLocalFilePath(String newLocalFilePath) {
+		System.out.println("pronto");
+		String oldLocalFilePath = localFilePath;
+		localFilePath = newLocalFilePath;
+		
+	    Path path = Paths.get(localFilePath);
+	    System.out.println("pronto Começou");
+	    if (path.toFile().exists()){
+			try {
+				byte[] file = Files.readAllBytes(path);
+				setFile(file);
+				System.out.println("pronto Terminou");
+			} catch (IOException e) {
+				file = null;
+			}
+	    }
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ArtifactsPackage.ABSTRACT_ARTIFACT__LOCAL_FILE_PATH, oldLocalFilePath, localFilePath));
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -173,6 +199,8 @@ public abstract class AbstractArtifactImpl extends NameableImpl implements Abstr
 				return getArtifactDomain();
 			case ArtifactsPackage.ABSTRACT_ARTIFACT__FILE:
 				return getFile();
+			case ArtifactsPackage.ABSTRACT_ARTIFACT__LOCAL_FILE_PATH:
+				return getLocalFilePath();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -190,6 +218,9 @@ public abstract class AbstractArtifactImpl extends NameableImpl implements Abstr
 				return;
 			case ArtifactsPackage.ABSTRACT_ARTIFACT__FILE:
 				setFile((byte[])newValue);
+				return;
+			case ArtifactsPackage.ABSTRACT_ARTIFACT__LOCAL_FILE_PATH:
+				setLocalFilePath((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -209,6 +240,9 @@ public abstract class AbstractArtifactImpl extends NameableImpl implements Abstr
 			case ArtifactsPackage.ABSTRACT_ARTIFACT__FILE:
 				setFile(FILE_EDEFAULT);
 				return;
+			case ArtifactsPackage.ABSTRACT_ARTIFACT__LOCAL_FILE_PATH:
+				setLocalFilePath(LOCAL_FILE_PATH_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -225,6 +259,8 @@ public abstract class AbstractArtifactImpl extends NameableImpl implements Abstr
 				return artifactDomain != ARTIFACT_DOMAIN_EDEFAULT;
 			case ArtifactsPackage.ABSTRACT_ARTIFACT__FILE:
 				return FILE_EDEFAULT == null ? file != null : !FILE_EDEFAULT.equals(file);
+			case ArtifactsPackage.ABSTRACT_ARTIFACT__LOCAL_FILE_PATH:
+				return LOCAL_FILE_PATH_EDEFAULT == null ? localFilePath != null : !LOCAL_FILE_PATH_EDEFAULT.equals(localFilePath);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -243,6 +279,8 @@ public abstract class AbstractArtifactImpl extends NameableImpl implements Abstr
 		result.append(artifactDomain);
 		result.append(", file: ");
 		result.append(file);
+		result.append(", localFilePath: ");
+		result.append(localFilePath);
 		result.append(')');
 		return result.toString();
 	}

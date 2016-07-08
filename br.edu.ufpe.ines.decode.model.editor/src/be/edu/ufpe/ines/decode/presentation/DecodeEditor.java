@@ -720,7 +720,7 @@ public class DecodeEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+			@Override
 	protected void firePropertyChange(int action) {
 		super.firePropertyChange(action);
 	}

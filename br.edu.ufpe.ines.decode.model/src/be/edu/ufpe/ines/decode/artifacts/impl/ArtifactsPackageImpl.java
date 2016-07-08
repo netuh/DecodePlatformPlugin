@@ -258,6 +258,15 @@ public class ArtifactsPackageImpl extends EPackageImpl implements ArtifactsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getAbstractArtifact_LocalFilePath() {
+		return (EAttribute)abstractArtifactEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getArtifactType() {
 		return artifactTypeEEnum;
 	}
@@ -320,6 +329,7 @@ public class ArtifactsPackageImpl extends EPackageImpl implements ArtifactsPacka
 		abstractArtifactEClass = createEClass(ABSTRACT_ARTIFACT);
 		createEAttribute(abstractArtifactEClass, ABSTRACT_ARTIFACT__ARTIFACT_DOMAIN);
 		createEAttribute(abstractArtifactEClass, ABSTRACT_ARTIFACT__FILE);
+		createEAttribute(abstractArtifactEClass, ABSTRACT_ARTIFACT__LOCAL_FILE_PATH);
 
 		// Create enums
 		artifactTypeEEnum = createEEnum(ARTIFACT_TYPE);
@@ -376,6 +386,7 @@ public class ArtifactsPackageImpl extends EPackageImpl implements ArtifactsPacka
 		initEClass(abstractArtifactEClass, AbstractArtifact.class, "AbstractArtifact", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAbstractArtifact_ArtifactDomain(), this.getArtifactLanguage(), "artifactDomain", "Common", 0, 1, AbstractArtifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAbstractArtifact_File(), theXMLTypePackage.getBase64Binary(), "file", null, 0, 1, AbstractArtifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAbstractArtifact_LocalFilePath(), theXMLTypePackage.getString(), "localFilePath", null, 0, 1, AbstractArtifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(artifactTypeEEnum, ArtifactType.class, "ArtifactType");
