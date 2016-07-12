@@ -3,18 +3,22 @@
 package br.edu.ufpe.ines.decode.taskDescription.impl;
 
 import br.edu.ufpe.ines.decode.aux.impl.NameableImpl;
+import br.edu.ufpe.ines.decode.taskDescription.Measurement;
 import br.edu.ufpe.ines.decode.taskDescription.ModeledRestrictions;
 import br.edu.ufpe.ines.decode.taskDescription.ModeledTask;
-import br.edu.ufpe.ines.decode.taskDescription.PlacementQuestionnaire;
 import br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionPackage;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,7 +29,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link br.edu.ufpe.ines.decode.taskDescription.impl.ModeledTaskImpl#getRestriction <em>Restriction</em>}</li>
- *   <li>{@link br.edu.ufpe.ines.decode.taskDescription.impl.ModeledTaskImpl#getPlacement <em>Placement</em>}</li>
+ *   <li>{@link br.edu.ufpe.ines.decode.taskDescription.impl.ModeledTaskImpl#getMeasurements <em>Measurements</em>}</li>
  * </ul>
  *
  * @generated
@@ -42,14 +46,14 @@ public abstract class ModeledTaskImpl extends NameableImpl implements ModeledTas
 	protected ModeledRestrictions restriction;
 
 	/**
-	 * The cached value of the '{@link #getPlacement() <em>Placement</em>}' containment reference.
+	 * The cached value of the '{@link #getMeasurements() <em>Measurements</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPlacement()
+	 * @see #getMeasurements()
 	 * @generated
 	 * @ordered
 	 */
-	protected PlacementQuestionnaire placement;
+	protected EList<Measurement> measurements;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -118,42 +122,11 @@ public abstract class ModeledTaskImpl extends NameableImpl implements ModeledTas
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PlacementQuestionnaire getPlacement() {
-		return placement;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetPlacement(PlacementQuestionnaire newPlacement, NotificationChain msgs) {
-		PlacementQuestionnaire oldPlacement = placement;
-		placement = newPlacement;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TaskDescriptionPackage.MODELED_TASK__PLACEMENT, oldPlacement, newPlacement);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+	public EList<Measurement> getMeasurements() {
+		if (measurements == null) {
+			measurements = new EObjectContainmentEList<Measurement>(Measurement.class, this, TaskDescriptionPackage.MODELED_TASK__MEASUREMENTS);
 		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPlacement(PlacementQuestionnaire newPlacement) {
-		if (newPlacement != placement) {
-			NotificationChain msgs = null;
-			if (placement != null)
-				msgs = ((InternalEObject)placement).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - TaskDescriptionPackage.MODELED_TASK__PLACEMENT, null, msgs);
-			if (newPlacement != null)
-				msgs = ((InternalEObject)newPlacement).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - TaskDescriptionPackage.MODELED_TASK__PLACEMENT, null, msgs);
-			msgs = basicSetPlacement(newPlacement, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TaskDescriptionPackage.MODELED_TASK__PLACEMENT, newPlacement, newPlacement));
+		return measurements;
 	}
 
 	/**
@@ -166,8 +139,8 @@ public abstract class ModeledTaskImpl extends NameableImpl implements ModeledTas
 		switch (featureID) {
 			case TaskDescriptionPackage.MODELED_TASK__RESTRICTION:
 				return basicSetRestriction(null, msgs);
-			case TaskDescriptionPackage.MODELED_TASK__PLACEMENT:
-				return basicSetPlacement(null, msgs);
+			case TaskDescriptionPackage.MODELED_TASK__MEASUREMENTS:
+				return ((InternalEList<?>)getMeasurements()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -182,8 +155,8 @@ public abstract class ModeledTaskImpl extends NameableImpl implements ModeledTas
 		switch (featureID) {
 			case TaskDescriptionPackage.MODELED_TASK__RESTRICTION:
 				return getRestriction();
-			case TaskDescriptionPackage.MODELED_TASK__PLACEMENT:
-				return getPlacement();
+			case TaskDescriptionPackage.MODELED_TASK__MEASUREMENTS:
+				return getMeasurements();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -193,14 +166,16 @@ public abstract class ModeledTaskImpl extends NameableImpl implements ModeledTas
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case TaskDescriptionPackage.MODELED_TASK__RESTRICTION:
 				setRestriction((ModeledRestrictions)newValue);
 				return;
-			case TaskDescriptionPackage.MODELED_TASK__PLACEMENT:
-				setPlacement((PlacementQuestionnaire)newValue);
+			case TaskDescriptionPackage.MODELED_TASK__MEASUREMENTS:
+				getMeasurements().clear();
+				getMeasurements().addAll((Collection<? extends Measurement>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -217,8 +192,8 @@ public abstract class ModeledTaskImpl extends NameableImpl implements ModeledTas
 			case TaskDescriptionPackage.MODELED_TASK__RESTRICTION:
 				setRestriction((ModeledRestrictions)null);
 				return;
-			case TaskDescriptionPackage.MODELED_TASK__PLACEMENT:
-				setPlacement((PlacementQuestionnaire)null);
+			case TaskDescriptionPackage.MODELED_TASK__MEASUREMENTS:
+				getMeasurements().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -234,8 +209,8 @@ public abstract class ModeledTaskImpl extends NameableImpl implements ModeledTas
 		switch (featureID) {
 			case TaskDescriptionPackage.MODELED_TASK__RESTRICTION:
 				return restriction != null;
-			case TaskDescriptionPackage.MODELED_TASK__PLACEMENT:
-				return placement != null;
+			case TaskDescriptionPackage.MODELED_TASK__MEASUREMENTS:
+				return measurements != null && !measurements.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

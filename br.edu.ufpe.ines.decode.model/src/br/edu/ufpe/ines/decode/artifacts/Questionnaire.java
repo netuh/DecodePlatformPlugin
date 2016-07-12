@@ -4,6 +4,7 @@ package br.edu.ufpe.ines.decode.artifacts;
 
 import br.edu.ufpe.ines.decode.artifacts.questionnaire.ElementaryComponent;
 
+import br.edu.ufpe.ines.decode.aux.Nameable;
 import br.edu.ufpe.ines.decode.taskDescription.PlacementQuestionnaire;
 
 import org.eclipse.emf.common.util.EList;
@@ -25,7 +26,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Questionnaire extends AbstractArtifact {
+public interface Questionnaire extends AbstractArtifact, Nameable {
 	/**
 	 * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
 	 * The list contents are of type {@link br.edu.ufpe.ines.decode.artifacts.questionnaire.ElementaryComponent}.

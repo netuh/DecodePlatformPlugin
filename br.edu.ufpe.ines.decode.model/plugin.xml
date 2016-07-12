@@ -22,6 +22,21 @@
             genModel="model/modelDecode.genmodel"/>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated modelDecode -->
+      <parser
+            type="taskdescription"
+            class="br.edu.ufpe.ines.decode.taskDescription.util.TaskDescriptionResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated modelDecode -->
+      <package
+            uri="measurements"
+            class="br.edu.ufpe.ines.decode.taskDescription.measurements.MeasurementsPackage"
+            genModel="model/modelDecode.genmodel"/>
+   </extension>
+
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated modelDecode -->
       <package
@@ -35,14 +50,6 @@
       <package
             uri="questionnaire"
             class="br.edu.ufpe.ines.decode.artifacts.questionnaire.QuestionnairePackage"
-            genModel="model/modelDecode.genmodel"/>
-   </extension>
-
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated modelDecode -->
-      <package
-            uri="measurement"
-            class="br.edu.ufpe.ines.decode.measurement.MeasurementPackage"
             genModel="model/modelDecode.genmodel"/>
    </extension>
 

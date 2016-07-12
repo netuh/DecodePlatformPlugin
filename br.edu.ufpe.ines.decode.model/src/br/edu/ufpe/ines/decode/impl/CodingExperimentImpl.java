@@ -8,9 +8,6 @@ import br.edu.ufpe.ines.decode.DecodePackage;
 import br.edu.ufpe.ines.decode.artifacts.ProvidedArtefacts;
 
 import br.edu.ufpe.ines.decode.aux.impl.NameableImpl;
-
-import br.edu.ufpe.ines.decode.measurement.Measurements;
-
 import br.edu.ufpe.ines.decode.taskDescription.ExecutionDerivations;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -29,7 +26,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link br.edu.ufpe.ines.decode.impl.CodingExperimentImpl#getTask <em>Task</em>}</li>
- *   <li>{@link br.edu.ufpe.ines.decode.impl.CodingExperimentImpl#getMeasurements <em>Measurements</em>}</li>
  *   <li>{@link br.edu.ufpe.ines.decode.impl.CodingExperimentImpl#getProvidedArtefacts <em>Provided Artefacts</em>}</li>
  * </ul>
  *
@@ -45,16 +41,6 @@ public class CodingExperimentImpl extends NameableImpl implements CodingExperime
 	 * @ordered
 	 */
 	protected ExecutionDerivations task;
-
-	/**
-	 * The cached value of the '{@link #getMeasurements() <em>Measurements</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMeasurements()
-	 * @generated
-	 * @ordered
-	 */
-	protected Measurements measurements;
 
 	/**
 	 * The cached value of the '{@link #getProvidedArtefacts() <em>Provided Artefacts</em>}' containment reference.
@@ -133,49 +119,6 @@ public class CodingExperimentImpl extends NameableImpl implements CodingExperime
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Measurements getMeasurements() {
-		return measurements;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetMeasurements(Measurements newMeasurements, NotificationChain msgs) {
-		Measurements oldMeasurements = measurements;
-		measurements = newMeasurements;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DecodePackage.CODING_EXPERIMENT__MEASUREMENTS, oldMeasurements, newMeasurements);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setMeasurements(Measurements newMeasurements) {
-		if (newMeasurements != measurements) {
-			NotificationChain msgs = null;
-			if (measurements != null)
-				msgs = ((InternalEObject)measurements).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DecodePackage.CODING_EXPERIMENT__MEASUREMENTS, null, msgs);
-			if (newMeasurements != null)
-				msgs = ((InternalEObject)newMeasurements).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DecodePackage.CODING_EXPERIMENT__MEASUREMENTS, null, msgs);
-			msgs = basicSetMeasurements(newMeasurements, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DecodePackage.CODING_EXPERIMENT__MEASUREMENTS, newMeasurements, newMeasurements));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public ProvidedArtefacts getProvidedArtefacts() {
 		return providedArtefacts;
 	}
@@ -224,8 +167,6 @@ public class CodingExperimentImpl extends NameableImpl implements CodingExperime
 		switch (featureID) {
 			case DecodePackage.CODING_EXPERIMENT__TASK:
 				return basicSetTask(null, msgs);
-			case DecodePackage.CODING_EXPERIMENT__MEASUREMENTS:
-				return basicSetMeasurements(null, msgs);
 			case DecodePackage.CODING_EXPERIMENT__PROVIDED_ARTEFACTS:
 				return basicSetProvidedArtefacts(null, msgs);
 		}
@@ -242,8 +183,6 @@ public class CodingExperimentImpl extends NameableImpl implements CodingExperime
 		switch (featureID) {
 			case DecodePackage.CODING_EXPERIMENT__TASK:
 				return getTask();
-			case DecodePackage.CODING_EXPERIMENT__MEASUREMENTS:
-				return getMeasurements();
 			case DecodePackage.CODING_EXPERIMENT__PROVIDED_ARTEFACTS:
 				return getProvidedArtefacts();
 		}
@@ -260,9 +199,6 @@ public class CodingExperimentImpl extends NameableImpl implements CodingExperime
 		switch (featureID) {
 			case DecodePackage.CODING_EXPERIMENT__TASK:
 				setTask((ExecutionDerivations)newValue);
-				return;
-			case DecodePackage.CODING_EXPERIMENT__MEASUREMENTS:
-				setMeasurements((Measurements)newValue);
 				return;
 			case DecodePackage.CODING_EXPERIMENT__PROVIDED_ARTEFACTS:
 				setProvidedArtefacts((ProvidedArtefacts)newValue);
@@ -282,9 +218,6 @@ public class CodingExperimentImpl extends NameableImpl implements CodingExperime
 			case DecodePackage.CODING_EXPERIMENT__TASK:
 				setTask((ExecutionDerivations)null);
 				return;
-			case DecodePackage.CODING_EXPERIMENT__MEASUREMENTS:
-				setMeasurements((Measurements)null);
-				return;
 			case DecodePackage.CODING_EXPERIMENT__PROVIDED_ARTEFACTS:
 				setProvidedArtefacts((ProvidedArtefacts)null);
 				return;
@@ -302,8 +235,6 @@ public class CodingExperimentImpl extends NameableImpl implements CodingExperime
 		switch (featureID) {
 			case DecodePackage.CODING_EXPERIMENT__TASK:
 				return task != null;
-			case DecodePackage.CODING_EXPERIMENT__MEASUREMENTS:
-				return measurements != null;
 			case DecodePackage.CODING_EXPERIMENT__PROVIDED_ARTEFACTS:
 				return providedArtefacts != null;
 		}

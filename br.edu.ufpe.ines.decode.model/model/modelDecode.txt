@@ -9,9 +9,6 @@
         <ecoreFeature xsi:type="ecore:EReference" href="modelDecode.ecore#//CodingExperiment/task"/>
       </genFeatures>
       <genFeatures property="None" children="true" createChild="true">
-        <ecoreFeature xsi:type="ecore:EReference" href="modelDecode.ecore#//CodingExperiment/measurements"/>
-      </genFeatures>
-      <genFeatures property="None" children="true" createChild="true">
         <ecoreFeature xsi:type="ecore:EReference" href="modelDecode.ecore#//CodingExperiment/providedArtefacts"/>
       </genFeatures>
     </genClasses>
@@ -35,7 +32,7 @@
           <ecoreFeature xsi:type="ecore:EReference" href="modelDecode.ecore#//taskDescription/ModeledTask/restriction"/>
         </genFeatures>
         <genFeatures property="None" children="true" createChild="true">
-          <ecoreFeature xsi:type="ecore:EReference" href="modelDecode.ecore#//taskDescription/ModeledTask/placement"/>
+          <ecoreFeature xsi:type="ecore:EReference" href="modelDecode.ecore#//taskDescription/ModeledTask/measurements"/>
         </genFeatures>
       </genClasses>
       <genClasses>
@@ -116,6 +113,36 @@
           <ecoreFeature xsi:type="ecore:EReference" href="modelDecode.ecore#//taskDescription/ModeledRestrictions/children"/>
         </genFeatures>
       </genClasses>
+      <genClasses>
+        <ecoreClass href="modelDecode.ecore#//taskDescription/Measurement"/>
+      </genClasses>
+      <nestedGenPackages prefix="NewPackage1" disposableProviderFactory="true">
+        <ecorePackage href="modelDecode.ecore#//taskDescription/measurements"/>
+        <genClasses>
+          <ecoreClass href="modelDecode.ecore#//taskDescription/measurements/OtherMeasurement"/>
+        </genClasses>
+        <genClasses>
+          <ecoreClass href="modelDecode.ecore#//taskDescription/measurements/ObservingArtifact"/>
+        </genClasses>
+        <genClasses>
+          <ecoreClass href="modelDecode.ecore#//taskDescription/measurements/TimeOnTask"/>
+        </genClasses>
+        <genClasses>
+          <ecoreClass href="modelDecode.ecore#//taskDescription/measurements/Edition"/>
+        </genClasses>
+        <genClasses>
+          <ecoreClass href="modelDecode.ecore#//taskDescription/measurements/Execution"/>
+        </genClasses>
+        <genClasses>
+          <ecoreClass href="modelDecode.ecore#//taskDescription/measurements/AnyAction"/>
+        </genClasses>
+        <genClasses>
+          <ecoreClass href="modelDecode.ecore#//taskDescription/measurements/TestExecution"/>
+          <genFeatures createChild="false">
+            <ecoreFeature xsi:type="ecore:EAttribute" href="modelDecode.ecore#//taskDescription/measurements/TestExecution/observePassedTest"/>
+          </genFeatures>
+        </genClasses>
+      </nestedGenPackages>
     </nestedGenPackages>
     <nestedGenPackages prefix="Artifacts" basePackage="be.edu.ufpe.ines.decode" disposableProviderFactory="true" multipleEditorPages="false" generateModelWizard="false">
       <ecorePackage href="modelDecode.ecore#//artifacts"/>
@@ -266,63 +293,6 @@
           </genFeatures>
         </genClasses>
       </nestedGenPackages>
-    </nestedGenPackages>
-    <nestedGenPackages prefix="Measurement" basePackage="be.edu.ufpe.ines.decode" disposableProviderFactory="true" multipleEditorPages="false" generateModelWizard="false">
-      <ecorePackage href="modelDecode.ecore#//measurement"/>
-      <genClasses>
-        <ecoreClass href="modelDecode.ecore#//measurement/Measurements"/>
-        <genFeatures property="None" children="true" createChild="true">
-          <ecoreFeature xsi:type="ecore:EReference" href="modelDecode.ecore#//measurement/Measurements/measurements"/>
-        </genFeatures>
-      </genClasses>
-      <genClasses>
-        <ecoreClass href="modelDecode.ecore#//measurement/Survey"/>
-      </genClasses>
-      <genClasses>
-        <ecoreClass href="modelDecode.ecore#//measurement/TimeOnTask"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true">
-          <ecoreFeature xsi:type="ecore:EReference" href="modelDecode.ecore#//measurement/TimeOnTask/relatedTask"/>
-        </genFeatures>
-      </genClasses>
-      <genClasses image="false">
-        <ecoreClass href="modelDecode.ecore#//measurement/ObservingArtifact"/>
-        <genFeatures property="None" children="true" createChild="true">
-          <ecoreFeature xsi:type="ecore:EReference" href="modelDecode.ecore#//measurement/ObservingArtifact/aspect"/>
-        </genFeatures>
-      </genClasses>
-      <genClasses>
-        <ecoreClass href="modelDecode.ecore#//measurement/ObservingProvidedArtifact"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true">
-          <ecoreFeature xsi:type="ecore:EReference" href="modelDecode.ecore#//measurement/ObservingProvidedArtifact/observedArtifact"/>
-        </genFeatures>
-      </genClasses>
-      <genClasses>
-        <ecoreClass href="modelDecode.ecore#//measurement/ObservingProducedArtifact"/>
-      </genClasses>
-      <genClasses>
-        <ecoreClass href="modelDecode.ecore#//measurement/ObservingAllArtifacts"/>
-      </genClasses>
-      <genClasses image="false">
-        <ecoreClass href="modelDecode.ecore#//measurement/AspectObserved"/>
-      </genClasses>
-      <genClasses>
-        <ecoreClass href="modelDecode.ecore#//measurement/Edition"/>
-      </genClasses>
-      <genClasses>
-        <ecoreClass href="modelDecode.ecore#//measurement/Execution"/>
-      </genClasses>
-      <genClasses>
-        <ecoreClass href="modelDecode.ecore#//measurement/Testing"/>
-        <genFeatures createChild="false">
-          <ecoreFeature xsi:type="ecore:EAttribute" href="modelDecode.ecore#//measurement/Testing/ObservePassedTest"/>
-        </genFeatures>
-      </genClasses>
-      <genClasses image="false">
-        <ecoreClass href="modelDecode.ecore#//measurement/AbstractMeasurement"/>
-      </genClasses>
-      <genClasses>
-        <ecoreClass href="modelDecode.ecore#//measurement/AnyAction"/>
-      </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Aux" basePackage="be.edu.ufpe.ines.decode" disposableProviderFactory="true" multipleEditorPages="false" generateModelWizard="false">
       <ecorePackage href="modelDecode.ecore#//aux"/>

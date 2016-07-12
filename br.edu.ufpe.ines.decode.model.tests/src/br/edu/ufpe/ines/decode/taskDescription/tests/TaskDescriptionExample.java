@@ -6,6 +6,7 @@ import br.edu.ufpe.ines.decode.taskDescription.Sequencial;
 import br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionFactory;
 import br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionPackage;
 
+import br.edu.ufpe.ines.decode.taskDescription.util.TaskDescriptionResourceFactoryImpl;
 import java.io.File;
 import java.io.IOException;
 
@@ -20,8 +21,6 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 
 import org.eclipse.emf.ecore.util.Diagnostician;
-
-import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -46,7 +45,7 @@ public class TaskDescriptionExample {
 		//
 		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put
 			(Resource.Factory.Registry.DEFAULT_EXTENSION, 
-			 new XMIResourceFactoryImpl());
+			 new TaskDescriptionResourceFactoryImpl());
 
 		// Register the package to ensure it is available during loading.
 		//

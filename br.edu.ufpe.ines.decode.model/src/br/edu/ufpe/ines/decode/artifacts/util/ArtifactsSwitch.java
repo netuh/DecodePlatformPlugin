@@ -110,6 +110,7 @@ public class ArtifactsSwitch<T> extends Switch<T> {
 				Questionnaire questionnaire = (Questionnaire)theEObject;
 				T result = caseQuestionnaire(questionnaire);
 				if (result == null) result = caseAbstractArtifact(questionnaire);
+				if (result == null) result = caseNameable(questionnaire);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

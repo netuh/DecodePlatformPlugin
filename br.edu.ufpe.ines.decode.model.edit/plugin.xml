@@ -35,6 +35,19 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <!-- @generated modelDecode -->
       <factory
+            uri="measurements"
+            class="br.edu.ufpe.ines.decode.taskDescription.measurements.provider.MeasurementsItemProviderAdapterFactory"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <!-- @generated modelDecode -->
+      <factory
             uri="artifacts"
             class="br.edu.ufpe.ines.decode.artifacts.provider.ArtifactsItemProviderAdapterFactory"
             supportedTypes=
@@ -50,19 +63,6 @@
       <factory
             uri="questionnaire"
             class="br.edu.ufpe.ines.decode.artifacts.questionnaire.provider.QuestionnaireItemProviderAdapterFactory"
-            supportedTypes=
-              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
-               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
-               org.eclipse.emf.edit.provider.ITreeItemContentProvider
-               org.eclipse.emf.edit.provider.IItemLabelProvider
-               org.eclipse.emf.edit.provider.IItemPropertySource"/>
-   </extension>
-
-   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
-      <!-- @generated modelDecode -->
-      <factory
-            uri="measurement"
-            class="br.edu.ufpe.ines.decode.measurement.provider.MeasurementItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider

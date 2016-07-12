@@ -4,9 +4,6 @@ package br.edu.ufpe.ines.decode.taskDescription.tests;
 
 import br.edu.ufpe.ines.decode.taskDescription.PlacementQuestionnaire;
 import br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionFactory;
-
-import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 /**
@@ -15,15 +12,7 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class PlacementQuestionnaireTest extends TestCase {
-
-	/**
-	 * The fixture for this Placement Questionnaire test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected PlacementQuestionnaire fixture = null;
+public class PlacementQuestionnaireTest extends MeasurementTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -45,23 +34,14 @@ public class PlacementQuestionnaireTest extends TestCase {
 	}
 
 	/**
-	 * Sets the fixture for this Placement Questionnaire test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void setFixture(PlacementQuestionnaire fixture) {
-		this.fixture = fixture;
-	}
-
-	/**
 	 * Returns the fixture for this Placement Questionnaire test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected PlacementQuestionnaire getFixture() {
-		return fixture;
+		return (PlacementQuestionnaire)fixture;
 	}
 
 	/**

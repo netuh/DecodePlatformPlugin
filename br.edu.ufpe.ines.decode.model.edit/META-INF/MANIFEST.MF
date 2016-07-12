@@ -13,6 +13,7 @@ Export-Package: br.edu.ufpe.ines.decode.artifacts.provider,
  br.edu.ufpe.ines.decode.aux.provider,
  br.edu.ufpe.ines.decode.measurement.provider,
  br.edu.ufpe.ines.decode.provider,
+ br.edu.ufpe.ines.decode.taskDescription.measurements.provider,
  br.edu.ufpe.ines.decode.taskDescription.provider
 Require-Bundle: org.eclipse.core.runtime,
  br.edu.ufpe.ines.decode.model;visibility:=reexport,

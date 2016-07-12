@@ -5,9 +5,6 @@ package br.edu.ufpe.ines.decode;
 import br.edu.ufpe.ines.decode.artifacts.ProvidedArtefacts;
 
 import br.edu.ufpe.ines.decode.aux.Nameable;
-
-import br.edu.ufpe.ines.decode.measurement.Measurements;
-
 import br.edu.ufpe.ines.decode.taskDescription.ExecutionDerivations;
 
 /**
@@ -20,7 +17,6 @@ import br.edu.ufpe.ines.decode.taskDescription.ExecutionDerivations;
  * </p>
  * <ul>
  *   <li>{@link br.edu.ufpe.ines.decode.CodingExperiment#getTask <em>Task</em>}</li>
- *   <li>{@link br.edu.ufpe.ines.decode.CodingExperiment#getMeasurements <em>Measurements</em>}</li>
  *   <li>{@link br.edu.ufpe.ines.decode.CodingExperiment#getProvidedArtefacts <em>Provided Artefacts</em>}</li>
  * </ul>
  *
@@ -54,32 +50,6 @@ public interface CodingExperiment extends Nameable {
 	 * @generated
 	 */
 	void setTask(ExecutionDerivations value);
-
-	/**
-	 * Returns the value of the '<em><b>Measurements</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Measurements</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Measurements</em>' containment reference.
-	 * @see #setMeasurements(Measurements)
-	 * @see br.edu.ufpe.ines.decode.DecodePackage#getCodingExperiment_Measurements()
-	 * @model containment="true" required="true"
-	 * @generated
-	 */
-	Measurements getMeasurements();
-
-	/**
-	 * Sets the value of the '{@link br.edu.ufpe.ines.decode.CodingExperiment#getMeasurements <em>Measurements</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Measurements</em>' containment reference.
-	 * @see #getMeasurements()
-	 * @generated
-	 */
-	void setMeasurements(Measurements value);
 
 	/**
 	 * Returns the value of the '<em><b>Provided Artefacts</b></em>' containment reference.

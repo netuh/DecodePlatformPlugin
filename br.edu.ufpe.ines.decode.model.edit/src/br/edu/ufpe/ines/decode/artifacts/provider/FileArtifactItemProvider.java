@@ -52,6 +52,7 @@ public class FileArtifactItemProvider extends NameableItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addArtifactDomainPropertyDescriptor(object);
+			addFilePropertyDescriptor(object);
 			addLocalFilePathPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -71,6 +72,28 @@ public class FileArtifactItemProvider extends NameableItemProvider {
 				 getString("_UI_FileArtifact_artifactDomain_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_FileArtifact_artifactDomain_feature", "_UI_FileArtifact_type"),
 				 ArtifactsPackage.Literals.FILE_ARTIFACT__ARTIFACT_DOMAIN,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the File feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addFilePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_FileArtifact_file_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_FileArtifact_file_feature", "_UI_FileArtifact_type"),
+				 ArtifactsPackage.Literals.FILE_ARTIFACT__FILE,
 				 true,
 				 false,
 				 false,

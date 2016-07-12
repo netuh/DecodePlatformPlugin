@@ -4,8 +4,6 @@ package br.edu.ufpe.ines.decode.taskDescription;
 
 import br.edu.ufpe.ines.decode.artifacts.Questionnaire;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Placement Questionnaire</b></em>'.
@@ -23,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface PlacementQuestionnaire extends EObject {
+public interface PlacementQuestionnaire extends Measurement {
 	/**
 	 * Returns the value of the '<em><b>Placement</b></em>' attribute.
 	 * The default value is <code>"Before"</code>.

@@ -17,15 +17,11 @@ import br.edu.ufpe.ines.decode.aux.AuxPackage;
 import br.edu.ufpe.ines.decode.aux.impl.AuxPackageImpl;
 
 import br.edu.ufpe.ines.decode.impl.DecodePackageImpl;
-
-import br.edu.ufpe.ines.decode.measurement.MeasurementPackage;
-
-import br.edu.ufpe.ines.decode.measurement.impl.MeasurementPackageImpl;
-
 import br.edu.ufpe.ines.decode.taskDescription.ComposedTask;
 import br.edu.ufpe.ines.decode.taskDescription.EclipseRetriction;
 import br.edu.ufpe.ines.decode.taskDescription.ExecutionDerivations;
 import br.edu.ufpe.ines.decode.taskDescription.ExperimentalTask;
+import br.edu.ufpe.ines.decode.taskDescription.Measurement;
 import br.edu.ufpe.ines.decode.taskDescription.ModeledRestrictions;
 import br.edu.ufpe.ines.decode.taskDescription.ModeledTask;
 import br.edu.ufpe.ines.decode.taskDescription.OtherRestriction;
@@ -39,6 +35,8 @@ import br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionFactory;
 import br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionPackage;
 
 import br.edu.ufpe.ines.decode.taskDescription.TimeRestriction;
+import br.edu.ufpe.ines.decode.taskDescription.measurements.MeasurementsPackage;
+import br.edu.ufpe.ines.decode.taskDescription.measurements.impl.MeasurementsPackageImpl;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
@@ -152,6 +150,13 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass measurementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum placementTypeEEnum = null;
 
 	/**
@@ -205,25 +210,25 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 
 		// Obtain or create and register interdependencies
 		DecodePackageImpl theDecodePackage = (DecodePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(DecodePackage.eNS_URI) instanceof DecodePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(DecodePackage.eNS_URI) : DecodePackage.eINSTANCE);
+		MeasurementsPackageImpl theMeasurementsPackage = (MeasurementsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(MeasurementsPackage.eNS_URI) instanceof MeasurementsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(MeasurementsPackage.eNS_URI) : MeasurementsPackage.eINSTANCE);
 		ArtifactsPackageImpl theArtifactsPackage = (ArtifactsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ArtifactsPackage.eNS_URI) instanceof ArtifactsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ArtifactsPackage.eNS_URI) : ArtifactsPackage.eINSTANCE);
 		QuestionnairePackageImpl theQuestionnairePackage = (QuestionnairePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(QuestionnairePackage.eNS_URI) instanceof QuestionnairePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(QuestionnairePackage.eNS_URI) : QuestionnairePackage.eINSTANCE);
-		MeasurementPackageImpl theMeasurementPackage = (MeasurementPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(MeasurementPackage.eNS_URI) instanceof MeasurementPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(MeasurementPackage.eNS_URI) : MeasurementPackage.eINSTANCE);
 		AuxPackageImpl theAuxPackage = (AuxPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(AuxPackage.eNS_URI) instanceof AuxPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(AuxPackage.eNS_URI) : AuxPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theTaskDescriptionPackage.createPackageContents();
 		theDecodePackage.createPackageContents();
+		theMeasurementsPackage.createPackageContents();
 		theArtifactsPackage.createPackageContents();
 		theQuestionnairePackage.createPackageContents();
-		theMeasurementPackage.createPackageContents();
 		theAuxPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theTaskDescriptionPackage.initializePackageContents();
 		theDecodePackage.initializePackageContents();
+		theMeasurementsPackage.initializePackageContents();
 		theArtifactsPackage.initializePackageContents();
 		theQuestionnairePackage.initializePackageContents();
-		theMeasurementPackage.initializePackageContents();
 		theAuxPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
@@ -258,7 +263,7 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getModeledTask_Placement() {
+	public EReference getModeledTask_Measurements() {
 		return (EReference)modeledTaskEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -483,6 +488,15 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getMeasurement() {
+		return measurementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getPlacementType() {
 		return placementTypeEEnum;
 	}
@@ -517,7 +531,7 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 		// Create classes and their features
 		modeledTaskEClass = createEClass(MODELED_TASK);
 		createEReference(modeledTaskEClass, MODELED_TASK__RESTRICTION);
-		createEReference(modeledTaskEClass, MODELED_TASK__PLACEMENT);
+		createEReference(modeledTaskEClass, MODELED_TASK__MEASUREMENTS);
 
 		sequencialEClass = createEClass(SEQUENCIAL);
 		createEReference(sequencialEClass, SEQUENCIAL__TASKS);
@@ -555,6 +569,8 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 		modeledRestrictionsEClass = createEClass(MODELED_RESTRICTIONS);
 		createEReference(modeledRestrictionsEClass, MODELED_RESTRICTIONS__CHILDREN);
 
+		measurementEClass = createEClass(MEASUREMENT);
+
 		// Create enums
 		placementTypeEEnum = createEEnum(PLACEMENT_TYPE);
 	}
@@ -583,9 +599,13 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
+		MeasurementsPackage theMeasurementsPackage = (MeasurementsPackage)EPackage.Registry.INSTANCE.getEPackage(MeasurementsPackage.eNS_URI);
 		AuxPackage theAuxPackage = (AuxPackage)EPackage.Registry.INSTANCE.getEPackage(AuxPackage.eNS_URI);
 		ArtifactsPackage theArtifactsPackage = (ArtifactsPackage)EPackage.Registry.INSTANCE.getEPackage(ArtifactsPackage.eNS_URI);
 		XMLTypePackage theXMLTypePackage = (XMLTypePackage)EPackage.Registry.INSTANCE.getEPackage(XMLTypePackage.eNS_URI);
+
+		// Add subpackages
+		getESubpackages().add(theMeasurementsPackage);
 
 		// Create type parameters
 
@@ -597,6 +617,7 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 		randomEClass.getESuperTypes().add(this.getComposedTask());
 		composedTaskEClass.getESuperTypes().add(this.getModeledTask());
 		experimentalTaskEClass.getESuperTypes().add(this.getModeledTask());
+		placementQuestionnaireEClass.getESuperTypes().add(this.getMeasurement());
 		timeRestrictionEClass.getESuperTypes().add(this.getRestriction());
 		specficRestrictionEClass.getESuperTypes().add(this.getRestriction());
 		eclipseRetrictionEClass.getESuperTypes().add(this.getSpecficRestriction());
@@ -605,7 +626,7 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 		// Initialize classes, features, and operations; add parameters
 		initEClass(modeledTaskEClass, ModeledTask.class, "ModeledTask", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getModeledTask_Restriction(), this.getModeledRestrictions(), null, "restriction", null, 0, 1, ModeledTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getModeledTask_Placement(), this.getPlacementQuestionnaire(), null, "placement", null, 0, 1, ModeledTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModeledTask_Measurements(), this.getMeasurement(), null, "measurements", null, 0, -1, ModeledTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sequencialEClass, Sequencial.class, "Sequencial", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSequencial_Tasks(), this.getModeledTask(), null, "tasks", null, 0, -1, Sequencial.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -643,11 +664,34 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 		initEClass(modeledRestrictionsEClass, ModeledRestrictions.class, "ModeledRestrictions", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getModeledRestrictions_Children(), this.getRestriction(), null, "children", null, 1, -1, ModeledRestrictions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(measurementEClass, Measurement.class, "Measurement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
 		// Initialize enums and add enum literals
 		initEEnum(placementTypeEEnum, PlacementType.class, "PlacementType");
 		addEEnumLiteral(placementTypeEEnum, PlacementType.AFTER);
 		addEEnumLiteral(placementTypeEEnum, PlacementType.BEFORE);
 		addEEnumLiteral(placementTypeEEnum, PlacementType.DURING);
+
+		// Create annotations
+		// http:///org/eclipse/emf/ecore/util/ExtendedMetaData
+		createExtendedMetaDataAnnotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>http:///org/eclipse/emf/ecore/util/ExtendedMetaData</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createExtendedMetaDataAnnotations() {
+		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";	
+		addAnnotation
+		  (getExecutionDerivations_Tasks(), 
+		   source, 
+		   new String[] {
+			 "wildcards", "",
+			 "name", ""
+		   });
 	}
 
 } //TaskDescriptionPackageImpl

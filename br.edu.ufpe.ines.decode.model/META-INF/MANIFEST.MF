@@ -23,8 +23,12 @@ Export-Package: br.edu.ufpe.ines.decode,
  br.edu.ufpe.ines.decode.measurement.util,
  br.edu.ufpe.ines.decode.taskDescription,
  br.edu.ufpe.ines.decode.taskDescription.impl,
+ br.edu.ufpe.ines.decode.taskDescription.measurements,
+ br.edu.ufpe.ines.decode.taskDescription.measurements.impl,
+ br.edu.ufpe.ines.decode.taskDescription.measurements.util,
  br.edu.ufpe.ines.decode.taskDescription.util,
  br.edu.ufpe.ines.decode.util
 Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.emf.ecore;visibility:=reexport
+ org.eclipse.emf.ecore;visibility:=reexport,
+ org.eclipse.emf.ecore.xmi;visibility:=reexport
 Bundle-ActivationPolicy: lazy

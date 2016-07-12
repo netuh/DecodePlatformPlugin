@@ -122,6 +122,10 @@ public class TaskDescriptionAdapterFactory extends AdapterFactoryImpl {
 				return createModeledRestrictionsAdapter();
 			}
 			@Override
+			public Adapter caseMeasurement(Measurement object) {
+				return createMeasurementAdapter();
+			}
+			@Override
 			public Adapter caseNameable(Nameable object) {
 				return createNameableAdapter();
 			}
@@ -324,6 +328,20 @@ public class TaskDescriptionAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createModeledRestrictionsAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link br.edu.ufpe.ines.decode.taskDescription.Measurement <em>Measurement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see br.edu.ufpe.ines.decode.taskDescription.Measurement
+	 * @generated
+	 */
+	public Adapter createMeasurementAdapter() {
 		return null;
 	}
 

@@ -35,6 +35,7 @@ public interface ExecutionDerivations extends EObject {
 	 * @return the value of the '<em>Tasks</em>' containment reference list.
 	 * @see br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionPackage#getExecutionDerivations_Tasks()
 	 * @model containment="true" required="true"
+	 *        extendedMetaData="wildcards='' name=''"
 	 * @generated
 	 */
 	EList<ModeledTask> getTasks();

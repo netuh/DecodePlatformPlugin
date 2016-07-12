@@ -50,6 +50,18 @@
    <extension point="org.eclipse.ui.editors">
       <!-- @generated modelDecode -->
       <editor
+            id="br.edu.ufpe.ines.decode.taskDescription.measurements.presentation.MeasurementsEditorID"
+            name="%_UI_MeasurementsEditor_label"
+            icon="icons/full/obj16/MeasurementsModelFile.gif"
+            extensions="measurements"
+            class="br.edu.ufpe.ines.decode.taskDescription.measurements.presentation.MeasurementsEditor"
+            contributorClass="br.edu.ufpe.ines.decode.taskDescription.measurements.presentation.MeasurementsActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated modelDecode -->
+      <editor
             id="br.edu.ufpe.ines.decode.artifacts.presentation.ArtifactsEditorID"
             name="%_UI_ArtifactsEditor_label"
             icon="icons/full/obj16/ArtifactsModelFile.gif"
@@ -70,16 +82,4 @@
             contributorClass="br.edu.ufpe.ines.decode.artifacts.questionnaire.presentation.QuestionnaireActionBarContributor">
       </editor>
    </extension>
-   <extension point="org.eclipse.ui.editors">
-      <!-- @generated modelDecode -->
-      <editor
-            id="br.edu.ufpe.ines.decode.measurement.presentation.MeasurementEditorID"
-            name="%_UI_MeasurementEditor_label"
-            icon="icons/full/obj16/MeasurementModelFile.gif"
-            extensions="measurement"
-            class="br.edu.ufpe.ines.decode.measurement.presentation.MeasurementEditor"
-            contributorClass="br.edu.ufpe.ines.decode.measurement.presentation.MeasurementActionBarContributor">
-      </editor>
-   </extension>
-
 </plugin>

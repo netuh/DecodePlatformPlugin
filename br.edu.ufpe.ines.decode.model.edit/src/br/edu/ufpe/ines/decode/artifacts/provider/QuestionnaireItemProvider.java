@@ -8,6 +8,7 @@ import br.edu.ufpe.ines.decode.artifacts.Questionnaire;
 
 import br.edu.ufpe.ines.decode.artifacts.questionnaire.QuestionnaireFactory;
 
+import br.edu.ufpe.ines.decode.aux.AuxPackage;
 import java.util.Collection;
 import java.util.List;
 
@@ -18,6 +19,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -48,9 +50,32 @@ public class QuestionnaireItemProvider extends AbstractArtifactItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addNamePropertyDescriptor(object);
 			addPlacementquestionnairePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Nameable_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Nameable_name_feature", "_UI_Nameable_type"),
+				 AuxPackage.Literals.NAMEABLE__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -124,7 +149,10 @@ public class QuestionnaireItemProvider extends AbstractArtifactItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Questionnaire_type");
+		String label = ((Questionnaire)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Questionnaire_type") :
+			getString("_UI_Questionnaire_type") + " " + label;
 	}
 	
 
@@ -140,6 +168,9 @@ public class QuestionnaireItemProvider extends AbstractArtifactItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Questionnaire.class)) {
+			case ArtifactsPackage.QUESTIONNAIRE__NAME:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case ArtifactsPackage.QUESTIONNAIRE__ELEMENTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;

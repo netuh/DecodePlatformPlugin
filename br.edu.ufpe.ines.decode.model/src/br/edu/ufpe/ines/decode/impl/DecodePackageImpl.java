@@ -17,15 +17,12 @@ import br.edu.ufpe.ines.decode.artifacts.questionnaire.impl.QuestionnairePackage
 import br.edu.ufpe.ines.decode.aux.AuxPackage;
 
 import br.edu.ufpe.ines.decode.aux.impl.AuxPackageImpl;
-
-import br.edu.ufpe.ines.decode.measurement.MeasurementPackage;
-
-import br.edu.ufpe.ines.decode.measurement.impl.MeasurementPackageImpl;
-
 import br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionPackage;
 
 import br.edu.ufpe.ines.decode.taskDescription.impl.TaskDescriptionPackageImpl;
 
+import br.edu.ufpe.ines.decode.taskDescription.measurements.MeasurementsPackage;
+import br.edu.ufpe.ines.decode.taskDescription.measurements.impl.MeasurementsPackageImpl;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -94,25 +91,25 @@ public class DecodePackageImpl extends EPackageImpl implements DecodePackage {
 
 		// Obtain or create and register interdependencies
 		TaskDescriptionPackageImpl theTaskDescriptionPackage = (TaskDescriptionPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TaskDescriptionPackage.eNS_URI) instanceof TaskDescriptionPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TaskDescriptionPackage.eNS_URI) : TaskDescriptionPackage.eINSTANCE);
+		MeasurementsPackageImpl theMeasurementsPackage = (MeasurementsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(MeasurementsPackage.eNS_URI) instanceof MeasurementsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(MeasurementsPackage.eNS_URI) : MeasurementsPackage.eINSTANCE);
 		ArtifactsPackageImpl theArtifactsPackage = (ArtifactsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ArtifactsPackage.eNS_URI) instanceof ArtifactsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ArtifactsPackage.eNS_URI) : ArtifactsPackage.eINSTANCE);
 		QuestionnairePackageImpl theQuestionnairePackage = (QuestionnairePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(QuestionnairePackage.eNS_URI) instanceof QuestionnairePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(QuestionnairePackage.eNS_URI) : QuestionnairePackage.eINSTANCE);
-		MeasurementPackageImpl theMeasurementPackage = (MeasurementPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(MeasurementPackage.eNS_URI) instanceof MeasurementPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(MeasurementPackage.eNS_URI) : MeasurementPackage.eINSTANCE);
 		AuxPackageImpl theAuxPackage = (AuxPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(AuxPackage.eNS_URI) instanceof AuxPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(AuxPackage.eNS_URI) : AuxPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theDecodePackage.createPackageContents();
 		theTaskDescriptionPackage.createPackageContents();
+		theMeasurementsPackage.createPackageContents();
 		theArtifactsPackage.createPackageContents();
 		theQuestionnairePackage.createPackageContents();
-		theMeasurementPackage.createPackageContents();
 		theAuxPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theDecodePackage.initializePackageContents();
 		theTaskDescriptionPackage.initializePackageContents();
+		theMeasurementsPackage.initializePackageContents();
 		theArtifactsPackage.initializePackageContents();
 		theQuestionnairePackage.initializePackageContents();
-		theMeasurementPackage.initializePackageContents();
 		theAuxPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
@@ -147,17 +144,8 @@ public class DecodePackageImpl extends EPackageImpl implements DecodePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCodingExperiment_Measurements() {
-		return (EReference)codingExperimentEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getCodingExperiment_ProvidedArtefacts() {
-		return (EReference)codingExperimentEClass.getEStructuralFeatures().get(2);
+		return (EReference)codingExperimentEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -190,7 +178,6 @@ public class DecodePackageImpl extends EPackageImpl implements DecodePackage {
 		// Create classes and their features
 		codingExperimentEClass = createEClass(CODING_EXPERIMENT);
 		createEReference(codingExperimentEClass, CODING_EXPERIMENT__TASK);
-		createEReference(codingExperimentEClass, CODING_EXPERIMENT__MEASUREMENTS);
 		createEReference(codingExperimentEClass, CODING_EXPERIMENT__PROVIDED_ARTEFACTS);
 	}
 
@@ -220,13 +207,11 @@ public class DecodePackageImpl extends EPackageImpl implements DecodePackage {
 		// Obtain other dependent packages
 		TaskDescriptionPackage theTaskDescriptionPackage = (TaskDescriptionPackage)EPackage.Registry.INSTANCE.getEPackage(TaskDescriptionPackage.eNS_URI);
 		ArtifactsPackage theArtifactsPackage = (ArtifactsPackage)EPackage.Registry.INSTANCE.getEPackage(ArtifactsPackage.eNS_URI);
-		MeasurementPackage theMeasurementPackage = (MeasurementPackage)EPackage.Registry.INSTANCE.getEPackage(MeasurementPackage.eNS_URI);
 		AuxPackage theAuxPackage = (AuxPackage)EPackage.Registry.INSTANCE.getEPackage(AuxPackage.eNS_URI);
 
 		// Add subpackages
 		getESubpackages().add(theTaskDescriptionPackage);
 		getESubpackages().add(theArtifactsPackage);
-		getESubpackages().add(theMeasurementPackage);
 		getESubpackages().add(theAuxPackage);
 
 		// Create type parameters
@@ -239,7 +224,6 @@ public class DecodePackageImpl extends EPackageImpl implements DecodePackage {
 		// Initialize classes, features, and operations; add parameters
 		initEClass(codingExperimentEClass, CodingExperiment.class, "CodingExperiment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCodingExperiment_Task(), theTaskDescriptionPackage.getExecutionDerivations(), null, "task", null, 1, 1, CodingExperiment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCodingExperiment_Measurements(), theMeasurementPackage.getMeasurements(), null, "measurements", null, 1, 1, CodingExperiment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCodingExperiment_ProvidedArtefacts(), theArtifactsPackage.getProvidedArtefacts(), null, "providedArtefacts", null, 1, 1, CodingExperiment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource

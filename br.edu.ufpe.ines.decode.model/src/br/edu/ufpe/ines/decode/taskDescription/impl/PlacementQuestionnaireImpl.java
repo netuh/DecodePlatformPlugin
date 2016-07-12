@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,7 +31,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public class PlacementQuestionnaireImpl extends MinimalEObjectImpl.Container implements PlacementQuestionnaire {
+public class PlacementQuestionnaireImpl extends MeasurementImpl implements PlacementQuestionnaire {
 	/**
 	 * The default value of the '{@link #getPlacement() <em>Placement</em>}' attribute.
 	 * <!-- begin-user-doc -->

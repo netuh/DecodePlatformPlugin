@@ -10,6 +10,7 @@ import br.edu.ufpe.ines.decode.taskDescription.ModeledTask;
 import br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionFactory;
 import br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionPackage;
 
+import br.edu.ufpe.ines.decode.taskDescription.measurements.MeasurementsFactory;
 import java.util.Collection;
 import java.util.List;
 
@@ -68,7 +69,7 @@ public class ModeledTaskItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(TaskDescriptionPackage.Literals.MODELED_TASK__RESTRICTION);
-			childrenFeatures.add(TaskDescriptionPackage.Literals.MODELED_TASK__PLACEMENT);
+			childrenFeatures.add(TaskDescriptionPackage.Literals.MODELED_TASK__MEASUREMENTS);
 		}
 		return childrenFeatures;
 	}
@@ -114,7 +115,7 @@ public class ModeledTaskItemProvider
 
 		switch (notification.getFeatureID(ModeledTask.class)) {
 			case TaskDescriptionPackage.MODELED_TASK__RESTRICTION:
-			case TaskDescriptionPackage.MODELED_TASK__PLACEMENT:
+			case TaskDescriptionPackage.MODELED_TASK__MEASUREMENTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -139,8 +140,33 @@ public class ModeledTaskItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(TaskDescriptionPackage.Literals.MODELED_TASK__PLACEMENT,
+				(TaskDescriptionPackage.Literals.MODELED_TASK__MEASUREMENTS,
 				 TaskDescriptionFactory.eINSTANCE.createPlacementQuestionnaire()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TaskDescriptionPackage.Literals.MODELED_TASK__MEASUREMENTS,
+				 MeasurementsFactory.eINSTANCE.createTimeOnTask()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TaskDescriptionPackage.Literals.MODELED_TASK__MEASUREMENTS,
+				 MeasurementsFactory.eINSTANCE.createEdition()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TaskDescriptionPackage.Literals.MODELED_TASK__MEASUREMENTS,
+				 MeasurementsFactory.eINSTANCE.createExecution()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TaskDescriptionPackage.Literals.MODELED_TASK__MEASUREMENTS,
+				 MeasurementsFactory.eINSTANCE.createAnyAction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TaskDescriptionPackage.Literals.MODELED_TASK__MEASUREMENTS,
+				 MeasurementsFactory.eINSTANCE.createTestExecution()));
 	}
 
 	/**

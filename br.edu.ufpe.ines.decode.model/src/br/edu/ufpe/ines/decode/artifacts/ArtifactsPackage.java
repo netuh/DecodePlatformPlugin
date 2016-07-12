@@ -345,13 +345,22 @@ public interface ArtifactsPackage extends EPackage {
 	int QUESTIONNAIRE = 5;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUESTIONNAIRE__NAME = ABSTRACT_ARTIFACT_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUESTIONNAIRE__ELEMENTS = ABSTRACT_ARTIFACT_FEATURE_COUNT + 0;
+	int QUESTIONNAIRE__ELEMENTS = ABSTRACT_ARTIFACT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Placementquestionnaire</b></em>' reference.
@@ -360,7 +369,7 @@ public interface ArtifactsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUESTIONNAIRE__PLACEMENTQUESTIONNAIRE = ABSTRACT_ARTIFACT_FEATURE_COUNT + 1;
+	int QUESTIONNAIRE__PLACEMENTQUESTIONNAIRE = ABSTRACT_ARTIFACT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Questionnaire</em>' class.
@@ -369,7 +378,7 @@ public interface ArtifactsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUESTIONNAIRE_FEATURE_COUNT = ABSTRACT_ARTIFACT_FEATURE_COUNT + 2;
+	int QUESTIONNAIRE_FEATURE_COUNT = ABSTRACT_ARTIFACT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Questionnaire</em>' class.

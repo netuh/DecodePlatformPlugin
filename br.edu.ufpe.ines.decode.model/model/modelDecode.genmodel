@@ -9,12 +9,11 @@
       ecorePackage="modelDecode.ecore#/">
     <genClasses ecoreClass="modelDecode.ecore#//CodingExperiment">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modelDecode.ecore#//CodingExperiment/task"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modelDecode.ecore#//CodingExperiment/measurements"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modelDecode.ecore#//CodingExperiment/providedArtefacts"/>
     </genClasses>
     <nestedGenPackages prefix="TaskDescription" basePackage="br.edu.ufpe.ines.decode"
-        disposableProviderFactory="true" multipleEditorPages="false" generateModelWizard="false"
-        ecorePackage="modelDecode.ecore#//taskDescription">
+        resource="XML" disposableProviderFactory="true" multipleEditorPages="false"
+        generateModelWizard="false" ecorePackage="modelDecode.ecore#//taskDescription">
       <genEnums typeSafeEnumCompatible="false" ecoreEnum="modelDecode.ecore#//taskDescription/PlacementType">
         <genEnumLiterals ecoreEnumLiteral="modelDecode.ecore#//taskDescription/PlacementType/After"/>
         <genEnumLiterals ecoreEnumLiteral="modelDecode.ecore#//taskDescription/PlacementType/Before"/>
@@ -22,7 +21,7 @@
       </genEnums>
       <genClasses image="false" ecoreClass="modelDecode.ecore#//taskDescription/ModeledTask">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modelDecode.ecore#//taskDescription/ModeledTask/restriction"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modelDecode.ecore#//taskDescription/ModeledTask/placement"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modelDecode.ecore#//taskDescription/ModeledTask/measurements"/>
       </genClasses>
       <genClasses ecoreClass="modelDecode.ecore#//taskDescription/Sequencial">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modelDecode.ecore#//taskDescription/Sequencial/tasks"/>
@@ -37,7 +36,7 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference modelDecode.ecore#//taskDescription/ExperimentalTask/depends"/>
       </genClasses>
-      <genClasses ecoreClass="modelDecode.ecore#//taskDescription/Restriction"/>
+      <genClasses image="false" ecoreClass="modelDecode.ecore#//taskDescription/Restriction"/>
       <genClasses ecoreClass="modelDecode.ecore#//taskDescription/PlacementQuestionnaire">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//taskDescription/PlacementQuestionnaire/placement"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -50,7 +49,7 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//taskDescription/TimeRestriction/timeFrame"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//taskDescription/TimeRestriction/deadline"/>
       </genClasses>
-      <genClasses ecoreClass="modelDecode.ecore#//taskDescription/SpecficRestriction"/>
+      <genClasses image="false" ecoreClass="modelDecode.ecore#//taskDescription/SpecficRestriction"/>
       <genClasses ecoreClass="modelDecode.ecore#//taskDescription/EclipseRetriction">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//taskDescription/EclipseRetriction/forbiden"/>
       </genClasses>
@@ -60,6 +59,20 @@
       <genClasses ecoreClass="modelDecode.ecore#//taskDescription/ModeledRestrictions">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modelDecode.ecore#//taskDescription/ModeledRestrictions/children"/>
       </genClasses>
+      <genClasses image="false" ecoreClass="modelDecode.ecore#//taskDescription/Measurement"/>
+      <nestedGenPackages prefix="Measurements" basePackage="br.edu.ufpe.ines.decode.taskDescription"
+          disposableProviderFactory="true" multipleEditorPages="false" generateModelWizard="false"
+          ecorePackage="modelDecode.ecore#//taskDescription/measurements">
+        <genClasses image="false" ecoreClass="modelDecode.ecore#//taskDescription/measurements/OtherMeasurement"/>
+        <genClasses image="false" ecoreClass="modelDecode.ecore#//taskDescription/measurements/ObservingArtifact"/>
+        <genClasses ecoreClass="modelDecode.ecore#//taskDescription/measurements/TimeOnTask"/>
+        <genClasses ecoreClass="modelDecode.ecore#//taskDescription/measurements/Edition"/>
+        <genClasses ecoreClass="modelDecode.ecore#//taskDescription/measurements/Execution"/>
+        <genClasses ecoreClass="modelDecode.ecore#//taskDescription/measurements/AnyAction"/>
+        <genClasses ecoreClass="modelDecode.ecore#//taskDescription/measurements/TestExecution">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//taskDescription/measurements/TestExecution/observePassedTest"/>
+        </genClasses>
+      </nestedGenPackages>
     </nestedGenPackages>
     <nestedGenPackages prefix="Artifacts" basePackage="br.edu.ufpe.ines.decode" disposableProviderFactory="true"
         multipleEditorPages="false" generateModelWizard="false" ecorePackage="modelDecode.ecore#//artifacts">
@@ -87,7 +100,7 @@
       </genClasses>
       <genClasses image="false" ecoreClass="modelDecode.ecore#//artifacts/FileArtifact">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//artifacts/FileArtifact/artifactDomain"/>
-        <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//artifacts/FileArtifact/file"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//artifacts/FileArtifact/file"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//artifacts/FileArtifact/localFilePath"/>
       </genClasses>
       <genClasses image="false" ecoreClass="modelDecode.ecore#//artifacts/AbstractArtifact"/>
@@ -133,35 +146,6 @@
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//artifacts/questionnaire/Content/language"/>
         </genClasses>
       </nestedGenPackages>
-    </nestedGenPackages>
-    <nestedGenPackages prefix="Measurement" basePackage="br.edu.ufpe.ines.decode"
-        disposableProviderFactory="true" multipleEditorPages="false" generateModelWizard="false"
-        ecorePackage="modelDecode.ecore#//measurement">
-      <genClasses ecoreClass="modelDecode.ecore#//measurement/Measurements">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modelDecode.ecore#//measurement/Measurements/measurements"/>
-      </genClasses>
-      <genClasses ecoreClass="modelDecode.ecore#//measurement/Survey"/>
-      <genClasses ecoreClass="modelDecode.ecore#//measurement/TimeOnTask">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference modelDecode.ecore#//measurement/TimeOnTask/relatedTask"/>
-      </genClasses>
-      <genClasses image="false" ecoreClass="modelDecode.ecore#//measurement/ObservingArtifact">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modelDecode.ecore#//measurement/ObservingArtifact/aspect"/>
-      </genClasses>
-      <genClasses ecoreClass="modelDecode.ecore#//measurement/ObservingProvidedArtifact">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference modelDecode.ecore#//measurement/ObservingProvidedArtifact/observedArtifact"/>
-      </genClasses>
-      <genClasses ecoreClass="modelDecode.ecore#//measurement/ObservingProducedArtifact"/>
-      <genClasses ecoreClass="modelDecode.ecore#//measurement/ObservingAllArtifacts"/>
-      <genClasses image="false" ecoreClass="modelDecode.ecore#//measurement/AspectObserved"/>
-      <genClasses ecoreClass="modelDecode.ecore#//measurement/Edition"/>
-      <genClasses ecoreClass="modelDecode.ecore#//measurement/Execution"/>
-      <genClasses ecoreClass="modelDecode.ecore#//measurement/Testing">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//measurement/Testing/ObservePassedTest"/>
-      </genClasses>
-      <genClasses image="false" ecoreClass="modelDecode.ecore#//measurement/AbstractMeasurement"/>
-      <genClasses ecoreClass="modelDecode.ecore#//measurement/AnyAction"/>
     </nestedGenPackages>
     <nestedGenPackages prefix="Aux" basePackage="br.edu.ufpe.ines.decode" disposableProviderFactory="true"
         multipleEditorPages="false" generateModelWizard="false" ecorePackage="modelDecode.ecore#//aux">

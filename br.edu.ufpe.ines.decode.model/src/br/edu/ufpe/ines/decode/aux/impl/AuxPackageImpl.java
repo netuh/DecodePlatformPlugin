@@ -17,15 +17,12 @@ import br.edu.ufpe.ines.decode.aux.AuxPackage;
 import br.edu.ufpe.ines.decode.aux.Nameable;
 
 import br.edu.ufpe.ines.decode.impl.DecodePackageImpl;
-
-import br.edu.ufpe.ines.decode.measurement.MeasurementPackage;
-
-import br.edu.ufpe.ines.decode.measurement.impl.MeasurementPackageImpl;
-
 import br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionPackage;
 
 import br.edu.ufpe.ines.decode.taskDescription.impl.TaskDescriptionPackageImpl;
 
+import br.edu.ufpe.ines.decode.taskDescription.measurements.MeasurementsPackage;
+import br.edu.ufpe.ines.decode.taskDescription.measurements.impl.MeasurementsPackageImpl;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -100,25 +97,25 @@ public class AuxPackageImpl extends EPackageImpl implements AuxPackage {
 		// Obtain or create and register interdependencies
 		DecodePackageImpl theDecodePackage = (DecodePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(DecodePackage.eNS_URI) instanceof DecodePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(DecodePackage.eNS_URI) : DecodePackage.eINSTANCE);
 		TaskDescriptionPackageImpl theTaskDescriptionPackage = (TaskDescriptionPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TaskDescriptionPackage.eNS_URI) instanceof TaskDescriptionPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TaskDescriptionPackage.eNS_URI) : TaskDescriptionPackage.eINSTANCE);
+		MeasurementsPackageImpl theMeasurementsPackage = (MeasurementsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(MeasurementsPackage.eNS_URI) instanceof MeasurementsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(MeasurementsPackage.eNS_URI) : MeasurementsPackage.eINSTANCE);
 		ArtifactsPackageImpl theArtifactsPackage = (ArtifactsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ArtifactsPackage.eNS_URI) instanceof ArtifactsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ArtifactsPackage.eNS_URI) : ArtifactsPackage.eINSTANCE);
 		QuestionnairePackageImpl theQuestionnairePackage = (QuestionnairePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(QuestionnairePackage.eNS_URI) instanceof QuestionnairePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(QuestionnairePackage.eNS_URI) : QuestionnairePackage.eINSTANCE);
-		MeasurementPackageImpl theMeasurementPackage = (MeasurementPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(MeasurementPackage.eNS_URI) instanceof MeasurementPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(MeasurementPackage.eNS_URI) : MeasurementPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theAuxPackage.createPackageContents();
 		theDecodePackage.createPackageContents();
 		theTaskDescriptionPackage.createPackageContents();
+		theMeasurementsPackage.createPackageContents();
 		theArtifactsPackage.createPackageContents();
 		theQuestionnairePackage.createPackageContents();
-		theMeasurementPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theAuxPackage.initializePackageContents();
 		theDecodePackage.initializePackageContents();
 		theTaskDescriptionPackage.initializePackageContents();
+		theMeasurementsPackage.initializePackageContents();
 		theArtifactsPackage.initializePackageContents();
 		theQuestionnairePackage.initializePackageContents();
-		theMeasurementPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theAuxPackage.freeze();

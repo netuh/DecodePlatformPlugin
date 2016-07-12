@@ -12,6 +12,7 @@ Export-Package: br.edu.ufpe.ines.decode.artifacts.presentation,
  br.edu.ufpe.ines.decode.artifacts.questionnaire.presentation,
  br.edu.ufpe.ines.decode.measurement.presentation,
  br.edu.ufpe.ines.decode.presentation,
+ br.edu.ufpe.ines.decode.taskDescription.measurements.presentation,
  br.edu.ufpe.ines.decode.taskDescription.presentation
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources;visibility:=reexport,

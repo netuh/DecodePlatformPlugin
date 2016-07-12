@@ -9,9 +9,6 @@ import br.edu.ufpe.ines.decode.DecodePackage;
 import br.edu.ufpe.ines.decode.artifacts.ArtifactsFactory;
 
 import br.edu.ufpe.ines.decode.aux.provider.NameableItemProvider;
-
-import br.edu.ufpe.ines.decode.measurement.MeasurementFactory;
-
 import br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionFactory;
 
 import java.util.Collection;
@@ -72,7 +69,6 @@ public class CodingExperimentItemProvider extends NameableItemProvider {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(DecodePackage.Literals.CODING_EXPERIMENT__TASK);
-			childrenFeatures.add(DecodePackage.Literals.CODING_EXPERIMENT__MEASUREMENTS);
 			childrenFeatures.add(DecodePackage.Literals.CODING_EXPERIMENT__PROVIDED_ARTEFACTS);
 		}
 		return childrenFeatures;
@@ -130,7 +126,6 @@ public class CodingExperimentItemProvider extends NameableItemProvider {
 
 		switch (notification.getFeatureID(CodingExperiment.class)) {
 			case DecodePackage.CODING_EXPERIMENT__TASK:
-			case DecodePackage.CODING_EXPERIMENT__MEASUREMENTS:
 			case DecodePackage.CODING_EXPERIMENT__PROVIDED_ARTEFACTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -153,11 +148,6 @@ public class CodingExperimentItemProvider extends NameableItemProvider {
 			(createChildParameter
 				(DecodePackage.Literals.CODING_EXPERIMENT__TASK,
 				 TaskDescriptionFactory.eINSTANCE.createExecutionDerivations()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DecodePackage.Literals.CODING_EXPERIMENT__MEASUREMENTS,
-				 MeasurementFactory.eINSTANCE.createMeasurements()));
 
 		newChildDescriptors.add
 			(createChildParameter

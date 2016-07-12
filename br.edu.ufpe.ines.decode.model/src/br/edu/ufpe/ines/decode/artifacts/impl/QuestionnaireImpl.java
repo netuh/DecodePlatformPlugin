@@ -7,6 +7,8 @@ import br.edu.ufpe.ines.decode.artifacts.Questionnaire;
 
 import br.edu.ufpe.ines.decode.artifacts.questionnaire.ElementaryComponent;
 
+import br.edu.ufpe.ines.decode.aux.AuxPackage;
+import br.edu.ufpe.ines.decode.aux.Nameable;
 import br.edu.ufpe.ines.decode.taskDescription.PlacementQuestionnaire;
 import br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionPackage;
 
@@ -33,6 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link br.edu.ufpe.ines.decode.artifacts.impl.QuestionnaireImpl#getName <em>Name</em>}</li>
  *   <li>{@link br.edu.ufpe.ines.decode.artifacts.impl.QuestionnaireImpl#getElements <em>Elements</em>}</li>
  *   <li>{@link br.edu.ufpe.ines.decode.artifacts.impl.QuestionnaireImpl#getPlacementquestionnaire <em>Placementquestionnaire</em>}</li>
  * </ul>
@@ -40,6 +43,26 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * @generated
  */
 public class QuestionnaireImpl extends AbstractArtifactImpl implements Questionnaire {
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
+
 	/**
 	 * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -77,6 +100,27 @@ public class QuestionnaireImpl extends AbstractArtifactImpl implements Questionn
 	@Override
 	protected EClass eStaticClass() {
 		return ArtifactsPackage.Literals.QUESTIONNAIRE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ArtifactsPackage.QUESTIONNAIRE__NAME, oldName, name));
 	}
 
 	/**
@@ -191,6 +235,8 @@ public class QuestionnaireImpl extends AbstractArtifactImpl implements Questionn
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case ArtifactsPackage.QUESTIONNAIRE__NAME:
+				return getName();
 			case ArtifactsPackage.QUESTIONNAIRE__ELEMENTS:
 				return getElements();
 			case ArtifactsPackage.QUESTIONNAIRE__PLACEMENTQUESTIONNAIRE:
@@ -209,6 +255,9 @@ public class QuestionnaireImpl extends AbstractArtifactImpl implements Questionn
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case ArtifactsPackage.QUESTIONNAIRE__NAME:
+				setName((String)newValue);
+				return;
 			case ArtifactsPackage.QUESTIONNAIRE__ELEMENTS:
 				getElements().clear();
 				getElements().addAll((Collection<? extends ElementaryComponent>)newValue);
@@ -228,6 +277,9 @@ public class QuestionnaireImpl extends AbstractArtifactImpl implements Questionn
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case ArtifactsPackage.QUESTIONNAIRE__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 			case ArtifactsPackage.QUESTIONNAIRE__ELEMENTS:
 				getElements().clear();
 				return;
@@ -246,12 +298,62 @@ public class QuestionnaireImpl extends AbstractArtifactImpl implements Questionn
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case ArtifactsPackage.QUESTIONNAIRE__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case ArtifactsPackage.QUESTIONNAIRE__ELEMENTS:
 				return elements != null && !elements.isEmpty();
 			case ArtifactsPackage.QUESTIONNAIRE__PLACEMENTQUESTIONNAIRE:
 				return placementquestionnaire != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == Nameable.class) {
+			switch (derivedFeatureID) {
+				case ArtifactsPackage.QUESTIONNAIRE__NAME: return AuxPackage.NAMEABLE__NAME;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == Nameable.class) {
+			switch (baseFeatureID) {
+				case AuxPackage.NAMEABLE__NAME: return ArtifactsPackage.QUESTIONNAIRE__NAME;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (name: ");
+		result.append(name);
+		result.append(')');
+		return result.toString();
 	}
 
 } //QuestionnaireImpl

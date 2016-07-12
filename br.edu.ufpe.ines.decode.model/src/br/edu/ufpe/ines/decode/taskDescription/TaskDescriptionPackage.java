@@ -87,13 +87,13 @@ public interface TaskDescriptionPackage extends EPackage {
 	int MODELED_TASK__RESTRICTION = AuxPackage.NAMEABLE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Placement</b></em>' containment reference.
+	 * The feature id for the '<em><b>Measurements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODELED_TASK__PLACEMENT = AuxPackage.NAMEABLE_FEATURE_COUNT + 1;
+	int MODELED_TASK__MEASUREMENTS = AuxPackage.NAMEABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Modeled Task</em>' class.
@@ -142,13 +142,13 @@ public interface TaskDescriptionPackage extends EPackage {
 	int COMPOSED_TASK__RESTRICTION = MODELED_TASK__RESTRICTION;
 
 	/**
-	 * The feature id for the '<em><b>Placement</b></em>' containment reference.
+	 * The feature id for the '<em><b>Measurements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPOSED_TASK__PLACEMENT = MODELED_TASK__PLACEMENT;
+	int COMPOSED_TASK__MEASUREMENTS = MODELED_TASK__MEASUREMENTS;
 
 	/**
 	 * The number of structural features of the '<em>Composed Task</em>' class.
@@ -197,13 +197,13 @@ public interface TaskDescriptionPackage extends EPackage {
 	int SEQUENCIAL__RESTRICTION = COMPOSED_TASK__RESTRICTION;
 
 	/**
-	 * The feature id for the '<em><b>Placement</b></em>' containment reference.
+	 * The feature id for the '<em><b>Measurements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEQUENCIAL__PLACEMENT = COMPOSED_TASK__PLACEMENT;
+	int SEQUENCIAL__MEASUREMENTS = COMPOSED_TASK__MEASUREMENTS;
 
 	/**
 	 * The feature id for the '<em><b>Tasks</b></em>' containment reference list.
@@ -261,13 +261,13 @@ public interface TaskDescriptionPackage extends EPackage {
 	int RANDOM__RESTRICTION = COMPOSED_TASK__RESTRICTION;
 
 	/**
-	 * The feature id for the '<em><b>Placement</b></em>' containment reference.
+	 * The feature id for the '<em><b>Measurements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RANDOM__PLACEMENT = COMPOSED_TASK__PLACEMENT;
+	int RANDOM__MEASUREMENTS = COMPOSED_TASK__MEASUREMENTS;
 
 	/**
 	 * The feature id for the '<em><b>Tasks</b></em>' containment reference list.
@@ -325,13 +325,13 @@ public interface TaskDescriptionPackage extends EPackage {
 	int EXPERIMENTAL_TASK__RESTRICTION = MODELED_TASK__RESTRICTION;
 
 	/**
-	 * The feature id for the '<em><b>Placement</b></em>' containment reference.
+	 * The feature id for the '<em><b>Measurements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXPERIMENTAL_TASK__PLACEMENT = MODELED_TASK__PLACEMENT;
+	int EXPERIMENTAL_TASK__MEASUREMENTS = MODELED_TASK__MEASUREMENTS;
 
 	/**
 	 * The feature id for the '<em><b>Required Artifacts</b></em>' reference list.
@@ -398,6 +398,34 @@ public interface TaskDescriptionPackage extends EPackage {
 	int RESTRICTION_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link br.edu.ufpe.ines.decode.taskDescription.impl.MeasurementImpl <em>Measurement</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see br.edu.ufpe.ines.decode.taskDescription.impl.MeasurementImpl
+	 * @see br.edu.ufpe.ines.decode.taskDescription.impl.TaskDescriptionPackageImpl#getMeasurement()
+	 * @generated
+	 */
+	int MEASUREMENT = 13;
+
+	/**
+	 * The number of structural features of the '<em>Measurement</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEASUREMENT_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Measurement</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEASUREMENT_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link br.edu.ufpe.ines.decode.taskDescription.impl.PlacementQuestionnaireImpl <em>Placement Questionnaire</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -414,7 +442,7 @@ public interface TaskDescriptionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PLACEMENT_QUESTIONNAIRE__PLACEMENT = 0;
+	int PLACEMENT_QUESTIONNAIRE__PLACEMENT = MEASUREMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Questionnaire</b></em>' reference.
@@ -423,7 +451,7 @@ public interface TaskDescriptionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PLACEMENT_QUESTIONNAIRE__QUESTIONNAIRE = 1;
+	int PLACEMENT_QUESTIONNAIRE__QUESTIONNAIRE = MEASUREMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Placement Questionnaire</em>' class.
@@ -432,7 +460,7 @@ public interface TaskDescriptionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PLACEMENT_QUESTIONNAIRE_FEATURE_COUNT = 2;
+	int PLACEMENT_QUESTIONNAIRE_FEATURE_COUNT = MEASUREMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Placement Questionnaire</em>' class.
@@ -441,7 +469,7 @@ public interface TaskDescriptionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PLACEMENT_QUESTIONNAIRE_OPERATION_COUNT = 0;
+	int PLACEMENT_QUESTIONNAIRE_OPERATION_COUNT = MEASUREMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link br.edu.ufpe.ines.decode.taskDescription.impl.ExecutionDerivationsImpl <em>Execution Derivations</em>}' class.
@@ -673,7 +701,7 @@ public interface TaskDescriptionPackage extends EPackage {
 	 * @see br.edu.ufpe.ines.decode.taskDescription.impl.TaskDescriptionPackageImpl#getPlacementType()
 	 * @generated
 	 */
-	int PLACEMENT_TYPE = 13;
+	int PLACEMENT_TYPE = 14;
 
 
 	/**
@@ -698,15 +726,15 @@ public interface TaskDescriptionPackage extends EPackage {
 	EReference getModeledTask_Restriction();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link br.edu.ufpe.ines.decode.taskDescription.ModeledTask#getPlacement <em>Placement</em>}'.
+	 * Returns the meta object for the containment reference list '{@link br.edu.ufpe.ines.decode.taskDescription.ModeledTask#getMeasurements <em>Measurements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Placement</em>'.
-	 * @see br.edu.ufpe.ines.decode.taskDescription.ModeledTask#getPlacement()
+	 * @return the meta object for the containment reference list '<em>Measurements</em>'.
+	 * @see br.edu.ufpe.ines.decode.taskDescription.ModeledTask#getMeasurements()
 	 * @see #getModeledTask()
 	 * @generated
 	 */
-	EReference getModeledTask_Placement();
+	EReference getModeledTask_Measurements();
 
 	/**
 	 * Returns the meta object for class '{@link br.edu.ufpe.ines.decode.taskDescription.Sequencial <em>Sequencial</em>}'.
@@ -961,6 +989,16 @@ public interface TaskDescriptionPackage extends EPackage {
 	EReference getModeledRestrictions_Children();
 
 	/**
+	 * Returns the meta object for class '{@link br.edu.ufpe.ines.decode.taskDescription.Measurement <em>Measurement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Measurement</em>'.
+	 * @see br.edu.ufpe.ines.decode.taskDescription.Measurement
+	 * @generated
+	 */
+	EClass getMeasurement();
+
+	/**
 	 * Returns the meta object for enum '{@link br.edu.ufpe.ines.decode.taskDescription.PlacementType <em>Placement Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1012,12 +1050,12 @@ public interface TaskDescriptionPackage extends EPackage {
 		EReference MODELED_TASK__RESTRICTION = eINSTANCE.getModeledTask_Restriction();
 
 		/**
-		 * The meta object literal for the '<em><b>Placement</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Measurements</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference MODELED_TASK__PLACEMENT = eINSTANCE.getModeledTask_Placement();
+		EReference MODELED_TASK__MEASUREMENTS = eINSTANCE.getModeledTask_Measurements();
 
 		/**
 		 * The meta object literal for the '{@link br.edu.ufpe.ines.decode.taskDescription.impl.SequencialImpl <em>Sequencial</em>}' class.
@@ -1234,6 +1272,16 @@ public interface TaskDescriptionPackage extends EPackage {
 		 * @generated
 		 */
 		EReference MODELED_RESTRICTIONS__CHILDREN = eINSTANCE.getModeledRestrictions_Children();
+
+		/**
+		 * The meta object literal for the '{@link br.edu.ufpe.ines.decode.taskDescription.impl.MeasurementImpl <em>Measurement</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see br.edu.ufpe.ines.decode.taskDescription.impl.MeasurementImpl
+		 * @see br.edu.ufpe.ines.decode.taskDescription.impl.TaskDescriptionPackageImpl#getMeasurement()
+		 * @generated
+		 */
+		EClass MEASUREMENT = eINSTANCE.getMeasurement();
 
 		/**
 		 * The meta object literal for the '{@link br.edu.ufpe.ines.decode.taskDescription.PlacementType <em>Placement Type</em>}' enum.

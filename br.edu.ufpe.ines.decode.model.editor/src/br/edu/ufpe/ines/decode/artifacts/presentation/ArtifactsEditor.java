@@ -149,13 +149,11 @@ import br.edu.ufpe.ines.decode.artifacts.provider.ArtifactsItemProviderAdapterFa
 import br.edu.ufpe.ines.decode.artifacts.questionnaire.provider.QuestionnaireItemProviderAdapterFactory;
 
 import br.edu.ufpe.ines.decode.aux.provider.AuxItemProviderAdapterFactory;
-
-import br.edu.ufpe.ines.decode.measurement.provider.MeasurementItemProviderAdapterFactory;
-
 import br.edu.ufpe.ines.decode.presentation.ModelDecodeEditorPlugin;
 
 import br.edu.ufpe.ines.decode.provider.DecodeItemProviderAdapterFactory;
 
+import br.edu.ufpe.ines.decode.taskDescription.measurements.provider.MeasurementsItemProviderAdapterFactory;
 import br.edu.ufpe.ines.decode.taskDescription.provider.TaskDescriptionItemProviderAdapterFactory;
 
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
@@ -655,9 +653,9 @@ public class ArtifactsEditor
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new DecodeItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new TaskDescriptionItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new MeasurementsItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ArtifactsItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new QuestionnaireItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new MeasurementItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new AuxItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
