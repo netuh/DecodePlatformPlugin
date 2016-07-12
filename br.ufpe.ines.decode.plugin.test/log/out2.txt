@@ -2,15 +2,15 @@
   {
     "file": "Source2.java",
     "timeStamp": {
-      "seconds": 1468357908,
-      "nanos": 143000000
+      "seconds": 1468358262,
+      "nanos": 579000000
     }
   },
   {
     "file": "Source1.java",
     "timeStamp": {
-      "seconds": 1468357908,
-      "nanos": 981000000
+      "seconds": 1468358263,
+      "nanos": 368000000
     }
   }
 ]
