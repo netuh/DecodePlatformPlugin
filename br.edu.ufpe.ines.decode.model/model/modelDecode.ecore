@@ -111,10 +111,10 @@
         <eStructuralFeatures xsi:type="ecore:EAttribute" name="max" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="Restriction" abstract="true"/>
-      <eClassifiers xsi:type="ecore:EClass" name="Appendable" eSuperTypes="#//artifacts/questionnaire/Restriction">
+      <eClassifiers xsi:type="ecore:EClass" name="AppendableElement" eSuperTypes="#//artifacts/questionnaire/Restriction">
         <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultQuantity" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//IntObject"/>
       </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="Dependent" eSuperTypes="#//artifacts/questionnaire/Restriction">
+      <eClassifiers xsi:type="ecore:EClass" name="DependentElement" eSuperTypes="#//artifacts/questionnaire/Restriction">
         <eStructuralFeatures xsi:type="ecore:EReference" name="question" lowerBound="1"
             eType="#//artifacts/questionnaire/Question"/>
         <eStructuralFeatures xsi:type="ecore:EAttribute" name="expectedValue" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>

@@ -12,9 +12,9 @@
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="be.edu.ufpe.ines.decode.presentation.DecodeModelWizardID"
+            id="br.edu.ufpe.ines.decode.presentation.DecodeModelWizardID"
             name="%_UI_DecodeModelWizard_label"
-            class="be.edu.ufpe.ines.decode.presentation.DecodeModelWizard"
+            class="br.edu.ufpe.ines.decode.presentation.DecodeModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
             icon="icons/full/obj16/DecodeModelFile.gif">
          <description>%_UI_DecodeModelWizard_description</description>
@@ -22,51 +22,63 @@
       </wizard>
    </extension>
 
+
    <extension point="org.eclipse.ui.editors">
       <!-- @generated modelDecode -->
       <editor
-            id="be.edu.ufpe.ines.decode.presentation.DecodeEditorID"
+            id="br.edu.ufpe.ines.decode.presentation.DecodeEditorID"
             name="%_UI_DecodeEditor_label"
             icon="icons/full/obj16/DecodeModelFile.gif"
             extensions="decode"
-            class="be.edu.ufpe.ines.decode.presentation.DecodeEditor"
-            contributorClass="be.edu.ufpe.ines.decode.presentation.DecodeActionBarContributor">
+            class="br.edu.ufpe.ines.decode.presentation.DecodeEditor"
+            contributorClass="br.edu.ufpe.ines.decode.presentation.DecodeActionBarContributor">
       </editor>
    </extension>
 
    <extension point="org.eclipse.ui.editors">
       <!-- @generated modelDecode -->
       <editor
-            id="be.edu.ufpe.ines.decode.taskDescription.presentation.TaskDescriptionEditorID"
+            id="br.edu.ufpe.ines.decode.taskDescription.presentation.TaskDescriptionEditorID"
             name="%_UI_TaskDescriptionEditor_label"
             icon="icons/full/obj16/TaskDescriptionModelFile.gif"
             extensions="taskdescription"
-            class="be.edu.ufpe.ines.decode.taskDescription.presentation.TaskDescriptionEditor"
-            contributorClass="be.edu.ufpe.ines.decode.taskDescription.presentation.TaskDescriptionActionBarContributor">
+            class="br.edu.ufpe.ines.decode.taskDescription.presentation.TaskDescriptionEditor"
+            contributorClass="br.edu.ufpe.ines.decode.taskDescription.presentation.TaskDescriptionActionBarContributor">
       </editor>
    </extension>
 
    <extension point="org.eclipse.ui.editors">
       <!-- @generated modelDecode -->
       <editor
-            id="be.edu.ufpe.ines.decode.artifacts.presentation.ArtifactsEditorID"
+            id="br.edu.ufpe.ines.decode.artifacts.presentation.ArtifactsEditorID"
             name="%_UI_ArtifactsEditor_label"
             icon="icons/full/obj16/ArtifactsModelFile.gif"
             extensions="artifacts"
-            class="be.edu.ufpe.ines.decode.artifacts.presentation.ArtifactsEditor"
-            contributorClass="be.edu.ufpe.ines.decode.artifacts.presentation.ArtifactsActionBarContributor">
+            class="br.edu.ufpe.ines.decode.artifacts.presentation.ArtifactsEditor"
+            contributorClass="br.edu.ufpe.ines.decode.artifacts.presentation.ArtifactsActionBarContributor">
       </editor>
    </extension>
 
    <extension point="org.eclipse.ui.editors">
       <!-- @generated modelDecode -->
       <editor
-            id="be.edu.ufpe.ines.decode.measurement.presentation.MeasurementEditorID"
+            id="br.edu.ufpe.ines.decode.artifacts.questionnaire.presentation.QuestionnaireEditorID"
+            name="%_UI_QuestionnaireEditor_label"
+            icon="icons/full/obj16/QuestionnaireModelFile.gif"
+            extensions="questionnaire"
+            class="br.edu.ufpe.ines.decode.artifacts.questionnaire.presentation.QuestionnaireEditor"
+            contributorClass="br.edu.ufpe.ines.decode.artifacts.questionnaire.presentation.QuestionnaireActionBarContributor">
+      </editor>
+   </extension>
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated modelDecode -->
+      <editor
+            id="br.edu.ufpe.ines.decode.measurement.presentation.MeasurementEditorID"
             name="%_UI_MeasurementEditor_label"
             icon="icons/full/obj16/MeasurementModelFile.gif"
             extensions="measurement"
-            class="be.edu.ufpe.ines.decode.measurement.presentation.MeasurementEditor"
-            contributorClass="be.edu.ufpe.ines.decode.measurement.presentation.MeasurementActionBarContributor">
+            class="br.edu.ufpe.ines.decode.measurement.presentation.MeasurementEditor"
+            contributorClass="br.edu.ufpe.ines.decode.measurement.presentation.MeasurementActionBarContributor">
       </editor>
    </extension>
 

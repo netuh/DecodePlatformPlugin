@@ -7,11 +7,12 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: be.edu.ufpe.ines.decode.artifacts.tests,
- be.edu.ufpe.ines.decode.aux.tests,
- be.edu.ufpe.ines.decode.measurement.tests,
- be.edu.ufpe.ines.decode.taskDescription.tests,
- be.edu.ufpe.ines.decode.tests
+Export-Package: br.edu.ufpe.ines.decode.artifacts.questionnaire.tests,
+ br.edu.ufpe.ines.decode.artifacts.tests,
+ br.edu.ufpe.ines.decode.aux.tests,
+ br.edu.ufpe.ines.decode.measurement.tests,
+ br.edu.ufpe.ines.decode.taskDescription.tests,
+ br.edu.ufpe.ines.decode.tests
 Require-Bundle: org.eclipse.core.runtime,
  br.edu.ufpe.ines.decode.model;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,

@@ -4,15 +4,16 @@ Bundle-Name: %pluginName
 Bundle-SymbolicName: br.edu.ufpe.ines.decode.model.edit;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
-Bundle-Activator: be.edu.ufpe.ines.decode.provider.ModelDecodeEditPlugin$Implementation
+Bundle-Activator: br.edu.ufpe.ines.decode.provider.ModelDecodeEditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: be.edu.ufpe.ines.decode.artifacts.provider,
- be.edu.ufpe.ines.decode.aux.provider,
- be.edu.ufpe.ines.decode.measurement.provider,
- be.edu.ufpe.ines.decode.provider,
- be.edu.ufpe.ines.decode.taskDescription.provider
+Export-Package: br.edu.ufpe.ines.decode.artifacts.provider,
+ br.edu.ufpe.ines.decode.artifacts.questionnaire.provider,
+ br.edu.ufpe.ines.decode.aux.provider,
+ br.edu.ufpe.ines.decode.measurement.provider,
+ br.edu.ufpe.ines.decode.provider,
+ br.edu.ufpe.ines.decode.taskDescription.provider
 Require-Bundle: org.eclipse.core.runtime,
  br.edu.ufpe.ines.decode.model;visibility:=reexport,
  org.eclipse.emf.edit;visibility:=reexport

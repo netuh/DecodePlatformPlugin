@@ -203,18 +203,18 @@
           <ecoreClass href="modelDecode.ecore#//artifacts/questionnaire/Restriction"/>
         </genClasses>
         <genClasses>
-          <ecoreClass href="modelDecode.ecore#//artifacts/questionnaire/Appendable"/>
+          <ecoreClass href="modelDecode.ecore#//artifacts/questionnaire/AppendableElement"/>
           <genFeatures createChild="false">
-            <ecoreFeature xsi:type="ecore:EAttribute" href="modelDecode.ecore#//artifacts/questionnaire/Appendable/defaultQuantity"/>
+            <ecoreFeature xsi:type="ecore:EAttribute" href="modelDecode.ecore#//artifacts/questionnaire/AppendableElement/defaultQuantity"/>
           </genFeatures>
         </genClasses>
         <genClasses>
-          <ecoreClass href="modelDecode.ecore#//artifacts/questionnaire/Dependent"/>
+          <ecoreClass href="modelDecode.ecore#//artifacts/questionnaire/DependentElement"/>
           <genFeatures notify="false" createChild="false" propertySortChoices="true">
-            <ecoreFeature xsi:type="ecore:EReference" href="modelDecode.ecore#//artifacts/questionnaire/Dependent/question"/>
+            <ecoreFeature xsi:type="ecore:EReference" href="modelDecode.ecore#//artifacts/questionnaire/DependentElement/question"/>
           </genFeatures>
           <genFeatures createChild="false">
-            <ecoreFeature xsi:type="ecore:EAttribute" href="modelDecode.ecore#//artifacts/questionnaire/Dependent/expectedValue"/>
+            <ecoreFeature xsi:type="ecore:EAttribute" href="modelDecode.ecore#//artifacts/questionnaire/DependentElement/expectedValue"/>
           </genFeatures>
         </genClasses>
         <genClasses>
