@@ -134,7 +134,7 @@ public class ContentItemProvider
 		String label = ((Content)object).getText();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Content_type") :
-			getString("_UI_Content_type") + ": " + label;
+			getString("_UI_Content_type") + " " + label;
 	}
 	
 

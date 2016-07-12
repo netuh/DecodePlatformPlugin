@@ -71,6 +71,7 @@ public class TaskDescriptionSwitch<T> extends Switch<T> {
 			case TaskDescriptionPackage.MODELED_TASK: {
 				ModeledTask modeledTask = (ModeledTask)theEObject;
 				T result = caseModeledTask(modeledTask);
+				if (result == null) result = caseNameable(modeledTask);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -79,6 +80,7 @@ public class TaskDescriptionSwitch<T> extends Switch<T> {
 				T result = caseSequencial(sequencial);
 				if (result == null) result = caseComposedTask(sequencial);
 				if (result == null) result = caseModeledTask(sequencial);
+				if (result == null) result = caseNameable(sequencial);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -87,6 +89,7 @@ public class TaskDescriptionSwitch<T> extends Switch<T> {
 				T result = caseRandom(random);
 				if (result == null) result = caseComposedTask(random);
 				if (result == null) result = caseModeledTask(random);
+				if (result == null) result = caseNameable(random);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -94,6 +97,7 @@ public class TaskDescriptionSwitch<T> extends Switch<T> {
 				ComposedTask composedTask = (ComposedTask)theEObject;
 				T result = caseComposedTask(composedTask);
 				if (result == null) result = caseModeledTask(composedTask);
+				if (result == null) result = caseNameable(composedTask);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -114,6 +118,47 @@ public class TaskDescriptionSwitch<T> extends Switch<T> {
 			case TaskDescriptionPackage.PLACEMENT_QUESTIONNAIRE: {
 				PlacementQuestionnaire placementQuestionnaire = (PlacementQuestionnaire)theEObject;
 				T result = casePlacementQuestionnaire(placementQuestionnaire);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TaskDescriptionPackage.EXECUTION_DERIVATIONS: {
+				ExecutionDerivations executionDerivations = (ExecutionDerivations)theEObject;
+				T result = caseExecutionDerivations(executionDerivations);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TaskDescriptionPackage.TIME_RESTRICTION: {
+				TimeRestriction timeRestriction = (TimeRestriction)theEObject;
+				T result = caseTimeRestriction(timeRestriction);
+				if (result == null) result = caseRestriction(timeRestriction);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TaskDescriptionPackage.SPECFIC_RESTRICTION: {
+				SpecficRestriction specficRestriction = (SpecficRestriction)theEObject;
+				T result = caseSpecficRestriction(specficRestriction);
+				if (result == null) result = caseRestriction(specficRestriction);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TaskDescriptionPackage.ECLIPSE_RETRICTION: {
+				EclipseRetriction eclipseRetriction = (EclipseRetriction)theEObject;
+				T result = caseEclipseRetriction(eclipseRetriction);
+				if (result == null) result = caseSpecficRestriction(eclipseRetriction);
+				if (result == null) result = caseRestriction(eclipseRetriction);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TaskDescriptionPackage.OTHER_RESTRICTION: {
+				OtherRestriction otherRestriction = (OtherRestriction)theEObject;
+				T result = caseOtherRestriction(otherRestriction);
+				if (result == null) result = caseRestriction(otherRestriction);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TaskDescriptionPackage.MODELED_RESTRICTIONS: {
+				ModeledRestrictions modeledRestrictions = (ModeledRestrictions)theEObject;
+				T result = caseModeledRestrictions(modeledRestrictions);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -223,6 +268,96 @@ public class TaskDescriptionSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T casePlacementQuestionnaire(PlacementQuestionnaire object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Execution Derivations</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Execution Derivations</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExecutionDerivations(ExecutionDerivations object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Time Restriction</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Time Restriction</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTimeRestriction(TimeRestriction object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Specfic Restriction</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Specfic Restriction</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSpecficRestriction(SpecficRestriction object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Eclipse Retriction</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Eclipse Retriction</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEclipseRetriction(EclipseRetriction object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Other Restriction</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Other Restriction</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOtherRestriction(OtherRestriction object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Modeled Restrictions</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Modeled Restrictions</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseModeledRestrictions(ModeledRestrictions object) {
 		return null;
 	}
 

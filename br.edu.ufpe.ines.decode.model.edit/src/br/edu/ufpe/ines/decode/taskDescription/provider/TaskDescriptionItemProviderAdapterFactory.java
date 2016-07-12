@@ -141,29 +141,6 @@ public class TaskDescriptionItemProviderAdapterFactory extends TaskDescriptionAd
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link br.edu.ufpe.ines.decode.taskDescription.Restriction} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected RestrictionItemProvider restrictionItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link br.edu.ufpe.ines.decode.taskDescription.Restriction}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createRestrictionAdapter() {
-		if (restrictionItemProvider == null) {
-			restrictionItemProvider = new RestrictionItemProvider(this);
-		}
-
-		return restrictionItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link br.edu.ufpe.ines.decode.taskDescription.PlacementQuestionnaire} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -184,6 +161,121 @@ public class TaskDescriptionItemProviderAdapterFactory extends TaskDescriptionAd
 		}
 
 		return placementQuestionnaireItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link br.edu.ufpe.ines.decode.taskDescription.ExecutionDerivations} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ExecutionDerivationsItemProvider executionDerivationsItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link br.edu.ufpe.ines.decode.taskDescription.ExecutionDerivations}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createExecutionDerivationsAdapter() {
+		if (executionDerivationsItemProvider == null) {
+			executionDerivationsItemProvider = new ExecutionDerivationsItemProvider(this);
+		}
+
+		return executionDerivationsItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link br.edu.ufpe.ines.decode.taskDescription.TimeRestriction} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TimeRestrictionItemProvider timeRestrictionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link br.edu.ufpe.ines.decode.taskDescription.TimeRestriction}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTimeRestrictionAdapter() {
+		if (timeRestrictionItemProvider == null) {
+			timeRestrictionItemProvider = new TimeRestrictionItemProvider(this);
+		}
+
+		return timeRestrictionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link br.edu.ufpe.ines.decode.taskDescription.EclipseRetriction} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EclipseRetrictionItemProvider eclipseRetrictionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link br.edu.ufpe.ines.decode.taskDescription.EclipseRetriction}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEclipseRetrictionAdapter() {
+		if (eclipseRetrictionItemProvider == null) {
+			eclipseRetrictionItemProvider = new EclipseRetrictionItemProvider(this);
+		}
+
+		return eclipseRetrictionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link br.edu.ufpe.ines.decode.taskDescription.OtherRestriction} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected OtherRestrictionItemProvider otherRestrictionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link br.edu.ufpe.ines.decode.taskDescription.OtherRestriction}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createOtherRestrictionAdapter() {
+		if (otherRestrictionItemProvider == null) {
+			otherRestrictionItemProvider = new OtherRestrictionItemProvider(this);
+		}
+
+		return otherRestrictionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link br.edu.ufpe.ines.decode.taskDescription.ModeledRestrictions} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ModeledRestrictionsItemProvider modeledRestrictionsItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link br.edu.ufpe.ines.decode.taskDescription.ModeledRestrictions}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createModeledRestrictionsAdapter() {
+		if (modeledRestrictionsItemProvider == null) {
+			modeledRestrictionsItemProvider = new ModeledRestrictionsItemProvider(this);
+		}
+
+		return modeledRestrictionsItemProvider;
 	}
 
 	/**
@@ -288,8 +380,12 @@ public class TaskDescriptionItemProviderAdapterFactory extends TaskDescriptionAd
 		if (sequencialItemProvider != null) sequencialItemProvider.dispose();
 		if (randomItemProvider != null) randomItemProvider.dispose();
 		if (experimentalTaskItemProvider != null) experimentalTaskItemProvider.dispose();
-		if (restrictionItemProvider != null) restrictionItemProvider.dispose();
 		if (placementQuestionnaireItemProvider != null) placementQuestionnaireItemProvider.dispose();
+		if (executionDerivationsItemProvider != null) executionDerivationsItemProvider.dispose();
+		if (timeRestrictionItemProvider != null) timeRestrictionItemProvider.dispose();
+		if (eclipseRetrictionItemProvider != null) eclipseRetrictionItemProvider.dispose();
+		if (otherRestrictionItemProvider != null) otherRestrictionItemProvider.dispose();
+		if (modeledRestrictionsItemProvider != null) modeledRestrictionsItemProvider.dispose();
 	}
 
 }

@@ -8,7 +8,7 @@ import br.edu.ufpe.ines.decode.aux.Nameable;
 
 import br.edu.ufpe.ines.decode.measurement.Measurements;
 
-import br.edu.ufpe.ines.decode.taskDescription.ModeledTask;
+import br.edu.ufpe.ines.decode.taskDescription.ExecutionDerivations;
 
 /**
  * <!-- begin-user-doc -->
@@ -38,12 +38,12 @@ public interface CodingExperiment extends Nameable {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Task</em>' containment reference.
-	 * @see #setTask(ModeledTask)
+	 * @see #setTask(ExecutionDerivations)
 	 * @see br.edu.ufpe.ines.decode.DecodePackage#getCodingExperiment_Task()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	ModeledTask getTask();
+	ExecutionDerivations getTask();
 
 	/**
 	 * Sets the value of the '{@link br.edu.ufpe.ines.decode.CodingExperiment#getTask <em>Task</em>}' containment reference.
@@ -53,7 +53,7 @@ public interface CodingExperiment extends Nameable {
 	 * @see #getTask()
 	 * @generated
 	 */
-	void setTask(ModeledTask value);
+	void setTask(ExecutionDerivations value);
 
 	/**
 	 * Returns the value of the '<em><b>Measurements</b></em>' containment reference.

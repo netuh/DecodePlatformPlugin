@@ -99,7 +99,10 @@ public class RandomItemProvider extends ComposedTaskItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Random_type");
+		String label = ((Random)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Random_type") :
+			getString("_UI_Random_type") + " " + label;
 	}
 	
 

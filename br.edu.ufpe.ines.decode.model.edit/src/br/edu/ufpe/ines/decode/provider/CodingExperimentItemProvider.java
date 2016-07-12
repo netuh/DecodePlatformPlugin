@@ -113,7 +113,7 @@ public class CodingExperimentItemProvider extends NameableItemProvider {
 		String label = ((CodingExperiment)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_CodingExperiment_type") :
-			getString("_UI_CodingExperiment_type") + ": " + label;
+			getString("_UI_CodingExperiment_type") + " " + label;
 	}
 	
 
@@ -152,17 +152,7 @@ public class CodingExperimentItemProvider extends NameableItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(DecodePackage.Literals.CODING_EXPERIMENT__TASK,
-				 TaskDescriptionFactory.eINSTANCE.createSequencial()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DecodePackage.Literals.CODING_EXPERIMENT__TASK,
-				 TaskDescriptionFactory.eINSTANCE.createRandom()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DecodePackage.Literals.CODING_EXPERIMENT__TASK,
-				 TaskDescriptionFactory.eINSTANCE.createExperimentalTask()));
+				 TaskDescriptionFactory.eINSTANCE.createExecutionDerivations()));
 
 		newChildDescriptors.add
 			(createChildParameter

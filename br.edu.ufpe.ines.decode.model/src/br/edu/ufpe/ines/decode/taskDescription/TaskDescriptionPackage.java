@@ -2,6 +2,7 @@
  */
 package br.edu.ufpe.ines.decode.taskDescription;
 
+import br.edu.ufpe.ines.decode.aux.AuxPackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
@@ -68,13 +69,22 @@ public interface TaskDescriptionPackage extends EPackage {
 	int MODELED_TASK = 0;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODELED_TASK__NAME = AuxPackage.NAMEABLE__NAME;
+
+	/**
 	 * The feature id for the '<em><b>Restriction</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODELED_TASK__RESTRICTION = 0;
+	int MODELED_TASK__RESTRICTION = AuxPackage.NAMEABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Placement</b></em>' containment reference.
@@ -83,7 +93,7 @@ public interface TaskDescriptionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODELED_TASK__PLACEMENT = 1;
+	int MODELED_TASK__PLACEMENT = AuxPackage.NAMEABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Modeled Task</em>' class.
@@ -92,7 +102,7 @@ public interface TaskDescriptionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODELED_TASK_FEATURE_COUNT = 2;
+	int MODELED_TASK_FEATURE_COUNT = AuxPackage.NAMEABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Modeled Task</em>' class.
@@ -101,7 +111,7 @@ public interface TaskDescriptionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODELED_TASK_OPERATION_COUNT = 0;
+	int MODELED_TASK_OPERATION_COUNT = AuxPackage.NAMEABLE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link br.edu.ufpe.ines.decode.taskDescription.impl.ComposedTaskImpl <em>Composed Task</em>}' class.
@@ -112,6 +122,15 @@ public interface TaskDescriptionPackage extends EPackage {
 	 * @generated
 	 */
 	int COMPOSED_TASK = 3;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSED_TASK__NAME = MODELED_TASK__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Restriction</b></em>' containment reference.
@@ -158,6 +177,15 @@ public interface TaskDescriptionPackage extends EPackage {
 	 * @generated
 	 */
 	int SEQUENCIAL = 1;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEQUENCIAL__NAME = COMPOSED_TASK__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Restriction</b></em>' containment reference.
@@ -215,6 +243,15 @@ public interface TaskDescriptionPackage extends EPackage {
 	int RANDOM = 2;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RANDOM__NAME = COMPOSED_TASK__NAME;
+
+	/**
 	 * The feature id for the '<em><b>Restriction</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -270,6 +307,15 @@ public interface TaskDescriptionPackage extends EPackage {
 	int EXPERIMENTAL_TASK = 4;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPERIMENTAL_TASK__NAME = MODELED_TASK__NAME;
+
+	/**
 	 * The feature id for the '<em><b>Restriction</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -288,31 +334,13 @@ public interface TaskDescriptionPackage extends EPackage {
 	int EXPERIMENTAL_TASK__PLACEMENT = MODELED_TASK__PLACEMENT;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXPERIMENTAL_TASK__NAME = MODELED_TASK_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>New Attribute</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXPERIMENTAL_TASK__NEW_ATTRIBUTE = MODELED_TASK_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Required Artifacts</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXPERIMENTAL_TASK__REQUIRED_ARTIFACTS = MODELED_TASK_FEATURE_COUNT + 2;
+	int EXPERIMENTAL_TASK__REQUIRED_ARTIFACTS = MODELED_TASK_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Depends</b></em>' reference list.
@@ -321,7 +349,7 @@ public interface TaskDescriptionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXPERIMENTAL_TASK__DEPENDS = MODELED_TASK_FEATURE_COUNT + 3;
+	int EXPERIMENTAL_TASK__DEPENDS = MODELED_TASK_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Experimental Task</em>' class.
@@ -330,7 +358,7 @@ public interface TaskDescriptionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXPERIMENTAL_TASK_FEATURE_COUNT = MODELED_TASK_FEATURE_COUNT + 4;
+	int EXPERIMENTAL_TASK_FEATURE_COUNT = MODELED_TASK_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Experimental Task</em>' class.
@@ -352,31 +380,13 @@ public interface TaskDescriptionPackage extends EPackage {
 	int RESTRICTION = 5;
 
 	/**
-	 * The feature id for the '<em><b>Deadline</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESTRICTION__DEADLINE = 0;
-
-	/**
-	 * The feature id for the '<em><b>Time Frame</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESTRICTION__TIME_FRAME = 1;
-
-	/**
 	 * The number of structural features of the '<em>Restriction</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESTRICTION_FEATURE_COUNT = 2;
+	int RESTRICTION_FEATURE_COUNT = 0;
 
 	/**
 	 * The number of operations of the '<em>Restriction</em>' class.
@@ -434,6 +444,228 @@ public interface TaskDescriptionPackage extends EPackage {
 	int PLACEMENT_QUESTIONNAIRE_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link br.edu.ufpe.ines.decode.taskDescription.impl.ExecutionDerivationsImpl <em>Execution Derivations</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see br.edu.ufpe.ines.decode.taskDescription.impl.ExecutionDerivationsImpl
+	 * @see br.edu.ufpe.ines.decode.taskDescription.impl.TaskDescriptionPackageImpl#getExecutionDerivations()
+	 * @generated
+	 */
+	int EXECUTION_DERIVATIONS = 7;
+
+	/**
+	 * The feature id for the '<em><b>Tasks</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_DERIVATIONS__TASKS = 0;
+
+	/**
+	 * The number of structural features of the '<em>Execution Derivations</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_DERIVATIONS_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Execution Derivations</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_DERIVATIONS_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link br.edu.ufpe.ines.decode.taskDescription.impl.TimeRestrictionImpl <em>Time Restriction</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see br.edu.ufpe.ines.decode.taskDescription.impl.TimeRestrictionImpl
+	 * @see br.edu.ufpe.ines.decode.taskDescription.impl.TaskDescriptionPackageImpl#getTimeRestriction()
+	 * @generated
+	 */
+	int TIME_RESTRICTION = 8;
+
+	/**
+	 * The feature id for the '<em><b>Time Frame</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_RESTRICTION__TIME_FRAME = RESTRICTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Deadline</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_RESTRICTION__DEADLINE = RESTRICTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Time Restriction</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_RESTRICTION_FEATURE_COUNT = RESTRICTION_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Time Restriction</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_RESTRICTION_OPERATION_COUNT = RESTRICTION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link br.edu.ufpe.ines.decode.taskDescription.impl.SpecficRestrictionImpl <em>Specfic Restriction</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see br.edu.ufpe.ines.decode.taskDescription.impl.SpecficRestrictionImpl
+	 * @see br.edu.ufpe.ines.decode.taskDescription.impl.TaskDescriptionPackageImpl#getSpecficRestriction()
+	 * @generated
+	 */
+	int SPECFIC_RESTRICTION = 9;
+
+	/**
+	 * The number of structural features of the '<em>Specfic Restriction</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECFIC_RESTRICTION_FEATURE_COUNT = RESTRICTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Specfic Restriction</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECFIC_RESTRICTION_OPERATION_COUNT = RESTRICTION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link br.edu.ufpe.ines.decode.taskDescription.impl.EclipseRetrictionImpl <em>Eclipse Retriction</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see br.edu.ufpe.ines.decode.taskDescription.impl.EclipseRetrictionImpl
+	 * @see br.edu.ufpe.ines.decode.taskDescription.impl.TaskDescriptionPackageImpl#getEclipseRetriction()
+	 * @generated
+	 */
+	int ECLIPSE_RETRICTION = 10;
+
+	/**
+	 * The feature id for the '<em><b>Forbiden</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ECLIPSE_RETRICTION__FORBIDEN = SPECFIC_RESTRICTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Eclipse Retriction</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ECLIPSE_RETRICTION_FEATURE_COUNT = SPECFIC_RESTRICTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Eclipse Retriction</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ECLIPSE_RETRICTION_OPERATION_COUNT = SPECFIC_RESTRICTION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link br.edu.ufpe.ines.decode.taskDescription.impl.OtherRestrictionImpl <em>Other Restriction</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see br.edu.ufpe.ines.decode.taskDescription.impl.OtherRestrictionImpl
+	 * @see br.edu.ufpe.ines.decode.taskDescription.impl.TaskDescriptionPackageImpl#getOtherRestriction()
+	 * @generated
+	 */
+	int OTHER_RESTRICTION = 11;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OTHER_RESTRICTION__DESCRIPTION = RESTRICTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Other Restriction</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OTHER_RESTRICTION_FEATURE_COUNT = RESTRICTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Other Restriction</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OTHER_RESTRICTION_OPERATION_COUNT = RESTRICTION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link br.edu.ufpe.ines.decode.taskDescription.impl.ModeledRestrictionsImpl <em>Modeled Restrictions</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see br.edu.ufpe.ines.decode.taskDescription.impl.ModeledRestrictionsImpl
+	 * @see br.edu.ufpe.ines.decode.taskDescription.impl.TaskDescriptionPackageImpl#getModeledRestrictions()
+	 * @generated
+	 */
+	int MODELED_RESTRICTIONS = 12;
+
+	/**
+	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODELED_RESTRICTIONS__CHILDREN = 0;
+
+	/**
+	 * The number of structural features of the '<em>Modeled Restrictions</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODELED_RESTRICTIONS_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Modeled Restrictions</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODELED_RESTRICTIONS_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link br.edu.ufpe.ines.decode.taskDescription.PlacementType <em>Placement Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -441,7 +673,7 @@ public interface TaskDescriptionPackage extends EPackage {
 	 * @see br.edu.ufpe.ines.decode.taskDescription.impl.TaskDescriptionPackageImpl#getPlacementType()
 	 * @generated
 	 */
-	int PLACEMENT_TYPE = 7;
+	int PLACEMENT_TYPE = 13;
 
 
 	/**
@@ -539,17 +771,6 @@ public interface TaskDescriptionPackage extends EPackage {
 	EClass getExperimentalTask();
 
 	/**
-	 * Returns the meta object for the attribute '{@link br.edu.ufpe.ines.decode.taskDescription.ExperimentalTask#getNewAttribute <em>New Attribute</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>New Attribute</em>'.
-	 * @see br.edu.ufpe.ines.decode.taskDescription.ExperimentalTask#getNewAttribute()
-	 * @see #getExperimentalTask()
-	 * @generated
-	 */
-	EAttribute getExperimentalTask_NewAttribute();
-
-	/**
 	 * Returns the meta object for the reference list '{@link br.edu.ufpe.ines.decode.taskDescription.ExperimentalTask#getRequiredArtifacts <em>Required Artifacts</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -582,28 +803,6 @@ public interface TaskDescriptionPackage extends EPackage {
 	EClass getRestriction();
 
 	/**
-	 * Returns the meta object for the attribute '{@link br.edu.ufpe.ines.decode.taskDescription.Restriction#getDeadline <em>Deadline</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Deadline</em>'.
-	 * @see br.edu.ufpe.ines.decode.taskDescription.Restriction#getDeadline()
-	 * @see #getRestriction()
-	 * @generated
-	 */
-	EAttribute getRestriction_Deadline();
-
-	/**
-	 * Returns the meta object for the attribute '{@link br.edu.ufpe.ines.decode.taskDescription.Restriction#getTimeFrame <em>Time Frame</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Time Frame</em>'.
-	 * @see br.edu.ufpe.ines.decode.taskDescription.Restriction#getTimeFrame()
-	 * @see #getRestriction()
-	 * @generated
-	 */
-	EAttribute getRestriction_TimeFrame();
-
-	/**
 	 * Returns the meta object for class '{@link br.edu.ufpe.ines.decode.taskDescription.PlacementQuestionnaire <em>Placement Questionnaire</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -634,6 +833,132 @@ public interface TaskDescriptionPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getPlacementQuestionnaire_Questionnaire();
+
+	/**
+	 * Returns the meta object for class '{@link br.edu.ufpe.ines.decode.taskDescription.ExecutionDerivations <em>Execution Derivations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Execution Derivations</em>'.
+	 * @see br.edu.ufpe.ines.decode.taskDescription.ExecutionDerivations
+	 * @generated
+	 */
+	EClass getExecutionDerivations();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link br.edu.ufpe.ines.decode.taskDescription.ExecutionDerivations#getTasks <em>Tasks</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Tasks</em>'.
+	 * @see br.edu.ufpe.ines.decode.taskDescription.ExecutionDerivations#getTasks()
+	 * @see #getExecutionDerivations()
+	 * @generated
+	 */
+	EReference getExecutionDerivations_Tasks();
+
+	/**
+	 * Returns the meta object for class '{@link br.edu.ufpe.ines.decode.taskDescription.TimeRestriction <em>Time Restriction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Time Restriction</em>'.
+	 * @see br.edu.ufpe.ines.decode.taskDescription.TimeRestriction
+	 * @generated
+	 */
+	EClass getTimeRestriction();
+
+	/**
+	 * Returns the meta object for the attribute '{@link br.edu.ufpe.ines.decode.taskDescription.TimeRestriction#getTimeFrame <em>Time Frame</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Time Frame</em>'.
+	 * @see br.edu.ufpe.ines.decode.taskDescription.TimeRestriction#getTimeFrame()
+	 * @see #getTimeRestriction()
+	 * @generated
+	 */
+	EAttribute getTimeRestriction_TimeFrame();
+
+	/**
+	 * Returns the meta object for the attribute '{@link br.edu.ufpe.ines.decode.taskDescription.TimeRestriction#getDeadline <em>Deadline</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Deadline</em>'.
+	 * @see br.edu.ufpe.ines.decode.taskDescription.TimeRestriction#getDeadline()
+	 * @see #getTimeRestriction()
+	 * @generated
+	 */
+	EAttribute getTimeRestriction_Deadline();
+
+	/**
+	 * Returns the meta object for class '{@link br.edu.ufpe.ines.decode.taskDescription.SpecficRestriction <em>Specfic Restriction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Specfic Restriction</em>'.
+	 * @see br.edu.ufpe.ines.decode.taskDescription.SpecficRestriction
+	 * @generated
+	 */
+	EClass getSpecficRestriction();
+
+	/**
+	 * Returns the meta object for class '{@link br.edu.ufpe.ines.decode.taskDescription.EclipseRetriction <em>Eclipse Retriction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Eclipse Retriction</em>'.
+	 * @see br.edu.ufpe.ines.decode.taskDescription.EclipseRetriction
+	 * @generated
+	 */
+	EClass getEclipseRetriction();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link br.edu.ufpe.ines.decode.taskDescription.EclipseRetriction#getForbiden <em>Forbiden</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Forbiden</em>'.
+	 * @see br.edu.ufpe.ines.decode.taskDescription.EclipseRetriction#getForbiden()
+	 * @see #getEclipseRetriction()
+	 * @generated
+	 */
+	EAttribute getEclipseRetriction_Forbiden();
+
+	/**
+	 * Returns the meta object for class '{@link br.edu.ufpe.ines.decode.taskDescription.OtherRestriction <em>Other Restriction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Other Restriction</em>'.
+	 * @see br.edu.ufpe.ines.decode.taskDescription.OtherRestriction
+	 * @generated
+	 */
+	EClass getOtherRestriction();
+
+	/**
+	 * Returns the meta object for the attribute '{@link br.edu.ufpe.ines.decode.taskDescription.OtherRestriction#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see br.edu.ufpe.ines.decode.taskDescription.OtherRestriction#getDescription()
+	 * @see #getOtherRestriction()
+	 * @generated
+	 */
+	EAttribute getOtherRestriction_Description();
+
+	/**
+	 * Returns the meta object for class '{@link br.edu.ufpe.ines.decode.taskDescription.ModeledRestrictions <em>Modeled Restrictions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Modeled Restrictions</em>'.
+	 * @see br.edu.ufpe.ines.decode.taskDescription.ModeledRestrictions
+	 * @generated
+	 */
+	EClass getModeledRestrictions();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link br.edu.ufpe.ines.decode.taskDescription.ModeledRestrictions#getChildren <em>Children</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Children</em>'.
+	 * @see br.edu.ufpe.ines.decode.taskDescription.ModeledRestrictions#getChildren()
+	 * @see #getModeledRestrictions()
+	 * @generated
+	 */
+	EReference getModeledRestrictions_Children();
 
 	/**
 	 * Returns the meta object for enum '{@link br.edu.ufpe.ines.decode.taskDescription.PlacementType <em>Placement Type</em>}'.
@@ -751,14 +1076,6 @@ public interface TaskDescriptionPackage extends EPackage {
 		EClass EXPERIMENTAL_TASK = eINSTANCE.getExperimentalTask();
 
 		/**
-		 * The meta object literal for the '<em><b>New Attribute</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute EXPERIMENTAL_TASK__NEW_ATTRIBUTE = eINSTANCE.getExperimentalTask_NewAttribute();
-
-		/**
 		 * The meta object literal for the '<em><b>Required Artifacts</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -785,22 +1102,6 @@ public interface TaskDescriptionPackage extends EPackage {
 		EClass RESTRICTION = eINSTANCE.getRestriction();
 
 		/**
-		 * The meta object literal for the '<em><b>Deadline</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute RESTRICTION__DEADLINE = eINSTANCE.getRestriction_Deadline();
-
-		/**
-		 * The meta object literal for the '<em><b>Time Frame</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute RESTRICTION__TIME_FRAME = eINSTANCE.getRestriction_TimeFrame();
-
-		/**
 		 * The meta object literal for the '{@link br.edu.ufpe.ines.decode.taskDescription.impl.PlacementQuestionnaireImpl <em>Placement Questionnaire</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -825,6 +1126,114 @@ public interface TaskDescriptionPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PLACEMENT_QUESTIONNAIRE__QUESTIONNAIRE = eINSTANCE.getPlacementQuestionnaire_Questionnaire();
+
+		/**
+		 * The meta object literal for the '{@link br.edu.ufpe.ines.decode.taskDescription.impl.ExecutionDerivationsImpl <em>Execution Derivations</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see br.edu.ufpe.ines.decode.taskDescription.impl.ExecutionDerivationsImpl
+		 * @see br.edu.ufpe.ines.decode.taskDescription.impl.TaskDescriptionPackageImpl#getExecutionDerivations()
+		 * @generated
+		 */
+		EClass EXECUTION_DERIVATIONS = eINSTANCE.getExecutionDerivations();
+
+		/**
+		 * The meta object literal for the '<em><b>Tasks</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EXECUTION_DERIVATIONS__TASKS = eINSTANCE.getExecutionDerivations_Tasks();
+
+		/**
+		 * The meta object literal for the '{@link br.edu.ufpe.ines.decode.taskDescription.impl.TimeRestrictionImpl <em>Time Restriction</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see br.edu.ufpe.ines.decode.taskDescription.impl.TimeRestrictionImpl
+		 * @see br.edu.ufpe.ines.decode.taskDescription.impl.TaskDescriptionPackageImpl#getTimeRestriction()
+		 * @generated
+		 */
+		EClass TIME_RESTRICTION = eINSTANCE.getTimeRestriction();
+
+		/**
+		 * The meta object literal for the '<em><b>Time Frame</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TIME_RESTRICTION__TIME_FRAME = eINSTANCE.getTimeRestriction_TimeFrame();
+
+		/**
+		 * The meta object literal for the '<em><b>Deadline</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TIME_RESTRICTION__DEADLINE = eINSTANCE.getTimeRestriction_Deadline();
+
+		/**
+		 * The meta object literal for the '{@link br.edu.ufpe.ines.decode.taskDescription.impl.SpecficRestrictionImpl <em>Specfic Restriction</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see br.edu.ufpe.ines.decode.taskDescription.impl.SpecficRestrictionImpl
+		 * @see br.edu.ufpe.ines.decode.taskDescription.impl.TaskDescriptionPackageImpl#getSpecficRestriction()
+		 * @generated
+		 */
+		EClass SPECFIC_RESTRICTION = eINSTANCE.getSpecficRestriction();
+
+		/**
+		 * The meta object literal for the '{@link br.edu.ufpe.ines.decode.taskDescription.impl.EclipseRetrictionImpl <em>Eclipse Retriction</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see br.edu.ufpe.ines.decode.taskDescription.impl.EclipseRetrictionImpl
+		 * @see br.edu.ufpe.ines.decode.taskDescription.impl.TaskDescriptionPackageImpl#getEclipseRetriction()
+		 * @generated
+		 */
+		EClass ECLIPSE_RETRICTION = eINSTANCE.getEclipseRetriction();
+
+		/**
+		 * The meta object literal for the '<em><b>Forbiden</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ECLIPSE_RETRICTION__FORBIDEN = eINSTANCE.getEclipseRetriction_Forbiden();
+
+		/**
+		 * The meta object literal for the '{@link br.edu.ufpe.ines.decode.taskDescription.impl.OtherRestrictionImpl <em>Other Restriction</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see br.edu.ufpe.ines.decode.taskDescription.impl.OtherRestrictionImpl
+		 * @see br.edu.ufpe.ines.decode.taskDescription.impl.TaskDescriptionPackageImpl#getOtherRestriction()
+		 * @generated
+		 */
+		EClass OTHER_RESTRICTION = eINSTANCE.getOtherRestriction();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OTHER_RESTRICTION__DESCRIPTION = eINSTANCE.getOtherRestriction_Description();
+
+		/**
+		 * The meta object literal for the '{@link br.edu.ufpe.ines.decode.taskDescription.impl.ModeledRestrictionsImpl <em>Modeled Restrictions</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see br.edu.ufpe.ines.decode.taskDescription.impl.ModeledRestrictionsImpl
+		 * @see br.edu.ufpe.ines.decode.taskDescription.impl.TaskDescriptionPackageImpl#getModeledRestrictions()
+		 * @generated
+		 */
+		EClass MODELED_RESTRICTIONS = eINSTANCE.getModeledRestrictions();
+
+		/**
+		 * The meta object literal for the '<em><b>Children</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODELED_RESTRICTIONS__CHILDREN = eINSTANCE.getModeledRestrictions_Children();
 
 		/**
 		 * The meta object literal for the '{@link br.edu.ufpe.ines.decode.taskDescription.PlacementType <em>Placement Type</em>}' enum.

@@ -3,6 +3,7 @@
 package br.edu.ufpe.ines.decode.taskDescription.provider;
 
 
+import br.edu.ufpe.ines.decode.taskDescription.ComposedTask;
 import java.util.Collection;
 import java.util.List;
 
@@ -51,7 +52,10 @@ public class ComposedTaskItemProvider extends ModeledTaskItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ComposedTask_type");
+		String label = ((ComposedTask)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ComposedTask_type") :
+			getString("_UI_ComposedTask_type") + " " + label;
 	}
 	
 

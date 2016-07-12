@@ -3,6 +3,7 @@
 package br.edu.ufpe.ines.decode.taskDescription.provider;
 
 
+import br.edu.ufpe.ines.decode.aux.provider.NameableItemProvider;
 import br.edu.ufpe.ines.decode.provider.ModelDecodeEditPlugin;
 
 import br.edu.ufpe.ines.decode.taskDescription.ModeledTask;
@@ -18,14 +19,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
-
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -35,13 +29,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class ModeledTaskItemProvider 
-	extends ItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends NameableItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -106,7 +94,10 @@ public class ModeledTaskItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ModeledTask_type");
+		String label = ((ModeledTask)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ModeledTask_type") :
+			getString("_UI_ModeledTask_type") + " " + label;
 	}
 	
 
@@ -144,7 +135,7 @@ public class ModeledTaskItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(TaskDescriptionPackage.Literals.MODELED_TASK__RESTRICTION,
-				 TaskDescriptionFactory.eINSTANCE.createRestriction()));
+				 TaskDescriptionFactory.eINSTANCE.createModeledRestrictions()));
 
 		newChildDescriptors.add
 			(createChildParameter

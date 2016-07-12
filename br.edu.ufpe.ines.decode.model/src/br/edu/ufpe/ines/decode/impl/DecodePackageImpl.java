@@ -238,7 +238,7 @@ public class DecodePackageImpl extends EPackageImpl implements DecodePackage {
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(codingExperimentEClass, CodingExperiment.class, "CodingExperiment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getCodingExperiment_Task(), theTaskDescriptionPackage.getModeledTask(), null, "task", null, 1, 1, CodingExperiment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCodingExperiment_Task(), theTaskDescriptionPackage.getExecutionDerivations(), null, "task", null, 1, 1, CodingExperiment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCodingExperiment_Measurements(), theMeasurementPackage.getMeasurements(), null, "measurements", null, 1, 1, CodingExperiment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCodingExperiment_ProvidedArtefacts(), theArtifactsPackage.getProvidedArtefacts(), null, "providedArtefacts", null, 1, 1, CodingExperiment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

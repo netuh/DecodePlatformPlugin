@@ -112,7 +112,7 @@ public class FileArtifactItemProvider extends NameableItemProvider {
 		String label = ((FileArtifact)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_FileArtifact_type") :
-			getString("_UI_FileArtifact_type") + ": " + label;
+			getString("_UI_FileArtifact_type") + " " + label;
 	}
 	
 

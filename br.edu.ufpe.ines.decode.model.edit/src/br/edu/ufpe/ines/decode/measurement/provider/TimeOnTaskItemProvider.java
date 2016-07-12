@@ -92,7 +92,7 @@ public class TimeOnTaskItemProvider extends AbstractMeasurementItemProvider {
 		String label = ((TimeOnTask)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_TimeOnTask_type") :
-			getString("_UI_TimeOnTask_type") + ": " + label;
+			getString("_UI_TimeOnTask_type") + " " + label;
 	}
 	
 

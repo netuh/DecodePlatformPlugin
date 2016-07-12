@@ -165,7 +165,7 @@ public abstract class FileArtifactImpl extends NameableImpl implements FileArtif
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public void setLocalFilePath(String newLocalFilePath) {
 		String oldLocalFilePath = localFilePath;

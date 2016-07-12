@@ -3,8 +3,6 @@
 package br.edu.ufpe.ines.decode.taskDescription.provider;
 
 
-import br.edu.ufpe.ines.decode.aux.AuxPackage;
-
 import br.edu.ufpe.ines.decode.taskDescription.ExperimentalTask;
 import br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionPackage;
 
@@ -16,8 +14,6 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link br.edu.ufpe.ines.decode.taskDescription.ExperimentalTask} object.
@@ -47,56 +43,10 @@ public class ExperimentalTaskItemProvider extends ModeledTaskItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNamePropertyDescriptor(object);
-			addNewAttributePropertyDescriptor(object);
 			addRequiredArtifactsPropertyDescriptor(object);
 			addDependsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Nameable_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Nameable_name_feature", "_UI_Nameable_type"),
-				 AuxPackage.Literals.NAMEABLE__NAME,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the New Attribute feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addNewAttributePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ExperimentalTask_newAttribute_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ExperimentalTask_newAttribute_feature", "_UI_ExperimentalTask_type"),
-				 TaskDescriptionPackage.Literals.EXPERIMENTAL_TASK__NEW_ATTRIBUTE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -165,7 +115,7 @@ public class ExperimentalTaskItemProvider extends ModeledTaskItemProvider {
 		String label = ((ExperimentalTask)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_ExperimentalTask_type") :
-			getString("_UI_ExperimentalTask_type") + ": " + label;
+			getString("_UI_ExperimentalTask_type") + " " + label;
 	}
 	
 
@@ -179,13 +129,6 @@ public class ExperimentalTaskItemProvider extends ModeledTaskItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(ExperimentalTask.class)) {
-			case TaskDescriptionPackage.EXPERIMENTAL_TASK__NAME:
-			case TaskDescriptionPackage.EXPERIMENTAL_TASK__NEW_ATTRIBUTE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 

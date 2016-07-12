@@ -98,6 +98,30 @@ public class TaskDescriptionAdapterFactory extends AdapterFactoryImpl {
 				return createPlacementQuestionnaireAdapter();
 			}
 			@Override
+			public Adapter caseExecutionDerivations(ExecutionDerivations object) {
+				return createExecutionDerivationsAdapter();
+			}
+			@Override
+			public Adapter caseTimeRestriction(TimeRestriction object) {
+				return createTimeRestrictionAdapter();
+			}
+			@Override
+			public Adapter caseSpecficRestriction(SpecficRestriction object) {
+				return createSpecficRestrictionAdapter();
+			}
+			@Override
+			public Adapter caseEclipseRetriction(EclipseRetriction object) {
+				return createEclipseRetrictionAdapter();
+			}
+			@Override
+			public Adapter caseOtherRestriction(OtherRestriction object) {
+				return createOtherRestrictionAdapter();
+			}
+			@Override
+			public Adapter caseModeledRestrictions(ModeledRestrictions object) {
+				return createModeledRestrictionsAdapter();
+			}
+			@Override
 			public Adapter caseNameable(Nameable object) {
 				return createNameableAdapter();
 			}
@@ -216,6 +240,90 @@ public class TaskDescriptionAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPlacementQuestionnaireAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link br.edu.ufpe.ines.decode.taskDescription.ExecutionDerivations <em>Execution Derivations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see br.edu.ufpe.ines.decode.taskDescription.ExecutionDerivations
+	 * @generated
+	 */
+	public Adapter createExecutionDerivationsAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link br.edu.ufpe.ines.decode.taskDescription.TimeRestriction <em>Time Restriction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see br.edu.ufpe.ines.decode.taskDescription.TimeRestriction
+	 * @generated
+	 */
+	public Adapter createTimeRestrictionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link br.edu.ufpe.ines.decode.taskDescription.SpecficRestriction <em>Specfic Restriction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see br.edu.ufpe.ines.decode.taskDescription.SpecficRestriction
+	 * @generated
+	 */
+	public Adapter createSpecficRestrictionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link br.edu.ufpe.ines.decode.taskDescription.EclipseRetriction <em>Eclipse Retriction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see br.edu.ufpe.ines.decode.taskDescription.EclipseRetriction
+	 * @generated
+	 */
+	public Adapter createEclipseRetrictionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link br.edu.ufpe.ines.decode.taskDescription.OtherRestriction <em>Other Restriction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see br.edu.ufpe.ines.decode.taskDescription.OtherRestriction
+	 * @generated
+	 */
+	public Adapter createOtherRestrictionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link br.edu.ufpe.ines.decode.taskDescription.ModeledRestrictions <em>Modeled Restrictions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see br.edu.ufpe.ines.decode.taskDescription.ModeledRestrictions
+	 * @generated
+	 */
+	public Adapter createModeledRestrictionsAdapter() {
 		return null;
 	}
 

@@ -95,7 +95,7 @@ public class TestingItemProvider extends ExecutionItemProvider {
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Testing_type") :
-			getString("_UI_Testing_type") + ": " + label;
+			getString("_UI_Testing_type") + " " + label;
 	}
 	
 

@@ -2,7 +2,7 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="decode" nsURI="http://www.example.org/modelDecode" nsPrefix="modelDecode">
   <eClassifiers xsi:type="ecore:EClass" name="CodingExperiment" eSuperTypes="#//aux/Nameable">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="task" lowerBound="1" eType="#//taskDescription/ModeledTask"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="task" lowerBound="1" eType="#//taskDescription/ExecutionDerivations"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="measurements" lowerBound="1"
         eType="#//measurement/Measurements" containment="true"/>
@@ -10,8 +10,8 @@
         eType="#//artifacts/ProvidedArtefacts" containment="true"/>
   </eClassifiers>
   <eSubpackages name="taskDescription" nsURI="taskDescription" nsPrefix="taskDescription">
-    <eClassifiers xsi:type="ecore:EClass" name="ModeledTask" abstract="true">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="restriction" eType="#//taskDescription/Restriction"
+    <eClassifiers xsi:type="ecore:EClass" name="ModeledTask" abstract="true" eSuperTypes="#//aux/Nameable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="restriction" eType="#//taskDescription/ModeledRestrictions"
           containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="placement" eType="#//taskDescription/PlacementQuestionnaire"
           containment="true"/>
@@ -25,17 +25,13 @@
           upperBound="-1" eType="#//taskDescription/ModeledTask" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ComposedTask" abstract="true" eSuperTypes="#//taskDescription/ModeledTask"/>
-    <eClassifiers xsi:type="ecore:EClass" name="ExperimentalTask" eSuperTypes="#//taskDescription/ModeledTask #//aux/Nameable">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="newAttribute" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//BooleanObject"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ExperimentalTask" eSuperTypes="#//taskDescription/ModeledTask">
       <eStructuralFeatures xsi:type="ecore:EReference" name="requiredArtifacts" upperBound="-1"
           eType="#//artifacts/FileArtifact"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="depends" upperBound="-1"
           eType="#//taskDescription/ExperimentalTask"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Restriction">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="deadline" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeFrame" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Integer"/>
-    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Restriction" abstract="true"/>
     <eClassifiers xsi:type="ecore:EClass" name="PlacementQuestionnaire">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="placement" eType="#//taskDescription/PlacementType"
           defaultValueLiteral="Before"/>
@@ -46,6 +42,32 @@
       <eLiterals name="After"/>
       <eLiterals name="Before" value="1"/>
       <eLiterals name="During" value="2"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ExecutionDerivations">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="tasks" lowerBound="1"
+          upperBound="-1" eType="#//taskDescription/ModeledTask" containment="true">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="wildcards" value=""/>
+          <details key="name" value=""/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="TimeRestriction" eSuperTypes="#//taskDescription/Restriction">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeFrame" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Integer"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="deadline" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SpecficRestriction" abstract="true"
+        eSuperTypes="#//taskDescription/Restriction"/>
+    <eClassifiers xsi:type="ecore:EClass" name="EclipseRetriction" eSuperTypes="#//taskDescription/SpecficRestriction">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="forbiden" upperBound="-1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="OtherRestriction" eSuperTypes="#//taskDescription/Restriction">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ModeledRestrictions">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="children" lowerBound="1"
+          upperBound="-1" eType="#//taskDescription/Restriction" containment="true"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="artifacts" nsURI="artifacts" nsPrefix="artifacts">

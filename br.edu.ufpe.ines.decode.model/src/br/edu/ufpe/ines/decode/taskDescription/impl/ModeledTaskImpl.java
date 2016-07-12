@@ -2,9 +2,10 @@
  */
 package br.edu.ufpe.ines.decode.taskDescription.impl;
 
+import br.edu.ufpe.ines.decode.aux.impl.NameableImpl;
+import br.edu.ufpe.ines.decode.taskDescription.ModeledRestrictions;
 import br.edu.ufpe.ines.decode.taskDescription.ModeledTask;
 import br.edu.ufpe.ines.decode.taskDescription.PlacementQuestionnaire;
-import br.edu.ufpe.ines.decode.taskDescription.Restriction;
 import br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -14,7 +15,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,7 +30,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public abstract class ModeledTaskImpl extends MinimalEObjectImpl.Container implements ModeledTask {
+public abstract class ModeledTaskImpl extends NameableImpl implements ModeledTask {
 	/**
 	 * The cached value of the '{@link #getRestriction() <em>Restriction</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -39,7 +39,7 @@ public abstract class ModeledTaskImpl extends MinimalEObjectImpl.Container imple
 	 * @generated
 	 * @ordered
 	 */
-	protected Restriction restriction;
+	protected ModeledRestrictions restriction;
 
 	/**
 	 * The cached value of the '{@link #getPlacement() <em>Placement</em>}' containment reference.
@@ -75,7 +75,7 @@ public abstract class ModeledTaskImpl extends MinimalEObjectImpl.Container imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Restriction getRestriction() {
+	public ModeledRestrictions getRestriction() {
 		return restriction;
 	}
 
@@ -84,8 +84,8 @@ public abstract class ModeledTaskImpl extends MinimalEObjectImpl.Container imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRestriction(Restriction newRestriction, NotificationChain msgs) {
-		Restriction oldRestriction = restriction;
+	public NotificationChain basicSetRestriction(ModeledRestrictions newRestriction, NotificationChain msgs) {
+		ModeledRestrictions oldRestriction = restriction;
 		restriction = newRestriction;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TaskDescriptionPackage.MODELED_TASK__RESTRICTION, oldRestriction, newRestriction);
@@ -99,7 +99,7 @@ public abstract class ModeledTaskImpl extends MinimalEObjectImpl.Container imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRestriction(Restriction newRestriction) {
+	public void setRestriction(ModeledRestrictions newRestriction) {
 		if (newRestriction != restriction) {
 			NotificationChain msgs = null;
 			if (restriction != null)
@@ -197,7 +197,7 @@ public abstract class ModeledTaskImpl extends MinimalEObjectImpl.Container imple
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case TaskDescriptionPackage.MODELED_TASK__RESTRICTION:
-				setRestriction((Restriction)newValue);
+				setRestriction((ModeledRestrictions)newValue);
 				return;
 			case TaskDescriptionPackage.MODELED_TASK__PLACEMENT:
 				setPlacement((PlacementQuestionnaire)newValue);
@@ -215,7 +215,7 @@ public abstract class ModeledTaskImpl extends MinimalEObjectImpl.Container imple
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case TaskDescriptionPackage.MODELED_TASK__RESTRICTION:
-				setRestriction((Restriction)null);
+				setRestriction((ModeledRestrictions)null);
 				return;
 			case TaskDescriptionPackage.MODELED_TASK__PLACEMENT:
 				setPlacement((PlacementQuestionnaire)null);

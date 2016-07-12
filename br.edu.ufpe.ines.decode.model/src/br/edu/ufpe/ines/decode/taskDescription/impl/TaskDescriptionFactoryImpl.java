@@ -60,8 +60,12 @@ public class TaskDescriptionFactoryImpl extends EFactoryImpl implements TaskDesc
 			case TaskDescriptionPackage.SEQUENCIAL: return createSequencial();
 			case TaskDescriptionPackage.RANDOM: return createRandom();
 			case TaskDescriptionPackage.EXPERIMENTAL_TASK: return createExperimentalTask();
-			case TaskDescriptionPackage.RESTRICTION: return createRestriction();
 			case TaskDescriptionPackage.PLACEMENT_QUESTIONNAIRE: return createPlacementQuestionnaire();
+			case TaskDescriptionPackage.EXECUTION_DERIVATIONS: return createExecutionDerivations();
+			case TaskDescriptionPackage.TIME_RESTRICTION: return createTimeRestriction();
+			case TaskDescriptionPackage.ECLIPSE_RETRICTION: return createEclipseRetriction();
+			case TaskDescriptionPackage.OTHER_RESTRICTION: return createOtherRestriction();
+			case TaskDescriptionPackage.MODELED_RESTRICTIONS: return createModeledRestrictions();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -132,9 +136,9 @@ public class TaskDescriptionFactoryImpl extends EFactoryImpl implements TaskDesc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Restriction createRestriction() {
-		RestrictionImpl restriction = new RestrictionImpl();
-		return restriction;
+	public PlacementQuestionnaire createPlacementQuestionnaire() {
+		PlacementQuestionnaireImpl placementQuestionnaire = new PlacementQuestionnaireImpl();
+		return placementQuestionnaire;
 	}
 
 	/**
@@ -142,9 +146,49 @@ public class TaskDescriptionFactoryImpl extends EFactoryImpl implements TaskDesc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PlacementQuestionnaire createPlacementQuestionnaire() {
-		PlacementQuestionnaireImpl placementQuestionnaire = new PlacementQuestionnaireImpl();
-		return placementQuestionnaire;
+	public ExecutionDerivations createExecutionDerivations() {
+		ExecutionDerivationsImpl executionDerivations = new ExecutionDerivationsImpl();
+		return executionDerivations;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TimeRestriction createTimeRestriction() {
+		TimeRestrictionImpl timeRestriction = new TimeRestrictionImpl();
+		return timeRestriction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EclipseRetriction createEclipseRetriction() {
+		EclipseRetrictionImpl eclipseRetriction = new EclipseRetrictionImpl();
+		return eclipseRetriction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public OtherRestriction createOtherRestriction() {
+		OtherRestrictionImpl otherRestriction = new OtherRestrictionImpl();
+		return otherRestriction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ModeledRestrictions createModeledRestrictions() {
+		ModeledRestrictionsImpl modeledRestrictions = new ModeledRestrictionsImpl();
+		return modeledRestrictions;
 	}
 
 	/**

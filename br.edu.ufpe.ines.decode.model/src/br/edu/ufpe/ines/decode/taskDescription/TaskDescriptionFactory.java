@@ -49,15 +49,6 @@ public interface TaskDescriptionFactory extends EFactory {
 	ExperimentalTask createExperimentalTask();
 
 	/**
-	 * Returns a new object of class '<em>Restriction</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Restriction</em>'.
-	 * @generated
-	 */
-	Restriction createRestriction();
-
-	/**
 	 * Returns a new object of class '<em>Placement Questionnaire</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -65,6 +56,51 @@ public interface TaskDescriptionFactory extends EFactory {
 	 * @generated
 	 */
 	PlacementQuestionnaire createPlacementQuestionnaire();
+
+	/**
+	 * Returns a new object of class '<em>Execution Derivations</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Execution Derivations</em>'.
+	 * @generated
+	 */
+	ExecutionDerivations createExecutionDerivations();
+
+	/**
+	 * Returns a new object of class '<em>Time Restriction</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Time Restriction</em>'.
+	 * @generated
+	 */
+	TimeRestriction createTimeRestriction();
+
+	/**
+	 * Returns a new object of class '<em>Eclipse Retriction</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Eclipse Retriction</em>'.
+	 * @generated
+	 */
+	EclipseRetriction createEclipseRetriction();
+
+	/**
+	 * Returns a new object of class '<em>Other Restriction</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Other Restriction</em>'.
+	 * @generated
+	 */
+	OtherRestriction createOtherRestriction();
+
+	/**
+	 * Returns a new object of class '<em>Modeled Restrictions</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Modeled Restrictions</em>'.
+	 * @generated
+	 */
+	ModeledRestrictions createModeledRestrictions();
 
 	/**
 	 * Returns the package supported by this factory.

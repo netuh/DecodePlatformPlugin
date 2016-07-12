@@ -11,8 +11,7 @@ import br.edu.ufpe.ines.decode.aux.impl.NameableImpl;
 
 import br.edu.ufpe.ines.decode.measurement.Measurements;
 
-import br.edu.ufpe.ines.decode.taskDescription.ModeledTask;
-
+import br.edu.ufpe.ines.decode.taskDescription.ExecutionDerivations;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -45,7 +44,7 @@ public class CodingExperimentImpl extends NameableImpl implements CodingExperime
 	 * @generated
 	 * @ordered
 	 */
-	protected ModeledTask task;
+	protected ExecutionDerivations task;
 
 	/**
 	 * The cached value of the '{@link #getMeasurements() <em>Measurements</em>}' containment reference.
@@ -91,7 +90,7 @@ public class CodingExperimentImpl extends NameableImpl implements CodingExperime
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ModeledTask getTask() {
+	public ExecutionDerivations getTask() {
 		return task;
 	}
 
@@ -100,8 +99,8 @@ public class CodingExperimentImpl extends NameableImpl implements CodingExperime
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetTask(ModeledTask newTask, NotificationChain msgs) {
-		ModeledTask oldTask = task;
+	public NotificationChain basicSetTask(ExecutionDerivations newTask, NotificationChain msgs) {
+		ExecutionDerivations oldTask = task;
 		task = newTask;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DecodePackage.CODING_EXPERIMENT__TASK, oldTask, newTask);
@@ -115,7 +114,7 @@ public class CodingExperimentImpl extends NameableImpl implements CodingExperime
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTask(ModeledTask newTask) {
+	public void setTask(ExecutionDerivations newTask) {
 		if (newTask != task) {
 			NotificationChain msgs = null;
 			if (task != null)
@@ -260,7 +259,7 @@ public class CodingExperimentImpl extends NameableImpl implements CodingExperime
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DecodePackage.CODING_EXPERIMENT__TASK:
-				setTask((ModeledTask)newValue);
+				setTask((ExecutionDerivations)newValue);
 				return;
 			case DecodePackage.CODING_EXPERIMENT__MEASUREMENTS:
 				setMeasurements((Measurements)newValue);
@@ -281,7 +280,7 @@ public class CodingExperimentImpl extends NameableImpl implements CodingExperime
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DecodePackage.CODING_EXPERIMENT__TASK:
-				setTask((ModeledTask)null);
+				setTask((ExecutionDerivations)null);
 				return;
 			case DecodePackage.CODING_EXPERIMENT__MEASUREMENTS:
 				setMeasurements((Measurements)null);

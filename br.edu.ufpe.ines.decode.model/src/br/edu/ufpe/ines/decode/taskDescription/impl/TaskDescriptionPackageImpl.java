@@ -23,16 +23,22 @@ import br.edu.ufpe.ines.decode.measurement.MeasurementPackage;
 import br.edu.ufpe.ines.decode.measurement.impl.MeasurementPackageImpl;
 
 import br.edu.ufpe.ines.decode.taskDescription.ComposedTask;
+import br.edu.ufpe.ines.decode.taskDescription.EclipseRetriction;
+import br.edu.ufpe.ines.decode.taskDescription.ExecutionDerivations;
 import br.edu.ufpe.ines.decode.taskDescription.ExperimentalTask;
+import br.edu.ufpe.ines.decode.taskDescription.ModeledRestrictions;
 import br.edu.ufpe.ines.decode.taskDescription.ModeledTask;
+import br.edu.ufpe.ines.decode.taskDescription.OtherRestriction;
 import br.edu.ufpe.ines.decode.taskDescription.PlacementQuestionnaire;
 import br.edu.ufpe.ines.decode.taskDescription.PlacementType;
 import br.edu.ufpe.ines.decode.taskDescription.Random;
 import br.edu.ufpe.ines.decode.taskDescription.Restriction;
 import br.edu.ufpe.ines.decode.taskDescription.Sequencial;
+import br.edu.ufpe.ines.decode.taskDescription.SpecficRestriction;
 import br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionFactory;
 import br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionPackage;
 
+import br.edu.ufpe.ines.decode.taskDescription.TimeRestriction;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
@@ -98,6 +104,48 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 	 * @generated
 	 */
 	private EClass placementQuestionnaireEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass executionDerivationsEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass timeRestrictionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass specficRestrictionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass eclipseRetrictionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass otherRestrictionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass modeledRestrictionsEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -273,17 +321,8 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getExperimentalTask_NewAttribute() {
-		return (EAttribute)experimentalTaskEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getExperimentalTask_RequiredArtifacts() {
-		return (EReference)experimentalTaskEClass.getEStructuralFeatures().get(1);
+		return (EReference)experimentalTaskEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -292,7 +331,7 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 	 * @generated
 	 */
 	public EReference getExperimentalTask_Depends() {
-		return (EReference)experimentalTaskEClass.getEStructuralFeatures().get(2);
+		return (EReference)experimentalTaskEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -302,24 +341,6 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 	 */
 	public EClass getRestriction() {
 		return restrictionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getRestriction_Deadline() {
-		return (EAttribute)restrictionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getRestriction_TimeFrame() {
-		return (EAttribute)restrictionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -347,6 +368,114 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 	 */
 	public EReference getPlacementQuestionnaire_Questionnaire() {
 		return (EReference)placementQuestionnaireEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getExecutionDerivations() {
+		return executionDerivationsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getExecutionDerivations_Tasks() {
+		return (EReference)executionDerivationsEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTimeRestriction() {
+		return timeRestrictionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTimeRestriction_TimeFrame() {
+		return (EAttribute)timeRestrictionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTimeRestriction_Deadline() {
+		return (EAttribute)timeRestrictionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSpecficRestriction() {
+		return specficRestrictionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getEclipseRetriction() {
+		return eclipseRetrictionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getEclipseRetriction_Forbiden() {
+		return (EAttribute)eclipseRetrictionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getOtherRestriction() {
+		return otherRestrictionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOtherRestriction_Description() {
+		return (EAttribute)otherRestrictionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getModeledRestrictions() {
+		return modeledRestrictionsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getModeledRestrictions_Children() {
+		return (EReference)modeledRestrictionsEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -399,17 +528,32 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 		composedTaskEClass = createEClass(COMPOSED_TASK);
 
 		experimentalTaskEClass = createEClass(EXPERIMENTAL_TASK);
-		createEAttribute(experimentalTaskEClass, EXPERIMENTAL_TASK__NEW_ATTRIBUTE);
 		createEReference(experimentalTaskEClass, EXPERIMENTAL_TASK__REQUIRED_ARTIFACTS);
 		createEReference(experimentalTaskEClass, EXPERIMENTAL_TASK__DEPENDS);
 
 		restrictionEClass = createEClass(RESTRICTION);
-		createEAttribute(restrictionEClass, RESTRICTION__DEADLINE);
-		createEAttribute(restrictionEClass, RESTRICTION__TIME_FRAME);
 
 		placementQuestionnaireEClass = createEClass(PLACEMENT_QUESTIONNAIRE);
 		createEAttribute(placementQuestionnaireEClass, PLACEMENT_QUESTIONNAIRE__PLACEMENT);
 		createEReference(placementQuestionnaireEClass, PLACEMENT_QUESTIONNAIRE__QUESTIONNAIRE);
+
+		executionDerivationsEClass = createEClass(EXECUTION_DERIVATIONS);
+		createEReference(executionDerivationsEClass, EXECUTION_DERIVATIONS__TASKS);
+
+		timeRestrictionEClass = createEClass(TIME_RESTRICTION);
+		createEAttribute(timeRestrictionEClass, TIME_RESTRICTION__TIME_FRAME);
+		createEAttribute(timeRestrictionEClass, TIME_RESTRICTION__DEADLINE);
+
+		specficRestrictionEClass = createEClass(SPECFIC_RESTRICTION);
+
+		eclipseRetrictionEClass = createEClass(ECLIPSE_RETRICTION);
+		createEAttribute(eclipseRetrictionEClass, ECLIPSE_RETRICTION__FORBIDEN);
+
+		otherRestrictionEClass = createEClass(OTHER_RESTRICTION);
+		createEAttribute(otherRestrictionEClass, OTHER_RESTRICTION__DESCRIPTION);
+
+		modeledRestrictionsEClass = createEClass(MODELED_RESTRICTIONS);
+		createEReference(modeledRestrictionsEClass, MODELED_RESTRICTIONS__CHILDREN);
 
 		// Create enums
 		placementTypeEEnum = createEEnum(PLACEMENT_TYPE);
@@ -440,23 +584,27 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 
 		// Obtain other dependent packages
 		AuxPackage theAuxPackage = (AuxPackage)EPackage.Registry.INSTANCE.getEPackage(AuxPackage.eNS_URI);
-		XMLTypePackage theXMLTypePackage = (XMLTypePackage)EPackage.Registry.INSTANCE.getEPackage(XMLTypePackage.eNS_URI);
 		ArtifactsPackage theArtifactsPackage = (ArtifactsPackage)EPackage.Registry.INSTANCE.getEPackage(ArtifactsPackage.eNS_URI);
+		XMLTypePackage theXMLTypePackage = (XMLTypePackage)EPackage.Registry.INSTANCE.getEPackage(XMLTypePackage.eNS_URI);
 
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		modeledTaskEClass.getESuperTypes().add(theAuxPackage.getNameable());
 		sequencialEClass.getESuperTypes().add(this.getComposedTask());
 		randomEClass.getESuperTypes().add(this.getComposedTask());
 		composedTaskEClass.getESuperTypes().add(this.getModeledTask());
 		experimentalTaskEClass.getESuperTypes().add(this.getModeledTask());
-		experimentalTaskEClass.getESuperTypes().add(theAuxPackage.getNameable());
+		timeRestrictionEClass.getESuperTypes().add(this.getRestriction());
+		specficRestrictionEClass.getESuperTypes().add(this.getRestriction());
+		eclipseRetrictionEClass.getESuperTypes().add(this.getSpecficRestriction());
+		otherRestrictionEClass.getESuperTypes().add(this.getRestriction());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(modeledTaskEClass, ModeledTask.class, "ModeledTask", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getModeledTask_Restriction(), this.getRestriction(), null, "restriction", null, 0, 1, ModeledTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModeledTask_Restriction(), this.getModeledRestrictions(), null, "restriction", null, 0, 1, ModeledTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getModeledTask_Placement(), this.getPlacementQuestionnaire(), null, "placement", null, 0, 1, ModeledTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sequencialEClass, Sequencial.class, "Sequencial", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -468,17 +616,32 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 		initEClass(composedTaskEClass, ComposedTask.class, "ComposedTask", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(experimentalTaskEClass, ExperimentalTask.class, "ExperimentalTask", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getExperimentalTask_NewAttribute(), theXMLTypePackage.getBooleanObject(), "newAttribute", null, 0, 1, ExperimentalTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getExperimentalTask_RequiredArtifacts(), theArtifactsPackage.getFileArtifact(), null, "requiredArtifacts", null, 0, -1, ExperimentalTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getExperimentalTask_Depends(), this.getExperimentalTask(), null, "depends", null, 0, -1, ExperimentalTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(restrictionEClass, Restriction.class, "Restriction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getRestriction_Deadline(), theXMLTypePackage.getDateTime(), "deadline", null, 0, 1, Restriction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getRestriction_TimeFrame(), theXMLTypePackage.getInteger(), "timeFrame", null, 0, 1, Restriction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(restrictionEClass, Restriction.class, "Restriction", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(placementQuestionnaireEClass, PlacementQuestionnaire.class, "PlacementQuestionnaire", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPlacementQuestionnaire_Placement(), this.getPlacementType(), "placement", "Before", 0, 1, PlacementQuestionnaire.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPlacementQuestionnaire_Questionnaire(), theArtifactsPackage.getQuestionnaire(), theArtifactsPackage.getQuestionnaire_Placementquestionnaire(), "questionnaire", null, 0, 1, PlacementQuestionnaire.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(executionDerivationsEClass, ExecutionDerivations.class, "ExecutionDerivations", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getExecutionDerivations_Tasks(), this.getModeledTask(), null, "tasks", null, 1, -1, ExecutionDerivations.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(timeRestrictionEClass, TimeRestriction.class, "TimeRestriction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTimeRestriction_TimeFrame(), theXMLTypePackage.getInteger(), "timeFrame", null, 0, 1, TimeRestriction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTimeRestriction_Deadline(), theXMLTypePackage.getDateTime(), "deadline", null, 0, 1, TimeRestriction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(specficRestrictionEClass, SpecficRestriction.class, "SpecficRestriction", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(eclipseRetrictionEClass, EclipseRetriction.class, "EclipseRetriction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getEclipseRetriction_Forbiden(), theXMLTypePackage.getString(), "forbiden", null, 0, -1, EclipseRetriction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(otherRestrictionEClass, OtherRestriction.class, "OtherRestriction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getOtherRestriction_Description(), theXMLTypePackage.getString(), "description", null, 0, 1, OtherRestriction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(modeledRestrictionsEClass, ModeledRestrictions.class, "ModeledRestrictions", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getModeledRestrictions_Children(), this.getRestriction(), null, "children", null, 1, -1, ModeledRestrictions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(placementTypeEEnum, PlacementType.class, "PlacementType");

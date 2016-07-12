@@ -67,7 +67,7 @@ public class ObservingAllArtifactsItemProvider extends ObservingArtifactItemProv
 		String label = ((ObservingAllArtifacts)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_ObservingAllArtifacts_type") :
-			getString("_UI_ObservingAllArtifacts_type") + ": " + label;
+			getString("_UI_ObservingAllArtifacts_type") + " " + label;
 	}
 	
 

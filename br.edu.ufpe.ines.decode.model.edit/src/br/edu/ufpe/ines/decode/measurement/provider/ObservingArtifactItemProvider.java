@@ -91,7 +91,7 @@ public class ObservingArtifactItemProvider extends AbstractMeasurementItemProvid
 		String label = ((ObservingArtifact)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_ObservingArtifact_type") :
-			getString("_UI_ObservingArtifact_type") + ": " + label;
+			getString("_UI_ObservingArtifact_type") + " " + label;
 	}
 	
 

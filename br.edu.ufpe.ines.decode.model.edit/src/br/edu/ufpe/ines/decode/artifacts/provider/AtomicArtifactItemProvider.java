@@ -94,7 +94,7 @@ public class AtomicArtifactItemProvider extends FileArtifactItemProvider {
 		String label = ((AtomicArtifact)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_AtomicArtifact_type") :
-			getString("_UI_AtomicArtifact_type") + ": " + label;
+			getString("_UI_AtomicArtifact_type") + " " + label;
 	}
 	
 

@@ -67,7 +67,7 @@ public class SurveyItemProvider extends AbstractMeasurementItemProvider {
 		String label = ((Survey)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Survey_type") :
-			getString("_UI_Survey_type") + ": " + label;
+			getString("_UI_Survey_type") + " " + label;
 	}
 	
 
