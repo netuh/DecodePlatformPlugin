@@ -17,6 +17,12 @@ Require-Bundle: org.junit;bundle-version="4.12.0",
  org.eclipse.jdt.launching;bundle-version="3.8.0",
  org.eclipse.jdt.core;bundle-version="3.11.2",
  org.eclipse.debug.ui;bundle-version="3.11.101"
+Export-Package: br.ufpe.ines.decode.plugin,
+ br.ufpe.ines.decode.plugin.model,
+ br.ufpe.ines.decode.plugin.control,
+ br.ufpe.ines.decode.plugin.dialog,
+ br.ufpe.ines.decode.plugin.handlers,
+ br.ufpe.ines.decode.plugin.util
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Import-Package: com.google.gson;version="2.2.4",

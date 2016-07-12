@@ -31,6 +31,7 @@ import br.ufpe.ines.decode.plugin.control.ExperimentManager;
 import br.ufpe.ines.decode.plugin.dialog.NativeDialogFactory;
 import br.ufpe.ines.decode.plugin.model.LoggedAction;
 import br.ufpe.ines.decode.plugin.test.util.SWTBotUtils;
+//import br.ufpe.ines.decode.plugin.test.util.SWTBotUtils;
 import br.ufpe.ines.decode.plugin.util.FileUtil;
 
 @RunWith(SWTBotJunit4ClassRunner.class)
@@ -129,7 +130,7 @@ public class FinishExperimentTest {
 		
 		File f = new File (outFile);
 		assertTrue(f.exists());
-		logger.debug("path="+f);
+		logger.debug("path="+f.getAbsolutePath());
 		
 		bot.button("OK").click();
 		
