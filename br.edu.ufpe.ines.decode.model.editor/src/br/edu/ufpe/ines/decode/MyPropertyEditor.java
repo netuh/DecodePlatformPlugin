@@ -16,7 +16,7 @@ public class MyPropertyEditor extends DialogCellEditor {
 	protected Object openDialogBox(Control cellEditorWindow) {
 		FileDialog fileDialog = new FileDialog(cellEditorWindow.getShell(), SWT.OPEN);
 		fileDialog.setText("Select File");
-	    fileDialog.setFilterExtensions(new String[] { "*.zip" });
+	    //fileDialog.setFilterExtensions(new String[] { "*.zip" });
 	    String result = fileDialog.open();
 	    return result;
 	}

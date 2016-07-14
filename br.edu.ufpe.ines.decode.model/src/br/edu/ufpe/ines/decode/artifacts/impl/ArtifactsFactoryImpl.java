@@ -5,7 +5,6 @@ package br.edu.ufpe.ines.decode.artifacts.impl;
 import br.edu.ufpe.ines.decode.artifacts.*;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -57,61 +56,15 @@ public class ArtifactsFactoryImpl extends EFactoryImpl implements ArtifactsFacto
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case ArtifactsPackage.ATOMIC_ARTIFACT: return createAtomicArtifact();
 			case ArtifactsPackage.PROVIDED_ARTEFACTS: return createProvidedArtefacts();
-			case ArtifactsPackage.COMPLEX_ARTIFACT: return createComplexArtifact();
-			case ArtifactsPackage.QUESTIONNAIRE: return createQuestionnaire();
+			case ArtifactsPackage.QUESTIONNAIRE_INNER: return createQuestionnaireInner();
+			case ArtifactsPackage.PDF_FILE: return createPdfFIle();
+			case ArtifactsPackage.JAVA_PROJECT: return createJavaProject();
+			case ArtifactsPackage.JAVA_COMP_UNIT: return createJavaCompUnit();
+			case ArtifactsPackage.OTHER_FILE: return createOtherFile();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object createFromString(EDataType eDataType, String initialValue) {
-		switch (eDataType.getClassifierID()) {
-			case ArtifactsPackage.ARTIFACT_TYPE:
-				return createArtifactTypeFromString(eDataType, initialValue);
-			case ArtifactsPackage.COMPLEX_ARTIFACT_TYPE:
-				return createComplexArtifactTypeFromString(eDataType, initialValue);
-			case ArtifactsPackage.ARTIFACT_LANGUAGE:
-				return createArtifactLanguageFromString(eDataType, initialValue);
-			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String convertToString(EDataType eDataType, Object instanceValue) {
-		switch (eDataType.getClassifierID()) {
-			case ArtifactsPackage.ARTIFACT_TYPE:
-				return convertArtifactTypeToString(eDataType, instanceValue);
-			case ArtifactsPackage.COMPLEX_ARTIFACT_TYPE:
-				return convertComplexArtifactTypeToString(eDataType, instanceValue);
-			case ArtifactsPackage.ARTIFACT_LANGUAGE:
-				return convertArtifactLanguageToString(eDataType, instanceValue);
-			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AtomicArtifact createAtomicArtifact() {
-		AtomicArtifactImpl atomicArtifact = new AtomicArtifactImpl();
-		return atomicArtifact;
 	}
 
 	/**
@@ -129,9 +82,9 @@ public class ArtifactsFactoryImpl extends EFactoryImpl implements ArtifactsFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ComplexArtifact createComplexArtifact() {
-		ComplexArtifactImpl complexArtifact = new ComplexArtifactImpl();
-		return complexArtifact;
+	public QuestionnaireInner createQuestionnaireInner() {
+		QuestionnaireInnerImpl questionnaireInner = new QuestionnaireInnerImpl();
+		return questionnaireInner;
 	}
 
 	/**
@@ -139,9 +92,9 @@ public class ArtifactsFactoryImpl extends EFactoryImpl implements ArtifactsFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Questionnaire createQuestionnaire() {
-		QuestionnaireImpl questionnaire = new QuestionnaireImpl();
-		return questionnaire;
+	public PdfFIle createPdfFIle() {
+		PdfFIleImpl pdfFIle = new PdfFIleImpl();
+		return pdfFIle;
 	}
 
 	/**
@@ -149,10 +102,9 @@ public class ArtifactsFactoryImpl extends EFactoryImpl implements ArtifactsFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ArtifactType createArtifactTypeFromString(EDataType eDataType, String initialValue) {
-		ArtifactType result = ArtifactType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
+	public JavaProject createJavaProject() {
+		JavaProjectImpl javaProject = new JavaProjectImpl();
+		return javaProject;
 	}
 
 	/**
@@ -160,8 +112,9 @@ public class ArtifactsFactoryImpl extends EFactoryImpl implements ArtifactsFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertArtifactTypeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
+	public JavaCompUnit createJavaCompUnit() {
+		JavaCompUnitImpl javaCompUnit = new JavaCompUnitImpl();
+		return javaCompUnit;
 	}
 
 	/**
@@ -169,39 +122,9 @@ public class ArtifactsFactoryImpl extends EFactoryImpl implements ArtifactsFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ComplexArtifactType createComplexArtifactTypeFromString(EDataType eDataType, String initialValue) {
-		ComplexArtifactType result = ComplexArtifactType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertComplexArtifactTypeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ArtifactLanguage createArtifactLanguageFromString(EDataType eDataType, String initialValue) {
-		ArtifactLanguage result = ArtifactLanguage.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertArtifactLanguageToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
+	public OtherFile createOtherFile() {
+		OtherFileImpl otherFile = new OtherFileImpl();
+		return otherFile;
 	}
 
 	/**

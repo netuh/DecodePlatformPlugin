@@ -68,27 +68,9 @@ public class ArtifactsSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case ArtifactsPackage.ATOMIC_ARTIFACT: {
-				AtomicArtifact atomicArtifact = (AtomicArtifact)theEObject;
-				T result = caseAtomicArtifact(atomicArtifact);
-				if (result == null) result = caseFileArtifact(atomicArtifact);
-				if (result == null) result = caseNameable(atomicArtifact);
-				if (result == null) result = caseAbstractArtifact(atomicArtifact);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case ArtifactsPackage.PROVIDED_ARTEFACTS: {
 				ProvidedArtefacts providedArtefacts = (ProvidedArtefacts)theEObject;
 				T result = caseProvidedArtefacts(providedArtefacts);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ArtifactsPackage.COMPLEX_ARTIFACT: {
-				ComplexArtifact complexArtifact = (ComplexArtifact)theEObject;
-				T result = caseComplexArtifact(complexArtifact);
-				if (result == null) result = caseFileArtifact(complexArtifact);
-				if (result == null) result = caseNameable(complexArtifact);
-				if (result == null) result = caseAbstractArtifact(complexArtifact);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -106,31 +88,68 @@ public class ArtifactsSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ArtifactsPackage.QUESTIONNAIRE: {
-				Questionnaire questionnaire = (Questionnaire)theEObject;
-				T result = caseQuestionnaire(questionnaire);
-				if (result == null) result = caseAbstractArtifact(questionnaire);
-				if (result == null) result = caseNameable(questionnaire);
+			case ArtifactsPackage.QUESTIONNAIRE_INNER: {
+				QuestionnaireInner questionnaireInner = (QuestionnaireInner)theEObject;
+				T result = caseQuestionnaireInner(questionnaireInner);
+				if (result == null) result = caseAbstractArtifact(questionnaireInner);
+				if (result == null) result = caseNameable(questionnaireInner);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ArtifactsPackage.PROJECT_IDE: {
+				ProjectIDE projectIDE = (ProjectIDE)theEObject;
+				T result = caseProjectIDE(projectIDE);
+				if (result == null) result = caseAbstractArtifact(projectIDE);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ArtifactsPackage.COMPILATION_UNIT: {
+				CompilationUnit compilationUnit = (CompilationUnit)theEObject;
+				T result = caseCompilationUnit(compilationUnit);
+				if (result == null) result = caseFileArtifact(compilationUnit);
+				if (result == null) result = caseNameable(compilationUnit);
+				if (result == null) result = caseAbstractArtifact(compilationUnit);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ArtifactsPackage.PDF_FILE: {
+				PdfFIle pdfFIle = (PdfFIle)theEObject;
+				T result = casePdfFIle(pdfFIle);
+				if (result == null) result = caseFileArtifact(pdfFIle);
+				if (result == null) result = caseNameable(pdfFIle);
+				if (result == null) result = caseAbstractArtifact(pdfFIle);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ArtifactsPackage.JAVA_PROJECT: {
+				JavaProject javaProject = (JavaProject)theEObject;
+				T result = caseJavaProject(javaProject);
+				if (result == null) result = caseProjectIDE(javaProject);
+				if (result == null) result = caseAbstractArtifact(javaProject);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ArtifactsPackage.JAVA_COMP_UNIT: {
+				JavaCompUnit javaCompUnit = (JavaCompUnit)theEObject;
+				T result = caseJavaCompUnit(javaCompUnit);
+				if (result == null) result = caseCompilationUnit(javaCompUnit);
+				if (result == null) result = caseFileArtifact(javaCompUnit);
+				if (result == null) result = caseNameable(javaCompUnit);
+				if (result == null) result = caseAbstractArtifact(javaCompUnit);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ArtifactsPackage.OTHER_FILE: {
+				OtherFile otherFile = (OtherFile)theEObject;
+				T result = caseOtherFile(otherFile);
+				if (result == null) result = caseFileArtifact(otherFile);
+				if (result == null) result = caseNameable(otherFile);
+				if (result == null) result = caseAbstractArtifact(otherFile);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			default: return defaultCase(theEObject);
 		}
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Atomic Artifact</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Atomic Artifact</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseAtomicArtifact(AtomicArtifact object) {
-		return null;
 	}
 
 	/**
@@ -145,21 +164,6 @@ public class ArtifactsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseProvidedArtefacts(ProvidedArtefacts object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Complex Artifact</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Complex Artifact</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseComplexArtifact(ComplexArtifact object) {
 		return null;
 	}
 
@@ -194,17 +198,107 @@ public class ArtifactsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Questionnaire</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Questionnaire Inner</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Questionnaire</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Questionnaire Inner</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseQuestionnaire(Questionnaire object) {
+	public T caseQuestionnaireInner(QuestionnaireInner object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Project IDE</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Project IDE</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseProjectIDE(ProjectIDE object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Compilation Unit</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Compilation Unit</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCompilationUnit(CompilationUnit object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Pdf FIle</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Pdf FIle</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePdfFIle(PdfFIle object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Java Project</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Java Project</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseJavaProject(JavaProject object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Java Comp Unit</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Java Comp Unit</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseJavaCompUnit(JavaCompUnit object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Other File</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Other File</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOtherFile(OtherFile object) {
 		return null;
 	}
 

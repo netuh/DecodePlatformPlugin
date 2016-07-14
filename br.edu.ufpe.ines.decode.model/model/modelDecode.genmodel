@@ -32,9 +32,9 @@
       <genClasses image="false" ecoreClass="modelDecode.ecore#//taskDescription/ComposedTask"/>
       <genClasses ecoreClass="modelDecode.ecore#//taskDescription/ExperimentalTask">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference modelDecode.ecore#//taskDescription/ExperimentalTask/requiredArtifacts"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference modelDecode.ecore#//taskDescription/ExperimentalTask/depends"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference modelDecode.ecore#//taskDescription/ExperimentalTask/requires"/>
       </genClasses>
       <genClasses image="false" ecoreClass="modelDecode.ecore#//taskDescription/Restriction"/>
       <genClasses ecoreClass="modelDecode.ecore#//taskDescription/PlacementQuestionnaire">
@@ -76,38 +76,34 @@
     </nestedGenPackages>
     <nestedGenPackages prefix="Artifacts" basePackage="br.edu.ufpe.ines.decode" disposableProviderFactory="true"
         multipleEditorPages="false" generateModelWizard="false" ecorePackage="modelDecode.ecore#//artifacts">
-      <genEnums typeSafeEnumCompatible="false" ecoreEnum="modelDecode.ecore#//artifacts/ArtifactType">
-        <genEnumLiterals ecoreEnumLiteral="modelDecode.ecore#//artifacts/ArtifactType/Code"/>
-        <genEnumLiterals ecoreEnumLiteral="modelDecode.ecore#//artifacts/ArtifactType/Test"/>
-        <genEnumLiterals ecoreEnumLiteral="modelDecode.ecore#//artifacts/ArtifactType/Description"/>
-        <genEnumLiterals ecoreEnumLiteral="modelDecode.ecore#//artifacts/ArtifactType/Design"/>
-      </genEnums>
-      <genEnums typeSafeEnumCompatible="false" ecoreEnum="modelDecode.ecore#//artifacts/ComplexArtifactType">
-        <genEnumLiterals ecoreEnumLiteral="modelDecode.ecore#//artifacts/ComplexArtifactType/Project"/>
-      </genEnums>
-      <genEnums typeSafeEnumCompatible="false" ecoreEnum="modelDecode.ecore#//artifacts/ArtifactLanguage">
-        <genEnumLiterals ecoreEnumLiteral="modelDecode.ecore#//artifacts/ArtifactLanguage/Java"/>
-        <genEnumLiterals ecoreEnumLiteral="modelDecode.ecore#//artifacts/ArtifactLanguage/Common"/>
-      </genEnums>
-      <genClasses ecoreClass="modelDecode.ecore#//artifacts/AtomicArtifact">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//artifacts/AtomicArtifact/type"/>
-      </genClasses>
       <genClasses ecoreClass="modelDecode.ecore#//artifacts/ProvidedArtefacts">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modelDecode.ecore#//artifacts/ProvidedArtefacts/artifact"/>
       </genClasses>
-      <genClasses ecoreClass="modelDecode.ecore#//artifacts/ComplexArtifact">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//artifacts/ComplexArtifact/type"/>
-      </genClasses>
       <genClasses image="false" ecoreClass="modelDecode.ecore#//artifacts/FileArtifact">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//artifacts/FileArtifact/artifactDomain"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//artifacts/FileArtifact/file"/>
+        <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//artifacts/FileArtifact/file"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//artifacts/FileArtifact/localFilePath"/>
       </genClasses>
       <genClasses image="false" ecoreClass="modelDecode.ecore#//artifacts/AbstractArtifact"/>
-      <genClasses ecoreClass="modelDecode.ecore#//artifacts/Questionnaire">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modelDecode.ecore#//artifacts/Questionnaire/elements"/>
+      <genClasses ecoreClass="modelDecode.ecore#//artifacts/QuestionnaireInner">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modelDecode.ecore#//artifacts/QuestionnaireInner/elements"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference modelDecode.ecore#//artifacts/Questionnaire/placementquestionnaire"/>
+            ecoreFeature="ecore:EReference modelDecode.ecore#//artifacts/QuestionnaireInner/placementquestionnaire"/>
+      </genClasses>
+      <genClasses ecoreClass="modelDecode.ecore#//artifacts/ProjectIDE">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//artifacts/ProjectIDE/projectName"/>
+      </genClasses>
+      <genClasses ecoreClass="modelDecode.ecore#//artifacts/CompilationUnit"/>
+      <genClasses ecoreClass="modelDecode.ecore#//artifacts/PdfFIle"/>
+      <genClasses ecoreClass="modelDecode.ecore#//artifacts/JavaProject">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modelDecode.ecore#//artifacts/JavaProject/classes"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modelDecode.ecore#//artifacts/JavaProject/otherFiles"/>
+      </genClasses>
+      <genClasses ecoreClass="modelDecode.ecore#//artifacts/JavaCompUnit">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//artifacts/JavaCompUnit/package"/>
+      </genClasses>
+      <genClasses ecoreClass="modelDecode.ecore#//artifacts/OtherFile">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//artifacts/OtherFile/folder"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//artifacts/OtherFile/description"/>
       </genClasses>
       <nestedGenPackages prefix="Questionnaire" basePackage="br.edu.ufpe.ines.decode.artifacts"
           disposableProviderFactory="true" multipleEditorPages="false" generateModelWizard="false"

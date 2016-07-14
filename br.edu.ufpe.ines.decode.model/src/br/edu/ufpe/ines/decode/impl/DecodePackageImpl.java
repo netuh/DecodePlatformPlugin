@@ -17,12 +17,15 @@ import br.edu.ufpe.ines.decode.artifacts.questionnaire.impl.QuestionnairePackage
 import br.edu.ufpe.ines.decode.aux.AuxPackage;
 
 import br.edu.ufpe.ines.decode.aux.impl.AuxPackageImpl;
+
 import br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionPackage;
 
 import br.edu.ufpe.ines.decode.taskDescription.impl.TaskDescriptionPackageImpl;
 
 import br.edu.ufpe.ines.decode.taskDescription.measurements.MeasurementsPackage;
+
 import br.edu.ufpe.ines.decode.taskDescription.measurements.impl.MeasurementsPackageImpl;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;

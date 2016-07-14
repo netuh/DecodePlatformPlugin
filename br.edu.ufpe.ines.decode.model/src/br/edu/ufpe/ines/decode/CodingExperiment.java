@@ -5,6 +5,7 @@ package br.edu.ufpe.ines.decode;
 import br.edu.ufpe.ines.decode.artifacts.ProvidedArtefacts;
 
 import br.edu.ufpe.ines.decode.aux.Nameable;
+
 import br.edu.ufpe.ines.decode.taskDescription.ExecutionDerivations;
 
 /**

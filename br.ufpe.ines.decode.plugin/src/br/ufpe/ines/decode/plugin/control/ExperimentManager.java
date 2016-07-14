@@ -22,10 +22,18 @@ import java.util.concurrent.CountDownLatch;
 import java.util.stream.Collectors;
 
 import org.apache.log4j.Logger;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import br.edu.ufpe.ines.decode.CodingExperiment;
+import br.edu.ufpe.ines.decode.DecodePackage;
 import br.ufpe.ines.decode.plugin.model.ConfiguredExperiment;
 import br.ufpe.ines.decode.plugin.model.ConfiguredExperiment.ExperimentStatus;
 import br.ufpe.ines.decode.plugin.model.Experiment;
@@ -38,6 +46,8 @@ public class ExperimentManager {
 	protected static ExperimentManager singleton = new ExperimentManager();
 
 	private Set<ConfiguredExperiment> loadedExperiments = new HashSet<ConfiguredExperiment>();
+	private Set<CodingExperiment> loadedExperiments2 = new HashSet<CodingExperiment>();
+	private CodingExperiment expCodingExperiment;
 	private Map<ConfiguredExperiment, List<LoggedAction>> expActions = new LinkedHashMap<ConfiguredExperiment, List<LoggedAction>>();
 	static final Logger logger = Logger.getLogger(ExperimentManager.class);
 
@@ -52,11 +62,12 @@ public class ExperimentManager {
 	protected ExperimentManager() {
 	}
 
-	public Collection<ConfiguredExperiment> getLoadedExperiments() {
-		return loadedExperiments;
+	public Collection<CodingExperiment> getLoadedExperiments() {
+		return loadedExperiments2;
 	}
 
-	public synchronized void setSelectedExperiment(ConfiguredExperiment exp) {
+	public synchronized void setSelectedExperiment(CodingExperiment exp) {
+		expCodingExperiment = exp;
 		latchAction = new CountDownLatch(1);
 	}
 
@@ -110,8 +121,6 @@ public class ExperimentManager {
 	}
 
 	public List<String> getLoggedActions() {
-		logger.debug("selected=" + findSelectedExperiment());
-		logger.debug("map=" + expActions.get(findSelectedExperiment()));
 		return expActions.get(findSelectedExperiment()).stream().map(p -> p.getFile()).collect(Collectors.toList());
 	}
 
@@ -154,7 +163,8 @@ public class ExperimentManager {
 	}
 
 	public boolean hasSelected() {
-		return loadedExperiments.stream().anyMatch(exp -> exp.getStatus().equals(ExperimentStatus.IN_PROGRESS));
+		return expCodingExperiment != null;
+		//return loadedExperiments.stream().anyMatch(exp -> exp.getStatus().equals(ExperimentStatus.IN_PROGRESS));
 	}
 
 	public String getAvailableProjectName() {
@@ -168,4 +178,24 @@ public class ExperimentManager {
 	public List<SourceCode> getCurrentSources() {
 		return findSelectedExperiment().getBasicExperiment().getSources();
 	}
+
+	public void loadDecodeModel(String selected) {
+		loadedExperiments2.add(load(selected));
+	}
+	
+	public CodingExperiment load(String filePath) {
+	    ResourceSet resourceSet = new ResourceSetImpl();
+	    resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(
+	    		"decode", new XMIResourceFactoryImpl());
+	    DecodePackage.eINSTANCE.eClass();
+	    URI fileURI = URI.createFileURI(new File(filePath).getAbsolutePath());
+	    Resource resource = resourceSet.getResource(fileURI, true);
+	    EObject myModelObject = resource.getContents().get(0);
+
+	    CodingExperiment myWeb = null;
+	    if (myModelObject instanceof CodingExperiment) {
+	    	myWeb =(CodingExperiment) myModelObject;
+	    }
+	    return myWeb;
+	  }
 }

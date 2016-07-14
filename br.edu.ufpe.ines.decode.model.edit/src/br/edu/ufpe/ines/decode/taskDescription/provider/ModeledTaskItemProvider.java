@@ -4,6 +4,7 @@ package br.edu.ufpe.ines.decode.taskDescription.provider;
 
 
 import br.edu.ufpe.ines.decode.aux.provider.NameableItemProvider;
+
 import br.edu.ufpe.ines.decode.provider.ModelDecodeEditPlugin;
 
 import br.edu.ufpe.ines.decode.taskDescription.ModeledTask;
@@ -11,6 +12,7 @@ import br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionFactory;
 import br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionPackage;
 
 import br.edu.ufpe.ines.decode.taskDescription.measurements.MeasurementsFactory;
+
 import java.util.Collection;
 import java.util.List;
 
@@ -20,6 +22,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
@@ -29,8 +32,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ModeledTaskItemProvider 
-	extends NameableItemProvider {
+public class ModeledTaskItemProvider extends NameableItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -98,7 +100,7 @@ public class ModeledTaskItemProvider
 		String label = ((ModeledTask)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_ModeledTask_type") :
-			getString("_UI_ModeledTask_type") + " " + label;
+			getString("_UI_ModeledTask_type") + ": " + label;
 	}
 	
 

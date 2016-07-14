@@ -5,16 +5,17 @@ package br.edu.ufpe.ines.decode.artifacts.impl;
 import br.edu.ufpe.ines.decode.DecodePackage;
 
 import br.edu.ufpe.ines.decode.artifacts.AbstractArtifact;
-import br.edu.ufpe.ines.decode.artifacts.ArtifactLanguage;
-import br.edu.ufpe.ines.decode.artifacts.ArtifactType;
 import br.edu.ufpe.ines.decode.artifacts.ArtifactsFactory;
 import br.edu.ufpe.ines.decode.artifacts.ArtifactsPackage;
-import br.edu.ufpe.ines.decode.artifacts.AtomicArtifact;
-import br.edu.ufpe.ines.decode.artifacts.ComplexArtifact;
-import br.edu.ufpe.ines.decode.artifacts.ComplexArtifactType;
+import br.edu.ufpe.ines.decode.artifacts.CompilationUnit;
 import br.edu.ufpe.ines.decode.artifacts.FileArtifact;
+import br.edu.ufpe.ines.decode.artifacts.JavaCompUnit;
+import br.edu.ufpe.ines.decode.artifacts.JavaProject;
+import br.edu.ufpe.ines.decode.artifacts.OtherFile;
+import br.edu.ufpe.ines.decode.artifacts.PdfFIle;
+import br.edu.ufpe.ines.decode.artifacts.ProjectIDE;
 import br.edu.ufpe.ines.decode.artifacts.ProvidedArtefacts;
-import br.edu.ufpe.ines.decode.artifacts.Questionnaire;
+import br.edu.ufpe.ines.decode.artifacts.QuestionnaireInner;
 
 import br.edu.ufpe.ines.decode.artifacts.questionnaire.QuestionnairePackage;
 
@@ -25,15 +26,17 @@ import br.edu.ufpe.ines.decode.aux.AuxPackage;
 import br.edu.ufpe.ines.decode.aux.impl.AuxPackageImpl;
 
 import br.edu.ufpe.ines.decode.impl.DecodePackageImpl;
+
 import br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionPackage;
 
 import br.edu.ufpe.ines.decode.taskDescription.impl.TaskDescriptionPackageImpl;
 
 import br.edu.ufpe.ines.decode.taskDescription.measurements.MeasurementsPackage;
+
 import br.edu.ufpe.ines.decode.taskDescription.measurements.impl.MeasurementsPackageImpl;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -53,21 +56,7 @@ public class ArtifactsPackageImpl extends EPackageImpl implements ArtifactsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass atomicArtifactEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass providedArtefactsEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass complexArtifactEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -88,28 +77,49 @@ public class ArtifactsPackageImpl extends EPackageImpl implements ArtifactsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass questionnaireEClass = null;
+	private EClass questionnaireInnerEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EEnum artifactTypeEEnum = null;
+	private EClass projectIDEEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EEnum complexArtifactTypeEEnum = null;
+	private EClass compilationUnitEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EEnum artifactLanguageEEnum = null;
+	private EClass pdfFIleEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass javaProjectEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass javaCompUnitEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass otherFileEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -197,24 +207,6 @@ public class ArtifactsPackageImpl extends EPackageImpl implements ArtifactsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getAtomicArtifact() {
-		return atomicArtifactEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAtomicArtifact_Type() {
-		return (EAttribute)atomicArtifactEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getProvidedArtefacts() {
 		return providedArtefactsEClass;
 	}
@@ -233,24 +225,6 @@ public class ArtifactsPackageImpl extends EPackageImpl implements ArtifactsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getComplexArtifact() {
-		return complexArtifactEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getComplexArtifact_Type() {
-		return (EAttribute)complexArtifactEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getFileArtifact() {
 		return fileArtifactEClass;
 	}
@@ -260,7 +234,7 @@ public class ArtifactsPackageImpl extends EPackageImpl implements ArtifactsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getFileArtifact_ArtifactDomain() {
+	public EAttribute getFileArtifact_File() {
 		return (EAttribute)fileArtifactEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -269,17 +243,8 @@ public class ArtifactsPackageImpl extends EPackageImpl implements ArtifactsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getFileArtifact_File() {
-		return (EAttribute)fileArtifactEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getFileArtifact_LocalFilePath() {
-		return (EAttribute)fileArtifactEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)fileArtifactEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -296,8 +261,8 @@ public class ArtifactsPackageImpl extends EPackageImpl implements ArtifactsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getQuestionnaire() {
-		return questionnaireEClass;
+	public EClass getQuestionnaireInner() {
+		return questionnaireInnerEClass;
 	}
 
 	/**
@@ -305,8 +270,8 @@ public class ArtifactsPackageImpl extends EPackageImpl implements ArtifactsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getQuestionnaire_Elements() {
-		return (EReference)questionnaireEClass.getEStructuralFeatures().get(0);
+	public EReference getQuestionnaireInner_Elements() {
+		return (EReference)questionnaireInnerEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -314,8 +279,8 @@ public class ArtifactsPackageImpl extends EPackageImpl implements ArtifactsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getQuestionnaire_Placementquestionnaire() {
-		return (EReference)questionnaireEClass.getEStructuralFeatures().get(1);
+	public EReference getQuestionnaireInner_Placementquestionnaire() {
+		return (EReference)questionnaireInnerEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -323,8 +288,8 @@ public class ArtifactsPackageImpl extends EPackageImpl implements ArtifactsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getArtifactType() {
-		return artifactTypeEEnum;
+	public EClass getProjectIDE() {
+		return projectIDEEClass;
 	}
 
 	/**
@@ -332,8 +297,8 @@ public class ArtifactsPackageImpl extends EPackageImpl implements ArtifactsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getComplexArtifactType() {
-		return complexArtifactTypeEEnum;
+	public EAttribute getProjectIDE_ProjectName() {
+		return (EAttribute)projectIDEEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -341,8 +306,89 @@ public class ArtifactsPackageImpl extends EPackageImpl implements ArtifactsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getArtifactLanguage() {
-		return artifactLanguageEEnum;
+	public EClass getCompilationUnit() {
+		return compilationUnitEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPdfFIle() {
+		return pdfFIleEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getJavaProject() {
+		return javaProjectEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getJavaProject_Classes() {
+		return (EReference)javaProjectEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getJavaProject_OtherFiles() {
+		return (EReference)javaProjectEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getJavaCompUnit() {
+		return javaCompUnitEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getJavaCompUnit_Package() {
+		return (EAttribute)javaCompUnitEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getOtherFile() {
+		return otherFileEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOtherFile_Folder() {
+		return (EAttribute)otherFileEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOtherFile_Description() {
+		return (EAttribute)otherFileEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -373,30 +419,36 @@ public class ArtifactsPackageImpl extends EPackageImpl implements ArtifactsPacka
 		isCreated = true;
 
 		// Create classes and their features
-		atomicArtifactEClass = createEClass(ATOMIC_ARTIFACT);
-		createEAttribute(atomicArtifactEClass, ATOMIC_ARTIFACT__TYPE);
-
 		providedArtefactsEClass = createEClass(PROVIDED_ARTEFACTS);
 		createEReference(providedArtefactsEClass, PROVIDED_ARTEFACTS__ARTIFACT);
 
-		complexArtifactEClass = createEClass(COMPLEX_ARTIFACT);
-		createEAttribute(complexArtifactEClass, COMPLEX_ARTIFACT__TYPE);
-
 		fileArtifactEClass = createEClass(FILE_ARTIFACT);
-		createEAttribute(fileArtifactEClass, FILE_ARTIFACT__ARTIFACT_DOMAIN);
 		createEAttribute(fileArtifactEClass, FILE_ARTIFACT__FILE);
 		createEAttribute(fileArtifactEClass, FILE_ARTIFACT__LOCAL_FILE_PATH);
 
 		abstractArtifactEClass = createEClass(ABSTRACT_ARTIFACT);
 
-		questionnaireEClass = createEClass(QUESTIONNAIRE);
-		createEReference(questionnaireEClass, QUESTIONNAIRE__ELEMENTS);
-		createEReference(questionnaireEClass, QUESTIONNAIRE__PLACEMENTQUESTIONNAIRE);
+		questionnaireInnerEClass = createEClass(QUESTIONNAIRE_INNER);
+		createEReference(questionnaireInnerEClass, QUESTIONNAIRE_INNER__ELEMENTS);
+		createEReference(questionnaireInnerEClass, QUESTIONNAIRE_INNER__PLACEMENTQUESTIONNAIRE);
 
-		// Create enums
-		artifactTypeEEnum = createEEnum(ARTIFACT_TYPE);
-		complexArtifactTypeEEnum = createEEnum(COMPLEX_ARTIFACT_TYPE);
-		artifactLanguageEEnum = createEEnum(ARTIFACT_LANGUAGE);
+		projectIDEEClass = createEClass(PROJECT_IDE);
+		createEAttribute(projectIDEEClass, PROJECT_IDE__PROJECT_NAME);
+
+		compilationUnitEClass = createEClass(COMPILATION_UNIT);
+
+		pdfFIleEClass = createEClass(PDF_FILE);
+
+		javaProjectEClass = createEClass(JAVA_PROJECT);
+		createEReference(javaProjectEClass, JAVA_PROJECT__CLASSES);
+		createEReference(javaProjectEClass, JAVA_PROJECT__OTHER_FILES);
+
+		javaCompUnitEClass = createEClass(JAVA_COMP_UNIT);
+		createEAttribute(javaCompUnitEClass, JAVA_COMP_UNIT__PACKAGE);
+
+		otherFileEClass = createEClass(OTHER_FILE);
+		createEAttribute(otherFileEClass, OTHER_FILE__FOLDER);
+		createEAttribute(otherFileEClass, OTHER_FILE__DESCRIPTION);
 	}
 
 	/**
@@ -436,47 +488,48 @@ public class ArtifactsPackageImpl extends EPackageImpl implements ArtifactsPacka
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		atomicArtifactEClass.getESuperTypes().add(this.getFileArtifact());
-		complexArtifactEClass.getESuperTypes().add(this.getFileArtifact());
 		fileArtifactEClass.getESuperTypes().add(theAuxPackage.getNameable());
 		fileArtifactEClass.getESuperTypes().add(this.getAbstractArtifact());
-		questionnaireEClass.getESuperTypes().add(this.getAbstractArtifact());
-		questionnaireEClass.getESuperTypes().add(theAuxPackage.getNameable());
+		questionnaireInnerEClass.getESuperTypes().add(this.getAbstractArtifact());
+		questionnaireInnerEClass.getESuperTypes().add(theAuxPackage.getNameable());
+		projectIDEEClass.getESuperTypes().add(this.getAbstractArtifact());
+		compilationUnitEClass.getESuperTypes().add(this.getFileArtifact());
+		pdfFIleEClass.getESuperTypes().add(this.getFileArtifact());
+		javaProjectEClass.getESuperTypes().add(this.getProjectIDE());
+		javaCompUnitEClass.getESuperTypes().add(this.getCompilationUnit());
+		otherFileEClass.getESuperTypes().add(this.getFileArtifact());
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(atomicArtifactEClass, AtomicArtifact.class, "AtomicArtifact", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAtomicArtifact_Type(), this.getArtifactType(), "type", null, 0, 1, AtomicArtifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(providedArtefactsEClass, ProvidedArtefacts.class, "ProvidedArtefacts", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getProvidedArtefacts_Artifact(), this.getAbstractArtifact(), null, "artifact", null, 0, -1, ProvidedArtefacts.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(complexArtifactEClass, ComplexArtifact.class, "ComplexArtifact", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getComplexArtifact_Type(), this.getComplexArtifactType(), "type", "Project", 0, 1, ComplexArtifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(fileArtifactEClass, FileArtifact.class, "FileArtifact", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getFileArtifact_ArtifactDomain(), this.getArtifactLanguage(), "artifactDomain", "Common", 0, 1, FileArtifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFileArtifact_File(), theXMLTypePackage.getBase64Binary(), "file", null, 0, 1, FileArtifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFileArtifact_LocalFilePath(), theXMLTypePackage.getString(), "localFilePath", null, 0, 1, FileArtifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(abstractArtifactEClass, AbstractArtifact.class, "AbstractArtifact", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(questionnaireEClass, Questionnaire.class, "Questionnaire", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getQuestionnaire_Elements(), theQuestionnairePackage.getElementaryComponent(), null, "elements", null, 1, -1, Questionnaire.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getQuestionnaire_Placementquestionnaire(), theTaskDescriptionPackage.getPlacementQuestionnaire(), theTaskDescriptionPackage.getPlacementQuestionnaire_Questionnaire(), "placementquestionnaire", null, 1, 1, Questionnaire.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(questionnaireInnerEClass, QuestionnaireInner.class, "QuestionnaireInner", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getQuestionnaireInner_Elements(), theQuestionnairePackage.getElementaryComponent(), null, "elements", null, 1, -1, QuestionnaireInner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getQuestionnaireInner_Placementquestionnaire(), theTaskDescriptionPackage.getPlacementQuestionnaire(), theTaskDescriptionPackage.getPlacementQuestionnaire_Questionnaire(), "placementquestionnaire", null, 1, 1, QuestionnaireInner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		// Initialize enums and add enum literals
-		initEEnum(artifactTypeEEnum, ArtifactType.class, "ArtifactType");
-		addEEnumLiteral(artifactTypeEEnum, ArtifactType.CODE);
-		addEEnumLiteral(artifactTypeEEnum, ArtifactType.TEST);
-		addEEnumLiteral(artifactTypeEEnum, ArtifactType.DESCRIPTION);
-		addEEnumLiteral(artifactTypeEEnum, ArtifactType.DESIGN);
+		initEClass(projectIDEEClass, ProjectIDE.class, "ProjectIDE", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getProjectIDE_ProjectName(), theXMLTypePackage.getString(), "projectName", null, 0, 1, ProjectIDE.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEEnum(complexArtifactTypeEEnum, ComplexArtifactType.class, "ComplexArtifactType");
-		addEEnumLiteral(complexArtifactTypeEEnum, ComplexArtifactType.PROJECT);
+		initEClass(compilationUnitEClass, CompilationUnit.class, "CompilationUnit", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEEnum(artifactLanguageEEnum, ArtifactLanguage.class, "ArtifactLanguage");
-		addEEnumLiteral(artifactLanguageEEnum, ArtifactLanguage.JAVA);
-		addEEnumLiteral(artifactLanguageEEnum, ArtifactLanguage.COMMON);
+		initEClass(pdfFIleEClass, PdfFIle.class, "PdfFIle", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(javaProjectEClass, JavaProject.class, "JavaProject", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getJavaProject_Classes(), this.getJavaCompUnit(), null, "classes", null, 0, -1, JavaProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getJavaProject_OtherFiles(), this.getOtherFile(), null, "otherFiles", null, 0, -1, JavaProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(javaCompUnitEClass, JavaCompUnit.class, "JavaCompUnit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getJavaCompUnit_Package(), theXMLTypePackage.getString(), "package", null, 0, 1, JavaCompUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(otherFileEClass, OtherFile.class, "OtherFile", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getOtherFile_Folder(), theXMLTypePackage.getString(), "folder", null, 0, 1, OtherFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOtherFile_Description(), theXMLTypePackage.getString(), "description", null, 0, 1, OtherFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 	}
 
 } //ArtifactsPackageImpl

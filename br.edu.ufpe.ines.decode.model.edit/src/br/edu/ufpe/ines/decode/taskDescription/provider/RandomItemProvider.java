@@ -102,7 +102,7 @@ public class RandomItemProvider extends ComposedTaskItemProvider {
 		String label = ((Random)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Random_type") :
-			getString("_UI_Random_type") + " " + label;
+			getString("_UI_Random_type") + ": " + label;
 	}
 	
 

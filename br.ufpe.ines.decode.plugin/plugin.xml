@@ -13,6 +13,11 @@
             id="br.ufpe.ines.decode.plugin.handler.selectExperiment">
       </command>
       <command
+            name="Configure Experiment Command"
+            categoryId="br.ufpe.ines.decode.plugin.category.command"
+            id="br.ufpe.ines.decode.plugin.handler.configureTask">
+      </command>
+      <command
             name="Start Experiment Command"
             categoryId="br.ufpe.ines.decode.plugin.category.command"
             id="br.ufpe.ines.decode.plugin.handler.startExperiment">
@@ -28,6 +33,15 @@
       <handler
             class="br.ufpe.ines.decode.plugin.handlers.LoadExperimentHandler"
             commandId="br.ufpe.ines.decode.plugin.handler.selectExperiment">
+      </handler>
+      <handler
+            class="br.ufpe.ines.decode.plugin.handlers.ConfigureExperimentHandler"
+            commandId="br.ufpe.ines.decode.plugin.handler.configureTask">
+         <enabledWhen>
+         	<test
+               property="br.ufpe.ines.decode.plugin.hasSelectedExperiment">
+            </test>
+         </enabledWhen>
       </handler>
       <handler
             class="br.ufpe.ines.decode.plugin.handlers.StartExperimentHandler"
@@ -54,6 +68,14 @@
             locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
          <toolbar
                id="CommandLog.toolbars.sampleToolbar2">
+            <command
+                  commandId="br.ufpe.ines.decode.plugin.handler.configureTask"
+                  id="CommandLog.toolbars.ConfigureTask"
+                  disabledIcon="icons/sample.gif"
+                  icon="icons/sample.gif"
+                  style="push"
+                  tooltip="Configure Current Task">
+            </command>
             <command
                   commandId="br.ufpe.ines.decode.plugin.handler.startExperiment"
                   disabledIcon="icons/ic_queue_play_next.png"

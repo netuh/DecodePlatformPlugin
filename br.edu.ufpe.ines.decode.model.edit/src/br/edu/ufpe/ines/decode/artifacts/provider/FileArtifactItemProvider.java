@@ -51,55 +51,9 @@ public class FileArtifactItemProvider extends NameableItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addArtifactDomainPropertyDescriptor(object);
-			addFilePropertyDescriptor(object);
 			addLocalFilePathPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Artifact Domain feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addArtifactDomainPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_FileArtifact_artifactDomain_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_FileArtifact_artifactDomain_feature", "_UI_FileArtifact_type"),
-				 ArtifactsPackage.Literals.FILE_ARTIFACT__ARTIFACT_DOMAIN,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the File feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addFilePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_FileArtifact_file_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_FileArtifact_file_feature", "_UI_FileArtifact_type"),
-				 ArtifactsPackage.Literals.FILE_ARTIFACT__FILE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -135,7 +89,7 @@ public class FileArtifactItemProvider extends NameableItemProvider {
 		String label = ((FileArtifact)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_FileArtifact_type") :
-			getString("_UI_FileArtifact_type") + " " + label;
+			getString("_UI_FileArtifact_type") + ": " + label;
 	}
 	
 
@@ -151,7 +105,6 @@ public class FileArtifactItemProvider extends NameableItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(FileArtifact.class)) {
-			case ArtifactsPackage.FILE_ARTIFACT__ARTIFACT_DOMAIN:
 			case ArtifactsPackage.FILE_ARTIFACT__FILE:
 			case ArtifactsPackage.FILE_ARTIFACT__LOCAL_FILE_PATH:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

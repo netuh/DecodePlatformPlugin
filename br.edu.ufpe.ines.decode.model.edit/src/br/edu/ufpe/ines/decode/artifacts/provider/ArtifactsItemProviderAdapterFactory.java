@@ -2,12 +2,15 @@
  */
 package br.edu.ufpe.ines.decode.artifacts.provider;
 
+import br.edu.ufpe.ines.decode.artifacts.util.ArtifactsAdapterFactory;
+
 import java.util.ArrayList;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
+
 import org.eclipse.emf.edit.provider.ChangeNotifier;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
@@ -19,8 +22,6 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-
-import br.edu.ufpe.ines.decode.artifacts.util.ArtifactsAdapterFactory;
 
 /**
  * This is the factory that is used to provide the interfaces needed to support Viewers.
@@ -71,29 +72,6 @@ public class ArtifactsItemProviderAdapterFactory extends ArtifactsAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link br.edu.ufpe.ines.decode.artifacts.AtomicArtifact} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected AtomicArtifactItemProvider atomicArtifactItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link br.edu.ufpe.ines.decode.artifacts.AtomicArtifact}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createAtomicArtifactAdapter() {
-		if (atomicArtifactItemProvider == null) {
-			atomicArtifactItemProvider = new AtomicArtifactItemProvider(this);
-		}
-
-		return atomicArtifactItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link br.edu.ufpe.ines.decode.artifacts.ProvidedArtefacts} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -117,49 +95,118 @@ public class ArtifactsItemProviderAdapterFactory extends ArtifactsAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link br.edu.ufpe.ines.decode.artifacts.ComplexArtifact} instances.
+	 * This keeps track of the one adapter used for all {@link br.edu.ufpe.ines.decode.artifacts.QuestionnaireInner} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ComplexArtifactItemProvider complexArtifactItemProvider;
+	protected QuestionnaireInnerItemProvider questionnaireInnerItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link br.edu.ufpe.ines.decode.artifacts.ComplexArtifact}.
+	 * This creates an adapter for a {@link br.edu.ufpe.ines.decode.artifacts.QuestionnaireInner}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createComplexArtifactAdapter() {
-		if (complexArtifactItemProvider == null) {
-			complexArtifactItemProvider = new ComplexArtifactItemProvider(this);
+	public Adapter createQuestionnaireInnerAdapter() {
+		if (questionnaireInnerItemProvider == null) {
+			questionnaireInnerItemProvider = new QuestionnaireInnerItemProvider(this);
 		}
 
-		return complexArtifactItemProvider;
+		return questionnaireInnerItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link br.edu.ufpe.ines.decode.artifacts.Questionnaire} instances.
+	 * This keeps track of the one adapter used for all {@link br.edu.ufpe.ines.decode.artifacts.PdfFIle} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected QuestionnaireItemProvider questionnaireItemProvider;
+	protected PdfFIleItemProvider pdfFIleItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link br.edu.ufpe.ines.decode.artifacts.Questionnaire}.
+	 * This creates an adapter for a {@link br.edu.ufpe.ines.decode.artifacts.PdfFIle}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createQuestionnaireAdapter() {
-		if (questionnaireItemProvider == null) {
-			questionnaireItemProvider = new QuestionnaireItemProvider(this);
+	public Adapter createPdfFIleAdapter() {
+		if (pdfFIleItemProvider == null) {
+			pdfFIleItemProvider = new PdfFIleItemProvider(this);
 		}
 
-		return questionnaireItemProvider;
+		return pdfFIleItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link br.edu.ufpe.ines.decode.artifacts.JavaProject} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected JavaProjectItemProvider javaProjectItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link br.edu.ufpe.ines.decode.artifacts.JavaProject}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createJavaProjectAdapter() {
+		if (javaProjectItemProvider == null) {
+			javaProjectItemProvider = new JavaProjectItemProvider(this);
+		}
+
+		return javaProjectItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link br.edu.ufpe.ines.decode.artifacts.JavaCompUnit} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected JavaCompUnitItemProvider javaCompUnitItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link br.edu.ufpe.ines.decode.artifacts.JavaCompUnit}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createJavaCompUnitAdapter() {
+		if (javaCompUnitItemProvider == null) {
+			javaCompUnitItemProvider = new JavaCompUnitItemProvider(this);
+		}
+
+		return javaCompUnitItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link br.edu.ufpe.ines.decode.artifacts.OtherFile} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected OtherFileItemProvider otherFileItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link br.edu.ufpe.ines.decode.artifacts.OtherFile}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createOtherFileAdapter() {
+		if (otherFileItemProvider == null) {
+			otherFileItemProvider = new OtherFileItemProvider(this);
+		}
+
+		return otherFileItemProvider;
 	}
 
 	/**
@@ -261,10 +308,12 @@ public class ArtifactsItemProviderAdapterFactory extends ArtifactsAdapterFactory
 	 * @generated
 	 */
 	public void dispose() {
-		if (atomicArtifactItemProvider != null) atomicArtifactItemProvider.dispose();
 		if (providedArtefactsItemProvider != null) providedArtefactsItemProvider.dispose();
-		if (complexArtifactItemProvider != null) complexArtifactItemProvider.dispose();
-		if (questionnaireItemProvider != null) questionnaireItemProvider.dispose();
+		if (questionnaireInnerItemProvider != null) questionnaireInnerItemProvider.dispose();
+		if (pdfFIleItemProvider != null) pdfFIleItemProvider.dispose();
+		if (javaProjectItemProvider != null) javaProjectItemProvider.dispose();
+		if (javaCompUnitItemProvider != null) javaCompUnitItemProvider.dispose();
+		if (otherFileItemProvider != null) otherFileItemProvider.dispose();
 	}
 
 }

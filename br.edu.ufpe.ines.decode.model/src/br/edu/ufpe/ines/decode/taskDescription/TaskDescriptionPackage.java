@@ -3,6 +3,7 @@
 package br.edu.ufpe.ines.decode.taskDescription;
 
 import br.edu.ufpe.ines.decode.aux.AuxPackage;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
@@ -334,22 +335,22 @@ public interface TaskDescriptionPackage extends EPackage {
 	int EXPERIMENTAL_TASK__MEASUREMENTS = MODELED_TASK__MEASUREMENTS;
 
 	/**
-	 * The feature id for the '<em><b>Required Artifacts</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXPERIMENTAL_TASK__REQUIRED_ARTIFACTS = MODELED_TASK_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Depends</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXPERIMENTAL_TASK__DEPENDS = MODELED_TASK_FEATURE_COUNT + 1;
+	int EXPERIMENTAL_TASK__DEPENDS = MODELED_TASK_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Requires</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPERIMENTAL_TASK__REQUIRES = MODELED_TASK_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Experimental Task</em>' class.
@@ -799,17 +800,6 @@ public interface TaskDescriptionPackage extends EPackage {
 	EClass getExperimentalTask();
 
 	/**
-	 * Returns the meta object for the reference list '{@link br.edu.ufpe.ines.decode.taskDescription.ExperimentalTask#getRequiredArtifacts <em>Required Artifacts</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Required Artifacts</em>'.
-	 * @see br.edu.ufpe.ines.decode.taskDescription.ExperimentalTask#getRequiredArtifacts()
-	 * @see #getExperimentalTask()
-	 * @generated
-	 */
-	EReference getExperimentalTask_RequiredArtifacts();
-
-	/**
 	 * Returns the meta object for the reference list '{@link br.edu.ufpe.ines.decode.taskDescription.ExperimentalTask#getDepends <em>Depends</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -819,6 +809,17 @@ public interface TaskDescriptionPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getExperimentalTask_Depends();
+
+	/**
+	 * Returns the meta object for the reference list '{@link br.edu.ufpe.ines.decode.taskDescription.ExperimentalTask#getRequires <em>Requires</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Requires</em>'.
+	 * @see br.edu.ufpe.ines.decode.taskDescription.ExperimentalTask#getRequires()
+	 * @see #getExperimentalTask()
+	 * @generated
+	 */
+	EReference getExperimentalTask_Requires();
 
 	/**
 	 * Returns the meta object for class '{@link br.edu.ufpe.ines.decode.taskDescription.Restriction <em>Restriction</em>}'.
@@ -1114,20 +1115,20 @@ public interface TaskDescriptionPackage extends EPackage {
 		EClass EXPERIMENTAL_TASK = eINSTANCE.getExperimentalTask();
 
 		/**
-		 * The meta object literal for the '<em><b>Required Artifacts</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference EXPERIMENTAL_TASK__REQUIRED_ARTIFACTS = eINSTANCE.getExperimentalTask_RequiredArtifacts();
-
-		/**
 		 * The meta object literal for the '<em><b>Depends</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference EXPERIMENTAL_TASK__DEPENDS = eINSTANCE.getExperimentalTask_Depends();
+
+		/**
+		 * The meta object literal for the '<em><b>Requires</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EXPERIMENTAL_TASK__REQUIRES = eINSTANCE.getExperimentalTask_Requires();
 
 		/**
 		 * The meta object literal for the '{@link br.edu.ufpe.ines.decode.taskDescription.impl.RestrictionImpl <em>Restriction</em>}' class.

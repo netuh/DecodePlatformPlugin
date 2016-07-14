@@ -43,32 +43,10 @@ public class ExperimentalTaskItemProvider extends ModeledTaskItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addRequiredArtifactsPropertyDescriptor(object);
 			addDependsPropertyDescriptor(object);
+			addRequiresPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Required Artifacts feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addRequiredArtifactsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ExperimentalTask_requiredArtifacts_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ExperimentalTask_requiredArtifacts_feature", "_UI_ExperimentalTask_type"),
-				 TaskDescriptionPackage.Literals.EXPERIMENTAL_TASK__REQUIRED_ARTIFACTS,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -85,6 +63,28 @@ public class ExperimentalTaskItemProvider extends ModeledTaskItemProvider {
 				 getString("_UI_ExperimentalTask_depends_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ExperimentalTask_depends_feature", "_UI_ExperimentalTask_type"),
 				 TaskDescriptionPackage.Literals.EXPERIMENTAL_TASK__DEPENDS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Requires feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRequiresPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ExperimentalTask_requires_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ExperimentalTask_requires_feature", "_UI_ExperimentalTask_type"),
+				 TaskDescriptionPackage.Literals.EXPERIMENTAL_TASK__REQUIRES,
 				 true,
 				 false,
 				 true,
@@ -115,7 +115,7 @@ public class ExperimentalTaskItemProvider extends ModeledTaskItemProvider {
 		String label = ((ExperimentalTask)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_ExperimentalTask_type") :
-			getString("_UI_ExperimentalTask_type") + " " + label;
+			getString("_UI_ExperimentalTask_type") + ": " + label;
 	}
 	
 

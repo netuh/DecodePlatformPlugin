@@ -4,6 +4,7 @@ package br.edu.ufpe.ines.decode.taskDescription.tests;
 
 import br.edu.ufpe.ines.decode.taskDescription.PlacementQuestionnaire;
 import br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionFactory;
+
 import junit.textui.TestRunner;
 
 /**

@@ -3,7 +3,6 @@ package br.ufpe.ines.decode.plugin.handlers;
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
-import org.eclipse.jface.window.Window;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.handlers.HandlerUtil;
@@ -33,10 +32,7 @@ public class LoadExperimentHandler extends AbstractHandler {
 
 		Shell shell = window.getShell();
 		ExperimentLoadingDialog dialog = new ExperimentLoadingDialog(shell);
-
-		if (dialog.open() == Window.OK) {
-			dialog.getSelectedExperiment();
-		}
+		dialog.open();
 		return null;
 	}
 }

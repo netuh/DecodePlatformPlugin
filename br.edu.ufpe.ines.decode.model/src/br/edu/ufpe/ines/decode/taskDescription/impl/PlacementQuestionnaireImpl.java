@@ -3,7 +3,7 @@
 package br.edu.ufpe.ines.decode.taskDescription.impl;
 
 import br.edu.ufpe.ines.decode.artifacts.ArtifactsPackage;
-import br.edu.ufpe.ines.decode.artifacts.Questionnaire;
+import br.edu.ufpe.ines.decode.artifacts.QuestionnaireInner;
 
 import br.edu.ufpe.ines.decode.taskDescription.PlacementQuestionnaire;
 import br.edu.ufpe.ines.decode.taskDescription.PlacementType;
@@ -60,7 +60,7 @@ public class PlacementQuestionnaireImpl extends MeasurementImpl implements Place
 	 * @generated
 	 * @ordered
 	 */
-	protected Questionnaire questionnaire;
+	protected QuestionnaireInner questionnaire;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -107,10 +107,10 @@ public class PlacementQuestionnaireImpl extends MeasurementImpl implements Place
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Questionnaire getQuestionnaire() {
+	public QuestionnaireInner getQuestionnaire() {
 		if (questionnaire != null && questionnaire.eIsProxy()) {
 			InternalEObject oldQuestionnaire = (InternalEObject)questionnaire;
-			questionnaire = (Questionnaire)eResolveProxy(oldQuestionnaire);
+			questionnaire = (QuestionnaireInner)eResolveProxy(oldQuestionnaire);
 			if (questionnaire != oldQuestionnaire) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TaskDescriptionPackage.PLACEMENT_QUESTIONNAIRE__QUESTIONNAIRE, oldQuestionnaire, questionnaire));
@@ -124,7 +124,7 @@ public class PlacementQuestionnaireImpl extends MeasurementImpl implements Place
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Questionnaire basicGetQuestionnaire() {
+	public QuestionnaireInner basicGetQuestionnaire() {
 		return questionnaire;
 	}
 
@@ -133,8 +133,8 @@ public class PlacementQuestionnaireImpl extends MeasurementImpl implements Place
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetQuestionnaire(Questionnaire newQuestionnaire, NotificationChain msgs) {
-		Questionnaire oldQuestionnaire = questionnaire;
+	public NotificationChain basicSetQuestionnaire(QuestionnaireInner newQuestionnaire, NotificationChain msgs) {
+		QuestionnaireInner oldQuestionnaire = questionnaire;
 		questionnaire = newQuestionnaire;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TaskDescriptionPackage.PLACEMENT_QUESTIONNAIRE__QUESTIONNAIRE, oldQuestionnaire, newQuestionnaire);
@@ -148,13 +148,13 @@ public class PlacementQuestionnaireImpl extends MeasurementImpl implements Place
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setQuestionnaire(Questionnaire newQuestionnaire) {
+	public void setQuestionnaire(QuestionnaireInner newQuestionnaire) {
 		if (newQuestionnaire != questionnaire) {
 			NotificationChain msgs = null;
 			if (questionnaire != null)
-				msgs = ((InternalEObject)questionnaire).eInverseRemove(this, ArtifactsPackage.QUESTIONNAIRE__PLACEMENTQUESTIONNAIRE, Questionnaire.class, msgs);
+				msgs = ((InternalEObject)questionnaire).eInverseRemove(this, ArtifactsPackage.QUESTIONNAIRE_INNER__PLACEMENTQUESTIONNAIRE, QuestionnaireInner.class, msgs);
 			if (newQuestionnaire != null)
-				msgs = ((InternalEObject)newQuestionnaire).eInverseAdd(this, ArtifactsPackage.QUESTIONNAIRE__PLACEMENTQUESTIONNAIRE, Questionnaire.class, msgs);
+				msgs = ((InternalEObject)newQuestionnaire).eInverseAdd(this, ArtifactsPackage.QUESTIONNAIRE_INNER__PLACEMENTQUESTIONNAIRE, QuestionnaireInner.class, msgs);
 			msgs = basicSetQuestionnaire(newQuestionnaire, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -172,8 +172,8 @@ public class PlacementQuestionnaireImpl extends MeasurementImpl implements Place
 		switch (featureID) {
 			case TaskDescriptionPackage.PLACEMENT_QUESTIONNAIRE__QUESTIONNAIRE:
 				if (questionnaire != null)
-					msgs = ((InternalEObject)questionnaire).eInverseRemove(this, ArtifactsPackage.QUESTIONNAIRE__PLACEMENTQUESTIONNAIRE, Questionnaire.class, msgs);
-				return basicSetQuestionnaire((Questionnaire)otherEnd, msgs);
+					msgs = ((InternalEObject)questionnaire).eInverseRemove(this, ArtifactsPackage.QUESTIONNAIRE_INNER__PLACEMENTQUESTIONNAIRE, QuestionnaireInner.class, msgs);
+				return basicSetQuestionnaire((QuestionnaireInner)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -221,7 +221,7 @@ public class PlacementQuestionnaireImpl extends MeasurementImpl implements Place
 				setPlacement((PlacementType)newValue);
 				return;
 			case TaskDescriptionPackage.PLACEMENT_QUESTIONNAIRE__QUESTIONNAIRE:
-				setQuestionnaire((Questionnaire)newValue);
+				setQuestionnaire((QuestionnaireInner)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -239,7 +239,7 @@ public class PlacementQuestionnaireImpl extends MeasurementImpl implements Place
 				setPlacement(PLACEMENT_EDEFAULT);
 				return;
 			case TaskDescriptionPackage.PLACEMENT_QUESTIONNAIRE__QUESTIONNAIRE:
-				setQuestionnaire((Questionnaire)null);
+				setQuestionnaire((QuestionnaireInner)null);
 				return;
 		}
 		super.eUnset(featureID);

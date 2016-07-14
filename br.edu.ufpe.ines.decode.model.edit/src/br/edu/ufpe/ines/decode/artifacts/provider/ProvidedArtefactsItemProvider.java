@@ -153,17 +153,27 @@ public class ProvidedArtefactsItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(ArtifactsPackage.Literals.PROVIDED_ARTEFACTS__ARTIFACT,
-				 ArtifactsFactory.eINSTANCE.createAtomicArtifact()));
+				 ArtifactsFactory.eINSTANCE.createQuestionnaireInner()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(ArtifactsPackage.Literals.PROVIDED_ARTEFACTS__ARTIFACT,
-				 ArtifactsFactory.eINSTANCE.createComplexArtifact()));
+				 ArtifactsFactory.eINSTANCE.createPdfFIle()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(ArtifactsPackage.Literals.PROVIDED_ARTEFACTS__ARTIFACT,
-				 ArtifactsFactory.eINSTANCE.createQuestionnaire()));
+				 ArtifactsFactory.eINSTANCE.createJavaProject()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ArtifactsPackage.Literals.PROVIDED_ARTEFACTS__ARTIFACT,
+				 ArtifactsFactory.eINSTANCE.createJavaCompUnit()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ArtifactsPackage.Literals.PROVIDED_ARTEFACTS__ARTIFACT,
+				 ArtifactsFactory.eINSTANCE.createOtherFile()));
 	}
 
 	/**

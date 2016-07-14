@@ -102,7 +102,7 @@ public class SequencialItemProvider extends ComposedTaskItemProvider {
 		String label = ((Sequencial)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Sequencial_type") :
-			getString("_UI_Sequencial_type") + " " + label;
+			getString("_UI_Sequencial_type") + ": " + label;
 	}
 	
 

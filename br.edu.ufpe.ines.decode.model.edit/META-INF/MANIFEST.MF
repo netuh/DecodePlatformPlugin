@@ -11,7 +11,6 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: br.edu.ufpe.ines.decode.artifacts.provider,
  br.edu.ufpe.ines.decode.artifacts.questionnaire.provider,
  br.edu.ufpe.ines.decode.aux.provider,
- br.edu.ufpe.ines.decode.measurement.provider,
  br.edu.ufpe.ines.decode.provider,
  br.edu.ufpe.ines.decode.taskDescription.measurements.provider,
  br.edu.ufpe.ines.decode.taskDescription.provider

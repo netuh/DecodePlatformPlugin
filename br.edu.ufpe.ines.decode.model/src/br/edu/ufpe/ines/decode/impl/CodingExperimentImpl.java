@@ -8,7 +8,9 @@ import br.edu.ufpe.ines.decode.DecodePackage;
 import br.edu.ufpe.ines.decode.artifacts.ProvidedArtefacts;
 
 import br.edu.ufpe.ines.decode.aux.impl.NameableImpl;
+
 import br.edu.ufpe.ines.decode.taskDescription.ExecutionDerivations;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 

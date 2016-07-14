@@ -97,8 +97,8 @@ public class ConfiguredExperiment {
 	    public abstract Image getRelatedImage();
 	}
 
-	public void statusSelect() {
-		currentStatus = ExperimentStatus.IN_PROGRESS;
-		manager.setSelectedExperiment(this);
-	}
+//	public void statusSelect() {
+//		currentStatus = ExperimentStatus.IN_PROGRESS;
+//		manager.setSelectedExperiment(this);
+//	}
 }

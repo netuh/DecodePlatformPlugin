@@ -13,7 +13,6 @@ import br.edu.ufpe.ines.decode.aux.Nameable;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link br.edu.ufpe.ines.decode.artifacts.FileArtifact#getArtifactDomain <em>Artifact Domain</em>}</li>
  *   <li>{@link br.edu.ufpe.ines.decode.artifacts.FileArtifact#getFile <em>File</em>}</li>
  *   <li>{@link br.edu.ufpe.ines.decode.artifacts.FileArtifact#getLocalFilePath <em>Local File Path</em>}</li>
  * </ul>
@@ -23,36 +22,6 @@ import br.edu.ufpe.ines.decode.aux.Nameable;
  * @generated
  */
 public interface FileArtifact extends Nameable, AbstractArtifact {
-	/**
-	 * Returns the value of the '<em><b>Artifact Domain</b></em>' attribute.
-	 * The default value is <code>"Common"</code>.
-	 * The literals are from the enumeration {@link br.edu.ufpe.ines.decode.artifacts.ArtifactLanguage}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Artifact Domain</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Artifact Domain</em>' attribute.
-	 * @see br.edu.ufpe.ines.decode.artifacts.ArtifactLanguage
-	 * @see #setArtifactDomain(ArtifactLanguage)
-	 * @see br.edu.ufpe.ines.decode.artifacts.ArtifactsPackage#getFileArtifact_ArtifactDomain()
-	 * @model default="Common"
-	 * @generated
-	 */
-	ArtifactLanguage getArtifactDomain();
-
-	/**
-	 * Sets the value of the '{@link br.edu.ufpe.ines.decode.artifacts.FileArtifact#getArtifactDomain <em>Artifact Domain</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Artifact Domain</em>' attribute.
-	 * @see br.edu.ufpe.ines.decode.artifacts.ArtifactLanguage
-	 * @see #getArtifactDomain()
-	 * @generated
-	 */
-	void setArtifactDomain(ArtifactLanguage value);
-
 	/**
 	 * Returns the value of the '<em><b>File</b></em>' attribute.
 	 * <!-- begin-user-doc -->

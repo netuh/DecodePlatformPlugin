@@ -144,8 +144,6 @@ import org.eclipse.emf.edit.ui.util.EditUIUtil;
 
 import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 
-import br.edu.ufpe.ines.decode.measurement.provider.MeasurementItemProviderAdapterFactory;
-
 import br.edu.ufpe.ines.decode.artifacts.provider.ArtifactsItemProviderAdapterFactory;
 
 import br.edu.ufpe.ines.decode.artifacts.questionnaire.provider.QuestionnaireItemProviderAdapterFactory;
@@ -657,7 +655,6 @@ public class MeasurementEditor
 		adapterFactory.addAdapterFactory(new TaskDescriptionItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ArtifactsItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new QuestionnaireItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new MeasurementItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new AuxItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 

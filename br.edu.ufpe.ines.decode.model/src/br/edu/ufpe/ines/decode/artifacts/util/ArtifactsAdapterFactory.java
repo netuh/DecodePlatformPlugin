@@ -70,16 +70,8 @@ public class ArtifactsAdapterFactory extends AdapterFactoryImpl {
 	protected ArtifactsSwitch<Adapter> modelSwitch =
 		new ArtifactsSwitch<Adapter>() {
 			@Override
-			public Adapter caseAtomicArtifact(AtomicArtifact object) {
-				return createAtomicArtifactAdapter();
-			}
-			@Override
 			public Adapter caseProvidedArtefacts(ProvidedArtefacts object) {
 				return createProvidedArtefactsAdapter();
-			}
-			@Override
-			public Adapter caseComplexArtifact(ComplexArtifact object) {
-				return createComplexArtifactAdapter();
 			}
 			@Override
 			public Adapter caseFileArtifact(FileArtifact object) {
@@ -90,8 +82,32 @@ public class ArtifactsAdapterFactory extends AdapterFactoryImpl {
 				return createAbstractArtifactAdapter();
 			}
 			@Override
-			public Adapter caseQuestionnaire(Questionnaire object) {
-				return createQuestionnaireAdapter();
+			public Adapter caseQuestionnaireInner(QuestionnaireInner object) {
+				return createQuestionnaireInnerAdapter();
+			}
+			@Override
+			public Adapter caseProjectIDE(ProjectIDE object) {
+				return createProjectIDEAdapter();
+			}
+			@Override
+			public Adapter caseCompilationUnit(CompilationUnit object) {
+				return createCompilationUnitAdapter();
+			}
+			@Override
+			public Adapter casePdfFIle(PdfFIle object) {
+				return createPdfFIleAdapter();
+			}
+			@Override
+			public Adapter caseJavaProject(JavaProject object) {
+				return createJavaProjectAdapter();
+			}
+			@Override
+			public Adapter caseJavaCompUnit(JavaCompUnit object) {
+				return createJavaCompUnitAdapter();
+			}
+			@Override
+			public Adapter caseOtherFile(OtherFile object) {
+				return createOtherFileAdapter();
 			}
 			@Override
 			public Adapter caseNameable(Nameable object) {
@@ -118,20 +134,6 @@ public class ArtifactsAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link br.edu.ufpe.ines.decode.artifacts.AtomicArtifact <em>Atomic Artifact</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see br.edu.ufpe.ines.decode.artifacts.AtomicArtifact
-	 * @generated
-	 */
-	public Adapter createAtomicArtifactAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link br.edu.ufpe.ines.decode.artifacts.ProvidedArtefacts <em>Provided Artefacts</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -142,20 +144,6 @@ public class ArtifactsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createProvidedArtefactsAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link br.edu.ufpe.ines.decode.artifacts.ComplexArtifact <em>Complex Artifact</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see br.edu.ufpe.ines.decode.artifacts.ComplexArtifact
-	 * @generated
-	 */
-	public Adapter createComplexArtifactAdapter() {
 		return null;
 	}
 
@@ -188,16 +176,100 @@ public class ArtifactsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link br.edu.ufpe.ines.decode.artifacts.Questionnaire <em>Questionnaire</em>}'.
+	 * Creates a new adapter for an object of class '{@link br.edu.ufpe.ines.decode.artifacts.QuestionnaireInner <em>Questionnaire Inner</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see br.edu.ufpe.ines.decode.artifacts.Questionnaire
+	 * @see br.edu.ufpe.ines.decode.artifacts.QuestionnaireInner
 	 * @generated
 	 */
-	public Adapter createQuestionnaireAdapter() {
+	public Adapter createQuestionnaireInnerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link br.edu.ufpe.ines.decode.artifacts.ProjectIDE <em>Project IDE</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see br.edu.ufpe.ines.decode.artifacts.ProjectIDE
+	 * @generated
+	 */
+	public Adapter createProjectIDEAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link br.edu.ufpe.ines.decode.artifacts.CompilationUnit <em>Compilation Unit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see br.edu.ufpe.ines.decode.artifacts.CompilationUnit
+	 * @generated
+	 */
+	public Adapter createCompilationUnitAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link br.edu.ufpe.ines.decode.artifacts.PdfFIle <em>Pdf FIle</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see br.edu.ufpe.ines.decode.artifacts.PdfFIle
+	 * @generated
+	 */
+	public Adapter createPdfFIleAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link br.edu.ufpe.ines.decode.artifacts.JavaProject <em>Java Project</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see br.edu.ufpe.ines.decode.artifacts.JavaProject
+	 * @generated
+	 */
+	public Adapter createJavaProjectAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link br.edu.ufpe.ines.decode.artifacts.JavaCompUnit <em>Java Comp Unit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see br.edu.ufpe.ines.decode.artifacts.JavaCompUnit
+	 * @generated
+	 */
+	public Adapter createJavaCompUnitAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link br.edu.ufpe.ines.decode.artifacts.OtherFile <em>Other File</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see br.edu.ufpe.ines.decode.artifacts.OtherFile
+	 * @generated
+	 */
+	public Adapter createOtherFileAdapter() {
 		return null;
 	}
 

@@ -3,6 +3,7 @@
 package br.edu.ufpe.ines.decode.taskDescription;
 
 import br.edu.ufpe.ines.decode.aux.Nameable;
+
 import org.eclipse.emf.common.util.EList;
 
 /**

@@ -3,6 +3,7 @@
 package br.edu.ufpe.ines.decode.taskDescription.tests;
 
 import br.edu.ufpe.ines.decode.taskDescription.Restriction;
+
 import junit.framework.TestCase;
 
 /**

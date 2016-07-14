@@ -22,15 +22,6 @@ public interface ArtifactsFactory extends EFactory {
 	ArtifactsFactory eINSTANCE = br.edu.ufpe.ines.decode.artifacts.impl.ArtifactsFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Atomic Artifact</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Atomic Artifact</em>'.
-	 * @generated
-	 */
-	AtomicArtifact createAtomicArtifact();
-
-	/**
 	 * Returns a new object of class '<em>Provided Artefacts</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -40,22 +31,49 @@ public interface ArtifactsFactory extends EFactory {
 	ProvidedArtefacts createProvidedArtefacts();
 
 	/**
-	 * Returns a new object of class '<em>Complex Artifact</em>'.
+	 * Returns a new object of class '<em>Questionnaire Inner</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Complex Artifact</em>'.
+	 * @return a new object of class '<em>Questionnaire Inner</em>'.
 	 * @generated
 	 */
-	ComplexArtifact createComplexArtifact();
+	QuestionnaireInner createQuestionnaireInner();
 
 	/**
-	 * Returns a new object of class '<em>Questionnaire</em>'.
+	 * Returns a new object of class '<em>Pdf FIle</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Questionnaire</em>'.
+	 * @return a new object of class '<em>Pdf FIle</em>'.
 	 * @generated
 	 */
-	Questionnaire createQuestionnaire();
+	PdfFIle createPdfFIle();
+
+	/**
+	 * Returns a new object of class '<em>Java Project</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Java Project</em>'.
+	 * @generated
+	 */
+	JavaProject createJavaProject();
+
+	/**
+	 * Returns a new object of class '<em>Java Comp Unit</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Java Comp Unit</em>'.
+	 * @generated
+	 */
+	JavaCompUnit createJavaCompUnit();
+
+	/**
+	 * Returns a new object of class '<em>Other File</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Other File</em>'.
+	 * @generated
+	 */
+	OtherFile createOtherFile();
 
 	/**
 	 * Returns the package supported by this factory.

@@ -9,6 +9,7 @@ import br.edu.ufpe.ines.decode.DecodePackage;
 import br.edu.ufpe.ines.decode.artifacts.ArtifactsFactory;
 
 import br.edu.ufpe.ines.decode.aux.provider.NameableItemProvider;
+
 import br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionFactory;
 
 import java.util.Collection;
@@ -109,7 +110,7 @@ public class CodingExperimentItemProvider extends NameableItemProvider {
 		String label = ((CodingExperiment)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_CodingExperiment_type") :
-			getString("_UI_CodingExperiment_type") + " " + label;
+			getString("_UI_CodingExperiment_type") + ": " + label;
 	}
 	
 

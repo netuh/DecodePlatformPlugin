@@ -11,7 +11,8 @@ Require-Bundle: org.apache.log4j;bundle-version="1.2.15",
  org.eclipse.core.expressions;bundle-version="3.5.0",
  org.eclipse.jdt.launching;bundle-version="3.8.0",
  org.eclipse.jdt.core;bundle-version="3.11.2",
- org.eclipse.debug.ui;bundle-version="3.11.101"
+ org.eclipse.debug.ui;bundle-version="3.11.101",
+ br.edu.ufpe.ines.decode.model;bundle-version="0.1.0"
 Export-Package: br.ufpe.ines.decode.plugin,
  br.ufpe.ines.decode.plugin.model,
  br.ufpe.ines.decode.plugin.control,

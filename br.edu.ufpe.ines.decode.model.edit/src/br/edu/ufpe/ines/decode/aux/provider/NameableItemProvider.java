@@ -100,7 +100,7 @@ public class NameableItemProvider
 		String label = ((Nameable)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Nameable_type") :
-			getString("_UI_Nameable_type") + " " + label;
+			getString("_UI_Nameable_type") + ": " + label;
 	}
 	
 

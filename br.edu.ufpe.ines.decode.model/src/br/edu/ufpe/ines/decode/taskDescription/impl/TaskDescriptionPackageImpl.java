@@ -17,6 +17,7 @@ import br.edu.ufpe.ines.decode.aux.AuxPackage;
 import br.edu.ufpe.ines.decode.aux.impl.AuxPackageImpl;
 
 import br.edu.ufpe.ines.decode.impl.DecodePackageImpl;
+
 import br.edu.ufpe.ines.decode.taskDescription.ComposedTask;
 import br.edu.ufpe.ines.decode.taskDescription.EclipseRetriction;
 import br.edu.ufpe.ines.decode.taskDescription.ExecutionDerivations;
@@ -33,10 +34,12 @@ import br.edu.ufpe.ines.decode.taskDescription.Sequencial;
 import br.edu.ufpe.ines.decode.taskDescription.SpecficRestriction;
 import br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionFactory;
 import br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionPackage;
-
 import br.edu.ufpe.ines.decode.taskDescription.TimeRestriction;
+
 import br.edu.ufpe.ines.decode.taskDescription.measurements.MeasurementsPackage;
+
 import br.edu.ufpe.ines.decode.taskDescription.measurements.impl.MeasurementsPackageImpl;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
@@ -326,7 +329,7 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExperimentalTask_RequiredArtifacts() {
+	public EReference getExperimentalTask_Depends() {
 		return (EReference)experimentalTaskEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -335,7 +338,7 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExperimentalTask_Depends() {
+	public EReference getExperimentalTask_Requires() {
 		return (EReference)experimentalTaskEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -542,8 +545,8 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 		composedTaskEClass = createEClass(COMPOSED_TASK);
 
 		experimentalTaskEClass = createEClass(EXPERIMENTAL_TASK);
-		createEReference(experimentalTaskEClass, EXPERIMENTAL_TASK__REQUIRED_ARTIFACTS);
 		createEReference(experimentalTaskEClass, EXPERIMENTAL_TASK__DEPENDS);
+		createEReference(experimentalTaskEClass, EXPERIMENTAL_TASK__REQUIRES);
 
 		restrictionEClass = createEClass(RESTRICTION);
 
@@ -637,14 +640,14 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 		initEClass(composedTaskEClass, ComposedTask.class, "ComposedTask", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(experimentalTaskEClass, ExperimentalTask.class, "ExperimentalTask", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getExperimentalTask_RequiredArtifacts(), theArtifactsPackage.getFileArtifact(), null, "requiredArtifacts", null, 0, -1, ExperimentalTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getExperimentalTask_Depends(), this.getExperimentalTask(), null, "depends", null, 0, -1, ExperimentalTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getExperimentalTask_Requires(), theArtifactsPackage.getAbstractArtifact(), null, "requires", null, 0, -1, ExperimentalTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(restrictionEClass, Restriction.class, "Restriction", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(placementQuestionnaireEClass, PlacementQuestionnaire.class, "PlacementQuestionnaire", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPlacementQuestionnaire_Placement(), this.getPlacementType(), "placement", "Before", 0, 1, PlacementQuestionnaire.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPlacementQuestionnaire_Questionnaire(), theArtifactsPackage.getQuestionnaire(), theArtifactsPackage.getQuestionnaire_Placementquestionnaire(), "questionnaire", null, 0, 1, PlacementQuestionnaire.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPlacementQuestionnaire_Questionnaire(), theArtifactsPackage.getQuestionnaireInner(), theArtifactsPackage.getQuestionnaireInner_Placementquestionnaire(), "questionnaire", null, 0, 1, PlacementQuestionnaire.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(executionDerivationsEClass, ExecutionDerivations.class, "ExecutionDerivations", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getExecutionDerivations_Tasks(), this.getModeledTask(), null, "tasks", null, 1, -1, ExecutionDerivations.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

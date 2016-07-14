@@ -95,7 +95,7 @@ public class AppendableElementItemProvider extends RestrictionItemProvider {
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
 			getString("_UI_AppendableElement_type") :
-			getString("_UI_AppendableElement_type") + " " + label;
+			getString("_UI_AppendableElement_type") + ": " + label;
 	}
 	
 

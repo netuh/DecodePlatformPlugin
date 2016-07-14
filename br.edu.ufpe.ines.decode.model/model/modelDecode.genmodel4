@@ -53,10 +53,10 @@
       <genClasses>
         <ecoreClass href="modelDecode.ecore#//taskDescription/ExperimentalTask"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true">
-          <ecoreFeature xsi:type="ecore:EReference" href="modelDecode.ecore#//taskDescription/ExperimentalTask/requiredArtifacts"/>
+          <ecoreFeature xsi:type="ecore:EReference" href="modelDecode.ecore#//taskDescription/ExperimentalTask/depends"/>
         </genFeatures>
         <genFeatures notify="false" createChild="false" propertySortChoices="true">
-          <ecoreFeature xsi:type="ecore:EReference" href="modelDecode.ecore#//taskDescription/ExperimentalTask/depends"/>
+          <ecoreFeature xsi:type="ecore:EReference" href="modelDecode.ecore#//taskDescription/ExperimentalTask/requires"/>
         </genFeatures>
       </genClasses>
       <genClasses>
@@ -146,59 +146,14 @@
     </nestedGenPackages>
     <nestedGenPackages prefix="Artifacts" basePackage="br.edu.ufpe.ines.decode" disposableProviderFactory="true" multipleEditorPages="false" generateModelWizard="false">
       <ecorePackage href="modelDecode.ecore#//artifacts"/>
-      <genEnums typeSafeEnumCompatible="false">
-        <ecoreEnum href="modelDecode.ecore#//artifacts/ArtifactType"/>
-        <genEnumLiterals>
-          <ecoreEnumLiteral href="modelDecode.ecore#//artifacts/ArtifactType/Code"/>
-        </genEnumLiterals>
-        <genEnumLiterals>
-          <ecoreEnumLiteral href="modelDecode.ecore#//artifacts/ArtifactType/Test"/>
-        </genEnumLiterals>
-        <genEnumLiterals>
-          <ecoreEnumLiteral href="modelDecode.ecore#//artifacts/ArtifactType/Description"/>
-        </genEnumLiterals>
-        <genEnumLiterals>
-          <ecoreEnumLiteral href="modelDecode.ecore#//artifacts/ArtifactType/Design"/>
-        </genEnumLiterals>
-      </genEnums>
-      <genEnums typeSafeEnumCompatible="false">
-        <ecoreEnum href="modelDecode.ecore#//artifacts/ComplexArtifactType"/>
-        <genEnumLiterals>
-          <ecoreEnumLiteral href="modelDecode.ecore#//artifacts/ComplexArtifactType/Project"/>
-        </genEnumLiterals>
-      </genEnums>
-      <genEnums typeSafeEnumCompatible="false">
-        <ecoreEnum href="modelDecode.ecore#//artifacts/ArtifactLanguage"/>
-        <genEnumLiterals>
-          <ecoreEnumLiteral href="modelDecode.ecore#//artifacts/ArtifactLanguage/Java"/>
-        </genEnumLiterals>
-        <genEnumLiterals>
-          <ecoreEnumLiteral href="modelDecode.ecore#//artifacts/ArtifactLanguage/Common"/>
-        </genEnumLiterals>
-      </genEnums>
-      <genClasses>
-        <ecoreClass href="modelDecode.ecore#//artifacts/AtomicArtifact"/>
-        <genFeatures createChild="false">
-          <ecoreFeature xsi:type="ecore:EAttribute" href="modelDecode.ecore#//artifacts/AtomicArtifact/type"/>
-        </genFeatures>
-      </genClasses>
       <genClasses>
         <ecoreClass href="modelDecode.ecore#//artifacts/ProvidedArtefacts"/>
         <genFeatures property="None" children="true" createChild="true">
           <ecoreFeature xsi:type="ecore:EReference" href="modelDecode.ecore#//artifacts/ProvidedArtefacts/artifact"/>
         </genFeatures>
       </genClasses>
-      <genClasses>
-        <ecoreClass href="modelDecode.ecore#//artifacts/ComplexArtifact"/>
-        <genFeatures createChild="false">
-          <ecoreFeature xsi:type="ecore:EAttribute" href="modelDecode.ecore#//artifacts/ComplexArtifact/type"/>
-        </genFeatures>
-      </genClasses>
       <genClasses image="false">
         <ecoreClass href="modelDecode.ecore#//artifacts/FileArtifact"/>
-        <genFeatures createChild="false">
-          <ecoreFeature xsi:type="ecore:EAttribute" href="modelDecode.ecore#//artifacts/FileArtifact/artifactDomain"/>
-        </genFeatures>
         <genFeatures createChild="false">
           <ecoreFeature xsi:type="ecore:EAttribute" href="modelDecode.ecore#//artifacts/FileArtifact/file"/>
         </genFeatures>
@@ -210,12 +165,51 @@
         <ecoreClass href="modelDecode.ecore#//artifacts/AbstractArtifact"/>
       </genClasses>
       <genClasses>
-        <ecoreClass href="modelDecode.ecore#//artifacts/Questionnaire"/>
+        <ecoreClass href="modelDecode.ecore#//artifacts/QuestionnaireInner"/>
         <genFeatures property="None" children="true" createChild="true">
-          <ecoreFeature xsi:type="ecore:EReference" href="modelDecode.ecore#//artifacts/Questionnaire/elements"/>
+          <ecoreFeature xsi:type="ecore:EReference" href="modelDecode.ecore#//artifacts/QuestionnaireInner/elements"/>
         </genFeatures>
         <genFeatures notify="false" createChild="false" propertySortChoices="true">
-          <ecoreFeature xsi:type="ecore:EReference" href="modelDecode.ecore#//artifacts/Questionnaire/placementquestionnaire"/>
+          <ecoreFeature xsi:type="ecore:EReference" href="modelDecode.ecore#//artifacts/QuestionnaireInner/placementquestionnaire"/>
+        </genFeatures>
+      </genClasses>
+      <genClasses>
+        <ecoreClass href="modelDecode.ecore#//artifacts/ProjectIDE"/>
+        <genFeatures createChild="false">
+          <ecoreFeature xsi:type="ecore:EAttribute" href="modelDecode.ecore#//artifacts/ProjectIDE/projectName"/>
+        </genFeatures>
+      </genClasses>
+      <genClasses>
+        <ecoreClass href="modelDecode.ecore#//artifacts/CompilationUnit"/>
+      </genClasses>
+      <genClasses>
+        <ecoreClass href="modelDecode.ecore#//artifacts/PdfFIle"/>
+      </genClasses>
+      <genClasses>
+        <ecoreClass href="modelDecode.ecore#//artifacts/JavaProject"/>
+        <genFeatures property="None" children="true" createChild="true">
+          <ecoreFeature xsi:type="ecore:EReference" href="modelDecode.ecore#//artifacts/JavaProject/classes"/>
+        </genFeatures>
+        <genFeatures property="None" children="true" createChild="true">
+          <ecoreFeature xsi:type="ecore:EReference" href="modelDecode.ecore#//artifacts/JavaProject/otherFiles"/>
+        </genFeatures>
+        <genFeatures createChild="false">
+          <ecoreFeature xsi:type="ecore:EAttribute" href="modelDecode.ecore#//artifacts/ProjectIDE/projectName"/>
+        </genFeatures>
+      </genClasses>
+      <genClasses>
+        <ecoreClass href="modelDecode.ecore#//artifacts/JavaCompUnit"/>
+        <genFeatures createChild="false">
+          <ecoreFeature xsi:type="ecore:EAttribute" href="modelDecode.ecore#//artifacts/JavaCompUnit/package"/>
+        </genFeatures>
+      </genClasses>
+      <genClasses>
+        <ecoreClass href="modelDecode.ecore#//artifacts/OtherFile"/>
+        <genFeatures createChild="false">
+          <ecoreFeature xsi:type="ecore:EAttribute" href="modelDecode.ecore#//artifacts/OtherFile/folder"/>
+        </genFeatures>
+        <genFeatures createChild="false">
+          <ecoreFeature xsi:type="ecore:EAttribute" href="modelDecode.ecore#//artifacts/OtherFile/description"/>
         </genFeatures>
       </genClasses>
       <nestedGenPackages prefix="Questionnaire" basePackage="br.edu.ufpe.ines.decode.decode.artifacts" disposableProviderFactory="true" multipleEditorPages="false" generateModelWizard="false">

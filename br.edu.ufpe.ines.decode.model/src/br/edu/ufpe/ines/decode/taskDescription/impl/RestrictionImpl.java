@@ -4,7 +4,9 @@ package br.edu.ufpe.ines.decode.taskDescription.impl;
 
 import br.edu.ufpe.ines.decode.taskDescription.Restriction;
 import br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionPackage;
+
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**

@@ -4,7 +4,7 @@ package br.edu.ufpe.ines.decode.artifacts.tests;
 
 import br.edu.ufpe.ines.decode.artifacts.ArtifactsFactory;
 import br.edu.ufpe.ines.decode.artifacts.ArtifactsPackage;
-import br.edu.ufpe.ines.decode.artifacts.AtomicArtifact;
+import br.edu.ufpe.ines.decode.artifacts.ProvidedArtefacts;
 
 import java.io.File;
 import java.io.IOException;
@@ -60,7 +60,7 @@ public class ArtifactsExample {
 			System.out.println("Enter a list of file paths or URIs that have content like this:");
 			try {
 				Resource resource = resourceSet.createResource(URI.createURI("http:///My.artifacts"));
-				AtomicArtifact root = ArtifactsFactory.eINSTANCE.createAtomicArtifact();
+				ProvidedArtefacts root = ArtifactsFactory.eINSTANCE.createProvidedArtefacts();
 				resource.getContents().add(root);
 				resource.save(System.out, null);
 			}

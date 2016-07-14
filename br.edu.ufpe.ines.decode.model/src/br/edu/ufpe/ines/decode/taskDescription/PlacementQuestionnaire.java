@@ -2,7 +2,7 @@
  */
 package br.edu.ufpe.ines.decode.taskDescription;
 
-import br.edu.ufpe.ines.decode.artifacts.Questionnaire;
+import br.edu.ufpe.ines.decode.artifacts.QuestionnaireInner;
 
 /**
  * <!-- begin-user-doc -->
@@ -54,7 +54,7 @@ public interface PlacementQuestionnaire extends Measurement {
 
 	/**
 	 * Returns the value of the '<em><b>Questionnaire</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link br.edu.ufpe.ines.decode.artifacts.Questionnaire#getPlacementquestionnaire <em>Placementquestionnaire</em>}'.
+	 * It is bidirectional and its opposite is '{@link br.edu.ufpe.ines.decode.artifacts.QuestionnaireInner#getPlacementquestionnaire <em>Placementquestionnaire</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Questionnaire</em>' reference isn't clear,
@@ -62,13 +62,13 @@ public interface PlacementQuestionnaire extends Measurement {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Questionnaire</em>' reference.
-	 * @see #setQuestionnaire(Questionnaire)
+	 * @see #setQuestionnaire(QuestionnaireInner)
 	 * @see br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionPackage#getPlacementQuestionnaire_Questionnaire()
-	 * @see br.edu.ufpe.ines.decode.artifacts.Questionnaire#getPlacementquestionnaire
+	 * @see br.edu.ufpe.ines.decode.artifacts.QuestionnaireInner#getPlacementquestionnaire
 	 * @model opposite="placementquestionnaire"
 	 * @generated
 	 */
-	Questionnaire getQuestionnaire();
+	QuestionnaireInner getQuestionnaire();
 
 	/**
 	 * Sets the value of the '{@link br.edu.ufpe.ines.decode.taskDescription.PlacementQuestionnaire#getQuestionnaire <em>Questionnaire</em>}' reference.
@@ -78,6 +78,6 @@ public interface PlacementQuestionnaire extends Measurement {
 	 * @see #getQuestionnaire()
 	 * @generated
 	 */
-	void setQuestionnaire(Questionnaire value);
+	void setQuestionnaire(QuestionnaireInner value);
 
 } // PlacementQuestionnaire

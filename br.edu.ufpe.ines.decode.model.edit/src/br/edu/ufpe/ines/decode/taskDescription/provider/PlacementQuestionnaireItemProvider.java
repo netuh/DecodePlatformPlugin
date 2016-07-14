@@ -12,6 +12,7 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -23,8 +24,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class PlacementQuestionnaireItemProvider 
-	extends MeasurementItemProvider {
+public class PlacementQuestionnaireItemProvider extends MeasurementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -119,7 +119,7 @@ public class PlacementQuestionnaireItemProvider
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
 			getString("_UI_PlacementQuestionnaire_type") :
-			getString("_UI_PlacementQuestionnaire_type") + " " + label;
+			getString("_UI_PlacementQuestionnaire_type") + ": " + label;
 	}
 	
 
