@@ -110,7 +110,7 @@ public class CodingExperimentItemProvider extends NameableItemProvider {
 		String label = ((CodingExperiment)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_CodingExperiment_type") :
-			getString("_UI_CodingExperiment_type") + ": " + label;
+			getString("_UI_CodingExperiment_type") + " " + label;
 	}
 	
 

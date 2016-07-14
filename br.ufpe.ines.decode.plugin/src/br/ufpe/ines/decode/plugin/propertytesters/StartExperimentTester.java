@@ -2,11 +2,11 @@ package br.ufpe.ines.decode.plugin.propertytesters;
 
 import org.eclipse.core.expressions.PropertyTester;
 
-import br.ufpe.ines.decode.plugin.control.ExperimentManager;
+import br.ufpe.ines.decode.plugin.control.ExperimentExecutionManager;
 
 public class StartExperimentTester extends PropertyTester {
 
-	private ExperimentManager manager = ExperimentManager.getInstance();
+	private ExperimentExecutionManager manager = ExperimentExecutionManager.getInstance();
 
 	@Override
 	public boolean test(Object receiver, String property, Object[] args, Object expectedValue) {

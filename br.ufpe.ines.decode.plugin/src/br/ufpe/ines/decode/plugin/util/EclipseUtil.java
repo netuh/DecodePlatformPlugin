@@ -13,7 +13,7 @@ public class EclipseUtil {
 		int projectCounter = 1; 
 		while (project.exists()){
 			projectName = id+"-"+projectCounter++;
-			project = root.getProject(id);
+			project = root.getProject(projectName);
 		}
 		return projectName;
 	}

@@ -153,7 +153,7 @@ public class QuestionnaireInnerItemProvider extends AbstractArtifactItemProvider
 		String label = ((QuestionnaireInner)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_QuestionnaireInner_type") :
-			getString("_UI_QuestionnaireInner_type") + ": " + label;
+			getString("_UI_QuestionnaireInner_type") + " " + label;
 	}
 	
 

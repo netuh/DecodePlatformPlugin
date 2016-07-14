@@ -109,6 +109,8 @@
           eType="#//artifacts/JavaCompUnit" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="otherFiles" upperBound="-1"
           eType="#//artifacts/OtherFile" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="requiredLibrary" upperBound="-1"
+          eType="#//artifacts/Library" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="JavaCompUnit" eSuperTypes="#//artifacts/CompilationUnit">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="package" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
@@ -117,6 +119,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="folder" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Library" eSuperTypes="#//artifacts/FileArtifact"/>
     <eSubpackages name="questionnaire" nsURI="questionnaire" nsPrefix="questionnaire">
       <eClassifiers xsi:type="ecore:EClass" name="ElementaryComponent" abstract="true"
           eSuperTypes="#//artifacts/questionnaire/Labelable">

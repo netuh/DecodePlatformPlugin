@@ -6,6 +6,7 @@ import br.edu.ufpe.ines.decode.artifacts.ArtifactsPackage;
 import br.edu.ufpe.ines.decode.artifacts.JavaCompUnit;
 import br.edu.ufpe.ines.decode.artifacts.JavaProject;
 
+import br.edu.ufpe.ines.decode.artifacts.Library;
 import br.edu.ufpe.ines.decode.artifacts.OtherFile;
 import java.util.Collection;
 
@@ -29,6 +30,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link br.edu.ufpe.ines.decode.artifacts.impl.JavaProjectImpl#getClasses <em>Classes</em>}</li>
  *   <li>{@link br.edu.ufpe.ines.decode.artifacts.impl.JavaProjectImpl#getOtherFiles <em>Other Files</em>}</li>
+ *   <li>{@link br.edu.ufpe.ines.decode.artifacts.impl.JavaProjectImpl#getRequiredLibrary <em>Required Library</em>}</li>
  * </ul>
  *
  * @generated
@@ -53,6 +55,16 @@ public class JavaProjectImpl extends ProjectIDEImpl implements JavaProject {
 	 * @ordered
 	 */
 	protected EList<OtherFile> otherFiles;
+
+	/**
+	 * The cached value of the '{@link #getRequiredLibrary() <em>Required Library</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRequiredLibrary()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Library> requiredLibrary;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -102,6 +114,18 @@ public class JavaProjectImpl extends ProjectIDEImpl implements JavaProject {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Library> getRequiredLibrary() {
+		if (requiredLibrary == null) {
+			requiredLibrary = new EObjectContainmentEList<Library>(Library.class, this, ArtifactsPackage.JAVA_PROJECT__REQUIRED_LIBRARY);
+		}
+		return requiredLibrary;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -109,6 +133,8 @@ public class JavaProjectImpl extends ProjectIDEImpl implements JavaProject {
 				return ((InternalEList<?>)getClasses()).basicRemove(otherEnd, msgs);
 			case ArtifactsPackage.JAVA_PROJECT__OTHER_FILES:
 				return ((InternalEList<?>)getOtherFiles()).basicRemove(otherEnd, msgs);
+			case ArtifactsPackage.JAVA_PROJECT__REQUIRED_LIBRARY:
+				return ((InternalEList<?>)getRequiredLibrary()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -125,6 +151,8 @@ public class JavaProjectImpl extends ProjectIDEImpl implements JavaProject {
 				return getClasses();
 			case ArtifactsPackage.JAVA_PROJECT__OTHER_FILES:
 				return getOtherFiles();
+			case ArtifactsPackage.JAVA_PROJECT__REQUIRED_LIBRARY:
+				return getRequiredLibrary();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -146,6 +174,10 @@ public class JavaProjectImpl extends ProjectIDEImpl implements JavaProject {
 				getOtherFiles().clear();
 				getOtherFiles().addAll((Collection<? extends OtherFile>)newValue);
 				return;
+			case ArtifactsPackage.JAVA_PROJECT__REQUIRED_LIBRARY:
+				getRequiredLibrary().clear();
+				getRequiredLibrary().addAll((Collection<? extends Library>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -164,6 +196,9 @@ public class JavaProjectImpl extends ProjectIDEImpl implements JavaProject {
 			case ArtifactsPackage.JAVA_PROJECT__OTHER_FILES:
 				getOtherFiles().clear();
 				return;
+			case ArtifactsPackage.JAVA_PROJECT__REQUIRED_LIBRARY:
+				getRequiredLibrary().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -180,6 +215,8 @@ public class JavaProjectImpl extends ProjectIDEImpl implements JavaProject {
 				return classes != null && !classes.isEmpty();
 			case ArtifactsPackage.JAVA_PROJECT__OTHER_FILES:
 				return otherFiles != null && !otherFiles.isEmpty();
+			case ArtifactsPackage.JAVA_PROJECT__REQUIRED_LIBRARY:
+				return requiredLibrary != null && !requiredLibrary.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

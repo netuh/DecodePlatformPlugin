@@ -119,7 +119,7 @@ public class PlacementQuestionnaireItemProvider extends MeasurementItemProvider 
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
 			getString("_UI_PlacementQuestionnaire_type") :
-			getString("_UI_PlacementQuestionnaire_type") + ": " + label;
+			getString("_UI_PlacementQuestionnaire_type") + " " + label;
 	}
 	
 

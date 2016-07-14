@@ -210,6 +210,29 @@ public class ArtifactsItemProviderAdapterFactory extends ArtifactsAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link br.edu.ufpe.ines.decode.artifacts.Library} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LibraryItemProvider libraryItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link br.edu.ufpe.ines.decode.artifacts.Library}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLibraryAdapter() {
+		if (libraryItemProvider == null) {
+			libraryItemProvider = new LibraryItemProvider(this);
+		}
+
+		return libraryItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -314,6 +337,7 @@ public class ArtifactsItemProviderAdapterFactory extends ArtifactsAdapterFactory
 		if (javaProjectItemProvider != null) javaProjectItemProvider.dispose();
 		if (javaCompUnitItemProvider != null) javaCompUnitItemProvider.dispose();
 		if (otherFileItemProvider != null) otherFileItemProvider.dispose();
+		if (libraryItemProvider != null) libraryItemProvider.dispose();
 	}
 
 }

@@ -120,7 +120,7 @@ public class TimeRestrictionItemProvider extends RestrictionItemProvider {
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
 			getString("_UI_TimeRestriction_type") :
-			getString("_UI_TimeRestriction_type") + ": " + label;
+			getString("_UI_TimeRestriction_type") + " " + label;
 	}
 	
 

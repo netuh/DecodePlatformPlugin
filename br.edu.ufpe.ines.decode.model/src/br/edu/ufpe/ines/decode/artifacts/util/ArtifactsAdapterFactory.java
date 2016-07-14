@@ -110,6 +110,10 @@ public class ArtifactsAdapterFactory extends AdapterFactoryImpl {
 				return createOtherFileAdapter();
 			}
 			@Override
+			public Adapter caseLibrary(Library object) {
+				return createLibraryAdapter();
+			}
+			@Override
 			public Adapter caseNameable(Nameable object) {
 				return createNameableAdapter();
 			}
@@ -270,6 +274,20 @@ public class ArtifactsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createOtherFileAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link br.edu.ufpe.ines.decode.artifacts.Library <em>Library</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see br.edu.ufpe.ines.decode.artifacts.Library
+	 * @generated
+	 */
+	public Adapter createLibraryAdapter() {
 		return null;
 	}
 

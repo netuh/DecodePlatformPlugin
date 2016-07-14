@@ -67,7 +67,7 @@ public class PdfFIleItemProvider extends FileArtifactItemProvider {
 		String label = ((PdfFIle)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_PdfFIle_type") :
-			getString("_UI_PdfFIle_type") + ": " + label;
+			getString("_UI_PdfFIle_type") + " " + label;
 	}
 	
 

@@ -97,6 +97,7 @@
       <genClasses ecoreClass="modelDecode.ecore#//artifacts/JavaProject">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modelDecode.ecore#//artifacts/JavaProject/classes"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modelDecode.ecore#//artifacts/JavaProject/otherFiles"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modelDecode.ecore#//artifacts/JavaProject/requiredLibrary"/>
       </genClasses>
       <genClasses ecoreClass="modelDecode.ecore#//artifacts/JavaCompUnit">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//artifacts/JavaCompUnit/package"/>
@@ -105,6 +106,7 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//artifacts/OtherFile/folder"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//artifacts/OtherFile/description"/>
       </genClasses>
+      <genClasses ecoreClass="modelDecode.ecore#//artifacts/Library"/>
       <nestedGenPackages prefix="Questionnaire" basePackage="br.edu.ufpe.ines.decode.artifacts"
           disposableProviderFactory="true" multipleEditorPages="false" generateModelWizard="false"
           ecorePackage="modelDecode.ecore#//artifacts/questionnaire">

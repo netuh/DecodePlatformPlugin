@@ -174,6 +174,11 @@ public class ProvidedArtefactsItemProvider
 			(createChildParameter
 				(ArtifactsPackage.Literals.PROVIDED_ARTEFACTS__ARTIFACT,
 				 ArtifactsFactory.eINSTANCE.createOtherFile()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ArtifactsPackage.Literals.PROVIDED_ARTEFACTS__ARTIFACT,
+				 ArtifactsFactory.eINSTANCE.createLibrary()));
 	}
 
 	/**

@@ -67,7 +67,7 @@ public class CompilationUnitItemProvider extends FileArtifactItemProvider {
 		String label = ((CompilationUnit)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_CompilationUnit_type") :
-			getString("_UI_CompilationUnit_type") + ": " + label;
+			getString("_UI_CompilationUnit_type") + " " + label;
 	}
 	
 

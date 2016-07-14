@@ -15,6 +15,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link br.edu.ufpe.ines.decode.artifacts.JavaProject#getClasses <em>Classes</em>}</li>
  *   <li>{@link br.edu.ufpe.ines.decode.artifacts.JavaProject#getOtherFiles <em>Other Files</em>}</li>
+ *   <li>{@link br.edu.ufpe.ines.decode.artifacts.JavaProject#getRequiredLibrary <em>Required Library</em>}</li>
  * </ul>
  *
  * @see br.edu.ufpe.ines.decode.artifacts.ArtifactsPackage#getJavaProject()
@@ -53,5 +54,21 @@ public interface JavaProject extends ProjectIDE {
 	 * @generated
 	 */
 	EList<OtherFile> getOtherFiles();
+
+	/**
+	 * Returns the value of the '<em><b>Required Library</b></em>' containment reference list.
+	 * The list contents are of type {@link br.edu.ufpe.ines.decode.artifacts.Library}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Required Library</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Required Library</em>' containment reference list.
+	 * @see br.edu.ufpe.ines.decode.artifacts.ArtifactsPackage#getJavaProject_RequiredLibrary()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Library> getRequiredLibrary();
 
 } // JavaProject

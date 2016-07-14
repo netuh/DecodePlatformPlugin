@@ -100,7 +100,7 @@ public class ModeledTaskItemProvider extends NameableItemProvider {
 		String label = ((ModeledTask)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_ModeledTask_type") :
-			getString("_UI_ModeledTask_type") + ": " + label;
+			getString("_UI_ModeledTask_type") + " " + label;
 	}
 	
 

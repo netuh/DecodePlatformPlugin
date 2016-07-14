@@ -94,7 +94,7 @@ public class ProjectIDEItemProvider extends AbstractArtifactItemProvider {
 		String label = ((ProjectIDE)object).getProjectName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_ProjectIDE_type") :
-			getString("_UI_ProjectIDE_type") + ": " + label;
+			getString("_UI_ProjectIDE_type") + " " + label;
 	}
 	
 

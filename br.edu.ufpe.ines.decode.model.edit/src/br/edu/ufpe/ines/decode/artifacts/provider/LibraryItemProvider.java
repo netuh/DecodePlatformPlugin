@@ -3,8 +3,7 @@
 package br.edu.ufpe.ines.decode.artifacts.provider;
 
 
-import br.edu.ufpe.ines.decode.artifacts.ArtifactsPackage;
-import br.edu.ufpe.ines.decode.artifacts.JavaCompUnit;
+import br.edu.ufpe.ines.decode.artifacts.Library;
 
 import java.util.Collection;
 import java.util.List;
@@ -12,25 +11,22 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link br.edu.ufpe.ines.decode.artifacts.JavaCompUnit} object.
+ * This is the item provider adapter for a {@link br.edu.ufpe.ines.decode.artifacts.Library} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class JavaCompUnitItemProvider extends CompilationUnitItemProvider {
+public class LibraryItemProvider extends FileArtifactItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public JavaCompUnitItemProvider(AdapterFactory adapterFactory) {
+	public LibraryItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -45,42 +41,19 @@ public class JavaCompUnitItemProvider extends CompilationUnitItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addPackagePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Package feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addPackagePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_JavaCompUnit_package_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_JavaCompUnit_package_feature", "_UI_JavaCompUnit_type"),
-				 ArtifactsPackage.Literals.JAVA_COMP_UNIT__PACKAGE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This returns JavaCompUnit.gif.
+	 * This returns Library.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/JavaCompUnit"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Library"));
 	}
 
 	/**
@@ -91,10 +64,10 @@ public class JavaCompUnitItemProvider extends CompilationUnitItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((JavaCompUnit)object).getName();
+		String label = ((Library)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_JavaCompUnit_type") :
-			getString("_UI_JavaCompUnit_type") + " " + label;
+			getString("_UI_Library_type") :
+			getString("_UI_Library_type") + " " + label;
 	}
 	
 
@@ -108,12 +81,6 @@ public class JavaCompUnitItemProvider extends CompilationUnitItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(JavaCompUnit.class)) {
-			case ArtifactsPackage.JAVA_COMP_UNIT__PACKAGE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 

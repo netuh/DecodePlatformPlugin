@@ -64,6 +64,7 @@ public class JavaProjectItemProvider extends ProjectIDEItemProvider {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(ArtifactsPackage.Literals.JAVA_PROJECT__CLASSES);
 			childrenFeatures.add(ArtifactsPackage.Literals.JAVA_PROJECT__OTHER_FILES);
+			childrenFeatures.add(ArtifactsPackage.Literals.JAVA_PROJECT__REQUIRED_LIBRARY);
 		}
 		return childrenFeatures;
 	}
@@ -103,7 +104,7 @@ public class JavaProjectItemProvider extends ProjectIDEItemProvider {
 		String label = ((JavaProject)object).getProjectName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_JavaProject_type") :
-			getString("_UI_JavaProject_type") + ": " + label;
+			getString("_UI_JavaProject_type") + " " + label;
 	}
 	
 
@@ -121,6 +122,7 @@ public class JavaProjectItemProvider extends ProjectIDEItemProvider {
 		switch (notification.getFeatureID(JavaProject.class)) {
 			case ArtifactsPackage.JAVA_PROJECT__CLASSES:
 			case ArtifactsPackage.JAVA_PROJECT__OTHER_FILES:
+			case ArtifactsPackage.JAVA_PROJECT__REQUIRED_LIBRARY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -147,6 +149,11 @@ public class JavaProjectItemProvider extends ProjectIDEItemProvider {
 			(createChildParameter
 				(ArtifactsPackage.Literals.JAVA_PROJECT__OTHER_FILES,
 				 ArtifactsFactory.eINSTANCE.createOtherFile()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ArtifactsPackage.Literals.JAVA_PROJECT__REQUIRED_LIBRARY,
+				 ArtifactsFactory.eINSTANCE.createLibrary()));
 	}
 
 }

@@ -117,7 +117,7 @@ public class OtherFileItemProvider extends FileArtifactItemProvider {
 		String label = ((OtherFile)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_OtherFile_type") :
-			getString("_UI_OtherFile_type") + ": " + label;
+			getString("_UI_OtherFile_type") + " " + label;
 	}
 	
 

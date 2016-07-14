@@ -418,13 +418,22 @@ public interface ArtifactsPackage extends EPackage {
 	int JAVA_PROJECT__OTHER_FILES = PROJECT_IDE_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Required Library</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_PROJECT__REQUIRED_LIBRARY = PROJECT_IDE_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Java Project</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_PROJECT_FEATURE_COUNT = PROJECT_IDE_FEATURE_COUNT + 2;
+	int JAVA_PROJECT_FEATURE_COUNT = PROJECT_IDE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Java Project</em>' class.
@@ -572,6 +581,62 @@ public interface ArtifactsPackage extends EPackage {
 	 * @ordered
 	 */
 	int OTHER_FILE_OPERATION_COUNT = FILE_ARTIFACT_OPERATION_COUNT + 0;
+
+
+	/**
+	 * The meta object id for the '{@link br.edu.ufpe.ines.decode.artifacts.impl.LibraryImpl <em>Library</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see br.edu.ufpe.ines.decode.artifacts.impl.LibraryImpl
+	 * @see br.edu.ufpe.ines.decode.artifacts.impl.ArtifactsPackageImpl#getLibrary()
+	 * @generated
+	 */
+	int LIBRARY = 10;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIBRARY__NAME = FILE_ARTIFACT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>File</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIBRARY__FILE = FILE_ARTIFACT__FILE;
+
+	/**
+	 * The feature id for the '<em><b>Local File Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIBRARY__LOCAL_FILE_PATH = FILE_ARTIFACT__LOCAL_FILE_PATH;
+
+	/**
+	 * The number of structural features of the '<em>Library</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIBRARY_FEATURE_COUNT = FILE_ARTIFACT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Library</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIBRARY_OPERATION_COUNT = FILE_ARTIFACT_OPERATION_COUNT + 0;
 
 
 	/**
@@ -743,6 +808,17 @@ public interface ArtifactsPackage extends EPackage {
 	EReference getJavaProject_OtherFiles();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link br.edu.ufpe.ines.decode.artifacts.JavaProject#getRequiredLibrary <em>Required Library</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Required Library</em>'.
+	 * @see br.edu.ufpe.ines.decode.artifacts.JavaProject#getRequiredLibrary()
+	 * @see #getJavaProject()
+	 * @generated
+	 */
+	EReference getJavaProject_RequiredLibrary();
+
+	/**
 	 * Returns the meta object for class '{@link br.edu.ufpe.ines.decode.artifacts.JavaCompUnit <em>Java Comp Unit</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -794,6 +870,16 @@ public interface ArtifactsPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getOtherFile_Description();
+
+	/**
+	 * Returns the meta object for class '{@link br.edu.ufpe.ines.decode.artifacts.Library <em>Library</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Library</em>'.
+	 * @see br.edu.ufpe.ines.decode.artifacts.Library
+	 * @generated
+	 */
+	EClass getLibrary();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -963,6 +1049,14 @@ public interface ArtifactsPackage extends EPackage {
 		EReference JAVA_PROJECT__OTHER_FILES = eINSTANCE.getJavaProject_OtherFiles();
 
 		/**
+		 * The meta object literal for the '<em><b>Required Library</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference JAVA_PROJECT__REQUIRED_LIBRARY = eINSTANCE.getJavaProject_RequiredLibrary();
+
+		/**
 		 * The meta object literal for the '{@link br.edu.ufpe.ines.decode.artifacts.impl.JavaCompUnitImpl <em>Java Comp Unit</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1005,6 +1099,16 @@ public interface ArtifactsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute OTHER_FILE__DESCRIPTION = eINSTANCE.getOtherFile_Description();
+
+		/**
+		 * The meta object literal for the '{@link br.edu.ufpe.ines.decode.artifacts.impl.LibraryImpl <em>Library</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see br.edu.ufpe.ines.decode.artifacts.impl.LibraryImpl
+		 * @see br.edu.ufpe.ines.decode.artifacts.impl.ArtifactsPackageImpl#getLibrary()
+		 * @generated
+		 */
+		EClass LIBRARY = eINSTANCE.getLibrary();
 
 	}
 

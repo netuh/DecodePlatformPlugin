@@ -62,6 +62,7 @@ public class ArtifactsFactoryImpl extends EFactoryImpl implements ArtifactsFacto
 			case ArtifactsPackage.JAVA_PROJECT: return createJavaProject();
 			case ArtifactsPackage.JAVA_COMP_UNIT: return createJavaCompUnit();
 			case ArtifactsPackage.OTHER_FILE: return createOtherFile();
+			case ArtifactsPackage.LIBRARY: return createLibrary();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -125,6 +126,16 @@ public class ArtifactsFactoryImpl extends EFactoryImpl implements ArtifactsFacto
 	public OtherFile createOtherFile() {
 		OtherFileImpl otherFile = new OtherFileImpl();
 		return otherFile;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Library createLibrary() {
+		LibraryImpl library = new LibraryImpl();
+		return library;
 	}
 
 	/**

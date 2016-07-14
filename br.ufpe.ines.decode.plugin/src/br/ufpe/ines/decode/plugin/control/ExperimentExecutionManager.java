@@ -22,6 +22,7 @@ public class ExperimentExecutionManager {
 
 	public void setCurrentActionSet(ModeledTask modeledTask) {
 		findTask(modeledTask);
+		currentTaskSet = lifoQueue.poll();
 	}
 	
 	private void findTask (ModeledTask task){
@@ -34,9 +35,21 @@ public class ExperimentExecutionManager {
 		}
 	}
 
-	public ExperimentalTask getCurrentAtomicTask() {
+	public ExperimentalTask getCurrentTask() {
+		return currentTaskSet;
+	}
+	
+	public ExperimentalTask nextAtomicTask() {
 		currentTaskSet = lifoQueue.poll();
 		return currentTaskSet;
+	}
+
+	public boolean hasSelected() {
+		return currentTaskSet != null;
+	}
+
+	public boolean hasStarted() {
+		return false;
 	}
 
 }

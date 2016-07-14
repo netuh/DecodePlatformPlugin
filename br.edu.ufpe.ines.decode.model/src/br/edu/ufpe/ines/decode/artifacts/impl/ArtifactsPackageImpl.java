@@ -11,6 +11,7 @@ import br.edu.ufpe.ines.decode.artifacts.CompilationUnit;
 import br.edu.ufpe.ines.decode.artifacts.FileArtifact;
 import br.edu.ufpe.ines.decode.artifacts.JavaCompUnit;
 import br.edu.ufpe.ines.decode.artifacts.JavaProject;
+import br.edu.ufpe.ines.decode.artifacts.Library;
 import br.edu.ufpe.ines.decode.artifacts.OtherFile;
 import br.edu.ufpe.ines.decode.artifacts.PdfFIle;
 import br.edu.ufpe.ines.decode.artifacts.ProjectIDE;
@@ -120,6 +121,13 @@ public class ArtifactsPackageImpl extends EPackageImpl implements ArtifactsPacka
 	 * @generated
 	 */
 	private EClass otherFileEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass libraryEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -351,6 +359,15 @@ public class ArtifactsPackageImpl extends EPackageImpl implements ArtifactsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getJavaProject_RequiredLibrary() {
+		return (EReference)javaProjectEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getJavaCompUnit() {
 		return javaCompUnitEClass;
 	}
@@ -389,6 +406,15 @@ public class ArtifactsPackageImpl extends EPackageImpl implements ArtifactsPacka
 	 */
 	public EAttribute getOtherFile_Description() {
 		return (EAttribute)otherFileEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getLibrary() {
+		return libraryEClass;
 	}
 
 	/**
@@ -442,6 +468,7 @@ public class ArtifactsPackageImpl extends EPackageImpl implements ArtifactsPacka
 		javaProjectEClass = createEClass(JAVA_PROJECT);
 		createEReference(javaProjectEClass, JAVA_PROJECT__CLASSES);
 		createEReference(javaProjectEClass, JAVA_PROJECT__OTHER_FILES);
+		createEReference(javaProjectEClass, JAVA_PROJECT__REQUIRED_LIBRARY);
 
 		javaCompUnitEClass = createEClass(JAVA_COMP_UNIT);
 		createEAttribute(javaCompUnitEClass, JAVA_COMP_UNIT__PACKAGE);
@@ -449,6 +476,8 @@ public class ArtifactsPackageImpl extends EPackageImpl implements ArtifactsPacka
 		otherFileEClass = createEClass(OTHER_FILE);
 		createEAttribute(otherFileEClass, OTHER_FILE__FOLDER);
 		createEAttribute(otherFileEClass, OTHER_FILE__DESCRIPTION);
+
+		libraryEClass = createEClass(LIBRARY);
 	}
 
 	/**
@@ -498,6 +527,7 @@ public class ArtifactsPackageImpl extends EPackageImpl implements ArtifactsPacka
 		javaProjectEClass.getESuperTypes().add(this.getProjectIDE());
 		javaCompUnitEClass.getESuperTypes().add(this.getCompilationUnit());
 		otherFileEClass.getESuperTypes().add(this.getFileArtifact());
+		libraryEClass.getESuperTypes().add(this.getFileArtifact());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(providedArtefactsEClass, ProvidedArtefacts.class, "ProvidedArtefacts", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -523,6 +553,7 @@ public class ArtifactsPackageImpl extends EPackageImpl implements ArtifactsPacka
 		initEClass(javaProjectEClass, JavaProject.class, "JavaProject", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getJavaProject_Classes(), this.getJavaCompUnit(), null, "classes", null, 0, -1, JavaProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getJavaProject_OtherFiles(), this.getOtherFile(), null, "otherFiles", null, 0, -1, JavaProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getJavaProject_RequiredLibrary(), this.getLibrary(), null, "requiredLibrary", null, 0, -1, JavaProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(javaCompUnitEClass, JavaCompUnit.class, "JavaCompUnit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getJavaCompUnit_Package(), theXMLTypePackage.getString(), "package", null, 0, 1, JavaCompUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -530,6 +561,8 @@ public class ArtifactsPackageImpl extends EPackageImpl implements ArtifactsPacka
 		initEClass(otherFileEClass, OtherFile.class, "OtherFile", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getOtherFile_Folder(), theXMLTypePackage.getString(), "folder", null, 0, 1, OtherFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOtherFile_Description(), theXMLTypePackage.getString(), "description", null, 0, 1, OtherFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(libraryEClass, Library.class, "Library", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 	}
 
 } //ArtifactsPackageImpl

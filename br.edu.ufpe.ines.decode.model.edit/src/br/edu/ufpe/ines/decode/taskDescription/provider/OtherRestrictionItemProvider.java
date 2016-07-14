@@ -94,7 +94,7 @@ public class OtherRestrictionItemProvider extends RestrictionItemProvider {
 		String label = ((OtherRestriction)object).getDescription();
 		return label == null || label.length() == 0 ?
 			getString("_UI_OtherRestriction_type") :
-			getString("_UI_OtherRestriction_type") + ": " + label;
+			getString("_UI_OtherRestriction_type") + " " + label;
 	}
 	
 

@@ -193,6 +193,9 @@
         <genFeatures property="None" children="true" createChild="true">
           <ecoreFeature xsi:type="ecore:EReference" href="modelDecode.ecore#//artifacts/JavaProject/otherFiles"/>
         </genFeatures>
+        <genFeatures property="None" children="true" createChild="true">
+          <ecoreFeature xsi:type="ecore:EReference" href="modelDecode.ecore#//artifacts/JavaProject/requiredLibrary"/>
+        </genFeatures>
         <genFeatures createChild="false">
           <ecoreFeature xsi:type="ecore:EAttribute" href="modelDecode.ecore#//artifacts/ProjectIDE/projectName"/>
         </genFeatures>
@@ -211,6 +214,9 @@
         <genFeatures createChild="false">
           <ecoreFeature xsi:type="ecore:EAttribute" href="modelDecode.ecore#//artifacts/OtherFile/description"/>
         </genFeatures>
+      </genClasses>
+      <genClasses>
+        <ecoreClass href="modelDecode.ecore#//artifacts/Library"/>
       </genClasses>
       <nestedGenPackages prefix="Questionnaire" basePackage="be.edu.ufpe.ines.decode.artifacts" disposableProviderFactory="true" multipleEditorPages="false" generateModelWizard="false">
         <ecorePackage href="modelDecode.ecore#//artifacts/questionnaire"/>

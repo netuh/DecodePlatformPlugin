@@ -117,7 +117,7 @@ public class DependentElementItemProvider extends RestrictionItemProvider {
 		String label = ((DependentElement)object).getExpectedValue();
 		return label == null || label.length() == 0 ?
 			getString("_UI_DependentElement_type") :
-			getString("_UI_DependentElement_type") + ": " + label;
+			getString("_UI_DependentElement_type") + " " + label;
 	}
 	
 
