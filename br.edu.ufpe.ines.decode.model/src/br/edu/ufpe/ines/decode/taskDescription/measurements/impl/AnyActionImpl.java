@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class AnyActionImpl extends ObservingArtifactImpl implements AnyAction {
+public class AnyActionImpl extends ActionsImpl implements AnyAction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

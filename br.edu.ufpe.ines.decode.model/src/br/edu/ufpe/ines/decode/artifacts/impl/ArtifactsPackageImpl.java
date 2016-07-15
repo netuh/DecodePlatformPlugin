@@ -541,7 +541,7 @@ public class ArtifactsPackageImpl extends EPackageImpl implements ArtifactsPacka
 
 		initEClass(questionnaireInnerEClass, QuestionnaireInner.class, "QuestionnaireInner", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getQuestionnaireInner_Elements(), theQuestionnairePackage.getElementaryComponent(), null, "elements", null, 1, -1, QuestionnaireInner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getQuestionnaireInner_Placementquestionnaire(), theTaskDescriptionPackage.getPlacementQuestionnaire(), theTaskDescriptionPackage.getPlacementQuestionnaire_Questionnaire(), "placementquestionnaire", null, 1, 1, QuestionnaireInner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getQuestionnaireInner_Placementquestionnaire(), theTaskDescriptionPackage.getQuestionnaireMeasurement(), theTaskDescriptionPackage.getQuestionnaireMeasurement_Questionnaire(), "placementquestionnaire", null, 1, 1, QuestionnaireInner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(projectIDEEClass, ProjectIDE.class, "ProjectIDE", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getProjectIDE_ProjectName(), theXMLTypePackage.getString(), "projectName", null, 0, 1, ProjectIDE.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

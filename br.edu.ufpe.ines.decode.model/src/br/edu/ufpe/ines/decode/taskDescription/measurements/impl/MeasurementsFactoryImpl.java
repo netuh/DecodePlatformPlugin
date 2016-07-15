@@ -5,6 +5,7 @@ package br.edu.ufpe.ines.decode.taskDescription.measurements.impl;
 import br.edu.ufpe.ines.decode.taskDescription.measurements.*;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -56,7 +57,7 @@ public class MeasurementsFactoryImpl extends EFactoryImpl implements Measurement
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case MeasurementsPackage.TIME_ON_TASK: return createTimeOnTask();
+			case MeasurementsPackage.FINAL_TASK: return createFinalTask();
 			case MeasurementsPackage.EDITION: return createEdition();
 			case MeasurementsPackage.EXECUTION: return createExecution();
 			case MeasurementsPackage.ANY_ACTION: return createAnyAction();
@@ -71,9 +72,39 @@ public class MeasurementsFactoryImpl extends EFactoryImpl implements Measurement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TimeOnTask createTimeOnTask() {
-		TimeOnTaskImpl timeOnTask = new TimeOnTaskImpl();
-		return timeOnTask;
+	@Override
+	public Object createFromString(EDataType eDataType, String initialValue) {
+		switch (eDataType.getClassifierID()) {
+			case MeasurementsPackage.LOG_TYPE:
+				return createLogTypeFromString(eDataType, initialValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String convertToString(EDataType eDataType, Object instanceValue) {
+		switch (eDataType.getClassifierID()) {
+			case MeasurementsPackage.LOG_TYPE:
+				return convertLogTypeToString(eDataType, instanceValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FinalTask createFinalTask() {
+		FinalTaskImpl finalTask = new FinalTaskImpl();
+		return finalTask;
 	}
 
 	/**
@@ -114,6 +145,26 @@ public class MeasurementsFactoryImpl extends EFactoryImpl implements Measurement
 	public TestExecution createTestExecution() {
 		TestExecutionImpl testExecution = new TestExecutionImpl();
 		return testExecution;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public LogType createLogTypeFromString(EDataType eDataType, String initialValue) {
+		LogType result = LogType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertLogTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

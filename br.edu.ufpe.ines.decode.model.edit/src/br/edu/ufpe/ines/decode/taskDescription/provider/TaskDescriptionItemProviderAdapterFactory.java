@@ -141,26 +141,26 @@ public class TaskDescriptionItemProviderAdapterFactory extends TaskDescriptionAd
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link br.edu.ufpe.ines.decode.taskDescription.PlacementQuestionnaire} instances.
+	 * This keeps track of the one adapter used for all {@link br.edu.ufpe.ines.decode.taskDescription.QuestionnaireMeasurement} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PlacementQuestionnaireItemProvider placementQuestionnaireItemProvider;
+	protected QuestionnaireMeasurementItemProvider questionnaireMeasurementItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link br.edu.ufpe.ines.decode.taskDescription.PlacementQuestionnaire}.
+	 * This creates an adapter for a {@link br.edu.ufpe.ines.decode.taskDescription.QuestionnaireMeasurement}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPlacementQuestionnaireAdapter() {
-		if (placementQuestionnaireItemProvider == null) {
-			placementQuestionnaireItemProvider = new PlacementQuestionnaireItemProvider(this);
+	public Adapter createQuestionnaireMeasurementAdapter() {
+		if (questionnaireMeasurementItemProvider == null) {
+			questionnaireMeasurementItemProvider = new QuestionnaireMeasurementItemProvider(this);
 		}
 
-		return placementQuestionnaireItemProvider;
+		return questionnaireMeasurementItemProvider;
 	}
 
 	/**
@@ -380,7 +380,7 @@ public class TaskDescriptionItemProviderAdapterFactory extends TaskDescriptionAd
 		if (sequencialItemProvider != null) sequencialItemProvider.dispose();
 		if (randomItemProvider != null) randomItemProvider.dispose();
 		if (experimentalTaskItemProvider != null) experimentalTaskItemProvider.dispose();
-		if (placementQuestionnaireItemProvider != null) placementQuestionnaireItemProvider.dispose();
+		if (questionnaireMeasurementItemProvider != null) questionnaireMeasurementItemProvider.dispose();
 		if (executionDerivationsItemProvider != null) executionDerivationsItemProvider.dispose();
 		if (timeRestrictionItemProvider != null) timeRestrictionItemProvider.dispose();
 		if (eclipseRetrictionItemProvider != null) eclipseRetrictionItemProvider.dispose();

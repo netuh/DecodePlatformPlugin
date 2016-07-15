@@ -13,7 +13,7 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ExecutionTest extends ObservingArtifactTest {
+public class ExecutionTest extends ActionsTest {
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -72,26 +72,26 @@ public class MeasurementsItemProviderAdapterFactory extends MeasurementsAdapterF
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link br.edu.ufpe.ines.decode.taskDescription.measurements.TimeOnTask} instances.
+	 * This keeps track of the one adapter used for all {@link br.edu.ufpe.ines.decode.taskDescription.measurements.FinalTask} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected TimeOnTaskItemProvider timeOnTaskItemProvider;
+	protected FinalTaskItemProvider finalTaskItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link br.edu.ufpe.ines.decode.taskDescription.measurements.TimeOnTask}.
+	 * This creates an adapter for a {@link br.edu.ufpe.ines.decode.taskDescription.measurements.FinalTask}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createTimeOnTaskAdapter() {
-		if (timeOnTaskItemProvider == null) {
-			timeOnTaskItemProvider = new TimeOnTaskItemProvider(this);
+	public Adapter createFinalTaskAdapter() {
+		if (finalTaskItemProvider == null) {
+			finalTaskItemProvider = new FinalTaskItemProvider(this);
 		}
 
-		return timeOnTaskItemProvider;
+		return finalTaskItemProvider;
 	}
 
 	/**
@@ -285,7 +285,7 @@ public class MeasurementsItemProviderAdapterFactory extends MeasurementsAdapterF
 	 * @generated
 	 */
 	public void dispose() {
-		if (timeOnTaskItemProvider != null) timeOnTaskItemProvider.dispose();
+		if (finalTaskItemProvider != null) finalTaskItemProvider.dispose();
 		if (editionItemProvider != null) editionItemProvider.dispose();
 		if (executionItemProvider != null) executionItemProvider.dispose();
 		if (anyActionItemProvider != null) anyActionItemProvider.dispose();

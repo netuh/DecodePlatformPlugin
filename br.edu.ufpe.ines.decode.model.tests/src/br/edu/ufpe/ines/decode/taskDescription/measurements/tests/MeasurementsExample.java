@@ -2,9 +2,9 @@
  */
 package br.edu.ufpe.ines.decode.taskDescription.measurements.tests;
 
+import br.edu.ufpe.ines.decode.taskDescription.measurements.FinalTask;
 import br.edu.ufpe.ines.decode.taskDescription.measurements.MeasurementsFactory;
 import br.edu.ufpe.ines.decode.taskDescription.measurements.MeasurementsPackage;
-import br.edu.ufpe.ines.decode.taskDescription.measurements.TimeOnTask;
 
 import java.io.File;
 import java.io.IOException;
@@ -60,7 +60,7 @@ public class MeasurementsExample {
 			System.out.println("Enter a list of file paths or URIs that have content like this:");
 			try {
 				Resource resource = resourceSet.createResource(URI.createURI("http:///My.measurements"));
-				TimeOnTask root = MeasurementsFactory.eINSTANCE.createTimeOnTask();
+				FinalTask root = MeasurementsFactory.eINSTANCE.createFinalTask();
 				resource.getContents().add(root);
 				resource.save(System.out, null);
 			}

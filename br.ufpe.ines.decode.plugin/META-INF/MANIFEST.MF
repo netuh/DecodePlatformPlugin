@@ -16,8 +16,8 @@ Require-Bundle: org.apache.log4j;bundle-version="1.2.15",
 Export-Package: br.ufpe.ines.decode.plugin,
  br.ufpe.ines.decode.plugin.model,
  br.ufpe.ines.decode.plugin.control,
- br.ufpe.ines.decode.plugin.dialog,
- br.ufpe.ines.decode.plugin.handlers,
+ br.ufpe.ines.decode.plugin.ui.dialog,
+ br.ufpe.ines.decode.plugin.control.handlers,
  br.ufpe.ines.decode.plugin.util
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy

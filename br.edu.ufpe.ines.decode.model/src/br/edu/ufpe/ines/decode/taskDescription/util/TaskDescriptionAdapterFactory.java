@@ -94,8 +94,8 @@ public class TaskDescriptionAdapterFactory extends AdapterFactoryImpl {
 				return createRestrictionAdapter();
 			}
 			@Override
-			public Adapter casePlacementQuestionnaire(PlacementQuestionnaire object) {
-				return createPlacementQuestionnaireAdapter();
+			public Adapter caseQuestionnaireMeasurement(QuestionnaireMeasurement object) {
+				return createQuestionnaireMeasurementAdapter();
 			}
 			@Override
 			public Adapter caseExecutionDerivations(ExecutionDerivations object) {
@@ -234,16 +234,16 @@ public class TaskDescriptionAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link br.edu.ufpe.ines.decode.taskDescription.PlacementQuestionnaire <em>Placement Questionnaire</em>}'.
+	 * Creates a new adapter for an object of class '{@link br.edu.ufpe.ines.decode.taskDescription.QuestionnaireMeasurement <em>Questionnaire Measurement</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see br.edu.ufpe.ines.decode.taskDescription.PlacementQuestionnaire
+	 * @see br.edu.ufpe.ines.decode.taskDescription.QuestionnaireMeasurement
 	 * @generated
 	 */
-	public Adapter createPlacementQuestionnaireAdapter() {
+	public Adapter createQuestionnaireMeasurementAdapter() {
 		return null;
 	}
 

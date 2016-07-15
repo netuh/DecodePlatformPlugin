@@ -60,7 +60,7 @@ public class TaskDescriptionFactoryImpl extends EFactoryImpl implements TaskDesc
 			case TaskDescriptionPackage.SEQUENCIAL: return createSequencial();
 			case TaskDescriptionPackage.RANDOM: return createRandom();
 			case TaskDescriptionPackage.EXPERIMENTAL_TASK: return createExperimentalTask();
-			case TaskDescriptionPackage.PLACEMENT_QUESTIONNAIRE: return createPlacementQuestionnaire();
+			case TaskDescriptionPackage.QUESTIONNAIRE_MEASUREMENT: return createQuestionnaireMeasurement();
 			case TaskDescriptionPackage.EXECUTION_DERIVATIONS: return createExecutionDerivations();
 			case TaskDescriptionPackage.TIME_RESTRICTION: return createTimeRestriction();
 			case TaskDescriptionPackage.ECLIPSE_RETRICTION: return createEclipseRetriction();
@@ -136,9 +136,9 @@ public class TaskDescriptionFactoryImpl extends EFactoryImpl implements TaskDesc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PlacementQuestionnaire createPlacementQuestionnaire() {
-		PlacementQuestionnaireImpl placementQuestionnaire = new PlacementQuestionnaireImpl();
-		return placementQuestionnaire;
+	public QuestionnaireMeasurement createQuestionnaireMeasurement() {
+		QuestionnaireMeasurementImpl questionnaireMeasurement = new QuestionnaireMeasurementImpl();
+		return questionnaireMeasurement;
 	}
 
 	/**

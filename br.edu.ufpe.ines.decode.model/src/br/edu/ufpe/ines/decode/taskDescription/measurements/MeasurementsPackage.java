@@ -6,6 +6,7 @@ import br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionPackage;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 
 /**
@@ -58,88 +59,115 @@ public interface MeasurementsPackage extends EPackage {
 	MeasurementsPackage eINSTANCE = br.edu.ufpe.ines.decode.taskDescription.measurements.impl.MeasurementsPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link br.edu.ufpe.ines.decode.taskDescription.measurements.impl.OtherMeasurementImpl <em>Other Measurement</em>}' class.
+	 * The meta object id for the '{@link br.edu.ufpe.ines.decode.taskDescription.measurements.impl.AutomaticMeasurementImpl <em>Automatic Measurement</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see br.edu.ufpe.ines.decode.taskDescription.measurements.impl.OtherMeasurementImpl
-	 * @see br.edu.ufpe.ines.decode.taskDescription.measurements.impl.MeasurementsPackageImpl#getOtherMeasurement()
+	 * @see br.edu.ufpe.ines.decode.taskDescription.measurements.impl.AutomaticMeasurementImpl
+	 * @see br.edu.ufpe.ines.decode.taskDescription.measurements.impl.MeasurementsPackageImpl#getAutomaticMeasurement()
 	 * @generated
 	 */
-	int OTHER_MEASUREMENT = 0;
+	int AUTOMATIC_MEASUREMENT = 0;
 
 	/**
-	 * The number of structural features of the '<em>Other Measurement</em>' class.
+	 * The feature id for the '<em><b>Log</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OTHER_MEASUREMENT_FEATURE_COUNT = TaskDescriptionPackage.MEASUREMENT_FEATURE_COUNT + 0;
+	int AUTOMATIC_MEASUREMENT__LOG = TaskDescriptionPackage.MEASUREMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>Other Measurement</em>' class.
+	 * The number of structural features of the '<em>Automatic Measurement</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OTHER_MEASUREMENT_OPERATION_COUNT = TaskDescriptionPackage.MEASUREMENT_OPERATION_COUNT + 0;
+	int AUTOMATIC_MEASUREMENT_FEATURE_COUNT = TaskDescriptionPackage.MEASUREMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link br.edu.ufpe.ines.decode.taskDescription.measurements.impl.ObservingArtifactImpl <em>Observing Artifact</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see br.edu.ufpe.ines.decode.taskDescription.measurements.impl.ObservingArtifactImpl
-	 * @see br.edu.ufpe.ines.decode.taskDescription.measurements.impl.MeasurementsPackageImpl#getObservingArtifact()
-	 * @generated
-	 */
-	int OBSERVING_ARTIFACT = 1;
-
-	/**
-	 * The number of structural features of the '<em>Observing Artifact</em>' class.
+	 * The number of operations of the '<em>Automatic Measurement</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OBSERVING_ARTIFACT_FEATURE_COUNT = OTHER_MEASUREMENT_FEATURE_COUNT + 0;
+	int AUTOMATIC_MEASUREMENT_OPERATION_COUNT = TaskDescriptionPackage.MEASUREMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>Observing Artifact</em>' class.
+	 * The meta object id for the '{@link br.edu.ufpe.ines.decode.taskDescription.measurements.impl.ActionsImpl <em>Actions</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see br.edu.ufpe.ines.decode.taskDescription.measurements.impl.ActionsImpl
+	 * @see br.edu.ufpe.ines.decode.taskDescription.measurements.impl.MeasurementsPackageImpl#getActions()
+	 * @generated
+	 */
+	int ACTIONS = 1;
+
+	/**
+	 * The feature id for the '<em><b>Log</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OBSERVING_ARTIFACT_OPERATION_COUNT = OTHER_MEASUREMENT_OPERATION_COUNT + 0;
+	int ACTIONS__LOG = AUTOMATIC_MEASUREMENT__LOG;
 
 	/**
-	 * The meta object id for the '{@link br.edu.ufpe.ines.decode.taskDescription.measurements.impl.TimeOnTaskImpl <em>Time On Task</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see br.edu.ufpe.ines.decode.taskDescription.measurements.impl.TimeOnTaskImpl
-	 * @see br.edu.ufpe.ines.decode.taskDescription.measurements.impl.MeasurementsPackageImpl#getTimeOnTask()
-	 * @generated
-	 */
-	int TIME_ON_TASK = 2;
-
-	/**
-	 * The number of structural features of the '<em>Time On Task</em>' class.
+	 * The number of structural features of the '<em>Actions</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_ON_TASK_FEATURE_COUNT = OTHER_MEASUREMENT_FEATURE_COUNT + 0;
+	int ACTIONS_FEATURE_COUNT = AUTOMATIC_MEASUREMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>Time On Task</em>' class.
+	 * The number of operations of the '<em>Actions</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_ON_TASK_OPERATION_COUNT = OTHER_MEASUREMENT_OPERATION_COUNT + 0;
+	int ACTIONS_OPERATION_COUNT = AUTOMATIC_MEASUREMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link br.edu.ufpe.ines.decode.taskDescription.measurements.impl.FinalTaskImpl <em>Final Task</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see br.edu.ufpe.ines.decode.taskDescription.measurements.impl.FinalTaskImpl
+	 * @see br.edu.ufpe.ines.decode.taskDescription.measurements.impl.MeasurementsPackageImpl#getFinalTask()
+	 * @generated
+	 */
+	int FINAL_TASK = 2;
+
+	/**
+	 * The feature id for the '<em><b>Log</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FINAL_TASK__LOG = AUTOMATIC_MEASUREMENT__LOG;
+
+	/**
+	 * The number of structural features of the '<em>Final Task</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FINAL_TASK_FEATURE_COUNT = AUTOMATIC_MEASUREMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Final Task</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FINAL_TASK_OPERATION_COUNT = AUTOMATIC_MEASUREMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link br.edu.ufpe.ines.decode.taskDescription.measurements.impl.EditionImpl <em>Edition</em>}' class.
@@ -152,13 +180,22 @@ public interface MeasurementsPackage extends EPackage {
 	int EDITION = 3;
 
 	/**
+	 * The feature id for the '<em><b>Log</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EDITION__LOG = ACTIONS__LOG;
+
+	/**
 	 * The number of structural features of the '<em>Edition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EDITION_FEATURE_COUNT = OBSERVING_ARTIFACT_FEATURE_COUNT + 0;
+	int EDITION_FEATURE_COUNT = ACTIONS_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Edition</em>' class.
@@ -167,7 +204,7 @@ public interface MeasurementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EDITION_OPERATION_COUNT = OBSERVING_ARTIFACT_OPERATION_COUNT + 0;
+	int EDITION_OPERATION_COUNT = ACTIONS_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link br.edu.ufpe.ines.decode.taskDescription.measurements.impl.ExecutionImpl <em>Execution</em>}' class.
@@ -180,13 +217,22 @@ public interface MeasurementsPackage extends EPackage {
 	int EXECUTION = 4;
 
 	/**
+	 * The feature id for the '<em><b>Log</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION__LOG = ACTIONS__LOG;
+
+	/**
 	 * The number of structural features of the '<em>Execution</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXECUTION_FEATURE_COUNT = OBSERVING_ARTIFACT_FEATURE_COUNT + 0;
+	int EXECUTION_FEATURE_COUNT = ACTIONS_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Execution</em>' class.
@@ -195,7 +241,7 @@ public interface MeasurementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXECUTION_OPERATION_COUNT = OBSERVING_ARTIFACT_OPERATION_COUNT + 0;
+	int EXECUTION_OPERATION_COUNT = ACTIONS_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link br.edu.ufpe.ines.decode.taskDescription.measurements.impl.AnyActionImpl <em>Any Action</em>}' class.
@@ -208,13 +254,22 @@ public interface MeasurementsPackage extends EPackage {
 	int ANY_ACTION = 5;
 
 	/**
+	 * The feature id for the '<em><b>Log</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANY_ACTION__LOG = ACTIONS__LOG;
+
+	/**
 	 * The number of structural features of the '<em>Any Action</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANY_ACTION_FEATURE_COUNT = OBSERVING_ARTIFACT_FEATURE_COUNT + 0;
+	int ANY_ACTION_FEATURE_COUNT = ACTIONS_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Any Action</em>' class.
@@ -223,7 +278,7 @@ public interface MeasurementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANY_ACTION_OPERATION_COUNT = OBSERVING_ARTIFACT_OPERATION_COUNT + 0;
+	int ANY_ACTION_OPERATION_COUNT = ACTIONS_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link br.edu.ufpe.ines.decode.taskDescription.measurements.impl.TestExecutionImpl <em>Test Execution</em>}' class.
@@ -234,6 +289,15 @@ public interface MeasurementsPackage extends EPackage {
 	 * @generated
 	 */
 	int TEST_EXECUTION = 6;
+
+	/**
+	 * The feature id for the '<em><b>Log</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEST_EXECUTION__LOG = EXECUTION__LOG;
 
 	/**
 	 * The feature id for the '<em><b>Observe Passed Test</b></em>' attribute.
@@ -264,34 +328,56 @@ public interface MeasurementsPackage extends EPackage {
 
 
 	/**
-	 * Returns the meta object for class '{@link br.edu.ufpe.ines.decode.taskDescription.measurements.OtherMeasurement <em>Other Measurement</em>}'.
+	 * The meta object id for the '{@link br.edu.ufpe.ines.decode.taskDescription.measurements.LogType <em>Log Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Other Measurement</em>'.
-	 * @see br.edu.ufpe.ines.decode.taskDescription.measurements.OtherMeasurement
+	 * @see br.edu.ufpe.ines.decode.taskDescription.measurements.LogType
+	 * @see br.edu.ufpe.ines.decode.taskDescription.measurements.impl.MeasurementsPackageImpl#getLogType()
 	 * @generated
 	 */
-	EClass getOtherMeasurement();
+	int LOG_TYPE = 7;
+
 
 	/**
-	 * Returns the meta object for class '{@link br.edu.ufpe.ines.decode.taskDescription.measurements.ObservingArtifact <em>Observing Artifact</em>}'.
+	 * Returns the meta object for class '{@link br.edu.ufpe.ines.decode.taskDescription.measurements.AutomaticMeasurement <em>Automatic Measurement</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Observing Artifact</em>'.
-	 * @see br.edu.ufpe.ines.decode.taskDescription.measurements.ObservingArtifact
+	 * @return the meta object for class '<em>Automatic Measurement</em>'.
+	 * @see br.edu.ufpe.ines.decode.taskDescription.measurements.AutomaticMeasurement
 	 * @generated
 	 */
-	EClass getObservingArtifact();
+	EClass getAutomaticMeasurement();
 
 	/**
-	 * Returns the meta object for class '{@link br.edu.ufpe.ines.decode.taskDescription.measurements.TimeOnTask <em>Time On Task</em>}'.
+	 * Returns the meta object for the attribute list '{@link br.edu.ufpe.ines.decode.taskDescription.measurements.AutomaticMeasurement#getLog <em>Log</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Time On Task</em>'.
-	 * @see br.edu.ufpe.ines.decode.taskDescription.measurements.TimeOnTask
+	 * @return the meta object for the attribute list '<em>Log</em>'.
+	 * @see br.edu.ufpe.ines.decode.taskDescription.measurements.AutomaticMeasurement#getLog()
+	 * @see #getAutomaticMeasurement()
 	 * @generated
 	 */
-	EClass getTimeOnTask();
+	EAttribute getAutomaticMeasurement_Log();
+
+	/**
+	 * Returns the meta object for class '{@link br.edu.ufpe.ines.decode.taskDescription.measurements.Actions <em>Actions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Actions</em>'.
+	 * @see br.edu.ufpe.ines.decode.taskDescription.measurements.Actions
+	 * @generated
+	 */
+	EClass getActions();
+
+	/**
+	 * Returns the meta object for class '{@link br.edu.ufpe.ines.decode.taskDescription.measurements.FinalTask <em>Final Task</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Final Task</em>'.
+	 * @see br.edu.ufpe.ines.decode.taskDescription.measurements.FinalTask
+	 * @generated
+	 */
+	EClass getFinalTask();
 
 	/**
 	 * Returns the meta object for class '{@link br.edu.ufpe.ines.decode.taskDescription.measurements.Edition <em>Edition</em>}'.
@@ -345,6 +431,16 @@ public interface MeasurementsPackage extends EPackage {
 	EAttribute getTestExecution_ObservePassedTest();
 
 	/**
+	 * Returns the meta object for enum '{@link br.edu.ufpe.ines.decode.taskDescription.measurements.LogType <em>Log Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Log Type</em>'.
+	 * @see br.edu.ufpe.ines.decode.taskDescription.measurements.LogType
+	 * @generated
+	 */
+	EEnum getLogType();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -368,34 +464,42 @@ public interface MeasurementsPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link br.edu.ufpe.ines.decode.taskDescription.measurements.impl.OtherMeasurementImpl <em>Other Measurement</em>}' class.
+		 * The meta object literal for the '{@link br.edu.ufpe.ines.decode.taskDescription.measurements.impl.AutomaticMeasurementImpl <em>Automatic Measurement</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see br.edu.ufpe.ines.decode.taskDescription.measurements.impl.OtherMeasurementImpl
-		 * @see br.edu.ufpe.ines.decode.taskDescription.measurements.impl.MeasurementsPackageImpl#getOtherMeasurement()
+		 * @see br.edu.ufpe.ines.decode.taskDescription.measurements.impl.AutomaticMeasurementImpl
+		 * @see br.edu.ufpe.ines.decode.taskDescription.measurements.impl.MeasurementsPackageImpl#getAutomaticMeasurement()
 		 * @generated
 		 */
-		EClass OTHER_MEASUREMENT = eINSTANCE.getOtherMeasurement();
+		EClass AUTOMATIC_MEASUREMENT = eINSTANCE.getAutomaticMeasurement();
 
 		/**
-		 * The meta object literal for the '{@link br.edu.ufpe.ines.decode.taskDescription.measurements.impl.ObservingArtifactImpl <em>Observing Artifact</em>}' class.
+		 * The meta object literal for the '<em><b>Log</b></em>' attribute list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see br.edu.ufpe.ines.decode.taskDescription.measurements.impl.ObservingArtifactImpl
-		 * @see br.edu.ufpe.ines.decode.taskDescription.measurements.impl.MeasurementsPackageImpl#getObservingArtifact()
 		 * @generated
 		 */
-		EClass OBSERVING_ARTIFACT = eINSTANCE.getObservingArtifact();
+		EAttribute AUTOMATIC_MEASUREMENT__LOG = eINSTANCE.getAutomaticMeasurement_Log();
 
 		/**
-		 * The meta object literal for the '{@link br.edu.ufpe.ines.decode.taskDescription.measurements.impl.TimeOnTaskImpl <em>Time On Task</em>}' class.
+		 * The meta object literal for the '{@link br.edu.ufpe.ines.decode.taskDescription.measurements.impl.ActionsImpl <em>Actions</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see br.edu.ufpe.ines.decode.taskDescription.measurements.impl.TimeOnTaskImpl
-		 * @see br.edu.ufpe.ines.decode.taskDescription.measurements.impl.MeasurementsPackageImpl#getTimeOnTask()
+		 * @see br.edu.ufpe.ines.decode.taskDescription.measurements.impl.ActionsImpl
+		 * @see br.edu.ufpe.ines.decode.taskDescription.measurements.impl.MeasurementsPackageImpl#getActions()
 		 * @generated
 		 */
-		EClass TIME_ON_TASK = eINSTANCE.getTimeOnTask();
+		EClass ACTIONS = eINSTANCE.getActions();
+
+		/**
+		 * The meta object literal for the '{@link br.edu.ufpe.ines.decode.taskDescription.measurements.impl.FinalTaskImpl <em>Final Task</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see br.edu.ufpe.ines.decode.taskDescription.measurements.impl.FinalTaskImpl
+		 * @see br.edu.ufpe.ines.decode.taskDescription.measurements.impl.MeasurementsPackageImpl#getFinalTask()
+		 * @generated
+		 */
+		EClass FINAL_TASK = eINSTANCE.getFinalTask();
 
 		/**
 		 * The meta object literal for the '{@link br.edu.ufpe.ines.decode.taskDescription.measurements.impl.EditionImpl <em>Edition</em>}' class.
@@ -444,6 +548,16 @@ public interface MeasurementsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TEST_EXECUTION__OBSERVE_PASSED_TEST = eINSTANCE.getTestExecution_ObservePassedTest();
+
+		/**
+		 * The meta object literal for the '{@link br.edu.ufpe.ines.decode.taskDescription.measurements.LogType <em>Log Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see br.edu.ufpe.ines.decode.taskDescription.measurements.LogType
+		 * @see br.edu.ufpe.ines.decode.taskDescription.measurements.impl.MeasurementsPackageImpl#getLogType()
+		 * @generated
+		 */
+		EEnum LOG_TYPE = eINSTANCE.getLogType();
 
 	}
 

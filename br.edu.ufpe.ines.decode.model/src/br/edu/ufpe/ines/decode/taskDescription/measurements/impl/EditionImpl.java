@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class EditionImpl extends ObservingArtifactImpl implements Edition {
+public class EditionImpl extends ActionsImpl implements Edition {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

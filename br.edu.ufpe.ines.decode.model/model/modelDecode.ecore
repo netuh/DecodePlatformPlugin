@@ -30,7 +30,7 @@
           eType="#//artifacts/AbstractArtifact"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Restriction" abstract="true"/>
-    <eClassifiers xsi:type="ecore:EClass" name="PlacementQuestionnaire" eSuperTypes="#//taskDescription/Measurement">
+    <eClassifiers xsi:type="ecore:EClass" name="QuestionnaireMeasurement" eSuperTypes="#//taskDescription/Measurement">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="placement" eType="#//taskDescription/PlacementType"
           defaultValueLiteral="Before"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="questionnaire" eType="#//artifacts/QuestionnaireInner"
@@ -69,17 +69,23 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Measurement" abstract="true"/>
     <eSubpackages name="measurements" nsURI="measurements" nsPrefix="measurements">
-      <eClassifiers xsi:type="ecore:EClass" name="OtherMeasurement" abstract="true"
-          eSuperTypes="#//taskDescription/Measurement"/>
-      <eClassifiers xsi:type="ecore:EClass" name="ObservingArtifact" abstract="true"
-          eSuperTypes="#//taskDescription/measurements/OtherMeasurement"/>
-      <eClassifiers xsi:type="ecore:EClass" name="TimeOnTask" eSuperTypes="#//taskDescription/measurements/OtherMeasurement"/>
-      <eClassifiers xsi:type="ecore:EClass" name="Edition" eSuperTypes="#//taskDescription/measurements/ObservingArtifact"/>
-      <eClassifiers xsi:type="ecore:EClass" name="Execution" eSuperTypes="#//taskDescription/measurements/ObservingArtifact"/>
-      <eClassifiers xsi:type="ecore:EClass" name="AnyAction" eSuperTypes="#//taskDescription/measurements/ObservingArtifact"/>
+      <eClassifiers xsi:type="ecore:EClass" name="AutomaticMeasurement" abstract="true"
+          eSuperTypes="#//taskDescription/Measurement">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="log" upperBound="2"
+            eType="#//taskDescription/measurements/LogType"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Actions" abstract="true" eSuperTypes="#//taskDescription/measurements/AutomaticMeasurement"/>
+      <eClassifiers xsi:type="ecore:EClass" name="FinalTask" eSuperTypes="#//taskDescription/measurements/AutomaticMeasurement"/>
+      <eClassifiers xsi:type="ecore:EClass" name="Edition" eSuperTypes="#//taskDescription/measurements/Actions"/>
+      <eClassifiers xsi:type="ecore:EClass" name="Execution" eSuperTypes="#//taskDescription/measurements/Actions"/>
+      <eClassifiers xsi:type="ecore:EClass" name="AnyAction" eSuperTypes="#//taskDescription/measurements/Actions"/>
       <eClassifiers xsi:type="ecore:EClass" name="TestExecution" eSuperTypes="#//taskDescription/measurements/Execution">
         <eStructuralFeatures xsi:type="ecore:EAttribute" name="observePassedTest"
             eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EEnum" name="LogType">
+        <eLiterals name="LogTime"/>
+        <eLiterals name="LogArtifact" value="1"/>
       </eClassifiers>
     </eSubpackages>
   </eSubpackages>
@@ -97,7 +103,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="elements" lowerBound="1"
           upperBound="-1" eType="#//artifacts/questionnaire/ElementaryComponent" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="placementquestionnaire"
-          lowerBound="1" eType="#//taskDescription/PlacementQuestionnaire" eOpposite="#//taskDescription/PlacementQuestionnaire/questionnaire"/>
+          lowerBound="1" eType="#//taskDescription/QuestionnaireMeasurement" eOpposite="#//taskDescription/QuestionnaireMeasurement/questionnaire"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ProjectIDE" abstract="true" eSuperTypes="#//artifacts/AbstractArtifact">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="projectName" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>

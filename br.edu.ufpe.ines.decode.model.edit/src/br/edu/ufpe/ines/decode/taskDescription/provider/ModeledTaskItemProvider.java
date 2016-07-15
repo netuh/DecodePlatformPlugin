@@ -143,12 +143,12 @@ public class ModeledTaskItemProvider extends NameableItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(TaskDescriptionPackage.Literals.MODELED_TASK__MEASUREMENTS,
-				 TaskDescriptionFactory.eINSTANCE.createPlacementQuestionnaire()));
+				 TaskDescriptionFactory.eINSTANCE.createQuestionnaireMeasurement()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(TaskDescriptionPackage.Literals.MODELED_TASK__MEASUREMENTS,
-				 MeasurementsFactory.eINSTANCE.createTimeOnTask()));
+				 MeasurementsFactory.eINSTANCE.createFinalTask()));
 
 		newChildDescriptors.add
 			(createChildParameter

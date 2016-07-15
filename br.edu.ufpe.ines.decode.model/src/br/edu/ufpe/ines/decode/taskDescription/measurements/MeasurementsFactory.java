@@ -22,13 +22,13 @@ public interface MeasurementsFactory extends EFactory {
 	MeasurementsFactory eINSTANCE = br.edu.ufpe.ines.decode.taskDescription.measurements.impl.MeasurementsFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Time On Task</em>'.
+	 * Returns a new object of class '<em>Final Task</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Time On Task</em>'.
+	 * @return a new object of class '<em>Final Task</em>'.
 	 * @generated
 	 */
-	TimeOnTask createTimeOnTask();
+	FinalTask createFinalTask();
 
 	/**
 	 * Returns a new object of class '<em>Edition</em>'.

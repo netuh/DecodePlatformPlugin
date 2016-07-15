@@ -427,14 +427,14 @@ public interface TaskDescriptionPackage extends EPackage {
 	int MEASUREMENT_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link br.edu.ufpe.ines.decode.taskDescription.impl.PlacementQuestionnaireImpl <em>Placement Questionnaire</em>}' class.
+	 * The meta object id for the '{@link br.edu.ufpe.ines.decode.taskDescription.impl.QuestionnaireMeasurementImpl <em>Questionnaire Measurement</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see br.edu.ufpe.ines.decode.taskDescription.impl.PlacementQuestionnaireImpl
-	 * @see br.edu.ufpe.ines.decode.taskDescription.impl.TaskDescriptionPackageImpl#getPlacementQuestionnaire()
+	 * @see br.edu.ufpe.ines.decode.taskDescription.impl.QuestionnaireMeasurementImpl
+	 * @see br.edu.ufpe.ines.decode.taskDescription.impl.TaskDescriptionPackageImpl#getQuestionnaireMeasurement()
 	 * @generated
 	 */
-	int PLACEMENT_QUESTIONNAIRE = 6;
+	int QUESTIONNAIRE_MEASUREMENT = 6;
 
 	/**
 	 * The feature id for the '<em><b>Placement</b></em>' attribute.
@@ -443,7 +443,7 @@ public interface TaskDescriptionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PLACEMENT_QUESTIONNAIRE__PLACEMENT = MEASUREMENT_FEATURE_COUNT + 0;
+	int QUESTIONNAIRE_MEASUREMENT__PLACEMENT = MEASUREMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Questionnaire</b></em>' reference.
@@ -452,25 +452,25 @@ public interface TaskDescriptionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PLACEMENT_QUESTIONNAIRE__QUESTIONNAIRE = MEASUREMENT_FEATURE_COUNT + 1;
+	int QUESTIONNAIRE_MEASUREMENT__QUESTIONNAIRE = MEASUREMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of structural features of the '<em>Placement Questionnaire</em>' class.
+	 * The number of structural features of the '<em>Questionnaire Measurement</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PLACEMENT_QUESTIONNAIRE_FEATURE_COUNT = MEASUREMENT_FEATURE_COUNT + 2;
+	int QUESTIONNAIRE_MEASUREMENT_FEATURE_COUNT = MEASUREMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of operations of the '<em>Placement Questionnaire</em>' class.
+	 * The number of operations of the '<em>Questionnaire Measurement</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PLACEMENT_QUESTIONNAIRE_OPERATION_COUNT = MEASUREMENT_OPERATION_COUNT + 0;
+	int QUESTIONNAIRE_MEASUREMENT_OPERATION_COUNT = MEASUREMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link br.edu.ufpe.ines.decode.taskDescription.impl.ExecutionDerivationsImpl <em>Execution Derivations</em>}' class.
@@ -832,36 +832,36 @@ public interface TaskDescriptionPackage extends EPackage {
 	EClass getRestriction();
 
 	/**
-	 * Returns the meta object for class '{@link br.edu.ufpe.ines.decode.taskDescription.PlacementQuestionnaire <em>Placement Questionnaire</em>}'.
+	 * Returns the meta object for class '{@link br.edu.ufpe.ines.decode.taskDescription.QuestionnaireMeasurement <em>Questionnaire Measurement</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Placement Questionnaire</em>'.
-	 * @see br.edu.ufpe.ines.decode.taskDescription.PlacementQuestionnaire
+	 * @return the meta object for class '<em>Questionnaire Measurement</em>'.
+	 * @see br.edu.ufpe.ines.decode.taskDescription.QuestionnaireMeasurement
 	 * @generated
 	 */
-	EClass getPlacementQuestionnaire();
+	EClass getQuestionnaireMeasurement();
 
 	/**
-	 * Returns the meta object for the attribute '{@link br.edu.ufpe.ines.decode.taskDescription.PlacementQuestionnaire#getPlacement <em>Placement</em>}'.
+	 * Returns the meta object for the attribute '{@link br.edu.ufpe.ines.decode.taskDescription.QuestionnaireMeasurement#getPlacement <em>Placement</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Placement</em>'.
-	 * @see br.edu.ufpe.ines.decode.taskDescription.PlacementQuestionnaire#getPlacement()
-	 * @see #getPlacementQuestionnaire()
+	 * @see br.edu.ufpe.ines.decode.taskDescription.QuestionnaireMeasurement#getPlacement()
+	 * @see #getQuestionnaireMeasurement()
 	 * @generated
 	 */
-	EAttribute getPlacementQuestionnaire_Placement();
+	EAttribute getQuestionnaireMeasurement_Placement();
 
 	/**
-	 * Returns the meta object for the reference '{@link br.edu.ufpe.ines.decode.taskDescription.PlacementQuestionnaire#getQuestionnaire <em>Questionnaire</em>}'.
+	 * Returns the meta object for the reference '{@link br.edu.ufpe.ines.decode.taskDescription.QuestionnaireMeasurement#getQuestionnaire <em>Questionnaire</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Questionnaire</em>'.
-	 * @see br.edu.ufpe.ines.decode.taskDescription.PlacementQuestionnaire#getQuestionnaire()
-	 * @see #getPlacementQuestionnaire()
+	 * @see br.edu.ufpe.ines.decode.taskDescription.QuestionnaireMeasurement#getQuestionnaire()
+	 * @see #getQuestionnaireMeasurement()
 	 * @generated
 	 */
-	EReference getPlacementQuestionnaire_Questionnaire();
+	EReference getQuestionnaireMeasurement_Questionnaire();
 
 	/**
 	 * Returns the meta object for class '{@link br.edu.ufpe.ines.decode.taskDescription.ExecutionDerivations <em>Execution Derivations</em>}'.
@@ -1141,14 +1141,14 @@ public interface TaskDescriptionPackage extends EPackage {
 		EClass RESTRICTION = eINSTANCE.getRestriction();
 
 		/**
-		 * The meta object literal for the '{@link br.edu.ufpe.ines.decode.taskDescription.impl.PlacementQuestionnaireImpl <em>Placement Questionnaire</em>}' class.
+		 * The meta object literal for the '{@link br.edu.ufpe.ines.decode.taskDescription.impl.QuestionnaireMeasurementImpl <em>Questionnaire Measurement</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see br.edu.ufpe.ines.decode.taskDescription.impl.PlacementQuestionnaireImpl
-		 * @see br.edu.ufpe.ines.decode.taskDescription.impl.TaskDescriptionPackageImpl#getPlacementQuestionnaire()
+		 * @see br.edu.ufpe.ines.decode.taskDescription.impl.QuestionnaireMeasurementImpl
+		 * @see br.edu.ufpe.ines.decode.taskDescription.impl.TaskDescriptionPackageImpl#getQuestionnaireMeasurement()
 		 * @generated
 		 */
-		EClass PLACEMENT_QUESTIONNAIRE = eINSTANCE.getPlacementQuestionnaire();
+		EClass QUESTIONNAIRE_MEASUREMENT = eINSTANCE.getQuestionnaireMeasurement();
 
 		/**
 		 * The meta object literal for the '<em><b>Placement</b></em>' attribute feature.
@@ -1156,7 +1156,7 @@ public interface TaskDescriptionPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PLACEMENT_QUESTIONNAIRE__PLACEMENT = eINSTANCE.getPlacementQuestionnaire_Placement();
+		EAttribute QUESTIONNAIRE_MEASUREMENT__PLACEMENT = eINSTANCE.getQuestionnaireMeasurement_Placement();
 
 		/**
 		 * The meta object literal for the '<em><b>Questionnaire</b></em>' reference feature.
@@ -1164,7 +1164,7 @@ public interface TaskDescriptionPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PLACEMENT_QUESTIONNAIRE__QUESTIONNAIRE = eINSTANCE.getPlacementQuestionnaire_Questionnaire();
+		EReference QUESTIONNAIRE_MEASUREMENT__QUESTIONNAIRE = eINSTANCE.getQuestionnaireMeasurement_Questionnaire();
 
 		/**
 		 * The meta object literal for the '{@link br.edu.ufpe.ines.decode.taskDescription.impl.ExecutionDerivationsImpl <em>Execution Derivations</em>}' class.

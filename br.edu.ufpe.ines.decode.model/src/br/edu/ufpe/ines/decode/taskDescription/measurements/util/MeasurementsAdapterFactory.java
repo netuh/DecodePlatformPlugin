@@ -70,16 +70,16 @@ public class MeasurementsAdapterFactory extends AdapterFactoryImpl {
 	protected MeasurementsSwitch<Adapter> modelSwitch =
 		new MeasurementsSwitch<Adapter>() {
 			@Override
-			public Adapter caseOtherMeasurement(OtherMeasurement object) {
-				return createOtherMeasurementAdapter();
+			public Adapter caseAutomaticMeasurement(AutomaticMeasurement object) {
+				return createAutomaticMeasurementAdapter();
 			}
 			@Override
-			public Adapter caseObservingArtifact(ObservingArtifact object) {
-				return createObservingArtifactAdapter();
+			public Adapter caseActions(Actions object) {
+				return createActionsAdapter();
 			}
 			@Override
-			public Adapter caseTimeOnTask(TimeOnTask object) {
-				return createTimeOnTaskAdapter();
+			public Adapter caseFinalTask(FinalTask object) {
+				return createFinalTaskAdapter();
 			}
 			@Override
 			public Adapter caseEdition(Edition object) {
@@ -122,44 +122,44 @@ public class MeasurementsAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link br.edu.ufpe.ines.decode.taskDescription.measurements.OtherMeasurement <em>Other Measurement</em>}'.
+	 * Creates a new adapter for an object of class '{@link br.edu.ufpe.ines.decode.taskDescription.measurements.AutomaticMeasurement <em>Automatic Measurement</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see br.edu.ufpe.ines.decode.taskDescription.measurements.OtherMeasurement
+	 * @see br.edu.ufpe.ines.decode.taskDescription.measurements.AutomaticMeasurement
 	 * @generated
 	 */
-	public Adapter createOtherMeasurementAdapter() {
+	public Adapter createAutomaticMeasurementAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link br.edu.ufpe.ines.decode.taskDescription.measurements.ObservingArtifact <em>Observing Artifact</em>}'.
+	 * Creates a new adapter for an object of class '{@link br.edu.ufpe.ines.decode.taskDescription.measurements.Actions <em>Actions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see br.edu.ufpe.ines.decode.taskDescription.measurements.ObservingArtifact
+	 * @see br.edu.ufpe.ines.decode.taskDescription.measurements.Actions
 	 * @generated
 	 */
-	public Adapter createObservingArtifactAdapter() {
+	public Adapter createActionsAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link br.edu.ufpe.ines.decode.taskDescription.measurements.TimeOnTask <em>Time On Task</em>}'.
+	 * Creates a new adapter for an object of class '{@link br.edu.ufpe.ines.decode.taskDescription.measurements.FinalTask <em>Final Task</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see br.edu.ufpe.ines.decode.taskDescription.measurements.TimeOnTask
+	 * @see br.edu.ufpe.ines.decode.taskDescription.measurements.FinalTask
 	 * @generated
 	 */
-	public Adapter createTimeOnTaskAdapter() {
+	public Adapter createFinalTaskAdapter() {
 		return null;
 	}
 

@@ -26,8 +26,8 @@ import br.edu.ufpe.ines.decode.taskDescription.Measurement;
 import br.edu.ufpe.ines.decode.taskDescription.ModeledRestrictions;
 import br.edu.ufpe.ines.decode.taskDescription.ModeledTask;
 import br.edu.ufpe.ines.decode.taskDescription.OtherRestriction;
-import br.edu.ufpe.ines.decode.taskDescription.PlacementQuestionnaire;
 import br.edu.ufpe.ines.decode.taskDescription.PlacementType;
+import br.edu.ufpe.ines.decode.taskDescription.QuestionnaireMeasurement;
 import br.edu.ufpe.ines.decode.taskDescription.Random;
 import br.edu.ufpe.ines.decode.taskDescription.Restriction;
 import br.edu.ufpe.ines.decode.taskDescription.Sequencial;
@@ -104,7 +104,7 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass placementQuestionnaireEClass = null;
+	private EClass questionnaireMeasurementEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -356,8 +356,8 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPlacementQuestionnaire() {
-		return placementQuestionnaireEClass;
+	public EClass getQuestionnaireMeasurement() {
+		return questionnaireMeasurementEClass;
 	}
 
 	/**
@@ -365,8 +365,8 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPlacementQuestionnaire_Placement() {
-		return (EAttribute)placementQuestionnaireEClass.getEStructuralFeatures().get(0);
+	public EAttribute getQuestionnaireMeasurement_Placement() {
+		return (EAttribute)questionnaireMeasurementEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -374,8 +374,8 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPlacementQuestionnaire_Questionnaire() {
-		return (EReference)placementQuestionnaireEClass.getEStructuralFeatures().get(1);
+	public EReference getQuestionnaireMeasurement_Questionnaire() {
+		return (EReference)questionnaireMeasurementEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -550,9 +550,9 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 
 		restrictionEClass = createEClass(RESTRICTION);
 
-		placementQuestionnaireEClass = createEClass(PLACEMENT_QUESTIONNAIRE);
-		createEAttribute(placementQuestionnaireEClass, PLACEMENT_QUESTIONNAIRE__PLACEMENT);
-		createEReference(placementQuestionnaireEClass, PLACEMENT_QUESTIONNAIRE__QUESTIONNAIRE);
+		questionnaireMeasurementEClass = createEClass(QUESTIONNAIRE_MEASUREMENT);
+		createEAttribute(questionnaireMeasurementEClass, QUESTIONNAIRE_MEASUREMENT__PLACEMENT);
+		createEReference(questionnaireMeasurementEClass, QUESTIONNAIRE_MEASUREMENT__QUESTIONNAIRE);
 
 		executionDerivationsEClass = createEClass(EXECUTION_DERIVATIONS);
 		createEReference(executionDerivationsEClass, EXECUTION_DERIVATIONS__TASKS);
@@ -620,7 +620,7 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 		randomEClass.getESuperTypes().add(this.getComposedTask());
 		composedTaskEClass.getESuperTypes().add(this.getModeledTask());
 		experimentalTaskEClass.getESuperTypes().add(this.getModeledTask());
-		placementQuestionnaireEClass.getESuperTypes().add(this.getMeasurement());
+		questionnaireMeasurementEClass.getESuperTypes().add(this.getMeasurement());
 		timeRestrictionEClass.getESuperTypes().add(this.getRestriction());
 		specficRestrictionEClass.getESuperTypes().add(this.getRestriction());
 		eclipseRetrictionEClass.getESuperTypes().add(this.getSpecficRestriction());
@@ -645,9 +645,9 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 
 		initEClass(restrictionEClass, Restriction.class, "Restriction", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(placementQuestionnaireEClass, PlacementQuestionnaire.class, "PlacementQuestionnaire", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getPlacementQuestionnaire_Placement(), this.getPlacementType(), "placement", "Before", 0, 1, PlacementQuestionnaire.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPlacementQuestionnaire_Questionnaire(), theArtifactsPackage.getQuestionnaireInner(), theArtifactsPackage.getQuestionnaireInner_Placementquestionnaire(), "questionnaire", null, 0, 1, PlacementQuestionnaire.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(questionnaireMeasurementEClass, QuestionnaireMeasurement.class, "QuestionnaireMeasurement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getQuestionnaireMeasurement_Placement(), this.getPlacementType(), "placement", "Before", 0, 1, QuestionnaireMeasurement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getQuestionnaireMeasurement_Questionnaire(), theArtifactsPackage.getQuestionnaireInner(), theArtifactsPackage.getQuestionnaireInner_Placementquestionnaire(), "questionnaire", null, 0, 1, QuestionnaireMeasurement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(executionDerivationsEClass, ExecutionDerivations.class, "ExecutionDerivations", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getExecutionDerivations_Tasks(), this.getModeledTask(), null, "tasks", null, 1, -1, ExecutionDerivations.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

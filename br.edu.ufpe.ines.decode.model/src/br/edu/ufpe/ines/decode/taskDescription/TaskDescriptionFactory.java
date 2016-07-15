@@ -49,13 +49,13 @@ public interface TaskDescriptionFactory extends EFactory {
 	ExperimentalTask createExperimentalTask();
 
 	/**
-	 * Returns a new object of class '<em>Placement Questionnaire</em>'.
+	 * Returns a new object of class '<em>Questionnaire Measurement</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Placement Questionnaire</em>'.
+	 * @return a new object of class '<em>Questionnaire Measurement</em>'.
 	 * @generated
 	 */
-	PlacementQuestionnaire createPlacementQuestionnaire();
+	QuestionnaireMeasurement createQuestionnaireMeasurement();
 
 	/**
 	 * Returns a new object of class '<em>Execution Derivations</em>'.

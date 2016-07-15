@@ -5,8 +5,11 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 import br.edu.ufpe.ines.decode.taskDescription.ExperimentalTask;
+import br.edu.ufpe.ines.decode.taskDescription.Measurement;
 import br.edu.ufpe.ines.decode.taskDescription.ModeledTask;
 import br.edu.ufpe.ines.decode.taskDescription.Random;
+import br.edu.ufpe.ines.decode.taskDescription.measurements.AnyAction;
+import br.ufpe.ines.decode.plugin.sandbox.UsageMonitorFactory;
 
 public class ExperimentExecutionManager {
 
@@ -50,6 +53,15 @@ public class ExperimentExecutionManager {
 
 	public boolean hasStarted() {
 		return false;
+	}
+
+	public void startObserving() {
+		for (Measurement measurement : currentTaskSet.getMeasurements()) {
+			if (measurement instanceof AnyAction){
+				//AnyAction measuAnyAction = (AnyAction)measurement;
+				UsageMonitorFactory.startAllMonitor();
+			}
+		}
 	}
 
 }

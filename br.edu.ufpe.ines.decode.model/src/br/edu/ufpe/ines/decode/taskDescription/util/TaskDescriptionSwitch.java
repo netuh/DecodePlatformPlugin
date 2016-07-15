@@ -115,10 +115,10 @@ public class TaskDescriptionSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TaskDescriptionPackage.PLACEMENT_QUESTIONNAIRE: {
-				PlacementQuestionnaire placementQuestionnaire = (PlacementQuestionnaire)theEObject;
-				T result = casePlacementQuestionnaire(placementQuestionnaire);
-				if (result == null) result = caseMeasurement(placementQuestionnaire);
+			case TaskDescriptionPackage.QUESTIONNAIRE_MEASUREMENT: {
+				QuestionnaireMeasurement questionnaireMeasurement = (QuestionnaireMeasurement)theEObject;
+				T result = caseQuestionnaireMeasurement(questionnaireMeasurement);
+				if (result == null) result = caseMeasurement(questionnaireMeasurement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -264,17 +264,17 @@ public class TaskDescriptionSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Placement Questionnaire</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Questionnaire Measurement</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Placement Questionnaire</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Questionnaire Measurement</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePlacementQuestionnaire(PlacementQuestionnaire object) {
+	public T caseQuestionnaireMeasurement(QuestionnaireMeasurement object) {
 		return null;
 	}
 

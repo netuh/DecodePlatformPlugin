@@ -13,5 +13,5 @@ package br.edu.ufpe.ines.decode.taskDescription.measurements;
  * @model
  * @generated
  */
-public interface Execution extends ObservingArtifact {
+public interface Execution extends Actions {
 } // Execution

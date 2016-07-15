@@ -68,34 +68,34 @@ public class MeasurementsSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case MeasurementsPackage.OTHER_MEASUREMENT: {
-				OtherMeasurement otherMeasurement = (OtherMeasurement)theEObject;
-				T result = caseOtherMeasurement(otherMeasurement);
-				if (result == null) result = caseMeasurement(otherMeasurement);
+			case MeasurementsPackage.AUTOMATIC_MEASUREMENT: {
+				AutomaticMeasurement automaticMeasurement = (AutomaticMeasurement)theEObject;
+				T result = caseAutomaticMeasurement(automaticMeasurement);
+				if (result == null) result = caseMeasurement(automaticMeasurement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case MeasurementsPackage.OBSERVING_ARTIFACT: {
-				ObservingArtifact observingArtifact = (ObservingArtifact)theEObject;
-				T result = caseObservingArtifact(observingArtifact);
-				if (result == null) result = caseOtherMeasurement(observingArtifact);
-				if (result == null) result = caseMeasurement(observingArtifact);
+			case MeasurementsPackage.ACTIONS: {
+				Actions actions = (Actions)theEObject;
+				T result = caseActions(actions);
+				if (result == null) result = caseAutomaticMeasurement(actions);
+				if (result == null) result = caseMeasurement(actions);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case MeasurementsPackage.TIME_ON_TASK: {
-				TimeOnTask timeOnTask = (TimeOnTask)theEObject;
-				T result = caseTimeOnTask(timeOnTask);
-				if (result == null) result = caseOtherMeasurement(timeOnTask);
-				if (result == null) result = caseMeasurement(timeOnTask);
+			case MeasurementsPackage.FINAL_TASK: {
+				FinalTask finalTask = (FinalTask)theEObject;
+				T result = caseFinalTask(finalTask);
+				if (result == null) result = caseAutomaticMeasurement(finalTask);
+				if (result == null) result = caseMeasurement(finalTask);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case MeasurementsPackage.EDITION: {
 				Edition edition = (Edition)theEObject;
 				T result = caseEdition(edition);
-				if (result == null) result = caseObservingArtifact(edition);
-				if (result == null) result = caseOtherMeasurement(edition);
+				if (result == null) result = caseActions(edition);
+				if (result == null) result = caseAutomaticMeasurement(edition);
 				if (result == null) result = caseMeasurement(edition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -103,8 +103,8 @@ public class MeasurementsSwitch<T> extends Switch<T> {
 			case MeasurementsPackage.EXECUTION: {
 				Execution execution = (Execution)theEObject;
 				T result = caseExecution(execution);
-				if (result == null) result = caseObservingArtifact(execution);
-				if (result == null) result = caseOtherMeasurement(execution);
+				if (result == null) result = caseActions(execution);
+				if (result == null) result = caseAutomaticMeasurement(execution);
 				if (result == null) result = caseMeasurement(execution);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -112,8 +112,8 @@ public class MeasurementsSwitch<T> extends Switch<T> {
 			case MeasurementsPackage.ANY_ACTION: {
 				AnyAction anyAction = (AnyAction)theEObject;
 				T result = caseAnyAction(anyAction);
-				if (result == null) result = caseObservingArtifact(anyAction);
-				if (result == null) result = caseOtherMeasurement(anyAction);
+				if (result == null) result = caseActions(anyAction);
+				if (result == null) result = caseAutomaticMeasurement(anyAction);
 				if (result == null) result = caseMeasurement(anyAction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -122,8 +122,8 @@ public class MeasurementsSwitch<T> extends Switch<T> {
 				TestExecution testExecution = (TestExecution)theEObject;
 				T result = caseTestExecution(testExecution);
 				if (result == null) result = caseExecution(testExecution);
-				if (result == null) result = caseObservingArtifact(testExecution);
-				if (result == null) result = caseOtherMeasurement(testExecution);
+				if (result == null) result = caseActions(testExecution);
+				if (result == null) result = caseAutomaticMeasurement(testExecution);
 				if (result == null) result = caseMeasurement(testExecution);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -133,47 +133,47 @@ public class MeasurementsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Other Measurement</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Automatic Measurement</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Other Measurement</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Automatic Measurement</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseOtherMeasurement(OtherMeasurement object) {
+	public T caseAutomaticMeasurement(AutomaticMeasurement object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Observing Artifact</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Actions</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Observing Artifact</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Actions</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseObservingArtifact(ObservingArtifact object) {
+	public T caseActions(Actions object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Time On Task</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Final Task</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Time On Task</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Final Task</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseTimeOnTask(TimeOnTask object) {
+	public T caseFinalTask(FinalTask object) {
 		return null;
 	}
 

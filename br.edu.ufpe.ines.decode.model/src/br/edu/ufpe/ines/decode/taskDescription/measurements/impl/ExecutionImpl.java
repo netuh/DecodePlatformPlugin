@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class ExecutionImpl extends ObservingArtifactImpl implements Execution {
+public class ExecutionImpl extends ActionsImpl implements Execution {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

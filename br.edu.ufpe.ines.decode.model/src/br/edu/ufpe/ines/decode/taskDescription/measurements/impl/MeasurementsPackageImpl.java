@@ -22,18 +22,19 @@ import br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionPackage;
 
 import br.edu.ufpe.ines.decode.taskDescription.impl.TaskDescriptionPackageImpl;
 
+import br.edu.ufpe.ines.decode.taskDescription.measurements.Actions;
 import br.edu.ufpe.ines.decode.taskDescription.measurements.AnyAction;
+import br.edu.ufpe.ines.decode.taskDescription.measurements.AutomaticMeasurement;
 import br.edu.ufpe.ines.decode.taskDescription.measurements.Edition;
 import br.edu.ufpe.ines.decode.taskDescription.measurements.Execution;
+import br.edu.ufpe.ines.decode.taskDescription.measurements.FinalTask;
+import br.edu.ufpe.ines.decode.taskDescription.measurements.LogType;
 import br.edu.ufpe.ines.decode.taskDescription.measurements.MeasurementsFactory;
 import br.edu.ufpe.ines.decode.taskDescription.measurements.MeasurementsPackage;
-import br.edu.ufpe.ines.decode.taskDescription.measurements.ObservingArtifact;
-import br.edu.ufpe.ines.decode.taskDescription.measurements.OtherMeasurement;
 import br.edu.ufpe.ines.decode.taskDescription.measurements.TestExecution;
-import br.edu.ufpe.ines.decode.taskDescription.measurements.TimeOnTask;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
@@ -52,21 +53,21 @@ public class MeasurementsPackageImpl extends EPackageImpl implements Measurement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass otherMeasurementEClass = null;
+	private EClass automaticMeasurementEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass observingArtifactEClass = null;
+	private EClass actionsEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass timeOnTaskEClass = null;
+	private EClass finalTaskEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -95,6 +96,13 @@ public class MeasurementsPackageImpl extends EPackageImpl implements Measurement
 	 * @generated
 	 */
 	private EClass testExecutionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum logTypeEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -182,8 +190,8 @@ public class MeasurementsPackageImpl extends EPackageImpl implements Measurement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getOtherMeasurement() {
-		return otherMeasurementEClass;
+	public EClass getAutomaticMeasurement() {
+		return automaticMeasurementEClass;
 	}
 
 	/**
@@ -191,8 +199,8 @@ public class MeasurementsPackageImpl extends EPackageImpl implements Measurement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getObservingArtifact() {
-		return observingArtifactEClass;
+	public EAttribute getAutomaticMeasurement_Log() {
+		return (EAttribute)automaticMeasurementEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -200,8 +208,17 @@ public class MeasurementsPackageImpl extends EPackageImpl implements Measurement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getTimeOnTask() {
-		return timeOnTaskEClass;
+	public EClass getActions() {
+		return actionsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getFinalTask() {
+		return finalTaskEClass;
 	}
 
 	/**
@@ -254,6 +271,15 @@ public class MeasurementsPackageImpl extends EPackageImpl implements Measurement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getLogType() {
+		return logTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public MeasurementsFactory getMeasurementsFactory() {
 		return (MeasurementsFactory)getEFactoryInstance();
 	}
@@ -277,11 +303,12 @@ public class MeasurementsPackageImpl extends EPackageImpl implements Measurement
 		isCreated = true;
 
 		// Create classes and their features
-		otherMeasurementEClass = createEClass(OTHER_MEASUREMENT);
+		automaticMeasurementEClass = createEClass(AUTOMATIC_MEASUREMENT);
+		createEAttribute(automaticMeasurementEClass, AUTOMATIC_MEASUREMENT__LOG);
 
-		observingArtifactEClass = createEClass(OBSERVING_ARTIFACT);
+		actionsEClass = createEClass(ACTIONS);
 
-		timeOnTaskEClass = createEClass(TIME_ON_TASK);
+		finalTaskEClass = createEClass(FINAL_TASK);
 
 		editionEClass = createEClass(EDITION);
 
@@ -291,6 +318,9 @@ public class MeasurementsPackageImpl extends EPackageImpl implements Measurement
 
 		testExecutionEClass = createEClass(TEST_EXECUTION);
 		createEAttribute(testExecutionEClass, TEST_EXECUTION__OBSERVE_PASSED_TEST);
+
+		// Create enums
+		logTypeEEnum = createEEnum(LOG_TYPE);
 	}
 
 	/**
@@ -325,20 +355,21 @@ public class MeasurementsPackageImpl extends EPackageImpl implements Measurement
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		otherMeasurementEClass.getESuperTypes().add(theTaskDescriptionPackage.getMeasurement());
-		observingArtifactEClass.getESuperTypes().add(this.getOtherMeasurement());
-		timeOnTaskEClass.getESuperTypes().add(this.getOtherMeasurement());
-		editionEClass.getESuperTypes().add(this.getObservingArtifact());
-		executionEClass.getESuperTypes().add(this.getObservingArtifact());
-		anyActionEClass.getESuperTypes().add(this.getObservingArtifact());
+		automaticMeasurementEClass.getESuperTypes().add(theTaskDescriptionPackage.getMeasurement());
+		actionsEClass.getESuperTypes().add(this.getAutomaticMeasurement());
+		finalTaskEClass.getESuperTypes().add(this.getAutomaticMeasurement());
+		editionEClass.getESuperTypes().add(this.getActions());
+		executionEClass.getESuperTypes().add(this.getActions());
+		anyActionEClass.getESuperTypes().add(this.getActions());
 		testExecutionEClass.getESuperTypes().add(this.getExecution());
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(otherMeasurementEClass, OtherMeasurement.class, "OtherMeasurement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(automaticMeasurementEClass, AutomaticMeasurement.class, "AutomaticMeasurement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAutomaticMeasurement_Log(), this.getLogType(), "log", null, 0, 2, AutomaticMeasurement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(observingArtifactEClass, ObservingArtifact.class, "ObservingArtifact", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(actionsEClass, Actions.class, "Actions", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(timeOnTaskEClass, TimeOnTask.class, "TimeOnTask", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(finalTaskEClass, FinalTask.class, "FinalTask", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(editionEClass, Edition.class, "Edition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -348,6 +379,11 @@ public class MeasurementsPackageImpl extends EPackageImpl implements Measurement
 
 		initEClass(testExecutionEClass, TestExecution.class, "TestExecution", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTestExecution_ObservePassedTest(), theXMLTypePackage.getBoolean(), "observePassedTest", null, 0, 1, TestExecution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Initialize enums and add enum literals
+		initEEnum(logTypeEEnum, LogType.class, "LogType");
+		addEEnumLiteral(logTypeEEnum, LogType.LOG_TIME);
+		addEEnumLiteral(logTypeEEnum, LogType.LOG_ARTIFACT);
 	}
 
 } //MeasurementsPackageImpl

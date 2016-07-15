@@ -37,10 +37,10 @@
             ecoreFeature="ecore:EReference modelDecode.ecore#//taskDescription/ExperimentalTask/requires"/>
       </genClasses>
       <genClasses image="false" ecoreClass="modelDecode.ecore#//taskDescription/Restriction"/>
-      <genClasses ecoreClass="modelDecode.ecore#//taskDescription/PlacementQuestionnaire">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//taskDescription/PlacementQuestionnaire/placement"/>
+      <genClasses ecoreClass="modelDecode.ecore#//taskDescription/QuestionnaireMeasurement">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//taskDescription/QuestionnaireMeasurement/placement"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference modelDecode.ecore#//taskDescription/PlacementQuestionnaire/questionnaire"/>
+            ecoreFeature="ecore:EReference modelDecode.ecore#//taskDescription/QuestionnaireMeasurement/questionnaire"/>
       </genClasses>
       <genClasses ecoreClass="modelDecode.ecore#//taskDescription/ExecutionDerivations">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modelDecode.ecore#//taskDescription/ExecutionDerivations/tasks"/>
@@ -63,9 +63,15 @@
       <nestedGenPackages prefix="Measurements" basePackage="br.edu.ufpe.ines.decode.taskDescription"
           disposableProviderFactory="true" multipleEditorPages="false" generateModelWizard="false"
           ecorePackage="modelDecode.ecore#//taskDescription/measurements">
-        <genClasses image="false" ecoreClass="modelDecode.ecore#//taskDescription/measurements/OtherMeasurement"/>
-        <genClasses image="false" ecoreClass="modelDecode.ecore#//taskDescription/measurements/ObservingArtifact"/>
-        <genClasses ecoreClass="modelDecode.ecore#//taskDescription/measurements/TimeOnTask"/>
+        <genEnums typeSafeEnumCompatible="false" ecoreEnum="modelDecode.ecore#//taskDescription/measurements/LogType">
+          <genEnumLiterals ecoreEnumLiteral="modelDecode.ecore#//taskDescription/measurements/LogType/LogTime"/>
+          <genEnumLiterals ecoreEnumLiteral="modelDecode.ecore#//taskDescription/measurements/LogType/LogArtifact"/>
+        </genEnums>
+        <genClasses image="false" ecoreClass="modelDecode.ecore#//taskDescription/measurements/AutomaticMeasurement">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//taskDescription/measurements/AutomaticMeasurement/log"/>
+        </genClasses>
+        <genClasses image="false" ecoreClass="modelDecode.ecore#//taskDescription/measurements/Actions"/>
+        <genClasses ecoreClass="modelDecode.ecore#//taskDescription/measurements/FinalTask"/>
         <genClasses ecoreClass="modelDecode.ecore#//taskDescription/measurements/Edition"/>
         <genClasses ecoreClass="modelDecode.ecore#//taskDescription/measurements/Execution"/>
         <genClasses ecoreClass="modelDecode.ecore#//taskDescription/measurements/AnyAction"/>
