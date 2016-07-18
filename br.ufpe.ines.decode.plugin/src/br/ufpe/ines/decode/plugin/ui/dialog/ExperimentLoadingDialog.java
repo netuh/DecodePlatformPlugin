@@ -135,7 +135,7 @@ public class ExperimentLoadingDialog extends Dialog {
 			dialog.setMultipleSelection(false);
 			dialog.setEmptySelectionMessage("Select at least one");
 			if (dialog.open() == Window.OK){
-				manager2.setCurrentActionSet(tasks.get(dialog.getFirstResult()));
+				manager2.setCurrentActionSet(dialog.getFirstResult().toString(), tasks.get(dialog.getFirstResult()));
 			}
 		}
 	}

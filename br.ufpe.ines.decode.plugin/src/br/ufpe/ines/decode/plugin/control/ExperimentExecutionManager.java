@@ -40,11 +40,9 @@ public class ExperimentExecutionManager {
 		return singleton;
 	}
 
-	public void setCurrentActionSet(ModeledTask modeledTask) {
+	public void setCurrentActionSet(String taskTrack, ModeledTask modeledTask) {
 		findTask(modeledTask);
-		System.out.println("lifo size1="+lifoQueue.size());
 		currentTaskSet = lifoQueue.poll();
-		System.out.println("lifo size2="+lifoQueue.size());
 	}
 	
 	private void findTask (ModeledTask task){
