@@ -28,6 +28,7 @@ public class ExperimentExecutionManager {
 
 	private static ExperimentExecutionManager singleton = new ExperimentExecutionManager();
 	private ExperimentalTask currentTaskSet;
+	private String chooseTrack;
 	private boolean started = false;
 	private boolean configured = false;
 	private List<UsageMonitor> activeMonitors = new LinkedList<UsageMonitor> (); 
@@ -41,6 +42,7 @@ public class ExperimentExecutionManager {
 	}
 
 	public void setCurrentActionSet(String taskTrack, ModeledTask modeledTask) {
+		chooseTrack = taskTrack;
 		findTask(modeledTask);
 		currentTaskSet = lifoQueue.poll();
 	}
@@ -115,15 +117,12 @@ public class ExperimentExecutionManager {
 		innerData.add(aPieceOfData);
 	}
 
-	public boolean hasMoreTasks() {
-		System.out.println("lifo size="+lifoQueue.size());
-		return !lifoQueue.isEmpty();
-	}
-
 	public void exportData(String selected) throws IOException {
 		File f = new File(selected);
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		String json = gson.toJson(data);
+		Map <String, Object> identiData = new HashMap<String, Object>();
+		identiData.put(chooseTrack, data);
+		String json = gson.toJson(identiData);
 		FileWriter writer = new FileWriter(f);
 		writer.write(json);
 		writer.close();
