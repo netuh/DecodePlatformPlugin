@@ -10,11 +10,11 @@
  *******************************************************************************/
 package org.eclipse.epp.usagedata.internal.gathering.monitors;
 
-import br.ufpe.ines.decode.plugin.sandbox.SandBoxService;
+import br.ufpe.ines.decode.plugin.epp.usagedata.extension.ObservingService;
 
 public interface UsageMonitor {
 
-	public abstract void startMonitoring(SandBoxService usageDataService);
+	public abstract void startMonitoring(ObservingService usageDataService);
 
 	public abstract void stopMonitoring();
 

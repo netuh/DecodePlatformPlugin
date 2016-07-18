@@ -1,4 +1,4 @@
-package br.ufpe.ines.decode.plugin.sandbox;
+package br.ufpe.ines.decode.plugin.epp.usagedata.extension.actions;
 
 public enum ActionSystemInfo implements ActionInterface {
 	INFO_PROCESSORS("processors"), INFO_LOCALE("locale"), INFO_WS("ws"), INFO_ARCH("arch"), INFO_OS("os"), PROPERTY(

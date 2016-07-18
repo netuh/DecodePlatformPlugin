@@ -51,7 +51,8 @@ public class LaucherListerner implements ILaunchListener {
 			return;
 
 		IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
-		IProject project = root.getProject(manager.getAvailableProjectName());
+		//IProject project = root.getProject(manager.getAvailableProjectName());
+		IProject project = root.getProject("test");
 		ILaunchConfiguration config = launch.getLaunchConfiguration();
 		try {
 			IJavaProject javaProject = (IJavaProject) project.getNature(JavaCore.NATURE_ID);
@@ -62,12 +63,12 @@ public class LaucherListerner implements ILaunchListener {
 					.collect(Collectors.toList());
 			for (IResource iResource : config.getMappedResources()) {
 				for (IPackageFragment iPackageFragment : elements) {
-					Arrays.asList(iPackageFragment.getCompilationUnits())
-							.stream()
-							.filter(p -> p.getResource().equals(iResource))
-							.findFirst().
-							ifPresent(p -> {manager.addAction(p.getElementName(), currentLocalDate);
-							lastExecDate = currentLocalDate;});
+//					Arrays.asList(iPackageFragment.getCompilationUnits())
+//							.stream()
+//							.filter(p -> p.getResource().equals(iResource))
+//							.findFirst().
+//							ifPresent(p -> {manager.addAction(p.getElementName(), currentLocalDate);
+//							lastExecDate = currentLocalDate;});
 //							ifPresent(p -> {manager.addAction(exp,p.getElementName(), currentLocalDate);
 //											lastExecDate = currentLocalDate;});
 				}

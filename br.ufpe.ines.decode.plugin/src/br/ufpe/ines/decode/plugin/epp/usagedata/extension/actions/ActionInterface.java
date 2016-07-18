@@ -1,4 +1,4 @@
-package br.ufpe.ines.decode.plugin.sandbox;
+package br.ufpe.ines.decode.plugin.epp.usagedata.extension.actions;
 
 public interface ActionInterface {
   public String getKind();

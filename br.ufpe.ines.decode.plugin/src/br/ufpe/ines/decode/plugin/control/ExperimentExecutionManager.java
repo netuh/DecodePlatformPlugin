@@ -1,27 +1,38 @@
 package br.ufpe.ines.decode.plugin.control;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Queue;
 
 import org.eclipse.epp.usagedata.internal.gathering.monitors.UsageMonitor;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import br.edu.ufpe.ines.decode.taskDescription.ExperimentalTask;
 import br.edu.ufpe.ines.decode.taskDescription.Measurement;
 import br.edu.ufpe.ines.decode.taskDescription.ModeledTask;
 import br.edu.ufpe.ines.decode.taskDescription.Random;
 import br.edu.ufpe.ines.decode.taskDescription.measurements.AnyAction;
-import br.ufpe.ines.decode.plugin.sandbox.UsageMonitorFactory;
+import br.edu.ufpe.ines.decode.taskDescription.measurements.LogType;
+import br.ufpe.ines.decode.plugin.epp.usagedata.extension.UsageMonitorFactory;
+import br.ufpe.ines.decode.plugin.model.CollectedData;
 
 public class ExperimentExecutionManager {
 
-	protected static ExperimentExecutionManager singleton = new ExperimentExecutionManager();
+	private static ExperimentExecutionManager singleton = new ExperimentExecutionManager();
 	private ExperimentalTask currentTaskSet;
 	private boolean started = false;
 	private boolean configured = false;
 	private List<UsageMonitor> activeMonitors = new LinkedList<UsageMonitor> (); 
 	protected Queue<ExperimentalTask> lifoQueue = Collections.asLifoQueue(new LinkedList<ExperimentalTask>());
+	private Map<ExperimentalTask, List<CollectedData>> data = new HashMap<ExperimentalTask, List<CollectedData>>();
 
 	public static ExperimentExecutionManager getInstance() {
 		if (singleton == null)
@@ -31,7 +42,9 @@ public class ExperimentExecutionManager {
 
 	public void setCurrentActionSet(ModeledTask modeledTask) {
 		findTask(modeledTask);
+		System.out.println("lifo size1="+lifoQueue.size());
 		currentTaskSet = lifoQueue.poll();
+		System.out.println("lifo size2="+lifoQueue.size());
 	}
 	
 	private void findTask (ModeledTask task){
@@ -64,9 +77,10 @@ public class ExperimentExecutionManager {
 	public void startObserving() {
 		for (Measurement measurement : currentTaskSet.getMeasurements()) {
 			if (measurement instanceof AnyAction){
-				//AnyAction measuAnyAction = (AnyAction)measurement;
-				
-				activeMonitors.addAll(UsageMonitorFactory.startAllMonitor());
+				AnyAction measuAnyAction = (AnyAction)measurement;
+				List<LogType> actions = new LinkedList<LogType>(); 
+				measuAnyAction.getLog().forEach(action -> actions.add(action));
+				activeMonitors.addAll(UsageMonitorFactory.startAllMonitor(actions));
 			}
 		}
 		started = true;
@@ -92,6 +106,29 @@ public class ExperimentExecutionManager {
 		nextAtomicTask();
 		started = false;
 		configured = false;
+	}
+
+	public void addData(CollectedData aPieceOfData) {
+		List<CollectedData> innerData = data.get(currentTaskSet);
+		if (innerData == null){
+			innerData = new LinkedList<CollectedData>();
+			data.put(currentTaskSet,innerData);
+		}
+		innerData.add(aPieceOfData);
+	}
+
+	public boolean hasMoreTasks() {
+		System.out.println("lifo size="+lifoQueue.size());
+		return !lifoQueue.isEmpty();
+	}
+
+	public void exportData(String selected) throws IOException {
+		File f = new File(selected);
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		String json = gson.toJson(data);
+		FileWriter writer = new FileWriter(f);
+		writer.write(json);
+		writer.close();
 	}
 
 }

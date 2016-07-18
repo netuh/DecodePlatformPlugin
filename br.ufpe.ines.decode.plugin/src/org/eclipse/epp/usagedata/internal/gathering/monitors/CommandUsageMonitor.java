@@ -17,8 +17,8 @@ import org.eclipse.core.commands.NotHandledException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.commands.ICommandService;
 
-import br.ufpe.ines.decode.plugin.sandbox.ActionCommand;
-import br.ufpe.ines.decode.plugin.sandbox.SandBoxService;
+import br.ufpe.ines.decode.plugin.epp.usagedata.extension.ObservingService;
+import br.ufpe.ines.decode.plugin.epp.usagedata.extension.actions.ActionCommand;
 
 /**
  * Instances of this class monitor invocations of commands in the workbench.
@@ -37,7 +37,7 @@ public class CommandUsageMonitor implements UsageMonitor {
 
 	private ExtensionIdToBundleMapper commandToBundleIdMapper;
 
-	public void startMonitoring(final SandBoxService usageDataService) {
+	public void startMonitoring(final ObservingService usageDataService) {
 		executionListener = new IExecutionListener() {
 			public void notHandled(String commandId, NotHandledException exception) {
 				usageDataService.recordEvent(ActionCommand.NO_HANDLER, commandId, getBundleId(commandId));

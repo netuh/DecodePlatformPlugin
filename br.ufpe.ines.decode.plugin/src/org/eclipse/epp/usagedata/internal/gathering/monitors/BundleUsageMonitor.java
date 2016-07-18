@@ -16,8 +16,8 @@ import org.osgi.framework.BundleEvent;
 import org.osgi.framework.BundleListener;
 
 import br.ufpe.ines.decode.plugin.Activator;
-import br.ufpe.ines.decode.plugin.sandbox.ActionBundle;
-import br.ufpe.ines.decode.plugin.sandbox.SandBoxService;
+import br.ufpe.ines.decode.plugin.epp.usagedata.extension.ObservingService;
+import br.ufpe.ines.decode.plugin.epp.usagedata.extension.actions.ActionBundle;
 
 /**
  * Instances of this class hook into the {@link BundleContext} so
@@ -44,7 +44,7 @@ public class BundleUsageMonitor implements UsageMonitor {
 //	private static final String BUNDLE = "bundle"; //$NON-NLS-1$
 	private BundleListener bundleUsageListener;
 
-	public void startMonitoring(final SandBoxService usageDataService) {
+	public void startMonitoring(final ObservingService usageDataService) {
 		// First, create events for all the bundles that have already been registered.
 		recordCurrentlyActiveBundles(usageDataService);
 		
@@ -59,7 +59,7 @@ public class BundleUsageMonitor implements UsageMonitor {
 	}
 
 
-	private void recordCurrentlyActiveBundles(SandBoxService usageDataService) {
+	private void recordCurrentlyActiveBundles(ObservingService usageDataService) {
 		for (Bundle bundle : getBundleContext().getBundles()) {
 			if (bundle.getState() != Bundle.ACTIVE) continue;
 			String bundleId = bundle.getSymbolicName();

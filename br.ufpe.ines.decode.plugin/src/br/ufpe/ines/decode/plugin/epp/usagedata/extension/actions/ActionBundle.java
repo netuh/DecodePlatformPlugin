@@ -1,4 +1,4 @@
-package br.ufpe.ines.decode.plugin.sandbox;
+package br.ufpe.ines.decode.plugin.epp.usagedata.extension.actions;
 
 import org.osgi.framework.BundleEvent;
 

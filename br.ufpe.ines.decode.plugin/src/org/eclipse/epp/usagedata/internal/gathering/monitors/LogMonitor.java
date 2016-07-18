@@ -14,7 +14,8 @@ import org.eclipse.core.runtime.ILogListener;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Platform;
 
-import br.ufpe.ines.decode.plugin.sandbox.SandBoxService;
+import br.ufpe.ines.decode.plugin.epp.usagedata.extension.ObservingService;
+import br.ufpe.ines.decode.plugin.epp.usagedata.extension.actions.ActionLog;
 
 /**
  * The {@link LogMonitor} class records messages that are
@@ -26,18 +27,19 @@ import br.ufpe.ines.decode.plugin.sandbox.SandBoxService;
  */
 public class LogMonitor implements UsageMonitor {
 	
-	private static final String WHAT_ERROR = "error"; //$NON-NLS-1$
-	private static final String KIND_LOG = "log"; //$NON-NLS-1$
+//	private static final String WHAT_ERROR = "error"; //$NON-NLS-1$
+//	private static final String KIND_LOG = "log"; //$NON-NLS-1$
 	
-	private SandBoxService usageDataService;
+	private ObservingService usageDataService;
 	ILogListener listener = new ILogListener() {
 		public void logging(IStatus status, String plugin) {
 			if (status.getSeverity() != IStatus.ERROR) return;
-			usageDataService.recordEvent(WHAT_ERROR, KIND_LOG, status.getMessage(), null);
+			//usageDataService.recordEvent(WHAT_ERROR, KIND_LOG, status.getMessage(), null);
+			usageDataService.recordEvent(ActionLog.WHAT_ERROR, status.getMessage(), null);
 		}
 	};
 	
-	public void startMonitoring(SandBoxService usageDataService) {
+	public void startMonitoring(ObservingService usageDataService) {
 		this.usageDataService = usageDataService;
 		Platform.addLogListener(listener);
 	}

@@ -1,4 +1,4 @@
-package br.ufpe.ines.decode.plugin.sandbox;
+package br.ufpe.ines.decode.plugin.epp.usagedata.extension.actions;
 
 import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.IPerspectiveDescriptor;
@@ -7,7 +7,7 @@ import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.IWorkbenchPartSite;
 import org.eclipse.ui.IWorkbenchWindow;
 
-public enum PartAction implements ActionInterface {
+public enum ActionPart implements ActionInterface {
 	DEACTIVATED("deactivated"),
 	ACTIVATED("activated"),
 	CLOSED("closed"),
@@ -56,7 +56,7 @@ public enum PartAction implements ActionInterface {
 
 	private String kind;
 	private String description;
-	private PartAction(String kind) {
+	private ActionPart(String kind) {
 		this.kind = kind;
 	}
 	

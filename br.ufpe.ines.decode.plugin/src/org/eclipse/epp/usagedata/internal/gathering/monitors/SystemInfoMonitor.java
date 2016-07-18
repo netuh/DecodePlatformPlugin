@@ -12,8 +12,8 @@ package org.eclipse.epp.usagedata.internal.gathering.monitors;
 
 import org.eclipse.core.runtime.Platform;
 
-import br.ufpe.ines.decode.plugin.sandbox.ActionSystemInfo;
-import br.ufpe.ines.decode.plugin.sandbox.SandBoxService;
+import br.ufpe.ines.decode.plugin.epp.usagedata.extension.ObservingService;
+import br.ufpe.ines.decode.plugin.epp.usagedata.extension.actions.ActionSystemInfo;
 
 /**
  * This monitor captures information about the System. Specifically,
@@ -29,7 +29,7 @@ import br.ufpe.ines.decode.plugin.sandbox.SandBoxService;
  */
 public class SystemInfoMonitor implements UsageMonitor {
 	
-	public void startMonitoring(SandBoxService usageDataService) {
+	public void startMonitoring(ObservingService usageDataService) {
 		/*
 		 * If you look deep enough into the call chain, there is some
 		 * possibility that these Platform.xxx methods can cause a

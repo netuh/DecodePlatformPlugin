@@ -3,6 +3,7 @@ package br.ufpe.ines.decode.plugin.ui.dialog;
 import org.apache.log4j.Logger;
 import org.eclipse.jface.dialogs.InputDialog;
 import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
@@ -83,6 +84,9 @@ public class NativeDialogFactory {
 		case DEFAULT: {
 			FileDialog fileDialog = new FileDialog(shell, style);
 			fileDialog.setText(text);
+			if (style == SWT.SAVE){
+				fileDialog.setFileName("results.zip");
+			}
 			return fileDialog.open();
 		}
 		case TESTING: {
