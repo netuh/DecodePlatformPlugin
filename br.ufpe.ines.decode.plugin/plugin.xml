@@ -48,7 +48,7 @@
             commandId="br.ufpe.ines.decode.plugin.handler.startExperiment">
          <enabledWhen>
          	<test
-               property="br.ufpe.ines.decode.plugin.hasSelectedExperiment">
+               property="br.ufpe.ines.decode.plugin.hasConfiguredExperiment">
             </test>
          </enabledWhen>
       </handler>
@@ -116,6 +116,13 @@
             id="br.ufpe.ines.decode.stardedExperimentTester"
             namespace="br.ufpe.ines.decode.plugin"
             properties="hasStartedExperiment"
+            type="java.lang.Object">
+      </propertyTester>
+      <propertyTester
+            class="br.ufpe.ines.decode.plugin.ui.testers.StartExperimentTester"
+            id="br.ufpe.ines.decode.stardedExperimentTester"
+            namespace="br.ufpe.ines.decode.plugin"
+            properties="hasConfiguredExperiment"
             type="java.lang.Object">
       </propertyTester>
 	</extension>

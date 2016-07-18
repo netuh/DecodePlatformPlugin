@@ -31,6 +31,7 @@ public class ConfigureExperimentHandler  extends AbstractHandler {
 				e.printStackTrace();
 			}
 		}
+		manager.setConfigured();
 		return null;
 	}
 
