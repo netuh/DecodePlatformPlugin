@@ -38,7 +38,7 @@ public class JavaProjectCreator {
 
 	static final Logger logger = Logger.getLogger(JavaProjectCreator.class);
 
-	public void createProject(JavaProject javaProjectArtifact) throws CoreException, IOException {
+	public IProject createProject(JavaProject javaProjectArtifact) throws CoreException, IOException {
 		IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
 		String projectName = EclipseUtil.getAvailableName(javaProjectArtifact.getProjectName());
 		IProject project = root.getProject(projectName);
@@ -55,6 +55,7 @@ public class JavaProjectCreator {
 		for (OtherFile javaCU : javaProjectArtifact.getOtherFiles()) {
 			addToSrc(sourceFolder, javaCU);
 		}
+		return project;
 	}
 
 	private void addToSrc(IFolder sourceFolder, OtherFile javaCU) throws CoreException {

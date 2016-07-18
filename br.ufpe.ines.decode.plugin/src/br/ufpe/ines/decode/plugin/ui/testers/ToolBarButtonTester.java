@@ -4,7 +4,7 @@ import org.eclipse.core.expressions.PropertyTester;
 
 import br.ufpe.ines.decode.plugin.control.ExperimentExecutionManager;
 
-public class StartExperimentTester extends PropertyTester {
+public class ToolBarButtonTester extends PropertyTester {
 
 	private ExperimentExecutionManager manager = ExperimentExecutionManager.getInstance();
 

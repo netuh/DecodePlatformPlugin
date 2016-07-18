@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 
+import org.eclipse.core.resources.IProject;
 import org.eclipse.epp.usagedata.internal.gathering.monitors.UsageMonitor;
 
 import com.google.gson.Gson;
@@ -31,7 +32,8 @@ public class ExperimentExecutionManager {
 	private String chooseTrack;
 	private boolean started = false;
 	private boolean configured = false;
-	private List<UsageMonitor> activeMonitors = new LinkedList<UsageMonitor> (); 
+	private List<UsageMonitor> activeMonitors = new LinkedList<UsageMonitor> ();
+	private List<IProject> createdProject = new LinkedList<IProject> ();
 	protected Queue<ExperimentalTask> lifoQueue = Collections.asLifoQueue(new LinkedList<ExperimentalTask>());
 	private Map<ExperimentalTask, List<CollectedData>> data = new HashMap<ExperimentalTask, List<CollectedData>>();
 
@@ -104,6 +106,8 @@ public class ExperimentExecutionManager {
 	public void finishCurrentTask() {
 		stopObserving();
 		nextAtomicTask();
+
+		createdProject.clear();
 		started = false;
 		configured = false;
 	}
@@ -126,6 +130,14 @@ public class ExperimentExecutionManager {
 		FileWriter writer = new FileWriter(f);
 		writer.write(json);
 		writer.close();
+	}
+
+	public void addCreatedProject(IProject project) {
+		createdProject.add(project);
+	}
+
+	public boolean isCreated(IProject iProject) {
+		return createdProject.contains(iProject);
 	}
 
 }

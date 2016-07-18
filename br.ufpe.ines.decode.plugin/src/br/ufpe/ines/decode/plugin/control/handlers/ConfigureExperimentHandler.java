@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
 
 import br.edu.ufpe.ines.decode.artifacts.JavaProject;
@@ -26,7 +27,8 @@ public class ConfigureExperimentHandler  extends AbstractHandler {
 		JavaProjectCreator creator = new JavaProjectCreator();  
 		for (JavaProject javaProject : javaProjects) {
 			try {
-				creator.createProject(javaProject);
+				IProject project = creator.createProject(javaProject);
+				manager.addCreatedProject(project);
 			} catch (CoreException | IOException e) {
 				e.printStackTrace();
 			}

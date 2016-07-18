@@ -105,21 +105,21 @@
    </extension>
 	<extension point="org.eclipse.core.expressions.propertyTesters">
       <propertyTester
-            class="br.ufpe.ines.decode.plugin.ui.testers.StartExperimentTester"
+            class="br.ufpe.ines.decode.plugin.ui.testers.ToolBarButtonTester"
             id="br.ufpe.ines.decode.selectedExperimentTester"
             namespace="br.ufpe.ines.decode.plugin"
             properties="hasSelectedExperiment"
             type="java.lang.Object">
       </propertyTester>
       <propertyTester
-            class="br.ufpe.ines.decode.plugin.ui.testers.StartExperimentTester"
+            class="br.ufpe.ines.decode.plugin.ui.testers.ToolBarButtonTester"
             id="br.ufpe.ines.decode.stardedExperimentTester"
             namespace="br.ufpe.ines.decode.plugin"
             properties="hasStartedExperiment"
             type="java.lang.Object">
       </propertyTester>
       <propertyTester
-            class="br.ufpe.ines.decode.plugin.ui.testers.StartExperimentTester"
+            class="br.ufpe.ines.decode.plugin.ui.testers.ToolBarButtonTester"
             id="br.ufpe.ines.decode.stardedExperimentTester"
             namespace="br.ufpe.ines.decode.plugin"
             properties="hasConfiguredExperiment"
