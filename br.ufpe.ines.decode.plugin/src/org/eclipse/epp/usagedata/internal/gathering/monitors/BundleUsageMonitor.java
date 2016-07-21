@@ -30,18 +30,6 @@ import br.ufpe.ines.decode.plugin.epp.usagedata.extension.actions.ActionBundle;
 public class BundleUsageMonitor implements UsageMonitor {
 
 	private static final String BUNDLE_VERSION = "Bundle-Version"; //$NON-NLS-1$
-//	private static final String UNKNOWN = "unknown"; //$NON-NLS-1$
-//	private static final String UPDATED = "updated"; //$NON-NLS-1$
-//	private static final String UNRESOLVED = "unresolved"; //$NON-NLS-1$
-//	private static final String UNINSTALLED = "uninstalled"; //$NON-NLS-1$
-//	private static final String STOPPING = "stopping"; //$NON-NLS-1$
-//	private static final String STOPPED = "stopped"; //$NON-NLS-1$
-//	private static final String STARTING = "starting"; //$NON-NLS-1$
-//	private static final String RESOLVED = "resolved"; //$NON-NLS-1$
-//	private static final String LAZY_ACTIVATION = "lazy_activation"; //$NON-NLS-1$
-//	private static final String INSTALLED = "installed"; //$NON-NLS-1$
-//	private static final String STARTED = "started"; //$NON-NLS-1$
-//	private static final String BUNDLE = "bundle"; //$NON-NLS-1$
 	private BundleListener bundleUsageListener;
 
 	public void startMonitoring(final ObservingService usageDataService) {
@@ -51,8 +39,8 @@ public class BundleUsageMonitor implements UsageMonitor {
 		// Create an install a listener on the bundle context.
 		bundleUsageListener = new BundleListener() {
 			public void bundleChanged(BundleEvent event) {
-				//usageDataService.recordEvent(getWhatHappenedString(event), BUNDLE, event.getBundle().getSymbolicName(), event.getBundle().getSymbolicName(), getBundleVersion(event));
-				usageDataService.recordEvent(ActionBundle.findAction(event), event.getBundle().getSymbolicName(), getBundleVersion(event));
+				usageDataService.recordEvent(ActionBundle.findAction(event),
+				event.getBundle().getSymbolicName(), getBundleVersion(event));
 			}			
 		};
 		getBundleContext().addBundleListener(bundleUsageListener);
@@ -63,7 +51,6 @@ public class BundleUsageMonitor implements UsageMonitor {
 		for (Bundle bundle : getBundleContext().getBundles()) {
 			if (bundle.getState() != Bundle.ACTIVE) continue;
 			String bundleId = bundle.getSymbolicName();
-			//usageDataService.recordEvent(STARTED, BUNDLE, bundleId, bundleId, getBundleVersion(bundle));
 			usageDataService.recordEvent(ActionBundle.STARTED, bundleId, getBundleVersion(bundle));
 		}
 	}

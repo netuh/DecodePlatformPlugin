@@ -1,29 +1,20 @@
-package br.ufpe.ines.decode.plugin.model;
+package br.ufpe.ines.decode.plugin.epp.usagedata.extension.dataCollection;
 
 import java.time.Instant;
 
 import br.ufpe.ines.decode.plugin.epp.usagedata.extension.actions.ActionInterface;
 
-public class CollectedData {
+public class CollectedDataWithTime extends AtomicCollectedData {
 
-	private ActionInterface actionType;
 	private String commandId;
 	private String bundleId;
 	private Instant instant;
-	
-	public CollectedData(ActionInterface actionType, String commandId, String bundleId, Instant instant) {
-		this.actionType = actionType;
+
+	public CollectedDataWithTime(ActionInterface actionType, String commandId, String bundleId, Instant instant) {
+		super(actionType);
 		this.commandId = commandId;
 		this.bundleId = bundleId;
 		this.instant = instant;
-	}
-	
-	public ActionInterface getActionType() {
-		return actionType;
-	}
-
-	public void setActionType(ActionInterface actionType) {
-		this.actionType = actionType;
 	}
 
 	public String getCommandId() {

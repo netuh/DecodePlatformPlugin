@@ -20,7 +20,7 @@ public class ConfigureExperimentHandler  extends AbstractHandler {
 	private ExperimentExecutionManager manager = ExperimentExecutionManager.getInstance();
 
 	@Override
-	public Object execute(ExecutionEvent event) throws ExecutionException {
+	public Object execute(ExecutionEvent event) throws ExecutionException {		
 		ExperimentalTask task = manager.getCurrentTask();
 		List<JavaProject> javaProjects = task.getRequires().stream().filter(c -> c instanceof JavaProject)
 	    .map(JavaProject.class::cast).collect(Collectors.toList());

@@ -1,5 +1,6 @@
 package br.ufpe.ines.decode.plugin.ui.dialog;
 
+import java.io.File;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
@@ -97,7 +98,7 @@ public class ExperimentLoadingDialog extends Dialog {
 		        		parent.getShell(), "Save as...", SWT.OPEN);
 				try {
 					//manager.experimentFromFile2(selected);
-					manager.loadDecodeModel(selected);
+					manager.loadDecodeModel(new File(selected));
 				} catch (Exception e1) {
 					logger.debug(e1.getMessage(), e1);
 				}

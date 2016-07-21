@@ -31,6 +31,11 @@ public enum ActionBundle implements ActionInterface {
 		return description;
 	}
 
+	@Override
+	public Boolean allowAddingData() {
+		return true;
+	}
+
 	public static ActionInterface findAction(BundleEvent event) {
 		switch (event.getType()) {
 		case BundleEvent.INSTALLED: return INSTALLED;

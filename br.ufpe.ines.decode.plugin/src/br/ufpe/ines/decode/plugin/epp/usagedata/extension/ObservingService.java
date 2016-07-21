@@ -6,21 +6,29 @@ import java.util.List;
 import br.edu.ufpe.ines.decode.taskDescription.measurements.LogType;
 import br.ufpe.ines.decode.plugin.control.ExperimentExecutionManager;
 import br.ufpe.ines.decode.plugin.epp.usagedata.extension.actions.ActionInterface;
-import br.ufpe.ines.decode.plugin.model.CollectedData;
+import br.ufpe.ines.decode.plugin.epp.usagedata.extension.dataCollection.AtomicCollectedData;
+import br.ufpe.ines.decode.plugin.epp.usagedata.extension.dataCollection.CollectedDataWithTime;
 
 public class ObservingService {
 
 	private ExperimentExecutionManager manager = ExperimentExecutionManager.getInstance();
-	private List<LogType> logType;
+	private List<LogType> whatToObsereve;
 
 	public ObservingService(List<LogType> logType) {
-		this.logType = logType;
+		this.whatToObsereve = logType;
 	}
 
 	public void recordEvent(ActionInterface actionType, String commandId, String bundleId) {
-		for (LogType aLogType : logType) {
+		if (!actionType.allowAddingData()){
+			AtomicCollectedData aPieceOfData = new AtomicCollectedData(actionType);
+			manager.addData(aPieceOfData);
+			return;
+		}
+		
+		
+		for (LogType aLogType : whatToObsereve) {
 			if (aLogType.equals(LogType.LOG_TIME)){
-				CollectedData aPieceOfData = new CollectedData (actionType, commandId, bundleId, Instant.MIN); 
+				CollectedDataWithTime aPieceOfData = new CollectedDataWithTime (actionType, commandId, bundleId, Instant.MIN); 
 				manager.addData(aPieceOfData);
 			}
 		}

@@ -19,6 +19,11 @@ public enum ActionCommand implements ActionInterface{
 	public String getDescription() {
 		return description;
 	}
+
+	@Override
+	public Boolean allowAddingData() {
+		return true;
+	}
 //	BUNDLE,
 //	KIND_LOG,
 //	WORKBENCH,

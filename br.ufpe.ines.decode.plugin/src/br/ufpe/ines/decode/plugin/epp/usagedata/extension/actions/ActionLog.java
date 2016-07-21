@@ -18,4 +18,9 @@ public enum ActionLog  implements ActionInterface {
 	public String getDescription() {
 		return description;
 	}
+
+	@Override
+	public Boolean allowAddingData() {
+		return true;
+	}
 }

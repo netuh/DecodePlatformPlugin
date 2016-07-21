@@ -28,6 +28,10 @@ public class LoadExperimentHandler extends AbstractHandler {
 	 * from the application context.
 	 */
 	public Object execute(ExecutionEvent event) throws ExecutionException {
+		//List<IVersionedId> ids = new LinkedList<IVersionedId>();
+		//gr.uom.java.jdeodorant;bundle-version="5.0.60"
+		//ids.add(new VersionedId("gr.uom.java.jdeodorant","5.0.60"));
+
 		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
 
 		Shell shell = window.getShell();

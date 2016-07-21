@@ -70,6 +70,11 @@ public enum ActionPart implements ActionInterface {
 		return description;
 	}
 	
+	@Override
+	public Boolean allowAddingData() {
+		return true;
+	}
+	
 	public void setDescription(String element) {
 		description = element;
 	}

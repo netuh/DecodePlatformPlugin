@@ -19,6 +19,11 @@ public enum ActionSystemInfo implements ActionInterface {
 	public String getDescription() {
 		return description;
 	}
+	
+	@Override
+	public Boolean allowAddingData() {
+		return false;
+	}
 
 	public void setDescription(String newValue) {
 		if (this.equals(PROPERTY))
