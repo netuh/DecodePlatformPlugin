@@ -508,7 +508,6 @@ public interface ArtifactsPackage extends EPackage {
 	 */
 	int JAVA_COMP_UNIT_OPERATION_COUNT = COMPILATION_UNIT_OPERATION_COUNT + 0;
 
-
 	/**
 	 * The meta object id for the '{@link br.edu.ufpe.ines.decode.artifacts.impl.OtherFileImpl <em>Other File</em>}' class.
 	 * <!-- begin-user-doc -->
@@ -581,7 +580,6 @@ public interface ArtifactsPackage extends EPackage {
 	 * @ordered
 	 */
 	int OTHER_FILE_OPERATION_COUNT = FILE_ARTIFACT_OPERATION_COUNT + 0;
-
 
 	/**
 	 * The meta object id for the '{@link br.edu.ufpe.ines.decode.artifacts.impl.LibraryImpl <em>Library</em>}' class.

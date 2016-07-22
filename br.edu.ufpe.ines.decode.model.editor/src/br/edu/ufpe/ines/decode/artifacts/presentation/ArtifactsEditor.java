@@ -149,11 +149,13 @@ import br.edu.ufpe.ines.decode.artifacts.provider.ArtifactsItemProviderAdapterFa
 import br.edu.ufpe.ines.decode.artifacts.questionnaire.provider.QuestionnaireItemProviderAdapterFactory;
 
 import br.edu.ufpe.ines.decode.aux.provider.AuxItemProviderAdapterFactory;
+
 import br.edu.ufpe.ines.decode.presentation.ModelDecodeEditorPlugin;
 
 import br.edu.ufpe.ines.decode.provider.DecodeItemProviderAdapterFactory;
 
 import br.edu.ufpe.ines.decode.taskDescription.measurements.provider.MeasurementsItemProviderAdapterFactory;
+
 import br.edu.ufpe.ines.decode.taskDescription.provider.TaskDescriptionItemProviderAdapterFactory;
 
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
@@ -1064,7 +1066,7 @@ public class ArtifactsEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@SuppressWarnings("rawtypes")
 	@Override
 	public Object getAdapter(Class key) {
 		if (key.equals(IContentOutlinePage.class)) {

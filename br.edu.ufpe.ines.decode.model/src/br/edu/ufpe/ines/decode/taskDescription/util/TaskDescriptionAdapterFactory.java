@@ -2,6 +2,7 @@
  */
 package br.edu.ufpe.ines.decode.taskDescription.util;
 
+import br.edu.ufpe.ines.decode.aux.Identifiable;
 import br.edu.ufpe.ines.decode.aux.Nameable;
 
 import br.edu.ufpe.ines.decode.taskDescription.*;
@@ -128,6 +129,10 @@ public class TaskDescriptionAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseNameable(Nameable object) {
 				return createNameableAdapter();
+			}
+			@Override
+			public Adapter caseIdentifiable(Identifiable object) {
+				return createIdentifiableAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -356,6 +361,20 @@ public class TaskDescriptionAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createNameableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link br.edu.ufpe.ines.decode.aux.Identifiable <em>Identifiable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see br.edu.ufpe.ines.decode.aux.Identifiable
+	 * @generated
+	 */
+	public Adapter createIdentifiableAdapter() {
 		return null;
 	}
 

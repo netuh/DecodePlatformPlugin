@@ -326,7 +326,6 @@ public interface MeasurementsPackage extends EPackage {
 	 */
 	int TEST_EXECUTION_OPERATION_COUNT = EXECUTION_OPERATION_COUNT + 0;
 
-
 	/**
 	 * The meta object id for the '{@link br.edu.ufpe.ines.decode.taskDescription.measurements.LogType <em>Log Type</em>}' enum.
 	 * <!-- begin-user-doc -->

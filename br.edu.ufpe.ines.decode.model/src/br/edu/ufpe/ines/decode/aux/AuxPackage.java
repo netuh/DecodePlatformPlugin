@@ -92,6 +92,43 @@ public interface AuxPackage extends EPackage {
 	 */
 	int NAMEABLE_OPERATION_COUNT = 0;
 
+	/**
+	 * The meta object id for the '{@link br.edu.ufpe.ines.decode.aux.impl.IdentifiableImpl <em>Identifiable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see br.edu.ufpe.ines.decode.aux.impl.IdentifiableImpl
+	 * @see br.edu.ufpe.ines.decode.aux.impl.AuxPackageImpl#getIdentifiable()
+	 * @generated
+	 */
+	int IDENTIFIABLE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Element Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IDENTIFIABLE__ELEMENT_ID = 0;
+
+	/**
+	 * The number of structural features of the '<em>Identifiable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IDENTIFIABLE_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Identifiable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IDENTIFIABLE_OPERATION_COUNT = 0;
+
 
 	/**
 	 * Returns the meta object for class '{@link br.edu.ufpe.ines.decode.aux.Nameable <em>Nameable</em>}'.
@@ -113,6 +150,27 @@ public interface AuxPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getNameable_Name();
+
+	/**
+	 * Returns the meta object for class '{@link br.edu.ufpe.ines.decode.aux.Identifiable <em>Identifiable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Identifiable</em>'.
+	 * @see br.edu.ufpe.ines.decode.aux.Identifiable
+	 * @generated
+	 */
+	EClass getIdentifiable();
+
+	/**
+	 * Returns the meta object for the attribute '{@link br.edu.ufpe.ines.decode.aux.Identifiable#getElementId <em>Element Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Element Id</em>'.
+	 * @see br.edu.ufpe.ines.decode.aux.Identifiable#getElementId()
+	 * @see #getIdentifiable()
+	 * @generated
+	 */
+	EAttribute getIdentifiable_ElementId();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -154,6 +212,24 @@ public interface AuxPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute NAMEABLE__NAME = eINSTANCE.getNameable_Name();
+
+		/**
+		 * The meta object literal for the '{@link br.edu.ufpe.ines.decode.aux.impl.IdentifiableImpl <em>Identifiable</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see br.edu.ufpe.ines.decode.aux.impl.IdentifiableImpl
+		 * @see br.edu.ufpe.ines.decode.aux.impl.AuxPackageImpl#getIdentifiable()
+		 * @generated
+		 */
+		EClass IDENTIFIABLE = eINSTANCE.getIdentifiable();
+
+		/**
+		 * The meta object literal for the '<em><b>Element Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute IDENTIFIABLE__ELEMENT_ID = eINSTANCE.getIdentifiable_ElementId();
 
 	}
 

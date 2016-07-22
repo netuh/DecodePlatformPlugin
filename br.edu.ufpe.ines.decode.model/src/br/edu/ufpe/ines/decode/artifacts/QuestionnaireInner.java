@@ -5,7 +5,9 @@ package br.edu.ufpe.ines.decode.artifacts;
 import br.edu.ufpe.ines.decode.artifacts.questionnaire.ElementaryComponent;
 
 import br.edu.ufpe.ines.decode.aux.Nameable;
+
 import br.edu.ufpe.ines.decode.taskDescription.QuestionnaireMeasurement;
+
 import org.eclipse.emf.common.util.EList;
 
 /**

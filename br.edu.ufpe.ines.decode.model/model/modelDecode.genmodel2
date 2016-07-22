@@ -320,6 +320,12 @@
           <ecoreFeature xsi:type="ecore:EAttribute" href="modelDecode.ecore#//aux/Nameable/name"/>
         </genFeatures>
       </genClasses>
+      <genClasses>
+        <ecoreClass href="modelDecode.ecore#//aux/Identifiable"/>
+        <genFeatures createChild="false">
+          <ecoreFeature xsi:type="ecore:EAttribute" href="modelDecode.ecore#//aux/Identifiable/elementId"/>
+        </genFeatures>
+      </genClasses>
     </nestedGenPackages>
   </genPackages>
 </genmodel:GenModel>

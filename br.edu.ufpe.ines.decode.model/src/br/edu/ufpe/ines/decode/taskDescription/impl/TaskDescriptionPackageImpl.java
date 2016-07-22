@@ -616,6 +616,7 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 
 		// Add supertypes to classes
 		modeledTaskEClass.getESuperTypes().add(theAuxPackage.getNameable());
+		modeledTaskEClass.getESuperTypes().add(theAuxPackage.getIdentifiable());
 		sequencialEClass.getESuperTypes().add(this.getComposedTask());
 		randomEClass.getESuperTypes().add(this.getComposedTask());
 		composedTaskEClass.getESuperTypes().add(this.getModeledTask());

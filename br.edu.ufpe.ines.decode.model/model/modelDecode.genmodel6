@@ -12,7 +12,7 @@
         <ecoreFeature xsi:type="ecore:EReference" href="modelDecode.ecore#//CodingExperiment/providedArtefacts"/>
       </genFeatures>
     </genClasses>
-    <nestedGenPackages prefix="TaskDescription" basePackage="br.edu.ufpe.ines.decode" disposableProviderFactory="true" multipleEditorPages="false" generateModelWizard="false">
+    <nestedGenPackages prefix="TaskDescription" basePackage="br.edu.ufpe.ines.decode" resource="XML" disposableProviderFactory="true" multipleEditorPages="false" generateModelWizard="false">
       <ecorePackage href="modelDecode.ecore#//taskDescription"/>
       <genEnums typeSafeEnumCompatible="false">
         <ecoreEnum href="modelDecode.ecore#//taskDescription/PlacementType"/>
@@ -59,14 +59,8 @@
           <ecoreFeature xsi:type="ecore:EReference" href="modelDecode.ecore#//taskDescription/ExperimentalTask/requires"/>
         </genFeatures>
       </genClasses>
-      <genClasses>
+      <genClasses image="false">
         <ecoreClass href="modelDecode.ecore#//taskDescription/Restriction"/>
-        <genFeatures createChild="false">
-          <ecoreFeature xsi:type="ecore:EAttribute" href="modelDecode.ecore#//taskDescription/TimeRestriction/deadline"/>
-        </genFeatures>
-        <genFeatures createChild="false">
-          <ecoreFeature xsi:type="ecore:EAttribute" href="modelDecode.ecore#//taskDescription/TimeRestriction/timeFrame"/>
-        </genFeatures>
       </genClasses>
       <genClasses>
         <ecoreClass href="modelDecode.ecore#//taskDescription/QuestionnaireMeasurement"/>
@@ -92,7 +86,7 @@
           <ecoreFeature xsi:type="ecore:EAttribute" href="modelDecode.ecore#//taskDescription/TimeRestriction/deadline"/>
         </genFeatures>
       </genClasses>
-      <genClasses>
+      <genClasses image="false">
         <ecoreClass href="modelDecode.ecore#//taskDescription/SpecficRestriction"/>
       </genClasses>
       <genClasses>
@@ -113,10 +107,10 @@
           <ecoreFeature xsi:type="ecore:EReference" href="modelDecode.ecore#//taskDescription/ModeledRestrictions/children"/>
         </genFeatures>
       </genClasses>
-      <genClasses>
+      <genClasses image="false">
         <ecoreClass href="modelDecode.ecore#//taskDescription/Measurement"/>
       </genClasses>
-      <nestedGenPackages prefix="NewPackage1" disposableProviderFactory="true">
+      <nestedGenPackages prefix="Measurements" basePackage="br.edu.ufpe.ines.decode.taskDescription" disposableProviderFactory="true" multipleEditorPages="false" generateModelWizard="false">
         <ecorePackage href="modelDecode.ecore#//taskDescription/measurements"/>
         <genEnums typeSafeEnumCompatible="false">
           <ecoreEnum href="modelDecode.ecore#//taskDescription/measurements/LogType"/>
@@ -127,13 +121,13 @@
             <ecoreEnumLiteral href="modelDecode.ecore#//taskDescription/measurements/LogType/LogArtifact"/>
           </genEnumLiterals>
         </genEnums>
-        <genClasses>
+        <genClasses image="false">
           <ecoreClass href="modelDecode.ecore#//taskDescription/measurements/AutomaticMeasurement"/>
           <genFeatures createChild="false">
             <ecoreFeature xsi:type="ecore:EAttribute" href="modelDecode.ecore#//taskDescription/measurements/AutomaticMeasurement/log"/>
           </genFeatures>
         </genClasses>
-        <genClasses>
+        <genClasses image="false">
           <ecoreClass href="modelDecode.ecore#//taskDescription/measurements/Actions"/>
         </genClasses>
         <genClasses>
@@ -166,7 +160,7 @@
       </genClasses>
       <genClasses image="false">
         <ecoreClass href="modelDecode.ecore#//artifacts/FileArtifact"/>
-        <genFeatures createChild="false">
+        <genFeatures property="None" createChild="false">
           <ecoreFeature xsi:type="ecore:EAttribute" href="modelDecode.ecore#//artifacts/FileArtifact/file"/>
         </genFeatures>
         <genFeatures createChild="false">
@@ -208,9 +202,6 @@
         <genFeatures property="None" children="true" createChild="true">
           <ecoreFeature xsi:type="ecore:EReference" href="modelDecode.ecore#//artifacts/JavaProject/requiredLibrary"/>
         </genFeatures>
-        <genFeatures createChild="false">
-          <ecoreFeature xsi:type="ecore:EAttribute" href="modelDecode.ecore#//artifacts/ProjectIDE/projectName"/>
-        </genFeatures>
       </genClasses>
       <genClasses>
         <ecoreClass href="modelDecode.ecore#//artifacts/JavaCompUnit"/>
@@ -230,7 +221,7 @@
       <genClasses>
         <ecoreClass href="modelDecode.ecore#//artifacts/Library"/>
       </genClasses>
-      <nestedGenPackages prefix="Questionnaire" basePackage="br.edu.ufpe.ines.decode.decode.artifacts" disposableProviderFactory="true" multipleEditorPages="false" generateModelWizard="false">
+      <nestedGenPackages prefix="Questionnaire" basePackage="br.edu.ufpe.ines.decode.artifacts" disposableProviderFactory="true" multipleEditorPages="false" generateModelWizard="false">
         <ecorePackage href="modelDecode.ecore#//artifacts/questionnaire"/>
         <genClasses image="false">
           <ecoreClass href="modelDecode.ecore#//artifacts/questionnaire/ElementaryComponent"/>

@@ -22,6 +22,7 @@ import br.edu.ufpe.ines.decode.taskDescription.ModeledTask;
 import br.edu.ufpe.ines.decode.taskDescription.Random;
 import br.edu.ufpe.ines.decode.taskDescription.measurements.AnyAction;
 import br.edu.ufpe.ines.decode.taskDescription.measurements.LogType;
+import br.ufpe.ines.decode.plugin.control.export.ExecutionExportation;
 import br.ufpe.ines.decode.plugin.epp.usagedata.extension.UsageMonitorFactory;
 import br.ufpe.ines.decode.plugin.epp.usagedata.extension.dataCollection.CollectedDataInterface;
 
@@ -47,70 +48,6 @@ public class ExperimentExecutionManager {
 		if (singleton == null)
 			singleton = new ExperimentExecutionManager();
 		return singleton;
-	}
-	
-	public ExperimentalTask getCurrentTaskSet() {
-		return currentTaskSet;
-	}
-
-	public void setCurrentTaskSet(ExperimentalTask currentTaskSet) {
-		this.currentTaskSet = currentTaskSet;
-	}
-
-	public String getChooseTrack() {
-		return chooseTrack;
-	}
-
-	public void setChooseTrack(String chooseTrack) {
-		this.chooseTrack = chooseTrack;
-	}
-
-	public boolean isStarted() {
-		return started;
-	}
-
-	public void setStarted(boolean started) {
-		this.started = started;
-	}
-
-	public boolean isConfigured() {
-		return configured;
-	}
-
-	public void setConfigured(boolean configured) {
-		this.configured = configured;
-	}
-
-	public List<UsageMonitor> getActiveMonitors() {
-		return activeMonitors;
-	}
-
-	public void setActiveMonitors(List<UsageMonitor> activeMonitors) {
-		this.activeMonitors = activeMonitors;
-	}
-
-	public List<IProject> getCreatedProject() {
-		return createdProject;
-	}
-
-	public void setCreatedProject(List<IProject> createdProject) {
-		this.createdProject = createdProject;
-	}
-
-	public Queue<ExperimentalTask> getLifoQueue() {
-		return lifoQueue;
-	}
-
-	public void setLifoQueue(Queue<ExperimentalTask> lifoQueue) {
-		this.lifoQueue = lifoQueue;
-	}
-
-	public Map<Integer, List<CollectedDataInterface>> getData() {
-		return data;
-	}
-
-	public void setData(Map<Integer, List<CollectedDataInterface>> data) {
-		this.data = data;
 	}
 
 	public void setCurrentActionSet(String taskTrack, ModeledTask modeledTask) {
@@ -209,37 +146,14 @@ public class ExperimentExecutionManager {
 		return createdProject.contains(iProject);
 	}
 	
-	public ExperimentExecutionManagerSerilizable serialize() {
-		ExperimentExecutionManagerSerilizable copy = new ExperimentExecutionManagerSerilizable();
-		copy.setActiveMonitors(activeMonitors);
-		copy.setCurrentTaskSet(currentTaskSet);
-		copy.setCreatedProject(createdProject);
-		copy.setLifoQueue(lifoQueue);
-		copy.setData(data);
-
-		copy.setStarted(started);
-		copy.setConfigured(started);
-		
-		copy.setChooseTrack(chooseTrack);
-		return copy;
-	}
-	
-	public class ExperimentExecutionManagerSerilizable extends ExperimentExecutionManager{
-		
-	}
-
-	public void reload(ExperimentExecutionManagerSerilizable staff) {
-		if (staff != null){
-			this.setActiveMonitors(staff.getActiveMonitors());
-			this.setCurrentTaskSet(staff.getCurrentTaskSet());
-			this.setCreatedProject(staff.getCreatedProject());
-			this.setLifoQueue(staff.getLifoQueue());
-			this.setData(staff.getData());
-	
-			this.setStarted(staff.isStarted());
-			this.setConfigured(staff.isConfigured());
-			
-			this.setChooseTrack(staff.getChooseTrack());
-		}
+	public ExecutionExportation getExportation(){
+		ExecutionExportation ee = new ExecutionExportation();
+		ee.setData(data);
+		ee.setTaskSequence(lifoQueue);
+		ee.setCurrentTaskSet(currentTaskSet);
+//		ee.setChooseTrack(chooseTrack);
+//		ee.setStarted(started);
+//		ee.setConfigured(configured);
+		return ee;
 	}
 }

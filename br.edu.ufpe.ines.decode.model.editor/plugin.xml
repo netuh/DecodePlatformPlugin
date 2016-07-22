@@ -82,4 +82,5 @@
             contributorClass="br.edu.ufpe.ines.decode.artifacts.questionnaire.presentation.QuestionnaireActionBarContributor">
       </editor>
    </extension>
+
 </plugin>

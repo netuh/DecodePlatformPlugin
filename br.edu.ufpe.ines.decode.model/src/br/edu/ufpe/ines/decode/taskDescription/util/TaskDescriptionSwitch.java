@@ -2,6 +2,7 @@
  */
 package br.edu.ufpe.ines.decode.taskDescription.util;
 
+import br.edu.ufpe.ines.decode.aux.Identifiable;
 import br.edu.ufpe.ines.decode.aux.Nameable;
 
 import br.edu.ufpe.ines.decode.taskDescription.*;
@@ -72,6 +73,7 @@ public class TaskDescriptionSwitch<T> extends Switch<T> {
 				ModeledTask modeledTask = (ModeledTask)theEObject;
 				T result = caseModeledTask(modeledTask);
 				if (result == null) result = caseNameable(modeledTask);
+				if (result == null) result = caseIdentifiable(modeledTask);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -81,6 +83,7 @@ public class TaskDescriptionSwitch<T> extends Switch<T> {
 				if (result == null) result = caseComposedTask(sequencial);
 				if (result == null) result = caseModeledTask(sequencial);
 				if (result == null) result = caseNameable(sequencial);
+				if (result == null) result = caseIdentifiable(sequencial);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -90,6 +93,7 @@ public class TaskDescriptionSwitch<T> extends Switch<T> {
 				if (result == null) result = caseComposedTask(random);
 				if (result == null) result = caseModeledTask(random);
 				if (result == null) result = caseNameable(random);
+				if (result == null) result = caseIdentifiable(random);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -98,6 +102,7 @@ public class TaskDescriptionSwitch<T> extends Switch<T> {
 				T result = caseComposedTask(composedTask);
 				if (result == null) result = caseModeledTask(composedTask);
 				if (result == null) result = caseNameable(composedTask);
+				if (result == null) result = caseIdentifiable(composedTask);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -106,6 +111,7 @@ public class TaskDescriptionSwitch<T> extends Switch<T> {
 				T result = caseExperimentalTask(experimentalTask);
 				if (result == null) result = caseModeledTask(experimentalTask);
 				if (result == null) result = caseNameable(experimentalTask);
+				if (result == null) result = caseIdentifiable(experimentalTask);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -395,6 +401,21 @@ public class TaskDescriptionSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseNameable(Nameable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Identifiable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Identifiable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIdentifiable(Identifiable object) {
 		return null;
 	}
 

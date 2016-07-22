@@ -2,6 +2,7 @@
  */
 package br.edu.ufpe.ines.decode.taskDescription;
 
+import br.edu.ufpe.ines.decode.aux.Identifiable;
 import br.edu.ufpe.ines.decode.aux.Nameable;
 
 import org.eclipse.emf.common.util.EList;
@@ -23,7 +24,7 @@ import org.eclipse.emf.common.util.EList;
  * @model abstract="true"
  * @generated
  */
-public interface ModeledTask extends Nameable {
+public interface ModeledTask extends Nameable, Identifiable {
 	/**
 	 * Returns the value of the '<em><b>Restriction</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

@@ -1,10 +1,12 @@
 /**
  */
-package br.edu.ufpe.ines.decode.artifacts.provider;
+package br.edu.ufpe.ines.decode.aux.provider;
 
 
-import br.edu.ufpe.ines.decode.artifacts.ArtifactsPackage;
-import br.edu.ufpe.ines.decode.artifacts.ProjectIDE;
+import br.edu.ufpe.ines.decode.aux.AuxPackage;
+import br.edu.ufpe.ines.decode.aux.Identifiable;
+
+import br.edu.ufpe.ines.decode.provider.ModelDecodeEditPlugin;
 
 import java.util.Collection;
 import java.util.List;
@@ -12,25 +14,40 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
+import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
+import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link br.edu.ufpe.ines.decode.artifacts.ProjectIDE} object.
+ * This is the item provider adapter for a {@link br.edu.ufpe.ines.decode.aux.Identifiable} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ProjectIDEItemProvider extends AbstractArtifactItemProvider {
+public class IdentifiableItemProvider 
+	extends ItemProviderAdapter
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
+		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ProjectIDEItemProvider(AdapterFactory adapterFactory) {
+	public IdentifiableItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -45,26 +62,26 @@ public class ProjectIDEItemProvider extends AbstractArtifactItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addProjectNamePropertyDescriptor(object);
+			addElementIdPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Project Name feature.
+	 * This adds a property descriptor for the Element Id feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addProjectNamePropertyDescriptor(Object object) {
+	protected void addElementIdPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ProjectIDE_projectName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ProjectIDE_projectName_feature", "_UI_ProjectIDE_type"),
-				 ArtifactsPackage.Literals.PROJECT_IDE__PROJECT_NAME,
-				 true,
+				 getString("_UI_Identifiable_elementId_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Identifiable_elementId_feature", "_UI_Identifiable_type"),
+				 AuxPackage.Literals.IDENTIFIABLE__ELEMENT_ID,
+				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
@@ -80,10 +97,10 @@ public class ProjectIDEItemProvider extends AbstractArtifactItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ProjectIDE)object).getProjectName();
+		String label = ((Identifiable)object).getElementId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ProjectIDE_type") :
-			getString("_UI_ProjectIDE_type") + " " + label;
+			getString("_UI_Identifiable_type") :
+			getString("_UI_Identifiable_type") + " " + label;
 	}
 	
 
@@ -98,8 +115,8 @@ public class ProjectIDEItemProvider extends AbstractArtifactItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(ProjectIDE.class)) {
-			case ArtifactsPackage.PROJECT_IDE__PROJECT_NAME:
+		switch (notification.getFeatureID(Identifiable.class)) {
+			case AuxPackage.IDENTIFIABLE__ELEMENT_ID:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
@@ -116,6 +133,17 @@ public class ProjectIDEItemProvider extends AbstractArtifactItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
+
+	/**
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getResourceLocator() {
+		return ModelDecodeEditPlugin.INSTANCE;
 	}
 
 }

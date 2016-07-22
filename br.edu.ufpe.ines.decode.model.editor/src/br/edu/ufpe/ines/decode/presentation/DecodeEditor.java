@@ -123,8 +123,8 @@ import br.edu.ufpe.ines.decode.artifacts.provider.ArtifactsItemProviderAdapterFa
 import br.edu.ufpe.ines.decode.artifacts.questionnaire.provider.QuestionnaireItemProviderAdapterFactory;
 import br.edu.ufpe.ines.decode.aux.provider.AuxItemProviderAdapterFactory;
 import br.edu.ufpe.ines.decode.taskDescription.measurements.provider.MeasurementsItemProviderAdapterFactory;
-import br.edu.ufpe.ines.decode.provider.DecodeItemProviderAdapterFactory;
 import br.edu.ufpe.ines.decode.taskDescription.provider.TaskDescriptionItemProviderAdapterFactory;
+import br.edu.ufpe.ines.decode.provider.DecodeItemProviderAdapterFactory;
 
 
 /**

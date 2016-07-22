@@ -5,9 +5,9 @@ package br.edu.ufpe.ines.decode.artifacts.impl;
 import br.edu.ufpe.ines.decode.artifacts.ArtifactsPackage;
 import br.edu.ufpe.ines.decode.artifacts.JavaCompUnit;
 import br.edu.ufpe.ines.decode.artifacts.JavaProject;
-
 import br.edu.ufpe.ines.decode.artifacts.Library;
 import br.edu.ufpe.ines.decode.artifacts.OtherFile;
+
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;

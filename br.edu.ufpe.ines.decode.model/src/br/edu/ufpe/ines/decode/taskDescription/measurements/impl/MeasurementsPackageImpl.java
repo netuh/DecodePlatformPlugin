@@ -32,6 +32,7 @@ import br.edu.ufpe.ines.decode.taskDescription.measurements.LogType;
 import br.edu.ufpe.ines.decode.taskDescription.measurements.MeasurementsFactory;
 import br.edu.ufpe.ines.decode.taskDescription.measurements.MeasurementsPackage;
 import br.edu.ufpe.ines.decode.taskDescription.measurements.TestExecution;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;

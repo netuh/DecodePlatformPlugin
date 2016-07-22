@@ -79,13 +79,22 @@ public interface TaskDescriptionPackage extends EPackage {
 	int MODELED_TASK__NAME = AuxPackage.NAMEABLE__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Element Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODELED_TASK__ELEMENT_ID = AuxPackage.NAMEABLE_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Restriction</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODELED_TASK__RESTRICTION = AuxPackage.NAMEABLE_FEATURE_COUNT + 0;
+	int MODELED_TASK__RESTRICTION = AuxPackage.NAMEABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Measurements</b></em>' containment reference list.
@@ -94,7 +103,7 @@ public interface TaskDescriptionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODELED_TASK__MEASUREMENTS = AuxPackage.NAMEABLE_FEATURE_COUNT + 1;
+	int MODELED_TASK__MEASUREMENTS = AuxPackage.NAMEABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Modeled Task</em>' class.
@@ -103,7 +112,7 @@ public interface TaskDescriptionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODELED_TASK_FEATURE_COUNT = AuxPackage.NAMEABLE_FEATURE_COUNT + 2;
+	int MODELED_TASK_FEATURE_COUNT = AuxPackage.NAMEABLE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Modeled Task</em>' class.
@@ -132,6 +141,15 @@ public interface TaskDescriptionPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPOSED_TASK__NAME = MODELED_TASK__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Element Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSED_TASK__ELEMENT_ID = MODELED_TASK__ELEMENT_ID;
 
 	/**
 	 * The feature id for the '<em><b>Restriction</b></em>' containment reference.
@@ -187,6 +205,15 @@ public interface TaskDescriptionPackage extends EPackage {
 	 * @ordered
 	 */
 	int SEQUENCIAL__NAME = COMPOSED_TASK__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Element Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEQUENCIAL__ELEMENT_ID = COMPOSED_TASK__ELEMENT_ID;
 
 	/**
 	 * The feature id for the '<em><b>Restriction</b></em>' containment reference.
@@ -253,6 +280,15 @@ public interface TaskDescriptionPackage extends EPackage {
 	int RANDOM__NAME = COMPOSED_TASK__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Element Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RANDOM__ELEMENT_ID = COMPOSED_TASK__ELEMENT_ID;
+
+	/**
 	 * The feature id for the '<em><b>Restriction</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -315,6 +351,15 @@ public interface TaskDescriptionPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXPERIMENTAL_TASK__NAME = MODELED_TASK__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Element Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPERIMENTAL_TASK__ELEMENT_ID = MODELED_TASK__ELEMENT_ID;
 
 	/**
 	 * The feature id for the '<em><b>Restriction</b></em>' containment reference.

@@ -9,6 +9,7 @@ import br.edu.ufpe.ines.decode.artifacts.questionnaire.ElementaryComponent;
 
 import br.edu.ufpe.ines.decode.aux.AuxPackage;
 import br.edu.ufpe.ines.decode.aux.Nameable;
+
 import br.edu.ufpe.ines.decode.taskDescription.QuestionnaireMeasurement;
 import br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionPackage;
 

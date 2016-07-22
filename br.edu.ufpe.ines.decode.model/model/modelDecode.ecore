@@ -8,7 +8,7 @@
         eType="#//artifacts/ProvidedArtefacts" containment="true"/>
   </eClassifiers>
   <eSubpackages name="taskDescription" nsURI="taskDescription" nsPrefix="taskDescription">
-    <eClassifiers xsi:type="ecore:EClass" name="ModeledTask" abstract="true" eSuperTypes="#//aux/Nameable">
+    <eClassifiers xsi:type="ecore:EClass" name="ModeledTask" abstract="true" eSuperTypes="#//aux/Nameable #//aux/Identifiable">
       <eStructuralFeatures xsi:type="ecore:EReference" name="restriction" eType="#//taskDescription/ModeledRestrictions"
           containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="measurements" upperBound="-1"
@@ -172,6 +172,10 @@
   <eSubpackages name="aux" nsURI="aux" nsPrefix="aux">
     <eClassifiers xsi:type="ecore:EClass" name="Nameable" abstract="true">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Identifiable" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="elementId" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"
+          iD="true"/>
     </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>

@@ -14,6 +14,7 @@ import br.edu.ufpe.ines.decode.artifacts.questionnaire.impl.QuestionnairePackage
 
 import br.edu.ufpe.ines.decode.aux.AuxFactory;
 import br.edu.ufpe.ines.decode.aux.AuxPackage;
+import br.edu.ufpe.ines.decode.aux.Identifiable;
 import br.edu.ufpe.ines.decode.aux.Nameable;
 
 import br.edu.ufpe.ines.decode.impl.DecodePackageImpl;
@@ -47,6 +48,13 @@ public class AuxPackageImpl extends EPackageImpl implements AuxPackage {
 	 * @generated
 	 */
 	private EClass nameableEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass identifiableEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -152,6 +160,24 @@ public class AuxPackageImpl extends EPackageImpl implements AuxPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getIdentifiable() {
+		return identifiableEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIdentifiable_ElementId() {
+		return (EAttribute)identifiableEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public AuxFactory getAuxFactory() {
 		return (AuxFactory)getEFactoryInstance();
 	}
@@ -177,6 +203,9 @@ public class AuxPackageImpl extends EPackageImpl implements AuxPackage {
 		// Create classes and their features
 		nameableEClass = createEClass(NAMEABLE);
 		createEAttribute(nameableEClass, NAMEABLE__NAME);
+
+		identifiableEClass = createEClass(IDENTIFIABLE);
+		createEAttribute(identifiableEClass, IDENTIFIABLE__ELEMENT_ID);
 	}
 
 	/**
@@ -214,6 +243,9 @@ public class AuxPackageImpl extends EPackageImpl implements AuxPackage {
 		// Initialize classes, features, and operations; add parameters
 		initEClass(nameableEClass, Nameable.class, "Nameable", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNameable_Name(), theXMLTypePackage.getString(), "name", null, 0, 1, Nameable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(identifiableEClass, Identifiable.class, "Identifiable", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getIdentifiable_ElementId(), theXMLTypePackage.getString(), "elementId", null, 0, 1, Identifiable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 	}
 
 } //AuxPackageImpl

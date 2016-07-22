@@ -6,10 +6,12 @@ import java.io.FileWriter;
 import java.net.URL;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.UUID;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.PropertyConfigurator;
 import org.eclipse.core.runtime.FileLocator;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
@@ -48,6 +50,8 @@ public class Activator extends AbstractUIPlugin {
 	 */
 	public void start(final BundleContext context) throws Exception {
 		super.start(context);
+		System.out.println("EcoreUtil1="+UUID.randomUUID().toString());
+		System.out.println("EcoreUtil2="+UUID.randomUUID().toString());
 		File file1 = context.getDataFile(FILE_LIST_JSON);
 		if (file1.exists()){
 			Gson gson = new Gson();
