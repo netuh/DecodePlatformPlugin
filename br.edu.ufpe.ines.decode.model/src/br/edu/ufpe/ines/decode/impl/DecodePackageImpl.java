@@ -223,6 +223,7 @@ public class DecodePackageImpl extends EPackageImpl implements DecodePackage {
 
 		// Add supertypes to classes
 		codingExperimentEClass.getESuperTypes().add(theAuxPackage.getNameable());
+		codingExperimentEClass.getESuperTypes().add(theAuxPackage.getIdentifiable());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(codingExperimentEClass, CodingExperiment.class, "CodingExperiment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

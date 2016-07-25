@@ -1,17 +1,17 @@
 package br.ufpe.ines.decode.plugin;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.net.URL;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.UUID;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.PropertyConfigurator;
 import org.eclipse.core.runtime.FileLocator;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
@@ -20,7 +20,9 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
+import br.ufpe.ines.decode.plugin.control.ExperimentExecutionManager;
 import br.ufpe.ines.decode.plugin.control.ExperimentManager;
+import br.ufpe.ines.decode.plugin.control.export.ExecutionExportation;
 
 /**
  * The activator class controls the plug-in life cycle
@@ -28,6 +30,7 @@ import br.ufpe.ines.decode.plugin.control.ExperimentManager;
 public class Activator extends AbstractUIPlugin {
 
 	private static final String FILE_LIST_JSON = "fileList.json";
+	private static final String FILE_EXPORTATION_JSON = "exportation.json";
 
 	// The plug-in ID
 	public static final String PLUGIN_ID = "br.ufpe.ines.decode.plugin"; //$NON-NLS-1$
@@ -36,7 +39,7 @@ public class Activator extends AbstractUIPlugin {
 	private static Activator plugin;
 	
 	private ExperimentManager manager = ExperimentManager.getInstance();
-//	private ExperimentExecutionManager manager2 = ExperimentExecutionManager.getInstance();
+	private ExperimentExecutionManager manager2 = ExperimentExecutionManager.getInstance();
 	
 	/**
 	 * The constructor
@@ -50,25 +53,17 @@ public class Activator extends AbstractUIPlugin {
 	 */
 	public void start(final BundleContext context) throws Exception {
 		super.start(context);
-		System.out.println("EcoreUtil1="+UUID.randomUUID().toString());
-		System.out.println("EcoreUtil2="+UUID.randomUUID().toString());
-		File file1 = context.getDataFile(FILE_LIST_JSON);
-		if (file1.exists()){
-			Gson gson = new Gson();
-			List<String> fileNames = gson.
-					fromJson(new FileReader(file1),
-							 new TypeToken<List<String>>(){}.getType());
-			for (String fileName : fileNames) {
-				File file2 = context.getDataFile(fileName);
-				manager.loadDecodeModel(file2);
-			}
-		}
+//		File file1 = context.getDataFile(FILE_LIST_JSON);
+//		file1.delete();
+//		File file2 = context.getDataFile(FILE_EXPORTATION_JSON);
+//		file2.delete();
+		loadFiles2(context);
 		plugin = this;
 		//  SWTBot IDE Features	2.4.0.201604200752	org.eclipse.swtbot.ide.feature.group	Eclipse.org
 		URL confURL = getBundle().getEntry("resources/log4j.properties");
 		PropertyConfigurator.configure(FileLocator.toFileURL(confURL).getFile());
 	}
-
+	
 	/*
 	 * (non-Javadoc)
 	 * @see org.eclipse.ui.plugin.AbstractUIPlugin#stop(org.osgi.framework.BundleContext)
@@ -76,6 +71,36 @@ public class Activator extends AbstractUIPlugin {
 	public void stop(BundleContext context) throws Exception {
 		plugin = null;
 		super.stop(context);
+		loadFiles(context);
+	}
+
+	private void loadFiles2(final BundleContext context) throws FileNotFoundException {
+		File file1 = context.getDataFile(FILE_LIST_JSON);
+		if (file1.exists()){
+			Gson gson = new Gson();
+			List<String> fileNames = gson.
+					fromJson(new FileReader(file1),
+							 new TypeToken<List<String>>(){}.getType());
+			System.out.println("fileNames="+fileNames);
+			if (fileNames != null) {
+				for (String fileName : fileNames) {
+					File file2 = context.getDataFile(fileName);
+					manager.loadDecodeModel(file2);
+				}
+			}
+		}
+		
+		File file2 = context.getDataFile(FILE_EXPORTATION_JSON);
+		if (file2.exists()){
+			Gson gson = new Gson();
+			ExecutionExportation fileNames = gson.
+					fromJson(new FileReader(file2),ExecutionExportation.class);
+			if (fileNames != null)
+				manager2.configure(fileNames);
+		}
+	}
+
+	private void loadFiles(BundleContext context) throws IOException {
 		File file1 = context.getDataFile(FILE_LIST_JSON);
 		if (!file1.exists())
 			file1.createNewFile();
@@ -84,7 +109,14 @@ public class Activator extends AbstractUIPlugin {
 		for (String filePath : manager.getFiles()) {
 			File f = new File(filePath);
 			File fileToCopy = context.getDataFile(f.getName());
-		 
+			if (fileToCopy.exists()){
+				fileToCopy.delete();
+				fileToCopy.createNewFile();
+			}
+			if (fileToCopy.equals(f)){
+				continue;
+			}
+
 		    FileUtils.copyFile(f, fileToCopy);
 		    fileNames.add(f.getName());
 		}
@@ -92,6 +124,17 @@ public class Activator extends AbstractUIPlugin {
 		String json = gson.toJson(fileNames);
 		writer.write(json);
 		writer.close();
+		
+		File file2 = context.getDataFile(FILE_EXPORTATION_JSON);
+		if (!file2.exists())
+			file2.createNewFile();
+		ExecutionExportation ee = manager2.getExportation();
+		if (ee != null) {
+			writer = new FileWriter(file2);
+			json = gson.toJson(ee);
+			writer.write(json);
+			writer.close();
+		}
 	}
 
 	/**

@@ -4,6 +4,7 @@ package br.edu.ufpe.ines.decode;
 
 import br.edu.ufpe.ines.decode.artifacts.ProvidedArtefacts;
 
+import br.edu.ufpe.ines.decode.aux.Identifiable;
 import br.edu.ufpe.ines.decode.aux.Nameable;
 
 import br.edu.ufpe.ines.decode.taskDescription.ExecutionDerivations;
@@ -25,7 +26,7 @@ import br.edu.ufpe.ines.decode.taskDescription.ExecutionDerivations;
  * @model
  * @generated
  */
-public interface CodingExperiment extends Nameable {
+public interface CodingExperiment extends Nameable, Identifiable {
 	/**
 	 * Returns the value of the '<em><b>Task</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

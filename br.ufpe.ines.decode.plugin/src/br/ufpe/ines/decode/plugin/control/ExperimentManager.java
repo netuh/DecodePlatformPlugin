@@ -61,4 +61,16 @@ public class ExperimentManager {
 	public List<String> getFiles() {
 		return filePaths;
 	}
+
+	public CodingExperiment getLoadedExperiment(String experimentID) {
+		
+		System.out.println("size="+loadedExperiments2.size());
+		loadedExperiments2.stream()
+		  .forEach(e -> {System.out.println("id+"+e.getElementId());});
+		System.out.println("experimentID="+experimentID);
+		return loadedExperiments2.stream()
+						  .filter(e -> e.getElementId().equals(experimentID))
+						  .findFirst().get();
+		
+	}
 }

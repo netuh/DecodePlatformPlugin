@@ -9,13 +9,17 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Queue;
+import java.util.stream.Collectors;
 
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IWorkspaceRoot;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.epp.usagedata.internal.gathering.monitors.UsageMonitor;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import br.edu.ufpe.ines.decode.CodingExperiment;
 import br.edu.ufpe.ines.decode.taskDescription.ExperimentalTask;
 import br.edu.ufpe.ines.decode.taskDescription.Measurement;
 import br.edu.ufpe.ines.decode.taskDescription.ModeledTask;
@@ -29,6 +33,9 @@ import br.ufpe.ines.decode.plugin.epp.usagedata.extension.dataCollection.Collect
 public class ExperimentExecutionManager {
 
 	private static ExperimentExecutionManager singleton = new ExperimentExecutionManager();
+	
+	private ExperimentManager manager = ExperimentManager.getInstance();
+	
 	private ExperimentalTask currentTaskSet;
 	private String chooseTrack;
 	private boolean started = false;
@@ -40,6 +47,8 @@ public class ExperimentExecutionManager {
 	private Map<Integer, List<CollectedDataInterface>> data =
 			new HashMap<Integer, List<CollectedDataInterface>>();
 
+	private String experimentId;
+
 	protected ExperimentExecutionManager(){
 		
 	}
@@ -50,8 +59,9 @@ public class ExperimentExecutionManager {
 		return singleton;
 	}
 
-	public void setCurrentActionSet(String taskTrack, ModeledTask modeledTask) {
+	public void setCurrentActionSet(String experimentId, String taskTrack, ModeledTask modeledTask) {
 		chooseTrack = taskTrack;
+		this.experimentId = experimentId;
 		findTask(modeledTask);
 		currentTaskSet = lifoQueue.poll();
 	}
@@ -147,13 +157,67 @@ public class ExperimentExecutionManager {
 	}
 	
 	public ExecutionExportation getExportation(){
+		if (currentTaskSet == null){
+			return null;
+		}
 		ExecutionExportation ee = new ExecutionExportation();
+		ee.setExperimentID(experimentId);
+		ee.setChooseTrack(chooseTrack);
 		ee.setData(data);
-		ee.setTaskSequence(lifoQueue);
-		ee.setCurrentTaskSet(currentTaskSet);
-//		ee.setChooseTrack(chooseTrack);
-//		ee.setStarted(started);
-//		ee.setConfigured(configured);
+		List<String> ids =  lifoQueue.stream()
+                .map(ExperimentalTask::getElementId).collect(Collectors.toList());
+		ee.setTaskOrder(ids);
+		List<String> projectIds =  createdProject.stream()
+                .map(IProject::getName).collect(Collectors.toList());
+		ee.setProjectIds(projectIds);
+		ee.setTaskId(currentTaskSet.getElementId());
 		return ee;
 	}
+
+	public void configure(ExecutionExportation fileNames) {
+		data = fileNames.getData();
+		for (String projectName : fileNames.getProjectIds()) {
+			IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
+			IProject project = root.getProject(projectName);
+			createdProject.add(project);
+			configured = true;
+		}
+		CodingExperiment ce =manager.getLoadedExperiment(fileNames.getExperimentID());
+		String taskName = fileNames.getTaskId();
+		System.out.println("fileNames.getChooseTrack()="+fileNames.getChooseTrack());
+		ModeledTask task = ce.getTask().getTasks().stream()
+					.filter(e -> e.getName().equals(fileNames.getChooseTrack())).findFirst().get();
+		System.out.println("task="+task);
+		currentTaskSet = (ExperimentalTask) findTask(task, taskName);
+		System.out.println("currentTaskSet="+currentTaskSet);
+		for (String taskId : fileNames.getTaskOrder()) {
+			ExperimentalTask aTask = (ExperimentalTask) findTask(task, taskId);
+			lifoQueue.add(aTask);
+		}
+		started = false;
+	}
+
+	private ModeledTask findTask(ModeledTask task, String taskName) {
+		System.out.println("taskName="+taskName);
+		if (task instanceof ExperimentalTask){
+			ExperimentalTask randomTask = (ExperimentalTask)task;
+			System.out.println("ExperimentalTask="+randomTask.getName());
+			System.out.println("ExperimentalTask="+randomTask.getElementId());
+		}
+		if (task.getElementId().equals(taskName)){
+			return task; 
+		}
+		if (task instanceof Random){
+			Random randomTask = (Random)task;
+			System.out.println("randomTask="+randomTask.getName());
+			System.out.println("randomTask Size="+randomTask.getTasks().size());
+			for (ModeledTask innerTask : randomTask.getTasks()) {
+				ModeledTask taskReturn = findTask(innerTask, taskName);
+				if (taskReturn != null)
+					return taskReturn; 
+			}
+		}
+		return null;
+	}
+
 }

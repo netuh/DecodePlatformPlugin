@@ -4,6 +4,7 @@ package br.edu.ufpe.ines.decode.util;
 
 import br.edu.ufpe.ines.decode.*;
 
+import br.edu.ufpe.ines.decode.aux.Identifiable;
 import br.edu.ufpe.ines.decode.aux.Nameable;
 
 import org.eclipse.emf.ecore.EObject;
@@ -72,6 +73,7 @@ public class DecodeSwitch<T> extends Switch<T> {
 				CodingExperiment codingExperiment = (CodingExperiment)theEObject;
 				T result = caseCodingExperiment(codingExperiment);
 				if (result == null) result = caseNameable(codingExperiment);
+				if (result == null) result = caseIdentifiable(codingExperiment);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -106,6 +108,21 @@ public class DecodeSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseNameable(Nameable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Identifiable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Identifiable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIdentifiable(Identifiable object) {
 		return null;
 	}
 

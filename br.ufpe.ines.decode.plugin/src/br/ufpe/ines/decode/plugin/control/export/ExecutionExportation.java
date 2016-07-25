@@ -2,27 +2,63 @@ package br.ufpe.ines.decode.plugin.control.export;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Queue;
 
-import br.edu.ufpe.ines.decode.taskDescription.ExperimentalTask;
 import br.ufpe.ines.decode.plugin.epp.usagedata.extension.dataCollection.CollectedDataInterface;
 
 public class ExecutionExportation {
 
 	private Map<Integer, List<CollectedDataInterface>> data;
-	private Queue<ExperimentalTask> lifoQueue;
-	private ExperimentalTask currentTaskSet;
+	private List<String> taskOrder;
+	private List<String> projectIds;
+	private String taskId;
+	private String experimentId;
+	private String chooseTrack;
 
 	public void setData(Map<Integer, List<CollectedDataInterface>> data) {
 		this.data = data;
 	}
 
-	public void setTaskSequence(Queue<ExperimentalTask> lifoQueue) {
-		this.lifoQueue = lifoQueue;
+	public void setTaskOrder(List<String> taskOrder) {
+		this.taskOrder = taskOrder;
 	}
 
-	public void setCurrentTaskSet(ExperimentalTask currentTaskSet) {
-		this.currentTaskSet = currentTaskSet;
+	public void setProjectIds(List<String> projectIds) {
+		this.projectIds = projectIds;
 	}
 
+	public void setTaskId(String elementId) {
+		taskId = elementId;
+	}
+	
+	public void setExperimentID(String experimentId) {
+		this.experimentId = experimentId;
+	}
+
+	public void setChooseTrack(String chooseTrack) {
+		this.chooseTrack = chooseTrack;
+	}
+
+	public List<String> getProjectIds() {
+		return projectIds;
+	}
+
+	public String getTaskId() {
+		return taskId;
+	}
+	
+	public Map<Integer, List<CollectedDataInterface>> getData() {
+		return data;
+	}
+
+	public List<String> getTaskOrder() {
+		return taskOrder;
+	}
+	
+	public String getExperimentID() {
+		return experimentId;
+	}
+	
+	public String getChooseTrack() {
+		return chooseTrack;
+	}
 }

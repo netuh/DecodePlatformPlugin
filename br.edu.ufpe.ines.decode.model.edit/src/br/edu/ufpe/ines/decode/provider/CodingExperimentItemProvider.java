@@ -8,6 +8,7 @@ import br.edu.ufpe.ines.decode.DecodePackage;
 
 import br.edu.ufpe.ines.decode.artifacts.ArtifactsFactory;
 
+import br.edu.ufpe.ines.decode.aux.AuxPackage;
 import br.edu.ufpe.ines.decode.aux.provider.NameableItemProvider;
 
 import br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionFactory;
@@ -22,7 +23,9 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -53,8 +56,31 @@ public class CodingExperimentItemProvider extends NameableItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addElementIdPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Element Id feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addElementIdPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Identifiable_elementId_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Identifiable_elementId_feature", "_UI_Identifiable_type"),
+				 AuxPackage.Literals.IDENTIFIABLE__ELEMENT_ID,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -126,6 +152,9 @@ public class CodingExperimentItemProvider extends NameableItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(CodingExperiment.class)) {
+			case DecodePackage.CODING_EXPERIMENT__ELEMENT_ID:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case DecodePackage.CODING_EXPERIMENT__TASK:
 			case DecodePackage.CODING_EXPERIMENT__PROVIDED_ARTEFACTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
