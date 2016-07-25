@@ -63,7 +63,6 @@ public class ExperimentManager {
 	}
 
 	public CodingExperiment getLoadedExperiment(String experimentID) {
-		
 		System.out.println("size="+loadedExperiments2.size());
 		loadedExperiments2.stream()
 		  .forEach(e -> {System.out.println("id+"+e.getElementId());});

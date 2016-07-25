@@ -13,28 +13,38 @@ public class ExecutionExportation {
 	private String taskId;
 	private String experimentId;
 	private String chooseTrack;
+	
+	public ExecutionExportation(){
+		System.out.println("created");
+	}
 
 	public void setData(Map<Integer, List<CollectedDataInterface>> data) {
+		System.out.println("data="+data);
 		this.data = data;
 	}
 
 	public void setTaskOrder(List<String> taskOrder) {
+		System.out.println("taskOrder="+taskOrder);
 		this.taskOrder = taskOrder;
 	}
 
 	public void setProjectIds(List<String> projectIds) {
+		System.out.println("projectIds="+projectIds);
 		this.projectIds = projectIds;
 	}
 
-	public void setTaskId(String elementId) {
-		taskId = elementId;
+	public void setTaskId(String taskId) {
+		System.out.println("elementId="+taskId);
+		this.taskId = taskId;
 	}
 	
 	public void setExperimentID(String experimentId) {
+		System.out.println("experimentId="+experimentId);
 		this.experimentId = experimentId;
 	}
 
 	public void setChooseTrack(String chooseTrack) {
+		System.out.println("chooseTrack="+chooseTrack);
 		this.chooseTrack = chooseTrack;
 	}
 

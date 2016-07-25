@@ -6,13 +6,16 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Stream;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.PropertyConfigurator;
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.jface.resource.ImageDescriptor;
+import org.eclipse.ui.IStartup;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
@@ -23,14 +26,16 @@ import com.google.gson.reflect.TypeToken;
 import br.ufpe.ines.decode.plugin.control.ExperimentExecutionManager;
 import br.ufpe.ines.decode.plugin.control.ExperimentManager;
 import br.ufpe.ines.decode.plugin.control.export.ExecutionExportation;
+import br.ufpe.ines.decode.plugin.epp.usagedata.extension.dataCollection.CollectedDataDeserializer;
+import br.ufpe.ines.decode.plugin.epp.usagedata.extension.dataCollection.CollectedDataInterface;
 
 /**
  * The activator class controls the plug-in life cycle
  */
-public class Activator extends AbstractUIPlugin {
+public class Activator extends AbstractUIPlugin implements IStartup {
 
-	private static final String FILE_LIST_JSON = "fileList.json";
-	private static final String FILE_EXPORTATION_JSON = "exportation.json";
+	public static final String FILE_LIST_JSON = "fileList.json";
+	public static final String FILE_EXPORTATION_JSON = "exportation.json";
 
 	// The plug-in ID
 	public static final String PLUGIN_ID = "br.ufpe.ines.decode.plugin"; //$NON-NLS-1$
@@ -71,7 +76,7 @@ public class Activator extends AbstractUIPlugin {
 	public void stop(BundleContext context) throws Exception {
 		plugin = null;
 		super.stop(context);
-		loadFiles(context);
+		saveFiles(context);
 	}
 
 	private void loadFiles2(final BundleContext context) throws FileNotFoundException {
@@ -92,7 +97,18 @@ public class Activator extends AbstractUIPlugin {
 		
 		File file2 = context.getDataFile(FILE_EXPORTATION_JSON);
 		if (file2.exists()){
-			Gson gson = new Gson();
+			System.out.println("=START=");
+			try (Stream<String> stream = Files.lines(file2.toPath())) {
+
+				stream.forEach(System.out::println);
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			System.out.println("=END=");
+			GsonBuilder gsonBuilder = new GsonBuilder();
+			gsonBuilder.registerTypeAdapter(CollectedDataInterface.class, new CollectedDataDeserializer());
+			Gson gson = gsonBuilder.create();
 			ExecutionExportation fileNames = gson.
 					fromJson(new FileReader(file2),ExecutionExportation.class);
 			if (fileNames != null)
@@ -100,24 +116,24 @@ public class Activator extends AbstractUIPlugin {
 		}
 	}
 
-	private void loadFiles(BundleContext context) throws IOException {
+	private void saveFiles(BundleContext context) throws IOException {
 		File file1 = context.getDataFile(FILE_LIST_JSON);
-		if (!file1.exists())
-			file1.createNewFile();
+		if(file1.exists()){
+			file1.delete();
+		}
+		file1.createNewFile();
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		List<String> fileNames = new LinkedList<String>();
 		for (String filePath : manager.getFiles()) {
 			File f = new File(filePath);
 			File fileToCopy = context.getDataFile(f.getName());
-			if (fileToCopy.exists()){
-				fileToCopy.delete();
-				fileToCopy.createNewFile();
+			if (!FileUtils.contentEquals(f, fileToCopy)){
+				if (fileToCopy.exists()){
+					fileToCopy.delete();
+					fileToCopy.createNewFile();
+				}
+			    FileUtils.copyFile(f, fileToCopy);
 			}
-			if (fileToCopy.equals(f)){
-				continue;
-			}
-
-		    FileUtils.copyFile(f, fileToCopy);
 		    fileNames.add(f.getName());
 		}
 		FileWriter writer = new FileWriter(file1);
@@ -155,5 +171,10 @@ public class Activator extends AbstractUIPlugin {
 	 */
 	public static ImageDescriptor getImageDescriptor(String path) {
 		return imageDescriptorFromPlugin(PLUGIN_ID, path);
+	}
+
+	@Override
+	public void earlyStartup() {
+		System.out.println("aqui1");
 	}
 }

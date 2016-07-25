@@ -176,6 +176,9 @@ public class ExperimentExecutionManager {
 
 	public void configure(ExecutionExportation fileNames) {
 		data = fileNames.getData();
+		experimentId = fileNames.getExperimentID();
+		chooseTrack = fileNames.getChooseTrack();
+		
 		for (String projectName : fileNames.getProjectIds()) {
 			IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
 			IProject project = root.getProject(projectName);
