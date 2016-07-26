@@ -1,4 +1,4 @@
-package br.ufpe.ines.decode.plugin.epp.usagedata.extension.dataCollection;
+package br.ufpe.ines.decode.plugin.epp.usagedata.extension.deserializer;
 
 import java.lang.reflect.Type;
 
@@ -9,10 +9,15 @@ import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParseException;
 
-import br.ufpe.ines.decode.plugin.epp.usagedata.extension.actions.ActionDeserializer;
 import br.ufpe.ines.decode.plugin.epp.usagedata.extension.actions.ActionInterface;
+import br.ufpe.ines.decode.plugin.epp.usagedata.extension.dataCollection.AtomicCollectedData;
+import br.ufpe.ines.decode.plugin.epp.usagedata.extension.dataCollection.CollectedDataInterface;
+import br.ufpe.ines.decode.plugin.epp.usagedata.extension.dataCollection.CollectedDataWithTime;
 
+@SuppressWarnings("rawtypes")
 public class CollectedDataDeserializer implements JsonDeserializer<CollectedDataInterface> {
+
+	private Class[] actionRealization = new Class[]{CollectedDataWithTime.class, AtomicCollectedData.class};
 
 	@Override
 	public CollectedDataInterface deserialize(JsonElement json, Type type, JsonDeserializationContext context)
@@ -20,12 +25,15 @@ public class CollectedDataDeserializer implements JsonDeserializer<CollectedData
 		GsonBuilder gsonBuilder = new GsonBuilder();
 		gsonBuilder.registerTypeAdapter(ActionInterface.class, new ActionDeserializer());
 		Gson gson = gsonBuilder.create();
-		CollectedDataWithTime colected =  gson.fromJson(json,
-					CollectedDataWithTime.class);
-		if (colected != null)
-			return colected;
-		return gson.fromJson(json,
-				AtomicCollectedData.class);
+		for (Class aClass : actionRealization) {
+			@SuppressWarnings("unchecked")
+			CollectedDataInterface action =  (CollectedDataInterface) gson.fromJson(json,
+					aClass);
+			if (action != null)
+				return action;
+		}
+		
+		return null;
 	}
 
 }

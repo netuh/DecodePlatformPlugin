@@ -26,8 +26,8 @@ import com.google.gson.reflect.TypeToken;
 import br.ufpe.ines.decode.plugin.control.ExperimentExecutionManager;
 import br.ufpe.ines.decode.plugin.control.ExperimentManager;
 import br.ufpe.ines.decode.plugin.control.export.ExecutionExportation;
-import br.ufpe.ines.decode.plugin.epp.usagedata.extension.dataCollection.CollectedDataDeserializer;
 import br.ufpe.ines.decode.plugin.epp.usagedata.extension.dataCollection.CollectedDataInterface;
+import br.ufpe.ines.decode.plugin.epp.usagedata.extension.deserializer.CollectedDataDeserializer;
 
 /**
  * The activator class controls the plug-in life cycle
