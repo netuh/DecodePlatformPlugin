@@ -16,7 +16,6 @@ public class ExecutionExportation {
 	private Boolean configured;
 	
 	public ExecutionExportation(){
-		System.out.println("created");
 	}
 
 	public void setData(Map<Integer, List<CollectedDataInterface>> data) {

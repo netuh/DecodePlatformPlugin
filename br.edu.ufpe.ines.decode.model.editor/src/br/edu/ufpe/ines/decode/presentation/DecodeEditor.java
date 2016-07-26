@@ -118,7 +118,7 @@ import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.ui.views.properties.PropertySheet;
 import org.eclipse.ui.views.properties.PropertySheetPage;
 
-import br.edu.ufpe.ines.decode.MyAdapterFactoryContentProvider;
+import br.edu.ufpe.ines.decode.FileAdapterFactoryContentProvider;
 import br.edu.ufpe.ines.decode.artifacts.provider.ArtifactsItemProviderAdapterFactory;
 import br.edu.ufpe.ines.decode.artifacts.questionnaire.provider.QuestionnaireItemProviderAdapterFactory;
 import br.edu.ufpe.ines.decode.aux.provider.AuxItemProviderAdapterFactory;
@@ -1384,7 +1384,7 @@ public class DecodeEditor
 				}
 			};
 		//propertySheetPage.setPropertySourceProvider(new AdapterFactoryContentProvider(adapterFactory));
-		propertySheetPage.setPropertySourceProvider(new MyAdapterFactoryContentProvider(adapterFactory));
+		propertySheetPage.setPropertySourceProvider(new FileAdapterFactoryContentProvider(adapterFactory));
 		propertySheetPages.add(propertySheetPage);
 
 		return propertySheetPage;

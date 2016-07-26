@@ -87,7 +87,6 @@ public class FileUtil {
 	    ZipArchiveEntry entry = (ZipArchiveEntry) ais.getNextEntry();
 	    while (entry != null) {
 	        File outputFile = new File(tempDir.toFile(), entry.getName());
-	        System.out.println("outputFile="+outputFile.getAbsolutePath());
 	        outputFile.createNewFile();
 	        OutputStream os = new FileOutputStream(outputFile);
 

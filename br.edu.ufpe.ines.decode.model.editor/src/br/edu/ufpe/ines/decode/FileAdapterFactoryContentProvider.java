@@ -12,9 +12,9 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.views.properties.IPropertyDescriptor;
 import org.eclipse.ui.views.properties.IPropertySource;
 
-public class MyAdapterFactoryContentProvider extends AdapterFactoryContentProvider{
+public class FileAdapterFactoryContentProvider extends AdapterFactoryContentProvider{
 
-	public MyAdapterFactoryContentProvider(AdapterFactory adapterFactory) {
+	public FileAdapterFactoryContentProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 	
@@ -36,11 +36,8 @@ public class MyAdapterFactoryContentProvider extends AdapterFactoryContentProvid
                   Object feature = itemPropertyDescriptor.getFeature(this.object);
                   if (feature instanceof EAttribute){
                 	EAttribute att = (EAttribute)feature;
-                	System.out.println("att.getDefaultValueLiteral()="+att.getDefaultValueLiteral());
-                	System.out.println("att.getName()="+att.getName());
-                	System.out.println("att.getDefaultValue()="+att.getDefaultValue());
                 	if (att.getName().equals("localFilePath")){
-                		return new MyPropertyEditor(composite);
+                		return new FilePropertyEditor(composite);
                 	}
                   }
                   return super.createPropertyEditor(composite);

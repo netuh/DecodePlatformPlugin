@@ -6,16 +6,13 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
-import java.nio.file.Files;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.stream.Stream;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.PropertyConfigurator;
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.jface.resource.ImageDescriptor;
-import org.eclipse.ui.IStartup;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
@@ -32,7 +29,7 @@ import br.ufpe.ines.decode.plugin.epp.usagedata.extension.deserializer.Collected
 /**
  * The activator class controls the plug-in life cycle
  */
-public class Activator extends AbstractUIPlugin implements IStartup {
+public class Activator extends AbstractUIPlugin {
 
 	public static final String FILE_LIST_JSON = "fileList.json";
 	public static final String FILE_EXPORTATION_JSON = "exportation.json";
@@ -59,6 +56,18 @@ public class Activator extends AbstractUIPlugin implements IStartup {
 	public void start(final BundleContext context) throws Exception {
 		super.start(context);
 //		File file1 = context.getDataFile(FILE_LIST_JSON);
+//		if (file1.exists()){
+//			Gson gson = new Gson();
+//			List<String> fileNames = gson.
+//					fromJson(new FileReader(file1),
+//							 new TypeToken<List<String>>(){}.getType());
+//			if (fileNames != null) {
+//				for (String fileName : fileNames) {
+//					File file2 = context.getDataFile(fileName);
+//					file2.delete();
+//				}
+//			}
+//		}
 //		file1.delete();
 //		File file2 = context.getDataFile(FILE_EXPORTATION_JSON);
 //		file2.delete();
@@ -86,7 +95,6 @@ public class Activator extends AbstractUIPlugin implements IStartup {
 			List<String> fileNames = gson.
 					fromJson(new FileReader(file1),
 							 new TypeToken<List<String>>(){}.getType());
-			System.out.println("fileNames="+fileNames);
 			if (fileNames != null) {
 				for (String fileName : fileNames) {
 					File file2 = context.getDataFile(fileName);
@@ -97,15 +105,6 @@ public class Activator extends AbstractUIPlugin implements IStartup {
 		
 		File file2 = context.getDataFile(FILE_EXPORTATION_JSON);
 		if (file2.exists()){
-			System.out.println("=START=");
-			try (Stream<String> stream = Files.lines(file2.toPath())) {
-
-				stream.forEach(System.out::println);
-
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			System.out.println("=END=");
 			GsonBuilder gsonBuilder = new GsonBuilder();
 			gsonBuilder.registerTypeAdapter(CollectedDataInterface.class, new CollectedDataDeserializer());
 			Gson gson = gsonBuilder.create();
@@ -171,10 +170,5 @@ public class Activator extends AbstractUIPlugin implements IStartup {
 	 */
 	public static ImageDescriptor getImageDescriptor(String path) {
 		return imageDescriptorFromPlugin(PLUGIN_ID, path);
-	}
-
-	@Override
-	public void earlyStartup() {
-		System.out.println("aqui1");
 	}
 }

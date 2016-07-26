@@ -6,9 +6,9 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.FileDialog;
 
-public class MyPropertyEditor extends DialogCellEditor {
+public class FilePropertyEditor extends DialogCellEditor {
 
-	public MyPropertyEditor(Composite composite) {
+	public FilePropertyEditor(Composite composite) {
 		super(composite);
 	}
 

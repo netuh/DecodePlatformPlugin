@@ -26,6 +26,7 @@ import br.ufpe.ines.decode.plugin.model.Experiment;
 
 public class LaucherListerner implements ILaunchListener {
 
+	@SuppressWarnings("unused")
 	private ExperimentManager manager = ExperimentManager.getInstance();
 	static final Logger logger = Logger.getLogger(LaucherListerner.class);
 	private static Instant lastExecDate=Instant.MIN;
@@ -42,6 +43,7 @@ public class LaucherListerner implements ILaunchListener {
 		logger.debug("launchRemoved");
 	}
 
+	@SuppressWarnings("unused")
 	@Override
 	public void launchAdded(ILaunch launch) {		
 		logger.debug("launchAdded");
