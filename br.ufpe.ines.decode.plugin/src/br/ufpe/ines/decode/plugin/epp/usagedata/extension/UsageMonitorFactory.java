@@ -11,11 +11,12 @@ import org.eclipse.epp.usagedata.internal.gathering.monitors.SystemInfoMonitor;
 import org.eclipse.epp.usagedata.internal.gathering.monitors.UsageMonitor;
 
 import br.edu.ufpe.ines.decode.taskDescription.measurements.LogType;
+import br.ufpe.ines.decode.plugin.model.CurrentExecutableTask;
 
 public class UsageMonitorFactory {
 
-	public static List<UsageMonitor> startAllMonitor(List<LogType> eList) {
-		ObservingService observer = new ObservingService(eList);
+	public static List<UsageMonitor> startAllMonitor(List<LogType> eList, CurrentExecutableTask task) {
+		ObservingService observer = new ObservingService(eList, task);
 		
 		
 		List<UsageMonitor> monitors = new LinkedList<UsageMonitor>();

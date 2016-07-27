@@ -1,4 +1,4 @@
-package br.ufpe.ines.decode.plugin.model;
+package br.ufpe.ines.decode.plugin.model.todelete;
 
 import java.util.HashMap;
 import java.util.Map;

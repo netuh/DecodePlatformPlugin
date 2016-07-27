@@ -2,6 +2,7 @@ package br.ufpe.ines.decode.plugin.ui.dialog;
 
 import java.io.File;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -136,7 +137,10 @@ public class ExperimentLoadingDialog extends Dialog {
 			dialog.setMultipleSelection(false);
 			dialog.setEmptySelectionMessage("Select at least one");
 			if (dialog.open() == Window.OK){
-				manager2.setCurrentActionSet(selectedExperiment.getElementId(), dialog.getFirstResult().toString(), tasks.get(dialog.getFirstResult()));
+				ModeledTask model = tasks.get(dialog.getFirstResult());
+				//manager2.setCurrentActionSet(selectedExperiment.getElementId(), dialog.getFirstResult().toString(), tasks.get(dialog.getFirstResult()));
+				//manager2.setCurrentActionSet2(selectedExperiment, Arrays.asList(model.getElementId()), model.getElementId());
+				manager2.configure(selectedExperiment, Arrays.asList(model.getElementId()), model.getElementId());
 			}
 		}
 	}

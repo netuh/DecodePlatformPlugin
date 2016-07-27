@@ -1,48 +1,27 @@
 package br.ufpe.ines.decode.plugin;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.net.URL;
-import java.util.LinkedList;
-import java.util.List;
 
-import org.apache.commons.io.FileUtils;
 import org.apache.log4j.PropertyConfigurator;
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
-
-import br.ufpe.ines.decode.plugin.control.ExperimentExecutionManager;
-import br.ufpe.ines.decode.plugin.control.ExperimentManager;
-import br.ufpe.ines.decode.plugin.control.export.ExecutionExportation;
-import br.ufpe.ines.decode.plugin.epp.usagedata.extension.dataCollection.CollectedDataInterface;
-import br.ufpe.ines.decode.plugin.epp.usagedata.extension.deserializer.CollectedDataDeserializer;
+import br.ufpe.ines.decode.plugin.control.loader.ExperimentManagerLoader;
+import br.ufpe.ines.decode.plugin.control.loader.ExperimentSaver;
 
 /**
  * The activator class controls the plug-in life cycle
  */
 public class Activator extends AbstractUIPlugin {
 
-	public static final String FILE_LIST_JSON = "fileList.json";
-	public static final String FILE_EXPORTATION_JSON = "exportation.json";
-
 	// The plug-in ID
 	public static final String PLUGIN_ID = "br.ufpe.ines.decode.plugin"; //$NON-NLS-1$
 
 	// The shared instance
 	private static Activator plugin;
-	
-	private ExperimentManager manager = ExperimentManager.getInstance();
-	private ExperimentExecutionManager manager2 = ExperimentExecutionManager.getInstance();
-	
+
 	/**
 	 * The constructor
 	 */
@@ -55,6 +34,8 @@ public class Activator extends AbstractUIPlugin {
 	 */
 	public void start(final BundleContext context) throws Exception {
 		super.start(context);
+//		String FILE_LIST_JSON = "fileList.json";
+//		String FILE_EXPORTATION_JSON = "exportation.json";
 //		File file1 = context.getDataFile(FILE_LIST_JSON);
 //		if (file1.exists()){
 //			Gson gson = new Gson();
@@ -71,7 +52,12 @@ public class Activator extends AbstractUIPlugin {
 //		file1.delete();
 //		File file2 = context.getDataFile(FILE_EXPORTATION_JSON);
 //		file2.delete();
-		loadFiles2(context);
+		
+		//COMMENT IT
+		
+		ExperimentManagerLoader loader = new ExperimentManagerLoader(context);
+		loader.loadExperimetnDescription();
+		loader.loadExecutionDescription();
 		plugin = this;
 		//  SWTBot IDE Features	2.4.0.201604200752	org.eclipse.swtbot.ide.feature.group	Eclipse.org
 		URL confURL = getBundle().getEntry("resources/log4j.properties");
@@ -85,71 +71,9 @@ public class Activator extends AbstractUIPlugin {
 	public void stop(BundleContext context) throws Exception {
 		plugin = null;
 		super.stop(context);
-		saveFiles(context);
-	}
-
-	private void loadFiles2(final BundleContext context) throws FileNotFoundException {
-		File file1 = context.getDataFile(FILE_LIST_JSON);
-		if (file1.exists()){
-			Gson gson = new Gson();
-			List<String> fileNames = gson.
-					fromJson(new FileReader(file1),
-							 new TypeToken<List<String>>(){}.getType());
-			if (fileNames != null) {
-				for (String fileName : fileNames) {
-					File file2 = context.getDataFile(fileName);
-					manager.loadDecodeModel(file2);
-				}
-			}
-		}
-		
-		File file2 = context.getDataFile(FILE_EXPORTATION_JSON);
-		if (file2.exists()){
-			GsonBuilder gsonBuilder = new GsonBuilder();
-			gsonBuilder.registerTypeAdapter(CollectedDataInterface.class, new CollectedDataDeserializer());
-			Gson gson = gsonBuilder.create();
-			ExecutionExportation fileNames = gson.
-					fromJson(new FileReader(file2),ExecutionExportation.class);
-			if (fileNames != null)
-				manager2.configure(fileNames);
-		}
-	}
-
-	private void saveFiles(BundleContext context) throws IOException {
-		File file1 = context.getDataFile(FILE_LIST_JSON);
-		if(file1.exists()){
-			file1.delete();
-		}
-		file1.createNewFile();
-		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		List<String> fileNames = new LinkedList<String>();
-		for (String filePath : manager.getFiles()) {
-			File f = new File(filePath);
-			File fileToCopy = context.getDataFile(f.getName());
-			if (!FileUtils.contentEquals(f, fileToCopy)){
-				if (fileToCopy.exists()){
-					fileToCopy.delete();
-					fileToCopy.createNewFile();
-				}
-			    FileUtils.copyFile(f, fileToCopy);
-			}
-		    fileNames.add(f.getName());
-		}
-		FileWriter writer = new FileWriter(file1);
-		String json = gson.toJson(fileNames);
-		writer.write(json);
-		writer.close();
-		
-		File file2 = context.getDataFile(FILE_EXPORTATION_JSON);
-		if (!file2.exists())
-			file2.createNewFile();
-		ExecutionExportation ee = manager2.getExportation();
-		if (ee != null) {
-			writer = new FileWriter(file2);
-			json = gson.toJson(ee);
-			writer.write(json);
-			writer.close();
-		}
+		ExperimentSaver saver = new ExperimentSaver(context);
+		saver.saveExperiments();
+		saver.saveExecutionExperiments();
 	}
 
 	/**

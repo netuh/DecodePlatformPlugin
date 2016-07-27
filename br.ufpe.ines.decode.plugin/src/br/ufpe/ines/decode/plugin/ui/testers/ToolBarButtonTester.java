@@ -10,14 +10,14 @@ public class ToolBarButtonTester extends PropertyTester {
 
 	@Override
 	public boolean test(Object receiver, String property, Object[] args, Object expectedValue) {
-		if (property.equals("hasConfiguredExperiment")) {
-			return manager.hasConfirured();
-		}
 		if (property.equals("hasSelectedExperiment")) {
-			return manager.hasSelected();
+			return manager.isSelected();
+		}
+		if (property.equals("hasConfiguredExperiment")) {
+			return manager.isConfirured();
 		}
 		if (property.equals("hasStartedExperiment")) {
-			return manager.hasStarted();
+			return manager.isStarted();
 		}
 		return true;
 	}

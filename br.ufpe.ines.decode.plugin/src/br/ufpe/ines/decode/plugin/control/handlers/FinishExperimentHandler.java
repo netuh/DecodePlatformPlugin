@@ -12,6 +12,7 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.handlers.HandlerUtil;
 
 import br.ufpe.ines.decode.plugin.control.ExperimentExecutionManager;
+import br.ufpe.ines.decode.plugin.model.CurrentExecutableTask;
 import br.ufpe.ines.decode.plugin.ui.dialog.NativeDialogFactory;
 
 public class FinishExperimentHandler  extends AbstractHandler {
@@ -30,9 +31,9 @@ public class FinishExperimentHandler  extends AbstractHandler {
 	 * from the application context.
 	 */
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		manager.finishCurrentTask();
+		CurrentExecutableTask nextTask = manager.finishCurrentTask();
 		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
-		if (manager.getCurrentTask() != null) {
+		if (nextTask != null) {
 			MessageDialog.openInformation(window.getShell(), "Message", "Task Finished");
 		} else {
 			String selected = NativeDialogFactory.fileSelectionDialog(

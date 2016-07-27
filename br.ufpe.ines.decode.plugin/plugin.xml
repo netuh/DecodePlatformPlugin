@@ -129,7 +129,7 @@
  <extension
        point="org.eclipse.ui.startup">
     <startup
-          class="br.ufpe.ines.decode.plugin.Startup1">
+          class="br.ufpe.ines.decode.plugin.PluginStartup">
     </startup>
  </extension>
 </plugin>

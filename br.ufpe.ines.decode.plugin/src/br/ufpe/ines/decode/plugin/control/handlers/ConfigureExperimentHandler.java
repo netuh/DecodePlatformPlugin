@@ -9,10 +9,13 @@ import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.ui.IWorkbenchWindow;
+import org.eclipse.ui.handlers.HandlerUtil;
 
 import br.edu.ufpe.ines.decode.artifacts.JavaProject;
-import br.edu.ufpe.ines.decode.taskDescription.ExperimentalTask;
 import br.ufpe.ines.decode.plugin.control.ExperimentExecutionManager;
+import br.ufpe.ines.decode.plugin.model.CurrentExecutableTask;
 import br.ufpe.ines.decode.plugin.util.JavaProjectCreator;
 
 public class ConfigureExperimentHandler  extends AbstractHandler {
@@ -21,19 +24,32 @@ public class ConfigureExperimentHandler  extends AbstractHandler {
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {		
-		ExperimentalTask task = manager.getCurrentTask();
-		List<JavaProject> javaProjects = task.getRequires().stream().filter(c -> c instanceof JavaProject)
-	    .map(JavaProject.class::cast).collect(Collectors.toList());
+//		ExperimentalTask task = manager.getCurrentTask();
+//		List<JavaProject> javaProjects = task.getRequires().stream().filter(c -> c instanceof JavaProject)
+//	    .map(JavaProject.class::cast).collect(Collectors.toList());
+		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
+		CurrentExecutableTask task = manager.getExecutionTask();
+		List<JavaProject> javaProjects = task.getTaskModel().getRequires()
+				  .stream()
+				  .filter(c -> c instanceof JavaProject)
+				  .map(JavaProject.class::cast)
+				  .collect(Collectors.toList());;
 		JavaProjectCreator creator = new JavaProjectCreator();  
 		for (JavaProject javaProject : javaProjects) {
 			try {
 				IProject project = creator.createProject(javaProject);
-				manager.addCreatedProject(project);
+				task.addProjectName(project.getName());
 			} catch (CoreException | IOException e) {
-				e.printStackTrace();
+				MessageDialog.openInformation(window.getShell(),
+						"Experiment NOT Configured",
+						"The experiemnt NOT is ready to start.");
 			}
 		}
-		manager.setConfigured();
+		task.finishConfiguration();
+
+		MessageDialog.openInformation(window.getShell(),
+				"Experiment Configured",
+				"The experiemnt is ready to start.");
 		return null;
 	}
 

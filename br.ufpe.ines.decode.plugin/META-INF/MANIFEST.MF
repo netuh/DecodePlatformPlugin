@@ -18,7 +18,7 @@ Require-Bundle: org.apache.log4j;bundle-version="1.2.15",
  org.eclipse.equinox.p2.operations;bundle-version="2.4.200",
  org.eclipse.equinox.p2.metadata;bundle-version="2.3.100"
 Export-Package: br.ufpe.ines.decode.plugin,
- br.ufpe.ines.decode.plugin.model,
+ br.ufpe.ines.decode.plugin.model.todelete,
  br.ufpe.ines.decode.plugin.control,
  br.ufpe.ines.decode.plugin.ui.dialog,
  br.ufpe.ines.decode.plugin.control.handlers,

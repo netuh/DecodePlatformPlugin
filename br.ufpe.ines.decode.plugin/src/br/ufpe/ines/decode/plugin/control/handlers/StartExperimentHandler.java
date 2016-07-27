@@ -21,6 +21,7 @@ import br.edu.ufpe.ines.decode.taskDescription.EclipseRetriction;
 import br.edu.ufpe.ines.decode.taskDescription.ModeledRestrictions;
 import br.edu.ufpe.ines.decode.taskDescription.Restriction;
 import br.ufpe.ines.decode.plugin.control.ExperimentExecutionManager;
+import br.ufpe.ines.decode.plugin.model.CurrentExecutableTask;
 
 /**
  * Our sample handler extends AbstractHandler, an IHandler base class.
@@ -43,7 +44,8 @@ public class StartExperimentHandler extends AbstractHandler {
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
 		
-		ModeledRestrictions restriction = manager.getCurrentTask().getRestriction();
+		CurrentExecutableTask task = manager.getExecutionTask();
+		ModeledRestrictions restriction = task.getTaskModel().getRestriction();
 		if (restriction != null){
 			for (Restriction aRestriction : restriction.getChildren()) {
 				List<String> restricNotSatisfied = verify(aRestriction);
@@ -58,17 +60,18 @@ public class StartExperimentHandler extends AbstractHandler {
 		
 		IWorkspaceRoot workspaceRoot = ResourcesPlugin.getWorkspace().getRoot();
         IProject[] projects = workspaceRoot.getProjects();
+        List<String> createdProjects = task.getProjectNames();
         for (IProject iProject : projects) {
-        	if(!manager.isCreated(iProject)){
+        	if (!createdProjects.contains(iProject.getName())){
         		try {
 					iProject.close(null);
 				} catch (CoreException e) {
-					e.printStackTrace();
+					MessageDialog.openInformation(window.getShell(), "Message", "Experiment NOT Started");
 				}
         	}
 		}
 		MessageDialog.openInformation(window.getShell(), "Message", "Experiment Started");
-		manager.startObserving();
+		task.start();
 		return null;
 	}
 

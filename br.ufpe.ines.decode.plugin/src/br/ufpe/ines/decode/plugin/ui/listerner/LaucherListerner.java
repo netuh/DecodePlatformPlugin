@@ -22,7 +22,7 @@ import org.eclipse.jdt.core.IPackageFragmentRoot;
 import org.eclipse.jdt.core.JavaCore;
 
 import br.ufpe.ines.decode.plugin.control.ExperimentManager;
-import br.ufpe.ines.decode.plugin.model.Experiment;
+import br.ufpe.ines.decode.plugin.model.todelete.Experiment;
 
 public class LaucherListerner implements ILaunchListener {
 

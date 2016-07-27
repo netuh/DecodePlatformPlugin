@@ -37,6 +37,7 @@ public class CommandUsageMonitor implements UsageMonitor {
 
 	private ExtensionIdToBundleMapper commandToBundleIdMapper;
 
+	@Override
 	public void startMonitoring(final ObservingService usageDataService) {
 		executionListener = new IExecutionListener() {
 			public void notHandled(String commandId, NotHandledException exception) {
@@ -63,6 +64,7 @@ public class CommandUsageMonitor implements UsageMonitor {
 		return (ICommandService) PlatformUI.getWorkbench().getAdapter(ICommandService.class);
 	}
 
+	@Override
 	public void stopMonitoring() {
 		ICommandService commandService = getCommandService();
 		if (commandService != null)
