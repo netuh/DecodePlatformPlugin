@@ -1,9 +1,11 @@
 package br.ufpe.ines.decode.plugin.util;
 
 import java.io.ByteArrayInputStream;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +14,6 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectDescription;
-import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
@@ -53,23 +54,26 @@ public class JavaProjectCreator {
 			addToSrc(javaProject, sourceFolder, javaCU);
 		}
 		for (OtherFile javaCU : javaProjectArtifact.getOtherFiles()) {
-			addToSrc(sourceFolder, javaCU);
+			addToProject(project, javaCU);
 		}
 		return project;
 	}
 
-	private void addToSrc(IFolder sourceFolder, OtherFile javaCU) throws CoreException {
-		String[] paths = javaCU.getFolder().split(".");
-		IFolder folder = sourceFolder;
-		for (String aPath : paths) {
-			folder = folder.getFolder(aPath);
-			if (!folder.exists()){
-				folder.create(false, true, null);
+	private void addToProject(IProject project, OtherFile javaCU) throws CoreException, IOException {
+		File file2;
+		String pathComplement = "";
+		if (javaCU.getFolder() != null){
+			for (String element : javaCU.getFolder().split("[.]")) {
+				System.out.println("element="+element);
+				pathComplement += File.separator + element;
 			}
 		}
-		IFile file = folder.getFile(javaCU.getName());
-		InputStream source = new ByteArrayInputStream(javaCU.getFile());
-	    file.create(source, IResource.NONE, null);
+		file2 = new File(project.getWorkspace().getRoot().getLocation() 
+				+ project.getFullPath().toString() +pathComplement+ File.separator +javaCU.getName());
+		file2.getParentFile().mkdirs();
+		file2.createNewFile();
+		Files.write(file2.toPath(), javaCU.getFile());
+		project.refreshLocal(IProject.DEPTH_INFINITE, null);
 	}
 
 	private void addToSrc(IJavaProject javaProject, IFolder sourceFolder, JavaCompUnit javaCU) throws JavaModelException, UnsupportedEncodingException {

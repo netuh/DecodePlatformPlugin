@@ -24,9 +24,6 @@ public class ConfigureExperimentHandler  extends AbstractHandler {
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {		
-//		ExperimentalTask task = manager.getCurrentTask();
-//		List<JavaProject> javaProjects = task.getRequires().stream().filter(c -> c instanceof JavaProject)
-//	    .map(JavaProject.class::cast).collect(Collectors.toList());
 		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
 		CurrentExecutableTask task = manager.getExecutionTask();
 		List<JavaProject> javaProjects = task.getTaskModel().getRequires()
@@ -40,9 +37,11 @@ public class ConfigureExperimentHandler  extends AbstractHandler {
 				IProject project = creator.createProject(javaProject);
 				task.addProjectName(project.getName());
 			} catch (CoreException | IOException e) {
+				e.printStackTrace();
 				MessageDialog.openInformation(window.getShell(),
 						"Experiment NOT Configured",
 						"The experiemnt NOT is ready to start.");
+				return null;
 			}
 		}
 		task.finishConfiguration();

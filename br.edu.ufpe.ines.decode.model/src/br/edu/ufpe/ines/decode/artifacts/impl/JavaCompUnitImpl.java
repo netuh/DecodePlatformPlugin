@@ -2,14 +2,16 @@
  */
 package br.edu.ufpe.ines.decode.artifacts.impl;
 
-import br.edu.ufpe.ines.decode.artifacts.ArtifactsPackage;
-import br.edu.ufpe.ines.decode.artifacts.JavaCompUnit;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import br.edu.ufpe.ines.decode.artifacts.ArtifactsPackage;
+import br.edu.ufpe.ines.decode.artifacts.JavaCompUnit;
 
 /**
  * <!-- begin-user-doc -->
@@ -159,4 +161,27 @@ public class JavaCompUnitImpl extends CompilationUnitImpl implements JavaCompUni
 		return result.toString();
 	}
 
+	@Override
+	public void setLocalFilePath(String newLocalFilePath) {
+		super.setLocalFilePath(newLocalFilePath);
+
+		String stgPackage =  null;
+		
+		try(BufferedReader br = new BufferedReader(new FileReader(newLocalFilePath))) {
+		    for(String line; (line = br.readLine()) != null; ) {
+		        if (line != null && line.contains("package")){
+		        	stgPackage = line;
+		        	break;
+		    	}
+		    }
+		} catch (IOException e){
+			stgPackage = null;
+		}
+		if (stgPackage == null)
+			return;
+
+		stgPackage = stgPackage.replace("package", "");
+		stgPackage = stgPackage.replaceAll("[^a-zA-Z0-9\\.]", "");
+		setPackage(stgPackage);
+	}
 } //JavaCompUnitImpl
