@@ -19,19 +19,22 @@ import br.edu.ufpe.ines.decode.aux.impl.AuxPackageImpl;
 import br.edu.ufpe.ines.decode.impl.DecodePackageImpl;
 
 import br.edu.ufpe.ines.decode.taskDescription.ComposedTask;
-import br.edu.ufpe.ines.decode.taskDescription.EclipseRetriction;
+import br.edu.ufpe.ines.decode.taskDescription.EclipseParameter;
 import br.edu.ufpe.ines.decode.taskDescription.ExecutionDerivations;
 import br.edu.ufpe.ines.decode.taskDescription.ExperimentalTask;
+import br.edu.ufpe.ines.decode.taskDescription.GeneralParameter;
+import br.edu.ufpe.ines.decode.taskDescription.IDEParameter;
 import br.edu.ufpe.ines.decode.taskDescription.Measurement;
-import br.edu.ufpe.ines.decode.taskDescription.ModeledRestrictions;
+import br.edu.ufpe.ines.decode.taskDescription.Measurements;
 import br.edu.ufpe.ines.decode.taskDescription.ModeledTask;
-import br.edu.ufpe.ines.decode.taskDescription.OtherRestriction;
+import br.edu.ufpe.ines.decode.taskDescription.OtherParameters;
+import br.edu.ufpe.ines.decode.taskDescription.Parameter;
+import br.edu.ufpe.ines.decode.taskDescription.PenAndPaperQuestionnaire;
 import br.edu.ufpe.ines.decode.taskDescription.PlacementType;
 import br.edu.ufpe.ines.decode.taskDescription.QuestionnaireMeasurement;
+import br.edu.ufpe.ines.decode.taskDescription.Questionnairemeasure;
 import br.edu.ufpe.ines.decode.taskDescription.Random;
-import br.edu.ufpe.ines.decode.taskDescription.Restriction;
 import br.edu.ufpe.ines.decode.taskDescription.Sequencial;
-import br.edu.ufpe.ines.decode.taskDescription.SpecficRestriction;
 import br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionFactory;
 import br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionPackage;
 import br.edu.ufpe.ines.decode.taskDescription.TimeRestriction;
@@ -97,7 +100,7 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass restrictionEClass = null;
+	private EClass parameterEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -125,28 +128,28 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass specficRestrictionEClass = null;
+	private EClass ideParameterEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass eclipseRetrictionEClass = null;
+	private EClass eclipseParameterEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass otherRestrictionEClass = null;
+	private EClass generalParameterEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass modeledRestrictionsEClass = null;
+	private EClass otherParametersEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -154,6 +157,27 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 	 * @generated
 	 */
 	private EClass measurementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass measurementsEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass penAndPaperQuestionnaireEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass questionnairemeasureEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -347,8 +371,8 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getRestriction() {
-		return restrictionEClass;
+	public EClass getParameter() {
+		return parameterEClass;
 	}
 
 	/**
@@ -428,8 +452,8 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getSpecficRestriction() {
-		return specficRestrictionEClass;
+	public EClass getIDEParameter() {
+		return ideParameterEClass;
 	}
 
 	/**
@@ -437,8 +461,8 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEclipseRetriction() {
-		return eclipseRetrictionEClass;
+	public EClass getEclipseParameter() {
+		return eclipseParameterEClass;
 	}
 
 	/**
@@ -446,8 +470,8 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getEclipseRetriction_Forbiden() {
-		return (EAttribute)eclipseRetrictionEClass.getEStructuralFeatures().get(0);
+	public EAttribute getEclipseParameter_Forbiden() {
+		return (EAttribute)eclipseParameterEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -455,8 +479,8 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getOtherRestriction() {
-		return otherRestrictionEClass;
+	public EAttribute getEclipseParameter_Required() {
+		return (EAttribute)eclipseParameterEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -464,8 +488,8 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getOtherRestriction_Description() {
-		return (EAttribute)otherRestrictionEClass.getEStructuralFeatures().get(0);
+	public EClass getGeneralParameter() {
+		return generalParameterEClass;
 	}
 
 	/**
@@ -473,8 +497,8 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getModeledRestrictions() {
-		return modeledRestrictionsEClass;
+	public EAttribute getGeneralParameter_Description() {
+		return (EAttribute)generalParameterEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -482,8 +506,17 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getModeledRestrictions_Children() {
-		return (EReference)modeledRestrictionsEClass.getEStructuralFeatures().get(0);
+	public EClass getOtherParameters() {
+		return otherParametersEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getOtherParameters_Children() {
+		return (EReference)otherParametersEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -493,6 +526,51 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 	 */
 	public EClass getMeasurement() {
 		return measurementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getMeasurements() {
+		return measurementsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMeasurements_Content() {
+		return (EReference)measurementsEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPenAndPaperQuestionnaire() {
+		return penAndPaperQuestionnaireEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPenAndPaperQuestionnaire_FilePDF() {
+		return (EReference)penAndPaperQuestionnaireEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getQuestionnairemeasure() {
+		return questionnairemeasureEClass;
 	}
 
 	/**
@@ -548,7 +626,7 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 		createEReference(experimentalTaskEClass, EXPERIMENTAL_TASK__DEPENDS);
 		createEReference(experimentalTaskEClass, EXPERIMENTAL_TASK__REQUIRES);
 
-		restrictionEClass = createEClass(RESTRICTION);
+		parameterEClass = createEClass(PARAMETER);
 
 		questionnaireMeasurementEClass = createEClass(QUESTIONNAIRE_MEASUREMENT);
 		createEAttribute(questionnaireMeasurementEClass, QUESTIONNAIRE_MEASUREMENT__PLACEMENT);
@@ -561,18 +639,27 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 		createEAttribute(timeRestrictionEClass, TIME_RESTRICTION__TIME_FRAME);
 		createEAttribute(timeRestrictionEClass, TIME_RESTRICTION__DEADLINE);
 
-		specficRestrictionEClass = createEClass(SPECFIC_RESTRICTION);
+		ideParameterEClass = createEClass(IDE_PARAMETER);
 
-		eclipseRetrictionEClass = createEClass(ECLIPSE_RETRICTION);
-		createEAttribute(eclipseRetrictionEClass, ECLIPSE_RETRICTION__FORBIDEN);
+		eclipseParameterEClass = createEClass(ECLIPSE_PARAMETER);
+		createEAttribute(eclipseParameterEClass, ECLIPSE_PARAMETER__FORBIDEN);
+		createEAttribute(eclipseParameterEClass, ECLIPSE_PARAMETER__REQUIRED);
 
-		otherRestrictionEClass = createEClass(OTHER_RESTRICTION);
-		createEAttribute(otherRestrictionEClass, OTHER_RESTRICTION__DESCRIPTION);
+		generalParameterEClass = createEClass(GENERAL_PARAMETER);
+		createEAttribute(generalParameterEClass, GENERAL_PARAMETER__DESCRIPTION);
 
-		modeledRestrictionsEClass = createEClass(MODELED_RESTRICTIONS);
-		createEReference(modeledRestrictionsEClass, MODELED_RESTRICTIONS__CHILDREN);
+		otherParametersEClass = createEClass(OTHER_PARAMETERS);
+		createEReference(otherParametersEClass, OTHER_PARAMETERS__CHILDREN);
 
 		measurementEClass = createEClass(MEASUREMENT);
+
+		measurementsEClass = createEClass(MEASUREMENTS);
+		createEReference(measurementsEClass, MEASUREMENTS__CONTENT);
+
+		penAndPaperQuestionnaireEClass = createEClass(PEN_AND_PAPER_QUESTIONNAIRE);
+		createEReference(penAndPaperQuestionnaireEClass, PEN_AND_PAPER_QUESTIONNAIRE__FILE_PDF);
+
+		questionnairemeasureEClass = createEClass(QUESTIONNAIREMEASURE);
 
 		// Create enums
 		placementTypeEEnum = createEEnum(PLACEMENT_TYPE);
@@ -621,16 +708,18 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 		randomEClass.getESuperTypes().add(this.getComposedTask());
 		composedTaskEClass.getESuperTypes().add(this.getModeledTask());
 		experimentalTaskEClass.getESuperTypes().add(this.getModeledTask());
-		questionnaireMeasurementEClass.getESuperTypes().add(this.getMeasurement());
-		timeRestrictionEClass.getESuperTypes().add(this.getRestriction());
-		specficRestrictionEClass.getESuperTypes().add(this.getRestriction());
-		eclipseRetrictionEClass.getESuperTypes().add(this.getSpecficRestriction());
-		otherRestrictionEClass.getESuperTypes().add(this.getRestriction());
+		questionnaireMeasurementEClass.getESuperTypes().add(this.getQuestionnairemeasure());
+		timeRestrictionEClass.getESuperTypes().add(this.getParameter());
+		ideParameterEClass.getESuperTypes().add(this.getParameter());
+		eclipseParameterEClass.getESuperTypes().add(this.getIDEParameter());
+		generalParameterEClass.getESuperTypes().add(this.getParameter());
+		penAndPaperQuestionnaireEClass.getESuperTypes().add(this.getQuestionnairemeasure());
+		questionnairemeasureEClass.getESuperTypes().add(this.getMeasurement());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(modeledTaskEClass, ModeledTask.class, "ModeledTask", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getModeledTask_Restriction(), this.getModeledRestrictions(), null, "restriction", null, 0, 1, ModeledTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getModeledTask_Measurements(), this.getMeasurement(), null, "measurements", null, 0, -1, ModeledTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModeledTask_Restriction(), this.getOtherParameters(), null, "restriction", null, 0, 1, ModeledTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModeledTask_Measurements(), this.getMeasurements(), null, "measurements", null, 0, 1, ModeledTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(sequencialEClass, Sequencial.class, "Sequencial", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSequencial_Tasks(), this.getModeledTask(), null, "tasks", null, 0, -1, Sequencial.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -644,7 +733,7 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 		initEReference(getExperimentalTask_Depends(), this.getExperimentalTask(), null, "depends", null, 0, -1, ExperimentalTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getExperimentalTask_Requires(), theArtifactsPackage.getAbstractArtifact(), null, "requires", null, 0, -1, ExperimentalTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(restrictionEClass, Restriction.class, "Restriction", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(parameterEClass, Parameter.class, "Parameter", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(questionnaireMeasurementEClass, QuestionnaireMeasurement.class, "QuestionnaireMeasurement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getQuestionnaireMeasurement_Placement(), this.getPlacementType(), "placement", "Before", 0, 1, QuestionnaireMeasurement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -657,18 +746,27 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 		initEAttribute(getTimeRestriction_TimeFrame(), theXMLTypePackage.getInteger(), "timeFrame", null, 0, 1, TimeRestriction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTimeRestriction_Deadline(), theXMLTypePackage.getDateTime(), "deadline", null, 0, 1, TimeRestriction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(specficRestrictionEClass, SpecficRestriction.class, "SpecficRestriction", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(ideParameterEClass, IDEParameter.class, "IDEParameter", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(eclipseRetrictionEClass, EclipseRetriction.class, "EclipseRetriction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getEclipseRetriction_Forbiden(), theXMLTypePackage.getString(), "forbiden", null, 0, -1, EclipseRetriction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(eclipseParameterEClass, EclipseParameter.class, "EclipseParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getEclipseParameter_Forbiden(), theXMLTypePackage.getString(), "forbiden", null, 0, -1, EclipseParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEclipseParameter_Required(), theXMLTypePackage.getString(), "required", null, 0, -1, EclipseParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(otherRestrictionEClass, OtherRestriction.class, "OtherRestriction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getOtherRestriction_Description(), theXMLTypePackage.getString(), "description", null, 0, 1, OtherRestriction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(generalParameterEClass, GeneralParameter.class, "GeneralParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getGeneralParameter_Description(), theXMLTypePackage.getString(), "description", null, 0, 1, GeneralParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(modeledRestrictionsEClass, ModeledRestrictions.class, "ModeledRestrictions", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getModeledRestrictions_Children(), this.getRestriction(), null, "children", null, 1, -1, ModeledRestrictions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(otherParametersEClass, OtherParameters.class, "OtherParameters", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getOtherParameters_Children(), this.getParameter(), null, "children", null, 1, -1, OtherParameters.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(measurementEClass, Measurement.class, "Measurement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(measurementsEClass, Measurements.class, "Measurements", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getMeasurements_Content(), this.getMeasurement(), null, "content", null, 0, -1, Measurements.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(penAndPaperQuestionnaireEClass, PenAndPaperQuestionnaire.class, "PenAndPaperQuestionnaire", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getPenAndPaperQuestionnaire_FilePDF(), theArtifactsPackage.getOtherFile(), null, "FilePDF", null, 1, -1, PenAndPaperQuestionnaire.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(questionnairemeasureEClass, Questionnairemeasure.class, "Questionnairemeasure", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(placementTypeEEnum, PlacementType.class, "PlacementType");

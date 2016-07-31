@@ -13,7 +13,7 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class TimeRestrictionTest extends RestrictionTest {
+public class TimeRestrictionTest extends ParameterTest {
 
 	/**
 	 * <!-- begin-user-doc -->

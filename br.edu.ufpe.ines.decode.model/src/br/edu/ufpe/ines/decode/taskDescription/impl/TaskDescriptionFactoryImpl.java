@@ -63,9 +63,11 @@ public class TaskDescriptionFactoryImpl extends EFactoryImpl implements TaskDesc
 			case TaskDescriptionPackage.QUESTIONNAIRE_MEASUREMENT: return createQuestionnaireMeasurement();
 			case TaskDescriptionPackage.EXECUTION_DERIVATIONS: return createExecutionDerivations();
 			case TaskDescriptionPackage.TIME_RESTRICTION: return createTimeRestriction();
-			case TaskDescriptionPackage.ECLIPSE_RETRICTION: return createEclipseRetriction();
-			case TaskDescriptionPackage.OTHER_RESTRICTION: return createOtherRestriction();
-			case TaskDescriptionPackage.MODELED_RESTRICTIONS: return createModeledRestrictions();
+			case TaskDescriptionPackage.ECLIPSE_PARAMETER: return createEclipseParameter();
+			case TaskDescriptionPackage.GENERAL_PARAMETER: return createGeneralParameter();
+			case TaskDescriptionPackage.OTHER_PARAMETERS: return createOtherParameters();
+			case TaskDescriptionPackage.MEASUREMENTS: return createMeasurements();
+			case TaskDescriptionPackage.PEN_AND_PAPER_QUESTIONNAIRE: return createPenAndPaperQuestionnaire();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -166,9 +168,9 @@ public class TaskDescriptionFactoryImpl extends EFactoryImpl implements TaskDesc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EclipseRetriction createEclipseRetriction() {
-		EclipseRetrictionImpl eclipseRetriction = new EclipseRetrictionImpl();
-		return eclipseRetriction;
+	public EclipseParameter createEclipseParameter() {
+		EclipseParameterImpl eclipseParameter = new EclipseParameterImpl();
+		return eclipseParameter;
 	}
 
 	/**
@@ -176,9 +178,9 @@ public class TaskDescriptionFactoryImpl extends EFactoryImpl implements TaskDesc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public OtherRestriction createOtherRestriction() {
-		OtherRestrictionImpl otherRestriction = new OtherRestrictionImpl();
-		return otherRestriction;
+	public GeneralParameter createGeneralParameter() {
+		GeneralParameterImpl generalParameter = new GeneralParameterImpl();
+		return generalParameter;
 	}
 
 	/**
@@ -186,9 +188,29 @@ public class TaskDescriptionFactoryImpl extends EFactoryImpl implements TaskDesc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ModeledRestrictions createModeledRestrictions() {
-		ModeledRestrictionsImpl modeledRestrictions = new ModeledRestrictionsImpl();
-		return modeledRestrictions;
+	public OtherParameters createOtherParameters() {
+		OtherParametersImpl otherParameters = new OtherParametersImpl();
+		return otherParameters;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Measurements createMeasurements() {
+		MeasurementsImpl measurements = new MeasurementsImpl();
+		return measurements;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PenAndPaperQuestionnaire createPenAndPaperQuestionnaire() {
+		PenAndPaperQuestionnaireImpl penAndPaperQuestionnaire = new PenAndPaperQuestionnaireImpl();
+		return penAndPaperQuestionnaire;
 	}
 
 	/**

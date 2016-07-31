@@ -3,7 +3,7 @@
 package br.edu.ufpe.ines.decode.taskDescription.provider;
 
 
-import br.edu.ufpe.ines.decode.taskDescription.OtherRestriction;
+import br.edu.ufpe.ines.decode.taskDescription.EclipseParameter;
 import br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionPackage;
 
 import java.util.Collection;
@@ -18,19 +18,19 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link br.edu.ufpe.ines.decode.taskDescription.OtherRestriction} object.
+ * This is the item provider adapter for a {@link br.edu.ufpe.ines.decode.taskDescription.EclipseParameter} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class OtherRestrictionItemProvider extends RestrictionItemProvider {
+public class EclipseParameterItemProvider extends IDEParameterItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public OtherRestrictionItemProvider(AdapterFactory adapterFactory) {
+	public EclipseParameterItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -45,25 +45,26 @@ public class OtherRestrictionItemProvider extends RestrictionItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addDescriptionPropertyDescriptor(object);
+			addForbidenPropertyDescriptor(object);
+			addRequiredPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Description feature.
+	 * This adds a property descriptor for the Forbiden feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addDescriptionPropertyDescriptor(Object object) {
+	protected void addForbidenPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_OtherRestriction_description_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_OtherRestriction_description_feature", "_UI_OtherRestriction_type"),
-				 TaskDescriptionPackage.Literals.OTHER_RESTRICTION__DESCRIPTION,
+				 getString("_UI_EclipseParameter_forbiden_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EclipseParameter_forbiden_feature", "_UI_EclipseParameter_type"),
+				 TaskDescriptionPackage.Literals.ECLIPSE_PARAMETER__FORBIDEN,
 				 true,
 				 false,
 				 false,
@@ -73,14 +74,36 @@ public class OtherRestrictionItemProvider extends RestrictionItemProvider {
 	}
 
 	/**
-	 * This returns OtherRestriction.gif.
+	 * This adds a property descriptor for the Required feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRequiredPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EclipseParameter_required_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EclipseParameter_required_feature", "_UI_EclipseParameter_type"),
+				 TaskDescriptionPackage.Literals.ECLIPSE_PARAMETER__REQUIRED,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This returns EclipseParameter.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/OtherRestriction"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/EclipseParameter"));
 	}
 
 	/**
@@ -91,10 +114,7 @@ public class OtherRestrictionItemProvider extends RestrictionItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((OtherRestriction)object).getDescription();
-		return label == null || label.length() == 0 ?
-			getString("_UI_OtherRestriction_type") :
-			getString("_UI_OtherRestriction_type") + " " + label;
+		return getString("_UI_EclipseParameter_type");
 	}
 	
 
@@ -109,8 +129,9 @@ public class OtherRestrictionItemProvider extends RestrictionItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(OtherRestriction.class)) {
-			case TaskDescriptionPackage.OTHER_RESTRICTION__DESCRIPTION:
+		switch (notification.getFeatureID(EclipseParameter.class)) {
+			case TaskDescriptionPackage.ECLIPSE_PARAMETER__FORBIDEN:
+			case TaskDescriptionPackage.ECLIPSE_PARAMETER__REQUIRED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

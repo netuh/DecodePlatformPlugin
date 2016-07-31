@@ -34,12 +34,14 @@ public class CurrentExecutableTask {
 	}
 
 	public void start(){
-		for (Measurement measurement : currentTask.getMeasurements()) {
-			if (measurement instanceof AnyAction) {
-				AnyAction measuAnyAction = (AnyAction) measurement;
-				List<LogType> actions = new LinkedList<LogType>();
-				measuAnyAction.getLog().forEach(action -> actions.add(action));
-				activeMonitors.addAll(UsageMonitorFactory.startAllMonitor(actions, this));
+		if (currentTask.getMeasurements() != null && currentTask.getMeasurements().getContent() != null){
+			for (Measurement measurement : currentTask.getMeasurements().getContent()) {
+				if (measurement instanceof AnyAction) {
+					AnyAction measuAnyAction = (AnyAction) measurement;
+					List<LogType> actions = new LinkedList<LogType>();
+					measuAnyAction.getLog().forEach(action -> actions.add(action));
+					activeMonitors.addAll(UsageMonitorFactory.startAllMonitor(actions, this));
+				}
 			}
 		}
 		status = TaskStatus.STARTED;

@@ -76,31 +76,49 @@ public interface TaskDescriptionFactory extends EFactory {
 	TimeRestriction createTimeRestriction();
 
 	/**
-	 * Returns a new object of class '<em>Eclipse Retriction</em>'.
+	 * Returns a new object of class '<em>Eclipse Parameter</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Eclipse Retriction</em>'.
+	 * @return a new object of class '<em>Eclipse Parameter</em>'.
 	 * @generated
 	 */
-	EclipseRetriction createEclipseRetriction();
+	EclipseParameter createEclipseParameter();
 
 	/**
-	 * Returns a new object of class '<em>Other Restriction</em>'.
+	 * Returns a new object of class '<em>General Parameter</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Other Restriction</em>'.
+	 * @return a new object of class '<em>General Parameter</em>'.
 	 * @generated
 	 */
-	OtherRestriction createOtherRestriction();
+	GeneralParameter createGeneralParameter();
 
 	/**
-	 * Returns a new object of class '<em>Modeled Restrictions</em>'.
+	 * Returns a new object of class '<em>Other Parameters</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Modeled Restrictions</em>'.
+	 * @return a new object of class '<em>Other Parameters</em>'.
 	 * @generated
 	 */
-	ModeledRestrictions createModeledRestrictions();
+	OtherParameters createOtherParameters();
+
+	/**
+	 * Returns a new object of class '<em>Measurements</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Measurements</em>'.
+	 * @generated
+	 */
+	Measurements createMeasurements();
+
+	/**
+	 * Returns a new object of class '<em>Pen And Paper Questionnaire</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Pen And Paper Questionnaire</em>'.
+	 * @generated
+	 */
+	PenAndPaperQuestionnaire createPenAndPaperQuestionnaire();
 
 	/**
 	 * Returns the package supported by this factory.

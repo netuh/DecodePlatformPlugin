@@ -13,7 +13,7 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class QuestionnaireMeasurementTest extends MeasurementTest {
+public class QuestionnaireMeasurementTest extends QuestionnairemeasureTest {
 
 	/**
 	 * <!-- begin-user-doc -->

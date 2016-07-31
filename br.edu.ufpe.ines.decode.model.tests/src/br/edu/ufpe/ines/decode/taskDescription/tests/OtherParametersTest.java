@@ -2,7 +2,7 @@
  */
 package br.edu.ufpe.ines.decode.taskDescription.tests;
 
-import br.edu.ufpe.ines.decode.taskDescription.ModeledRestrictions;
+import br.edu.ufpe.ines.decode.taskDescription.OtherParameters;
 import br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionFactory;
 
 import junit.framework.TestCase;
@@ -11,19 +11,19 @@ import junit.textui.TestRunner;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Modeled Restrictions</b></em>'.
+ * A test case for the model object '<em><b>Other Parameters</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class ModeledRestrictionsTest extends TestCase {
+public class OtherParametersTest extends TestCase {
 
 	/**
-	 * The fixture for this Modeled Restrictions test case.
+	 * The fixture for this Other Parameters test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ModeledRestrictions fixture = null;
+	protected OtherParameters fixture = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -31,36 +31,36 @@ public class ModeledRestrictionsTest extends TestCase {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(ModeledRestrictionsTest.class);
+		TestRunner.run(OtherParametersTest.class);
 	}
 
 	/**
-	 * Constructs a new Modeled Restrictions test case with the given name.
+	 * Constructs a new Other Parameters test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ModeledRestrictionsTest(String name) {
+	public OtherParametersTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Sets the fixture for this Modeled Restrictions test case.
+	 * Sets the fixture for this Other Parameters test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void setFixture(ModeledRestrictions fixture) {
+	protected void setFixture(OtherParameters fixture) {
 		this.fixture = fixture;
 	}
 
 	/**
-	 * Returns the fixture for this Modeled Restrictions test case.
+	 * Returns the fixture for this Other Parameters test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ModeledRestrictions getFixture() {
+	protected OtherParameters getFixture() {
 		return fixture;
 	}
 
@@ -72,7 +72,7 @@ public class ModeledRestrictionsTest extends TestCase {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(TaskDescriptionFactory.eINSTANCE.createModeledRestrictions());
+		setFixture(TaskDescriptionFactory.eINSTANCE.createOtherParameters());
 	}
 
 	/**
@@ -86,4 +86,4 @@ public class ModeledRestrictionsTest extends TestCase {
 		setFixture(null);
 	}
 
-} //ModeledRestrictionsTest
+} //OtherParametersTest

@@ -23,7 +23,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  * @model
  * @generated
  */
-public interface TimeRestriction extends Restriction {
+public interface TimeRestriction extends Parameter {
 	/**
 	 * Returns the value of the '<em><b>Time Frame</b></em>' attribute.
 	 * <!-- begin-user-doc -->

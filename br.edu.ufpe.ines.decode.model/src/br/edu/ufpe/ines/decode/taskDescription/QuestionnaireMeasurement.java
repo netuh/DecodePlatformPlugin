@@ -21,7 +21,7 @@ import br.edu.ufpe.ines.decode.artifacts.QuestionnaireInner;
  * @model
  * @generated
  */
-public interface QuestionnaireMeasurement extends Measurement {
+public interface QuestionnaireMeasurement extends Questionnairemeasure {
 	/**
 	 * Returns the value of the '<em><b>Placement</b></em>' attribute.
 	 * The default value is <code>"Before"</code>.

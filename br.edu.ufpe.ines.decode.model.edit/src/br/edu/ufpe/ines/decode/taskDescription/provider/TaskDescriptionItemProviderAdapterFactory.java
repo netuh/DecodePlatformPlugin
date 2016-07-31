@@ -210,72 +210,118 @@ public class TaskDescriptionItemProviderAdapterFactory extends TaskDescriptionAd
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link br.edu.ufpe.ines.decode.taskDescription.EclipseRetriction} instances.
+	 * This keeps track of the one adapter used for all {@link br.edu.ufpe.ines.decode.taskDescription.EclipseParameter} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EclipseRetrictionItemProvider eclipseRetrictionItemProvider;
+	protected EclipseParameterItemProvider eclipseParameterItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link br.edu.ufpe.ines.decode.taskDescription.EclipseRetriction}.
+	 * This creates an adapter for a {@link br.edu.ufpe.ines.decode.taskDescription.EclipseParameter}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createEclipseRetrictionAdapter() {
-		if (eclipseRetrictionItemProvider == null) {
-			eclipseRetrictionItemProvider = new EclipseRetrictionItemProvider(this);
+	public Adapter createEclipseParameterAdapter() {
+		if (eclipseParameterItemProvider == null) {
+			eclipseParameterItemProvider = new EclipseParameterItemProvider(this);
 		}
 
-		return eclipseRetrictionItemProvider;
+		return eclipseParameterItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link br.edu.ufpe.ines.decode.taskDescription.OtherRestriction} instances.
+	 * This keeps track of the one adapter used for all {@link br.edu.ufpe.ines.decode.taskDescription.GeneralParameter} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected OtherRestrictionItemProvider otherRestrictionItemProvider;
+	protected GeneralParameterItemProvider generalParameterItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link br.edu.ufpe.ines.decode.taskDescription.OtherRestriction}.
+	 * This creates an adapter for a {@link br.edu.ufpe.ines.decode.taskDescription.GeneralParameter}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createOtherRestrictionAdapter() {
-		if (otherRestrictionItemProvider == null) {
-			otherRestrictionItemProvider = new OtherRestrictionItemProvider(this);
+	public Adapter createGeneralParameterAdapter() {
+		if (generalParameterItemProvider == null) {
+			generalParameterItemProvider = new GeneralParameterItemProvider(this);
 		}
 
-		return otherRestrictionItemProvider;
+		return generalParameterItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link br.edu.ufpe.ines.decode.taskDescription.ModeledRestrictions} instances.
+	 * This keeps track of the one adapter used for all {@link br.edu.ufpe.ines.decode.taskDescription.OtherParameters} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ModeledRestrictionsItemProvider modeledRestrictionsItemProvider;
+	protected OtherParametersItemProvider otherParametersItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link br.edu.ufpe.ines.decode.taskDescription.ModeledRestrictions}.
+	 * This creates an adapter for a {@link br.edu.ufpe.ines.decode.taskDescription.OtherParameters}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createModeledRestrictionsAdapter() {
-		if (modeledRestrictionsItemProvider == null) {
-			modeledRestrictionsItemProvider = new ModeledRestrictionsItemProvider(this);
+	public Adapter createOtherParametersAdapter() {
+		if (otherParametersItemProvider == null) {
+			otherParametersItemProvider = new OtherParametersItemProvider(this);
 		}
 
-		return modeledRestrictionsItemProvider;
+		return otherParametersItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link br.edu.ufpe.ines.decode.taskDescription.Measurements} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MeasurementsItemProvider measurementsItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link br.edu.ufpe.ines.decode.taskDescription.Measurements}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMeasurementsAdapter() {
+		if (measurementsItemProvider == null) {
+			measurementsItemProvider = new MeasurementsItemProvider(this);
+		}
+
+		return measurementsItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link br.edu.ufpe.ines.decode.taskDescription.PenAndPaperQuestionnaire} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PenAndPaperQuestionnaireItemProvider penAndPaperQuestionnaireItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link br.edu.ufpe.ines.decode.taskDescription.PenAndPaperQuestionnaire}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPenAndPaperQuestionnaireAdapter() {
+		if (penAndPaperQuestionnaireItemProvider == null) {
+			penAndPaperQuestionnaireItemProvider = new PenAndPaperQuestionnaireItemProvider(this);
+		}
+
+		return penAndPaperQuestionnaireItemProvider;
 	}
 
 	/**
@@ -383,9 +429,11 @@ public class TaskDescriptionItemProviderAdapterFactory extends TaskDescriptionAd
 		if (questionnaireMeasurementItemProvider != null) questionnaireMeasurementItemProvider.dispose();
 		if (executionDerivationsItemProvider != null) executionDerivationsItemProvider.dispose();
 		if (timeRestrictionItemProvider != null) timeRestrictionItemProvider.dispose();
-		if (eclipseRetrictionItemProvider != null) eclipseRetrictionItemProvider.dispose();
-		if (otherRestrictionItemProvider != null) otherRestrictionItemProvider.dispose();
-		if (modeledRestrictionsItemProvider != null) modeledRestrictionsItemProvider.dispose();
+		if (eclipseParameterItemProvider != null) eclipseParameterItemProvider.dispose();
+		if (generalParameterItemProvider != null) generalParameterItemProvider.dispose();
+		if (otherParametersItemProvider != null) otherParametersItemProvider.dispose();
+		if (measurementsItemProvider != null) measurementsItemProvider.dispose();
+		if (penAndPaperQuestionnaireItemProvider != null) penAndPaperQuestionnaireItemProvider.dispose();
 	}
 
 }

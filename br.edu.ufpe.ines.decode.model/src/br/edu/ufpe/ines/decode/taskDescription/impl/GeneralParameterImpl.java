@@ -2,7 +2,7 @@
  */
 package br.edu.ufpe.ines.decode.taskDescription.impl;
 
-import br.edu.ufpe.ines.decode.taskDescription.OtherRestriction;
+import br.edu.ufpe.ines.decode.taskDescription.GeneralParameter;
 import br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -13,18 +13,18 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Other Restriction</b></em>'.
+ * An implementation of the model object '<em><b>General Parameter</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link br.edu.ufpe.ines.decode.taskDescription.impl.OtherRestrictionImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link br.edu.ufpe.ines.decode.taskDescription.impl.GeneralParameterImpl#getDescription <em>Description</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class OtherRestrictionImpl extends RestrictionImpl implements OtherRestriction {
+public class GeneralParameterImpl extends ParameterImpl implements GeneralParameter {
 	/**
 	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -50,7 +50,7 @@ public class OtherRestrictionImpl extends RestrictionImpl implements OtherRestri
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected OtherRestrictionImpl() {
+	protected GeneralParameterImpl() {
 		super();
 	}
 
@@ -61,7 +61,7 @@ public class OtherRestrictionImpl extends RestrictionImpl implements OtherRestri
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return TaskDescriptionPackage.Literals.OTHER_RESTRICTION;
+		return TaskDescriptionPackage.Literals.GENERAL_PARAMETER;
 	}
 
 	/**
@@ -82,7 +82,7 @@ public class OtherRestrictionImpl extends RestrictionImpl implements OtherRestri
 		String oldDescription = description;
 		description = newDescription;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TaskDescriptionPackage.OTHER_RESTRICTION__DESCRIPTION, oldDescription, description));
+			eNotify(new ENotificationImpl(this, Notification.SET, TaskDescriptionPackage.GENERAL_PARAMETER__DESCRIPTION, oldDescription, description));
 	}
 
 	/**
@@ -93,7 +93,7 @@ public class OtherRestrictionImpl extends RestrictionImpl implements OtherRestri
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case TaskDescriptionPackage.OTHER_RESTRICTION__DESCRIPTION:
+			case TaskDescriptionPackage.GENERAL_PARAMETER__DESCRIPTION:
 				return getDescription();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -107,7 +107,7 @@ public class OtherRestrictionImpl extends RestrictionImpl implements OtherRestri
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case TaskDescriptionPackage.OTHER_RESTRICTION__DESCRIPTION:
+			case TaskDescriptionPackage.GENERAL_PARAMETER__DESCRIPTION:
 				setDescription((String)newValue);
 				return;
 		}
@@ -122,7 +122,7 @@ public class OtherRestrictionImpl extends RestrictionImpl implements OtherRestri
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case TaskDescriptionPackage.OTHER_RESTRICTION__DESCRIPTION:
+			case TaskDescriptionPackage.GENERAL_PARAMETER__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
 		}
@@ -137,7 +137,7 @@ public class OtherRestrictionImpl extends RestrictionImpl implements OtherRestri
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case TaskDescriptionPackage.OTHER_RESTRICTION__DESCRIPTION:
+			case TaskDescriptionPackage.GENERAL_PARAMETER__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 		}
 		return super.eIsSet(featureID);
@@ -159,4 +159,4 @@ public class OtherRestrictionImpl extends RestrictionImpl implements OtherRestri
 		return result.toString();
 	}
 
-} //OtherRestrictionImpl
+} //GeneralParameterImpl

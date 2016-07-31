@@ -91,8 +91,8 @@ public class TaskDescriptionAdapterFactory extends AdapterFactoryImpl {
 				return createExperimentalTaskAdapter();
 			}
 			@Override
-			public Adapter caseRestriction(Restriction object) {
-				return createRestrictionAdapter();
+			public Adapter caseParameter(Parameter object) {
+				return createParameterAdapter();
 			}
 			@Override
 			public Adapter caseQuestionnaireMeasurement(QuestionnaireMeasurement object) {
@@ -107,24 +107,36 @@ public class TaskDescriptionAdapterFactory extends AdapterFactoryImpl {
 				return createTimeRestrictionAdapter();
 			}
 			@Override
-			public Adapter caseSpecficRestriction(SpecficRestriction object) {
-				return createSpecficRestrictionAdapter();
+			public Adapter caseIDEParameter(IDEParameter object) {
+				return createIDEParameterAdapter();
 			}
 			@Override
-			public Adapter caseEclipseRetriction(EclipseRetriction object) {
-				return createEclipseRetrictionAdapter();
+			public Adapter caseEclipseParameter(EclipseParameter object) {
+				return createEclipseParameterAdapter();
 			}
 			@Override
-			public Adapter caseOtherRestriction(OtherRestriction object) {
-				return createOtherRestrictionAdapter();
+			public Adapter caseGeneralParameter(GeneralParameter object) {
+				return createGeneralParameterAdapter();
 			}
 			@Override
-			public Adapter caseModeledRestrictions(ModeledRestrictions object) {
-				return createModeledRestrictionsAdapter();
+			public Adapter caseOtherParameters(OtherParameters object) {
+				return createOtherParametersAdapter();
 			}
 			@Override
 			public Adapter caseMeasurement(Measurement object) {
 				return createMeasurementAdapter();
+			}
+			@Override
+			public Adapter caseMeasurements(Measurements object) {
+				return createMeasurementsAdapter();
+			}
+			@Override
+			public Adapter casePenAndPaperQuestionnaire(PenAndPaperQuestionnaire object) {
+				return createPenAndPaperQuestionnaireAdapter();
+			}
+			@Override
+			public Adapter caseQuestionnairemeasure(Questionnairemeasure object) {
+				return createQuestionnairemeasureAdapter();
 			}
 			@Override
 			public Adapter caseNameable(Nameable object) {
@@ -225,16 +237,16 @@ public class TaskDescriptionAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link br.edu.ufpe.ines.decode.taskDescription.Restriction <em>Restriction</em>}'.
+	 * Creates a new adapter for an object of class '{@link br.edu.ufpe.ines.decode.taskDescription.Parameter <em>Parameter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see br.edu.ufpe.ines.decode.taskDescription.Restriction
+	 * @see br.edu.ufpe.ines.decode.taskDescription.Parameter
 	 * @generated
 	 */
-	public Adapter createRestrictionAdapter() {
+	public Adapter createParameterAdapter() {
 		return null;
 	}
 
@@ -281,58 +293,58 @@ public class TaskDescriptionAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link br.edu.ufpe.ines.decode.taskDescription.SpecficRestriction <em>Specfic Restriction</em>}'.
+	 * Creates a new adapter for an object of class '{@link br.edu.ufpe.ines.decode.taskDescription.IDEParameter <em>IDE Parameter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see br.edu.ufpe.ines.decode.taskDescription.SpecficRestriction
+	 * @see br.edu.ufpe.ines.decode.taskDescription.IDEParameter
 	 * @generated
 	 */
-	public Adapter createSpecficRestrictionAdapter() {
+	public Adapter createIDEParameterAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link br.edu.ufpe.ines.decode.taskDescription.EclipseRetriction <em>Eclipse Retriction</em>}'.
+	 * Creates a new adapter for an object of class '{@link br.edu.ufpe.ines.decode.taskDescription.EclipseParameter <em>Eclipse Parameter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see br.edu.ufpe.ines.decode.taskDescription.EclipseRetriction
+	 * @see br.edu.ufpe.ines.decode.taskDescription.EclipseParameter
 	 * @generated
 	 */
-	public Adapter createEclipseRetrictionAdapter() {
+	public Adapter createEclipseParameterAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link br.edu.ufpe.ines.decode.taskDescription.OtherRestriction <em>Other Restriction</em>}'.
+	 * Creates a new adapter for an object of class '{@link br.edu.ufpe.ines.decode.taskDescription.GeneralParameter <em>General Parameter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see br.edu.ufpe.ines.decode.taskDescription.OtherRestriction
+	 * @see br.edu.ufpe.ines.decode.taskDescription.GeneralParameter
 	 * @generated
 	 */
-	public Adapter createOtherRestrictionAdapter() {
+	public Adapter createGeneralParameterAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link br.edu.ufpe.ines.decode.taskDescription.ModeledRestrictions <em>Modeled Restrictions</em>}'.
+	 * Creates a new adapter for an object of class '{@link br.edu.ufpe.ines.decode.taskDescription.OtherParameters <em>Other Parameters</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see br.edu.ufpe.ines.decode.taskDescription.ModeledRestrictions
+	 * @see br.edu.ufpe.ines.decode.taskDescription.OtherParameters
 	 * @generated
 	 */
-	public Adapter createModeledRestrictionsAdapter() {
+	public Adapter createOtherParametersAdapter() {
 		return null;
 	}
 
@@ -347,6 +359,48 @@ public class TaskDescriptionAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMeasurementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link br.edu.ufpe.ines.decode.taskDescription.Measurements <em>Measurements</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see br.edu.ufpe.ines.decode.taskDescription.Measurements
+	 * @generated
+	 */
+	public Adapter createMeasurementsAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link br.edu.ufpe.ines.decode.taskDescription.PenAndPaperQuestionnaire <em>Pen And Paper Questionnaire</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see br.edu.ufpe.ines.decode.taskDescription.PenAndPaperQuestionnaire
+	 * @generated
+	 */
+	public Adapter createPenAndPaperQuestionnaireAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link br.edu.ufpe.ines.decode.taskDescription.Questionnairemeasure <em>Questionnairemeasure</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see br.edu.ufpe.ines.decode.taskDescription.Questionnairemeasure
+	 * @generated
+	 */
+	public Adapter createQuestionnairemeasureAdapter() {
 		return null;
 	}
 

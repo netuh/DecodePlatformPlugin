@@ -2,25 +2,23 @@
  */
 package br.edu.ufpe.ines.decode.taskDescription.impl;
 
-import java.util.Collection;
-import java.util.UUID;
+import br.edu.ufpe.ines.decode.aux.AuxPackage;
+import br.edu.ufpe.ines.decode.aux.Identifiable;
+
+import br.edu.ufpe.ines.decode.aux.impl.NameableImpl;
+
+import br.edu.ufpe.ines.decode.taskDescription.Measurements;
+import br.edu.ufpe.ines.decode.taskDescription.ModeledTask;
+import br.edu.ufpe.ines.decode.taskDescription.OtherParameters;
+import br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
-import br.edu.ufpe.ines.decode.aux.AuxPackage;
-import br.edu.ufpe.ines.decode.aux.Identifiable;
-import br.edu.ufpe.ines.decode.aux.impl.NameableImpl;
-import br.edu.ufpe.ines.decode.taskDescription.Measurement;
-import br.edu.ufpe.ines.decode.taskDescription.ModeledRestrictions;
-import br.edu.ufpe.ines.decode.taskDescription.ModeledTask;
-import br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionPackage;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -66,17 +64,17 @@ public abstract class ModeledTaskImpl extends NameableImpl implements ModeledTas
 	 * @generated
 	 * @ordered
 	 */
-	protected ModeledRestrictions restriction;
+	protected OtherParameters restriction;
 
 	/**
-	 * The cached value of the '{@link #getMeasurements() <em>Measurements</em>}' containment reference list.
+	 * The cached value of the '{@link #getMeasurements() <em>Measurements</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getMeasurements()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Measurement> measurements;
+	protected Measurements measurements;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -100,11 +98,9 @@ public abstract class ModeledTaskImpl extends NameableImpl implements ModeledTas
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	public String getElementId() {
-		if (elementId == null)
-			elementId = UUID.randomUUID().toString();
 		return elementId;
 	}
 
@@ -125,7 +121,7 @@ public abstract class ModeledTaskImpl extends NameableImpl implements ModeledTas
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ModeledRestrictions getRestriction() {
+	public OtherParameters getRestriction() {
 		return restriction;
 	}
 
@@ -134,8 +130,8 @@ public abstract class ModeledTaskImpl extends NameableImpl implements ModeledTas
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRestriction(ModeledRestrictions newRestriction, NotificationChain msgs) {
-		ModeledRestrictions oldRestriction = restriction;
+	public NotificationChain basicSetRestriction(OtherParameters newRestriction, NotificationChain msgs) {
+		OtherParameters oldRestriction = restriction;
 		restriction = newRestriction;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TaskDescriptionPackage.MODELED_TASK__RESTRICTION, oldRestriction, newRestriction);
@@ -149,7 +145,7 @@ public abstract class ModeledTaskImpl extends NameableImpl implements ModeledTas
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRestriction(ModeledRestrictions newRestriction) {
+	public void setRestriction(OtherParameters newRestriction) {
 		if (newRestriction != restriction) {
 			NotificationChain msgs = null;
 			if (restriction != null)
@@ -168,11 +164,42 @@ public abstract class ModeledTaskImpl extends NameableImpl implements ModeledTas
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Measurement> getMeasurements() {
-		if (measurements == null) {
-			measurements = new EObjectContainmentEList<Measurement>(Measurement.class, this, TaskDescriptionPackage.MODELED_TASK__MEASUREMENTS);
-		}
+	public Measurements getMeasurements() {
 		return measurements;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetMeasurements(Measurements newMeasurements, NotificationChain msgs) {
+		Measurements oldMeasurements = measurements;
+		measurements = newMeasurements;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TaskDescriptionPackage.MODELED_TASK__MEASUREMENTS, oldMeasurements, newMeasurements);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMeasurements(Measurements newMeasurements) {
+		if (newMeasurements != measurements) {
+			NotificationChain msgs = null;
+			if (measurements != null)
+				msgs = ((InternalEObject)measurements).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - TaskDescriptionPackage.MODELED_TASK__MEASUREMENTS, null, msgs);
+			if (newMeasurements != null)
+				msgs = ((InternalEObject)newMeasurements).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - TaskDescriptionPackage.MODELED_TASK__MEASUREMENTS, null, msgs);
+			msgs = basicSetMeasurements(newMeasurements, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TaskDescriptionPackage.MODELED_TASK__MEASUREMENTS, newMeasurements, newMeasurements));
 	}
 
 	/**
@@ -186,7 +213,7 @@ public abstract class ModeledTaskImpl extends NameableImpl implements ModeledTas
 			case TaskDescriptionPackage.MODELED_TASK__RESTRICTION:
 				return basicSetRestriction(null, msgs);
 			case TaskDescriptionPackage.MODELED_TASK__MEASUREMENTS:
-				return ((InternalEList<?>)getMeasurements()).basicRemove(otherEnd, msgs);
+				return basicSetMeasurements(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -214,7 +241,6 @@ public abstract class ModeledTaskImpl extends NameableImpl implements ModeledTas
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -222,11 +248,10 @@ public abstract class ModeledTaskImpl extends NameableImpl implements ModeledTas
 				setElementId((String)newValue);
 				return;
 			case TaskDescriptionPackage.MODELED_TASK__RESTRICTION:
-				setRestriction((ModeledRestrictions)newValue);
+				setRestriction((OtherParameters)newValue);
 				return;
 			case TaskDescriptionPackage.MODELED_TASK__MEASUREMENTS:
-				getMeasurements().clear();
-				getMeasurements().addAll((Collection<? extends Measurement>)newValue);
+				setMeasurements((Measurements)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -244,10 +269,10 @@ public abstract class ModeledTaskImpl extends NameableImpl implements ModeledTas
 				setElementId(ELEMENT_ID_EDEFAULT);
 				return;
 			case TaskDescriptionPackage.MODELED_TASK__RESTRICTION:
-				setRestriction((ModeledRestrictions)null);
+				setRestriction((OtherParameters)null);
 				return;
 			case TaskDescriptionPackage.MODELED_TASK__MEASUREMENTS:
-				getMeasurements().clear();
+				setMeasurements((Measurements)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -266,7 +291,7 @@ public abstract class ModeledTaskImpl extends NameableImpl implements ModeledTas
 			case TaskDescriptionPackage.MODELED_TASK__RESTRICTION:
 				return restriction != null;
 			case TaskDescriptionPackage.MODELED_TASK__MEASUREMENTS:
-				return measurements != null && !measurements.isEmpty();
+				return measurements != null;
 		}
 		return super.eIsSet(featureID);
 	}

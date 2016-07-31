@@ -2,7 +2,9 @@
  */
 package br.edu.ufpe.ines.decode.taskDescription.impl;
 
-import br.edu.ufpe.ines.decode.taskDescription.EclipseRetriction;
+import br.edu.ufpe.ines.decode.artifacts.OtherFile;
+
+import br.edu.ufpe.ines.decode.taskDescription.PenAndPaperQuestionnaire;
 import br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionPackage;
 
 import java.util.Collection;
@@ -11,38 +13,38 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Eclipse Retriction</b></em>'.
+ * An implementation of the model object '<em><b>Pen And Paper Questionnaire</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link br.edu.ufpe.ines.decode.taskDescription.impl.EclipseRetrictionImpl#getForbiden <em>Forbiden</em>}</li>
+ *   <li>{@link br.edu.ufpe.ines.decode.taskDescription.impl.PenAndPaperQuestionnaireImpl#getFilePDF <em>File PDF</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class EclipseRetrictionImpl extends SpecficRestrictionImpl implements EclipseRetriction {
+public class PenAndPaperQuestionnaireImpl extends QuestionnairemeasureImpl implements PenAndPaperQuestionnaire {
 	/**
-	 * The cached value of the '{@link #getForbiden() <em>Forbiden</em>}' attribute list.
+	 * The cached value of the '{@link #getFilePDF() <em>File PDF</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getForbiden()
+	 * @see #getFilePDF()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<String> forbiden;
+	protected EList<OtherFile> filePDF;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EclipseRetrictionImpl() {
+	protected PenAndPaperQuestionnaireImpl() {
 		super();
 	}
 
@@ -53,7 +55,7 @@ public class EclipseRetrictionImpl extends SpecficRestrictionImpl implements Ecl
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return TaskDescriptionPackage.Literals.ECLIPSE_RETRICTION;
+		return TaskDescriptionPackage.Literals.PEN_AND_PAPER_QUESTIONNAIRE;
 	}
 
 	/**
@@ -61,11 +63,11 @@ public class EclipseRetrictionImpl extends SpecficRestrictionImpl implements Ecl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<String> getForbiden() {
-		if (forbiden == null) {
-			forbiden = new EDataTypeUniqueEList<String>(String.class, this, TaskDescriptionPackage.ECLIPSE_RETRICTION__FORBIDEN);
+	public EList<OtherFile> getFilePDF() {
+		if (filePDF == null) {
+			filePDF = new EObjectResolvingEList<OtherFile>(OtherFile.class, this, TaskDescriptionPackage.PEN_AND_PAPER_QUESTIONNAIRE__FILE_PDF);
 		}
-		return forbiden;
+		return filePDF;
 	}
 
 	/**
@@ -76,8 +78,8 @@ public class EclipseRetrictionImpl extends SpecficRestrictionImpl implements Ecl
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case TaskDescriptionPackage.ECLIPSE_RETRICTION__FORBIDEN:
-				return getForbiden();
+			case TaskDescriptionPackage.PEN_AND_PAPER_QUESTIONNAIRE__FILE_PDF:
+				return getFilePDF();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -91,9 +93,9 @@ public class EclipseRetrictionImpl extends SpecficRestrictionImpl implements Ecl
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case TaskDescriptionPackage.ECLIPSE_RETRICTION__FORBIDEN:
-				getForbiden().clear();
-				getForbiden().addAll((Collection<? extends String>)newValue);
+			case TaskDescriptionPackage.PEN_AND_PAPER_QUESTIONNAIRE__FILE_PDF:
+				getFilePDF().clear();
+				getFilePDF().addAll((Collection<? extends OtherFile>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -107,8 +109,8 @@ public class EclipseRetrictionImpl extends SpecficRestrictionImpl implements Ecl
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case TaskDescriptionPackage.ECLIPSE_RETRICTION__FORBIDEN:
-				getForbiden().clear();
+			case TaskDescriptionPackage.PEN_AND_PAPER_QUESTIONNAIRE__FILE_PDF:
+				getFilePDF().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -122,26 +124,10 @@ public class EclipseRetrictionImpl extends SpecficRestrictionImpl implements Ecl
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case TaskDescriptionPackage.ECLIPSE_RETRICTION__FORBIDEN:
-				return forbiden != null && !forbiden.isEmpty();
+			case TaskDescriptionPackage.PEN_AND_PAPER_QUESTIONNAIRE__FILE_PDF:
+				return filePDF != null && !filePDF.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (forbiden: ");
-		result.append(forbiden);
-		result.append(')');
-		return result.toString();
-	}
-
-} //EclipseRetrictionImpl
+} //PenAndPaperQuestionnaireImpl

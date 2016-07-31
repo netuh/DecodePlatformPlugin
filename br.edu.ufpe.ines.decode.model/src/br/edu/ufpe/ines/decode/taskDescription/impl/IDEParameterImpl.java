@@ -2,27 +2,25 @@
  */
 package br.edu.ufpe.ines.decode.taskDescription.impl;
 
-import br.edu.ufpe.ines.decode.taskDescription.Restriction;
+import br.edu.ufpe.ines.decode.taskDescription.IDEParameter;
 import br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionPackage;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Restriction</b></em>'.
+ * An implementation of the model object '<em><b>IDE Parameter</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public abstract class RestrictionImpl extends MinimalEObjectImpl.Container implements Restriction {
+public abstract class IDEParameterImpl extends ParameterImpl implements IDEParameter {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected RestrictionImpl() {
+	protected IDEParameterImpl() {
 		super();
 	}
 
@@ -33,7 +31,7 @@ public abstract class RestrictionImpl extends MinimalEObjectImpl.Container imple
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return TaskDescriptionPackage.Literals.RESTRICTION;
+		return TaskDescriptionPackage.Literals.IDE_PARAMETER;
 	}
 
-} //RestrictionImpl
+} //IDEParameterImpl

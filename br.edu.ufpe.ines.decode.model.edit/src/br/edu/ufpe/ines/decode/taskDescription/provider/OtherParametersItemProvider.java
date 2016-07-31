@@ -5,7 +5,7 @@ package br.edu.ufpe.ines.decode.taskDescription.provider;
 
 import br.edu.ufpe.ines.decode.provider.ModelDecodeEditPlugin;
 
-import br.edu.ufpe.ines.decode.taskDescription.ModeledRestrictions;
+import br.edu.ufpe.ines.decode.taskDescription.OtherParameters;
 import br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionFactory;
 import br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionPackage;
 
@@ -29,12 +29,12 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link br.edu.ufpe.ines.decode.taskDescription.ModeledRestrictions} object.
+ * This is the item provider adapter for a {@link br.edu.ufpe.ines.decode.taskDescription.OtherParameters} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ModeledRestrictionsItemProvider 
+public class OtherParametersItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -48,7 +48,7 @@ public class ModeledRestrictionsItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ModeledRestrictionsItemProvider(AdapterFactory adapterFactory) {
+	public OtherParametersItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -79,7 +79,7 @@ public class ModeledRestrictionsItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(TaskDescriptionPackage.Literals.MODELED_RESTRICTIONS__CHILDREN);
+			childrenFeatures.add(TaskDescriptionPackage.Literals.OTHER_PARAMETERS__CHILDREN);
 		}
 		return childrenFeatures;
 	}
@@ -98,14 +98,14 @@ public class ModeledRestrictionsItemProvider
 	}
 
 	/**
-	 * This returns ModeledRestrictions.gif.
+	 * This returns OtherParameters.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ModeledRestrictions"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/OtherParameters"));
 	}
 
 	/**
@@ -116,7 +116,7 @@ public class ModeledRestrictionsItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ModeledRestrictions_type");
+		return getString("_UI_OtherParameters_type");
 	}
 	
 
@@ -131,8 +131,8 @@ public class ModeledRestrictionsItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(ModeledRestrictions.class)) {
-			case TaskDescriptionPackage.MODELED_RESTRICTIONS__CHILDREN:
+		switch (notification.getFeatureID(OtherParameters.class)) {
+			case TaskDescriptionPackage.OTHER_PARAMETERS__CHILDREN:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -152,18 +152,18 @@ public class ModeledRestrictionsItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(TaskDescriptionPackage.Literals.MODELED_RESTRICTIONS__CHILDREN,
+				(TaskDescriptionPackage.Literals.OTHER_PARAMETERS__CHILDREN,
 				 TaskDescriptionFactory.eINSTANCE.createTimeRestriction()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(TaskDescriptionPackage.Literals.MODELED_RESTRICTIONS__CHILDREN,
-				 TaskDescriptionFactory.eINSTANCE.createEclipseRetriction()));
+				(TaskDescriptionPackage.Literals.OTHER_PARAMETERS__CHILDREN,
+				 TaskDescriptionFactory.eINSTANCE.createEclipseParameter()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(TaskDescriptionPackage.Literals.MODELED_RESTRICTIONS__CHILDREN,
-				 TaskDescriptionFactory.eINSTANCE.createOtherRestriction()));
+				(TaskDescriptionPackage.Literals.OTHER_PARAMETERS__CHILDREN,
+				 TaskDescriptionFactory.eINSTANCE.createGeneralParameter()));
 	}
 
 	/**

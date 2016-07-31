@@ -13,8 +13,6 @@ import br.edu.ufpe.ines.decode.taskDescription.ModeledTask;
 import br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionFactory;
 import br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionPackage;
 
-import br.edu.ufpe.ines.decode.taskDescription.measurements.MeasurementsFactory;
-
 import java.util.Collection;
 import java.util.List;
 
@@ -168,37 +166,12 @@ public class ModeledTaskItemProvider extends NameableItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(TaskDescriptionPackage.Literals.MODELED_TASK__RESTRICTION,
-				 TaskDescriptionFactory.eINSTANCE.createModeledRestrictions()));
+				 TaskDescriptionFactory.eINSTANCE.createOtherParameters()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(TaskDescriptionPackage.Literals.MODELED_TASK__MEASUREMENTS,
-				 TaskDescriptionFactory.eINSTANCE.createQuestionnaireMeasurement()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(TaskDescriptionPackage.Literals.MODELED_TASK__MEASUREMENTS,
-				 MeasurementsFactory.eINSTANCE.createFinalTask()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(TaskDescriptionPackage.Literals.MODELED_TASK__MEASUREMENTS,
-				 MeasurementsFactory.eINSTANCE.createEdition()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(TaskDescriptionPackage.Literals.MODELED_TASK__MEASUREMENTS,
-				 MeasurementsFactory.eINSTANCE.createExecution()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(TaskDescriptionPackage.Literals.MODELED_TASK__MEASUREMENTS,
-				 MeasurementsFactory.eINSTANCE.createAnyAction()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(TaskDescriptionPackage.Literals.MODELED_TASK__MEASUREMENTS,
-				 MeasurementsFactory.eINSTANCE.createTestExecution()));
+				 TaskDescriptionFactory.eINSTANCE.createMeasurements()));
 	}
 
 	/**

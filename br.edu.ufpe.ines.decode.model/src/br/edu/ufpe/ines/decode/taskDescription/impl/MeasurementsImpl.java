@@ -2,8 +2,8 @@
  */
 package br.edu.ufpe.ines.decode.taskDescription.impl;
 
-import br.edu.ufpe.ines.decode.taskDescription.ModeledRestrictions;
-import br.edu.ufpe.ines.decode.taskDescription.Restriction;
+import br.edu.ufpe.ines.decode.taskDescription.Measurement;
+import br.edu.ufpe.ines.decode.taskDescription.Measurements;
 import br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionPackage;
 
 import java.util.Collection;
@@ -22,34 +22,34 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Modeled Restrictions</b></em>'.
+ * An implementation of the model object '<em><b>Measurements</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link br.edu.ufpe.ines.decode.taskDescription.impl.ModeledRestrictionsImpl#getChildren <em>Children</em>}</li>
+ *   <li>{@link br.edu.ufpe.ines.decode.taskDescription.impl.MeasurementsImpl#getContent <em>Content</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ModeledRestrictionsImpl extends MinimalEObjectImpl.Container implements ModeledRestrictions {
+public class MeasurementsImpl extends MinimalEObjectImpl.Container implements Measurements {
 	/**
-	 * The cached value of the '{@link #getChildren() <em>Children</em>}' containment reference list.
+	 * The cached value of the '{@link #getContent() <em>Content</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getChildren()
+	 * @see #getContent()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Restriction> children;
+	protected EList<Measurement> content;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ModeledRestrictionsImpl() {
+	protected MeasurementsImpl() {
 		super();
 	}
 
@@ -60,7 +60,7 @@ public class ModeledRestrictionsImpl extends MinimalEObjectImpl.Container implem
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return TaskDescriptionPackage.Literals.MODELED_RESTRICTIONS;
+		return TaskDescriptionPackage.Literals.MEASUREMENTS;
 	}
 
 	/**
@@ -68,11 +68,11 @@ public class ModeledRestrictionsImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Restriction> getChildren() {
-		if (children == null) {
-			children = new EObjectContainmentEList<Restriction>(Restriction.class, this, TaskDescriptionPackage.MODELED_RESTRICTIONS__CHILDREN);
+	public EList<Measurement> getContent() {
+		if (content == null) {
+			content = new EObjectContainmentEList<Measurement>(Measurement.class, this, TaskDescriptionPackage.MEASUREMENTS__CONTENT);
 		}
-		return children;
+		return content;
 	}
 
 	/**
@@ -83,8 +83,8 @@ public class ModeledRestrictionsImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case TaskDescriptionPackage.MODELED_RESTRICTIONS__CHILDREN:
-				return ((InternalEList<?>)getChildren()).basicRemove(otherEnd, msgs);
+			case TaskDescriptionPackage.MEASUREMENTS__CONTENT:
+				return ((InternalEList<?>)getContent()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -97,8 +97,8 @@ public class ModeledRestrictionsImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case TaskDescriptionPackage.MODELED_RESTRICTIONS__CHILDREN:
-				return getChildren();
+			case TaskDescriptionPackage.MEASUREMENTS__CONTENT:
+				return getContent();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -112,9 +112,9 @@ public class ModeledRestrictionsImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case TaskDescriptionPackage.MODELED_RESTRICTIONS__CHILDREN:
-				getChildren().clear();
-				getChildren().addAll((Collection<? extends Restriction>)newValue);
+			case TaskDescriptionPackage.MEASUREMENTS__CONTENT:
+				getContent().clear();
+				getContent().addAll((Collection<? extends Measurement>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -128,8 +128,8 @@ public class ModeledRestrictionsImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case TaskDescriptionPackage.MODELED_RESTRICTIONS__CHILDREN:
-				getChildren().clear();
+			case TaskDescriptionPackage.MEASUREMENTS__CONTENT:
+				getContent().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -143,10 +143,10 @@ public class ModeledRestrictionsImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case TaskDescriptionPackage.MODELED_RESTRICTIONS__CHILDREN:
-				return children != null && !children.isEmpty();
+			case TaskDescriptionPackage.MEASUREMENTS__CONTENT:
+				return content != null && !content.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //ModeledRestrictionsImpl
+} //MeasurementsImpl

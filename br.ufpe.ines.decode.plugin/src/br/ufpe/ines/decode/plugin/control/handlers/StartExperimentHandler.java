@@ -17,9 +17,9 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.handlers.HandlerUtil;
 import org.osgi.framework.Bundle;
 
-import br.edu.ufpe.ines.decode.taskDescription.EclipseRetriction;
-import br.edu.ufpe.ines.decode.taskDescription.ModeledRestrictions;
-import br.edu.ufpe.ines.decode.taskDescription.Restriction;
+import br.edu.ufpe.ines.decode.taskDescription.EclipseParameter;
+import br.edu.ufpe.ines.decode.taskDescription.OtherParameters;
+import br.edu.ufpe.ines.decode.taskDescription.Parameter;
 import br.ufpe.ines.decode.plugin.control.ExperimentExecutionManager;
 import br.ufpe.ines.decode.plugin.model.CurrentExecutableTask;
 
@@ -45,9 +45,9 @@ public class StartExperimentHandler extends AbstractHandler {
 		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
 		
 		CurrentExecutableTask task = manager.getExecutionTask();
-		ModeledRestrictions restriction = task.getTaskModel().getRestriction();
+		OtherParameters restriction = task.getTaskModel().getRestriction();
 		if (restriction != null){
-			for (Restriction aRestriction : restriction.getChildren()) {
+			for (Parameter aRestriction : restriction.getChildren()) {
 				List<String> restricNotSatisfied = verify(aRestriction);
 				if (!restricNotSatisfied.isEmpty()){
 					MessageDialog.openInformation(window.getShell(),
@@ -75,15 +75,21 @@ public class StartExperimentHandler extends AbstractHandler {
 		return null;
 	}
 
-	private List<String> verify(Restriction aRestriction) {
+	private List<String> verify(Parameter aRestriction) {
 		List<String> restricNotSatisfied = new LinkedList<String>();
-		if (aRestriction instanceof EclipseRetriction){
-			EclipseRetriction er = (EclipseRetriction)aRestriction;
+		if (aRestriction instanceof EclipseParameter){
+			EclipseParameter er = (EclipseParameter)aRestriction;
 			for (String bundleId : er.getForbiden()) {
 				//"gr.uom.java.jdeodorant"
 				Bundle b1 = Platform.getBundle(bundleId);
-				//TODO would be nice to uninstall
 				if (b1 != null)
+					restricNotSatisfied.add(bundleId);
+			}
+
+			for (String bundleId : er.getRequired()) {
+				//"gr.uom.java.jdeodorant"
+				Bundle b1 = Platform.getBundle(bundleId);
+				if (b1 == null)
 					restricNotSatisfied.add(bundleId);
 			}
 		}

@@ -115,15 +115,16 @@ public class TaskDescriptionSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TaskDescriptionPackage.RESTRICTION: {
-				Restriction restriction = (Restriction)theEObject;
-				T result = caseRestriction(restriction);
+			case TaskDescriptionPackage.PARAMETER: {
+				Parameter parameter = (Parameter)theEObject;
+				T result = caseParameter(parameter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case TaskDescriptionPackage.QUESTIONNAIRE_MEASUREMENT: {
 				QuestionnaireMeasurement questionnaireMeasurement = (QuestionnaireMeasurement)theEObject;
 				T result = caseQuestionnaireMeasurement(questionnaireMeasurement);
+				if (result == null) result = caseQuestionnairemeasure(questionnaireMeasurement);
 				if (result == null) result = caseMeasurement(questionnaireMeasurement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -137,41 +138,62 @@ public class TaskDescriptionSwitch<T> extends Switch<T> {
 			case TaskDescriptionPackage.TIME_RESTRICTION: {
 				TimeRestriction timeRestriction = (TimeRestriction)theEObject;
 				T result = caseTimeRestriction(timeRestriction);
-				if (result == null) result = caseRestriction(timeRestriction);
+				if (result == null) result = caseParameter(timeRestriction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TaskDescriptionPackage.SPECFIC_RESTRICTION: {
-				SpecficRestriction specficRestriction = (SpecficRestriction)theEObject;
-				T result = caseSpecficRestriction(specficRestriction);
-				if (result == null) result = caseRestriction(specficRestriction);
+			case TaskDescriptionPackage.IDE_PARAMETER: {
+				IDEParameter ideParameter = (IDEParameter)theEObject;
+				T result = caseIDEParameter(ideParameter);
+				if (result == null) result = caseParameter(ideParameter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TaskDescriptionPackage.ECLIPSE_RETRICTION: {
-				EclipseRetriction eclipseRetriction = (EclipseRetriction)theEObject;
-				T result = caseEclipseRetriction(eclipseRetriction);
-				if (result == null) result = caseSpecficRestriction(eclipseRetriction);
-				if (result == null) result = caseRestriction(eclipseRetriction);
+			case TaskDescriptionPackage.ECLIPSE_PARAMETER: {
+				EclipseParameter eclipseParameter = (EclipseParameter)theEObject;
+				T result = caseEclipseParameter(eclipseParameter);
+				if (result == null) result = caseIDEParameter(eclipseParameter);
+				if (result == null) result = caseParameter(eclipseParameter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TaskDescriptionPackage.OTHER_RESTRICTION: {
-				OtherRestriction otherRestriction = (OtherRestriction)theEObject;
-				T result = caseOtherRestriction(otherRestriction);
-				if (result == null) result = caseRestriction(otherRestriction);
+			case TaskDescriptionPackage.GENERAL_PARAMETER: {
+				GeneralParameter generalParameter = (GeneralParameter)theEObject;
+				T result = caseGeneralParameter(generalParameter);
+				if (result == null) result = caseParameter(generalParameter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TaskDescriptionPackage.MODELED_RESTRICTIONS: {
-				ModeledRestrictions modeledRestrictions = (ModeledRestrictions)theEObject;
-				T result = caseModeledRestrictions(modeledRestrictions);
+			case TaskDescriptionPackage.OTHER_PARAMETERS: {
+				OtherParameters otherParameters = (OtherParameters)theEObject;
+				T result = caseOtherParameters(otherParameters);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case TaskDescriptionPackage.MEASUREMENT: {
 				Measurement measurement = (Measurement)theEObject;
 				T result = caseMeasurement(measurement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TaskDescriptionPackage.MEASUREMENTS: {
+				Measurements measurements = (Measurements)theEObject;
+				T result = caseMeasurements(measurements);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TaskDescriptionPackage.PEN_AND_PAPER_QUESTIONNAIRE: {
+				PenAndPaperQuestionnaire penAndPaperQuestionnaire = (PenAndPaperQuestionnaire)theEObject;
+				T result = casePenAndPaperQuestionnaire(penAndPaperQuestionnaire);
+				if (result == null) result = caseQuestionnairemeasure(penAndPaperQuestionnaire);
+				if (result == null) result = caseMeasurement(penAndPaperQuestionnaire);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TaskDescriptionPackage.QUESTIONNAIREMEASURE: {
+				Questionnairemeasure questionnairemeasure = (Questionnairemeasure)theEObject;
+				T result = caseQuestionnairemeasure(questionnairemeasure);
+				if (result == null) result = caseMeasurement(questionnairemeasure);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -255,17 +277,17 @@ public class TaskDescriptionSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Restriction</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Parameter</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Restriction</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Parameter</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseRestriction(Restriction object) {
+	public T caseParameter(Parameter object) {
 		return null;
 	}
 
@@ -315,62 +337,62 @@ public class TaskDescriptionSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Specfic Restriction</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>IDE Parameter</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Specfic Restriction</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>IDE Parameter</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSpecficRestriction(SpecficRestriction object) {
+	public T caseIDEParameter(IDEParameter object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Eclipse Retriction</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Eclipse Parameter</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Eclipse Retriction</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Eclipse Parameter</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEclipseRetriction(EclipseRetriction object) {
+	public T caseEclipseParameter(EclipseParameter object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Other Restriction</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>General Parameter</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Other Restriction</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>General Parameter</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseOtherRestriction(OtherRestriction object) {
+	public T caseGeneralParameter(GeneralParameter object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Modeled Restrictions</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Other Parameters</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Modeled Restrictions</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Other Parameters</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseModeledRestrictions(ModeledRestrictions object) {
+	public T caseOtherParameters(OtherParameters object) {
 		return null;
 	}
 
@@ -386,6 +408,51 @@ public class TaskDescriptionSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseMeasurement(Measurement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Measurements</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Measurements</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMeasurements(Measurements object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Pen And Paper Questionnaire</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Pen And Paper Questionnaire</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePenAndPaperQuestionnaire(PenAndPaperQuestionnaire object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Questionnairemeasure</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Questionnairemeasure</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseQuestionnairemeasure(Questionnairemeasure object) {
 		return null;
 	}
 

@@ -36,7 +36,7 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference modelDecode.ecore#//taskDescription/ExperimentalTask/requires"/>
       </genClasses>
-      <genClasses image="false" ecoreClass="modelDecode.ecore#//taskDescription/Restriction"/>
+      <genClasses image="false" ecoreClass="modelDecode.ecore#//taskDescription/Parameter"/>
       <genClasses ecoreClass="modelDecode.ecore#//taskDescription/QuestionnaireMeasurement">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//taskDescription/QuestionnaireMeasurement/placement"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -49,17 +49,26 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//taskDescription/TimeRestriction/timeFrame"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//taskDescription/TimeRestriction/deadline"/>
       </genClasses>
-      <genClasses image="false" ecoreClass="modelDecode.ecore#//taskDescription/SpecficRestriction"/>
-      <genClasses ecoreClass="modelDecode.ecore#//taskDescription/EclipseRetriction">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//taskDescription/EclipseRetriction/forbiden"/>
+      <genClasses image="false" ecoreClass="modelDecode.ecore#//taskDescription/IDEParameter"/>
+      <genClasses ecoreClass="modelDecode.ecore#//taskDescription/EclipseParameter">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//taskDescription/EclipseParameter/forbiden"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//taskDescription/EclipseParameter/required"/>
       </genClasses>
-      <genClasses ecoreClass="modelDecode.ecore#//taskDescription/OtherRestriction">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//taskDescription/OtherRestriction/description"/>
+      <genClasses ecoreClass="modelDecode.ecore#//taskDescription/GeneralParameter">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelDecode.ecore#//taskDescription/GeneralParameter/description"/>
       </genClasses>
-      <genClasses ecoreClass="modelDecode.ecore#//taskDescription/ModeledRestrictions">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modelDecode.ecore#//taskDescription/ModeledRestrictions/children"/>
+      <genClasses ecoreClass="modelDecode.ecore#//taskDescription/OtherParameters">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modelDecode.ecore#//taskDescription/OtherParameters/children"/>
       </genClasses>
       <genClasses image="false" ecoreClass="modelDecode.ecore#//taskDescription/Measurement"/>
+      <genClasses ecoreClass="modelDecode.ecore#//taskDescription/Measurements">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modelDecode.ecore#//taskDescription/Measurements/content"/>
+      </genClasses>
+      <genClasses ecoreClass="modelDecode.ecore#//taskDescription/PenAndPaperQuestionnaire">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference modelDecode.ecore#//taskDescription/PenAndPaperQuestionnaire/FilePDF"/>
+      </genClasses>
+      <genClasses ecoreClass="modelDecode.ecore#//taskDescription/Questionnairemeasure"/>
       <nestedGenPackages prefix="Measurements" basePackage="br.edu.ufpe.ines.decode.taskDescription"
           disposableProviderFactory="true" multipleEditorPages="false" generateModelWizard="false"
           ecorePackage="modelDecode.ecore#//taskDescription/measurements">

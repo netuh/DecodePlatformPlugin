@@ -5,8 +5,6 @@ package br.edu.ufpe.ines.decode.taskDescription;
 import br.edu.ufpe.ines.decode.aux.Identifiable;
 import br.edu.ufpe.ines.decode.aux.Nameable;
 
-import org.eclipse.emf.common.util.EList;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Modeled Task</b></em>'.
@@ -34,12 +32,12 @@ public interface ModeledTask extends Nameable, Identifiable {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Restriction</em>' containment reference.
-	 * @see #setRestriction(ModeledRestrictions)
+	 * @see #setRestriction(OtherParameters)
 	 * @see br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionPackage#getModeledTask_Restriction()
 	 * @model containment="true"
 	 * @generated
 	 */
-	ModeledRestrictions getRestriction();
+	OtherParameters getRestriction();
 
 	/**
 	 * Sets the value of the '{@link br.edu.ufpe.ines.decode.taskDescription.ModeledTask#getRestriction <em>Restriction</em>}' containment reference.
@@ -49,22 +47,32 @@ public interface ModeledTask extends Nameable, Identifiable {
 	 * @see #getRestriction()
 	 * @generated
 	 */
-	void setRestriction(ModeledRestrictions value);
+	void setRestriction(OtherParameters value);
 
 	/**
-	 * Returns the value of the '<em><b>Measurements</b></em>' containment reference list.
-	 * The list contents are of type {@link br.edu.ufpe.ines.decode.taskDescription.Measurement}.
+	 * Returns the value of the '<em><b>Measurements</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Measurements</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Measurements</em>' containment reference list.
+	 * @return the value of the '<em>Measurements</em>' containment reference.
+	 * @see #setMeasurements(Measurements)
 	 * @see br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionPackage#getModeledTask_Measurements()
-	 * @model containment="true"
+	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
-	EList<Measurement> getMeasurements();
+	Measurements getMeasurements();
+
+	/**
+	 * Sets the value of the '{@link br.edu.ufpe.ines.decode.taskDescription.ModeledTask#getMeasurements <em>Measurements</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Measurements</em>' containment reference.
+	 * @see #getMeasurements()
+	 * @generated
+	 */
+	void setMeasurements(Measurements value);
 
 } // ModeledTask

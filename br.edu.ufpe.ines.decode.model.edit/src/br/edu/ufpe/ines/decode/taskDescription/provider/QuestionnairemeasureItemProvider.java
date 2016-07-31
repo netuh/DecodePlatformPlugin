@@ -3,34 +3,28 @@
 package br.edu.ufpe.ines.decode.taskDescription.provider;
 
 
-import br.edu.ufpe.ines.decode.taskDescription.EclipseRetriction;
-import br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionPackage;
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link br.edu.ufpe.ines.decode.taskDescription.EclipseRetriction} object.
+ * This is the item provider adapter for a {@link br.edu.ufpe.ines.decode.taskDescription.Questionnairemeasure} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class EclipseRetrictionItemProvider extends SpecficRestrictionItemProvider {
+public class QuestionnairemeasureItemProvider extends MeasurementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EclipseRetrictionItemProvider(AdapterFactory adapterFactory) {
+	public QuestionnairemeasureItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -45,42 +39,19 @@ public class EclipseRetrictionItemProvider extends SpecficRestrictionItemProvide
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addForbidenPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Forbiden feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addForbidenPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_EclipseRetriction_forbiden_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EclipseRetriction_forbiden_feature", "_UI_EclipseRetriction_type"),
-				 TaskDescriptionPackage.Literals.ECLIPSE_RETRICTION__FORBIDEN,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This returns EclipseRetriction.gif.
+	 * This returns Questionnairemeasure.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/EclipseRetriction"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Questionnairemeasure"));
 	}
 
 	/**
@@ -91,7 +62,7 @@ public class EclipseRetrictionItemProvider extends SpecficRestrictionItemProvide
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_EclipseRetriction_type");
+		return getString("_UI_Questionnairemeasure_type");
 	}
 	
 
@@ -105,12 +76,6 @@ public class EclipseRetrictionItemProvider extends SpecficRestrictionItemProvide
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(EclipseRetriction.class)) {
-			case TaskDescriptionPackage.ECLIPSE_RETRICTION__FORBIDEN:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 

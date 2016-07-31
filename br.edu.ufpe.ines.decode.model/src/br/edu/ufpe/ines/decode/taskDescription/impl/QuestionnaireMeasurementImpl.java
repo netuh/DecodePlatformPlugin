@@ -31,7 +31,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class QuestionnaireMeasurementImpl extends MeasurementImpl implements QuestionnaireMeasurement {
+public class QuestionnaireMeasurementImpl extends QuestionnairemeasureImpl implements QuestionnaireMeasurement {
 	/**
 	 * The default value of the '{@link #getPlacement() <em>Placement</em>}' attribute.
 	 * <!-- begin-user-doc -->

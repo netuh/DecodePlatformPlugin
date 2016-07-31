@@ -2,18 +2,18 @@
  */
 package br.edu.ufpe.ines.decode.taskDescription.tests;
 
-import br.edu.ufpe.ines.decode.taskDescription.OtherRestriction;
+import br.edu.ufpe.ines.decode.taskDescription.EclipseParameter;
 import br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionFactory;
 
 import junit.textui.TestRunner;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Other Restriction</b></em>'.
+ * A test case for the model object '<em><b>Eclipse Parameter</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class OtherRestrictionTest extends RestrictionTest {
+public class EclipseParameterTest extends IDEParameterTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -21,28 +21,28 @@ public class OtherRestrictionTest extends RestrictionTest {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(OtherRestrictionTest.class);
+		TestRunner.run(EclipseParameterTest.class);
 	}
 
 	/**
-	 * Constructs a new Other Restriction test case with the given name.
+	 * Constructs a new Eclipse Parameter test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public OtherRestrictionTest(String name) {
+	public EclipseParameterTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Returns the fixture for this Other Restriction test case.
+	 * Returns the fixture for this Eclipse Parameter test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	protected OtherRestriction getFixture() {
-		return (OtherRestriction)fixture;
+	protected EclipseParameter getFixture() {
+		return (EclipseParameter)fixture;
 	}
 
 	/**
@@ -53,7 +53,7 @@ public class OtherRestrictionTest extends RestrictionTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(TaskDescriptionFactory.eINSTANCE.createOtherRestriction());
+		setFixture(TaskDescriptionFactory.eINSTANCE.createEclipseParameter());
 	}
 
 	/**
@@ -67,4 +67,4 @@ public class OtherRestrictionTest extends RestrictionTest {
 		setFixture(null);
 	}
 
-} //OtherRestrictionTest
+} //EclipseParameterTest

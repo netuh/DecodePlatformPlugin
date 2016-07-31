@@ -97,7 +97,7 @@ public interface TaskDescriptionPackage extends EPackage {
 	int MODELED_TASK__RESTRICTION = AuxPackage.NAMEABLE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Measurements</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Measurements</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -161,7 +161,7 @@ public interface TaskDescriptionPackage extends EPackage {
 	int COMPOSED_TASK__RESTRICTION = MODELED_TASK__RESTRICTION;
 
 	/**
-	 * The feature id for the '<em><b>Measurements</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Measurements</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -225,7 +225,7 @@ public interface TaskDescriptionPackage extends EPackage {
 	int SEQUENCIAL__RESTRICTION = COMPOSED_TASK__RESTRICTION;
 
 	/**
-	 * The feature id for the '<em><b>Measurements</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Measurements</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -298,7 +298,7 @@ public interface TaskDescriptionPackage extends EPackage {
 	int RANDOM__RESTRICTION = COMPOSED_TASK__RESTRICTION;
 
 	/**
-	 * The feature id for the '<em><b>Measurements</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Measurements</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -371,7 +371,7 @@ public interface TaskDescriptionPackage extends EPackage {
 	int EXPERIMENTAL_TASK__RESTRICTION = MODELED_TASK__RESTRICTION;
 
 	/**
-	 * The feature id for the '<em><b>Measurements</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Measurements</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -416,32 +416,32 @@ public interface TaskDescriptionPackage extends EPackage {
 	int EXPERIMENTAL_TASK_OPERATION_COUNT = MODELED_TASK_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link br.edu.ufpe.ines.decode.taskDescription.impl.RestrictionImpl <em>Restriction</em>}' class.
+	 * The meta object id for the '{@link br.edu.ufpe.ines.decode.taskDescription.impl.ParameterImpl <em>Parameter</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see br.edu.ufpe.ines.decode.taskDescription.impl.RestrictionImpl
-	 * @see br.edu.ufpe.ines.decode.taskDescription.impl.TaskDescriptionPackageImpl#getRestriction()
+	 * @see br.edu.ufpe.ines.decode.taskDescription.impl.ParameterImpl
+	 * @see br.edu.ufpe.ines.decode.taskDescription.impl.TaskDescriptionPackageImpl#getParameter()
 	 * @generated
 	 */
-	int RESTRICTION = 5;
+	int PARAMETER = 5;
 
 	/**
-	 * The number of structural features of the '<em>Restriction</em>' class.
+	 * The number of structural features of the '<em>Parameter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESTRICTION_FEATURE_COUNT = 0;
+	int PARAMETER_FEATURE_COUNT = 0;
 
 	/**
-	 * The number of operations of the '<em>Restriction</em>' class.
+	 * The number of operations of the '<em>Parameter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESTRICTION_OPERATION_COUNT = 0;
+	int PARAMETER_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link br.edu.ufpe.ines.decode.taskDescription.impl.MeasurementImpl <em>Measurement</em>}' class.
@@ -472,6 +472,34 @@ public interface TaskDescriptionPackage extends EPackage {
 	int MEASUREMENT_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link br.edu.ufpe.ines.decode.taskDescription.impl.QuestionnairemeasureImpl <em>Questionnairemeasure</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see br.edu.ufpe.ines.decode.taskDescription.impl.QuestionnairemeasureImpl
+	 * @see br.edu.ufpe.ines.decode.taskDescription.impl.TaskDescriptionPackageImpl#getQuestionnairemeasure()
+	 * @generated
+	 */
+	int QUESTIONNAIREMEASURE = 16;
+
+	/**
+	 * The number of structural features of the '<em>Questionnairemeasure</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUESTIONNAIREMEASURE_FEATURE_COUNT = MEASUREMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Questionnairemeasure</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUESTIONNAIREMEASURE_OPERATION_COUNT = MEASUREMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link br.edu.ufpe.ines.decode.taskDescription.impl.QuestionnaireMeasurementImpl <em>Questionnaire Measurement</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -488,7 +516,7 @@ public interface TaskDescriptionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUESTIONNAIRE_MEASUREMENT__PLACEMENT = MEASUREMENT_FEATURE_COUNT + 0;
+	int QUESTIONNAIRE_MEASUREMENT__PLACEMENT = QUESTIONNAIREMEASURE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Questionnaire</b></em>' reference.
@@ -497,7 +525,7 @@ public interface TaskDescriptionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUESTIONNAIRE_MEASUREMENT__QUESTIONNAIRE = MEASUREMENT_FEATURE_COUNT + 1;
+	int QUESTIONNAIRE_MEASUREMENT__QUESTIONNAIRE = QUESTIONNAIREMEASURE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Questionnaire Measurement</em>' class.
@@ -506,7 +534,7 @@ public interface TaskDescriptionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUESTIONNAIRE_MEASUREMENT_FEATURE_COUNT = MEASUREMENT_FEATURE_COUNT + 2;
+	int QUESTIONNAIRE_MEASUREMENT_FEATURE_COUNT = QUESTIONNAIREMEASURE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Questionnaire Measurement</em>' class.
@@ -515,7 +543,7 @@ public interface TaskDescriptionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUESTIONNAIRE_MEASUREMENT_OPERATION_COUNT = MEASUREMENT_OPERATION_COUNT + 0;
+	int QUESTIONNAIRE_MEASUREMENT_OPERATION_COUNT = QUESTIONNAIREMEASURE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link br.edu.ufpe.ines.decode.taskDescription.impl.ExecutionDerivationsImpl <em>Execution Derivations</em>}' class.
@@ -571,7 +599,7 @@ public interface TaskDescriptionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_RESTRICTION__TIME_FRAME = RESTRICTION_FEATURE_COUNT + 0;
+	int TIME_RESTRICTION__TIME_FRAME = PARAMETER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Deadline</b></em>' attribute.
@@ -580,7 +608,7 @@ public interface TaskDescriptionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_RESTRICTION__DEADLINE = RESTRICTION_FEATURE_COUNT + 1;
+	int TIME_RESTRICTION__DEADLINE = PARAMETER_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Time Restriction</em>' class.
@@ -589,7 +617,7 @@ public interface TaskDescriptionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_RESTRICTION_FEATURE_COUNT = RESTRICTION_FEATURE_COUNT + 2;
+	int TIME_RESTRICTION_FEATURE_COUNT = PARAMETER_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Time Restriction</em>' class.
@@ -598,45 +626,45 @@ public interface TaskDescriptionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_RESTRICTION_OPERATION_COUNT = RESTRICTION_OPERATION_COUNT + 0;
+	int TIME_RESTRICTION_OPERATION_COUNT = PARAMETER_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link br.edu.ufpe.ines.decode.taskDescription.impl.SpecficRestrictionImpl <em>Specfic Restriction</em>}' class.
+	 * The meta object id for the '{@link br.edu.ufpe.ines.decode.taskDescription.impl.IDEParameterImpl <em>IDE Parameter</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see br.edu.ufpe.ines.decode.taskDescription.impl.SpecficRestrictionImpl
-	 * @see br.edu.ufpe.ines.decode.taskDescription.impl.TaskDescriptionPackageImpl#getSpecficRestriction()
+	 * @see br.edu.ufpe.ines.decode.taskDescription.impl.IDEParameterImpl
+	 * @see br.edu.ufpe.ines.decode.taskDescription.impl.TaskDescriptionPackageImpl#getIDEParameter()
 	 * @generated
 	 */
-	int SPECFIC_RESTRICTION = 9;
+	int IDE_PARAMETER = 9;
 
 	/**
-	 * The number of structural features of the '<em>Specfic Restriction</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPECFIC_RESTRICTION_FEATURE_COUNT = RESTRICTION_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Specfic Restriction</em>' class.
+	 * The number of structural features of the '<em>IDE Parameter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SPECFIC_RESTRICTION_OPERATION_COUNT = RESTRICTION_OPERATION_COUNT + 0;
+	int IDE_PARAMETER_FEATURE_COUNT = PARAMETER_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link br.edu.ufpe.ines.decode.taskDescription.impl.EclipseRetrictionImpl <em>Eclipse Retriction</em>}' class.
+	 * The number of operations of the '<em>IDE Parameter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see br.edu.ufpe.ines.decode.taskDescription.impl.EclipseRetrictionImpl
-	 * @see br.edu.ufpe.ines.decode.taskDescription.impl.TaskDescriptionPackageImpl#getEclipseRetriction()
+	 * @generated
+	 * @ordered
+	 */
+	int IDE_PARAMETER_OPERATION_COUNT = PARAMETER_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link br.edu.ufpe.ines.decode.taskDescription.impl.EclipseParameterImpl <em>Eclipse Parameter</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see br.edu.ufpe.ines.decode.taskDescription.impl.EclipseParameterImpl
+	 * @see br.edu.ufpe.ines.decode.taskDescription.impl.TaskDescriptionPackageImpl#getEclipseParameter()
 	 * @generated
 	 */
-	int ECLIPSE_RETRICTION = 10;
+	int ECLIPSE_PARAMETER = 10;
 
 	/**
 	 * The feature id for the '<em><b>Forbiden</b></em>' attribute list.
@@ -645,35 +673,44 @@ public interface TaskDescriptionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ECLIPSE_RETRICTION__FORBIDEN = SPECFIC_RESTRICTION_FEATURE_COUNT + 0;
+	int ECLIPSE_PARAMETER__FORBIDEN = IDE_PARAMETER_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Eclipse Retriction</em>' class.
+	 * The feature id for the '<em><b>Required</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ECLIPSE_RETRICTION_FEATURE_COUNT = SPECFIC_RESTRICTION_FEATURE_COUNT + 1;
+	int ECLIPSE_PARAMETER__REQUIRED = IDE_PARAMETER_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of operations of the '<em>Eclipse Retriction</em>' class.
+	 * The number of structural features of the '<em>Eclipse Parameter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ECLIPSE_RETRICTION_OPERATION_COUNT = SPECFIC_RESTRICTION_OPERATION_COUNT + 0;
+	int ECLIPSE_PARAMETER_FEATURE_COUNT = IDE_PARAMETER_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link br.edu.ufpe.ines.decode.taskDescription.impl.OtherRestrictionImpl <em>Other Restriction</em>}' class.
+	 * The number of operations of the '<em>Eclipse Parameter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see br.edu.ufpe.ines.decode.taskDescription.impl.OtherRestrictionImpl
-	 * @see br.edu.ufpe.ines.decode.taskDescription.impl.TaskDescriptionPackageImpl#getOtherRestriction()
+	 * @generated
+	 * @ordered
+	 */
+	int ECLIPSE_PARAMETER_OPERATION_COUNT = IDE_PARAMETER_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link br.edu.ufpe.ines.decode.taskDescription.impl.GeneralParameterImpl <em>General Parameter</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see br.edu.ufpe.ines.decode.taskDescription.impl.GeneralParameterImpl
+	 * @see br.edu.ufpe.ines.decode.taskDescription.impl.TaskDescriptionPackageImpl#getGeneralParameter()
 	 * @generated
 	 */
-	int OTHER_RESTRICTION = 11;
+	int GENERAL_PARAMETER = 11;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -682,35 +719,35 @@ public interface TaskDescriptionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OTHER_RESTRICTION__DESCRIPTION = RESTRICTION_FEATURE_COUNT + 0;
+	int GENERAL_PARAMETER__DESCRIPTION = PARAMETER_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Other Restriction</em>' class.
+	 * The number of structural features of the '<em>General Parameter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OTHER_RESTRICTION_FEATURE_COUNT = RESTRICTION_FEATURE_COUNT + 1;
+	int GENERAL_PARAMETER_FEATURE_COUNT = PARAMETER_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of operations of the '<em>Other Restriction</em>' class.
+	 * The number of operations of the '<em>General Parameter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OTHER_RESTRICTION_OPERATION_COUNT = RESTRICTION_OPERATION_COUNT + 0;
+	int GENERAL_PARAMETER_OPERATION_COUNT = PARAMETER_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link br.edu.ufpe.ines.decode.taskDescription.impl.ModeledRestrictionsImpl <em>Modeled Restrictions</em>}' class.
+	 * The meta object id for the '{@link br.edu.ufpe.ines.decode.taskDescription.impl.OtherParametersImpl <em>Other Parameters</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see br.edu.ufpe.ines.decode.taskDescription.impl.ModeledRestrictionsImpl
-	 * @see br.edu.ufpe.ines.decode.taskDescription.impl.TaskDescriptionPackageImpl#getModeledRestrictions()
+	 * @see br.edu.ufpe.ines.decode.taskDescription.impl.OtherParametersImpl
+	 * @see br.edu.ufpe.ines.decode.taskDescription.impl.TaskDescriptionPackageImpl#getOtherParameters()
 	 * @generated
 	 */
-	int MODELED_RESTRICTIONS = 12;
+	int OTHER_PARAMETERS = 12;
 
 	/**
 	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
@@ -719,25 +756,99 @@ public interface TaskDescriptionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODELED_RESTRICTIONS__CHILDREN = 0;
+	int OTHER_PARAMETERS__CHILDREN = 0;
 
 	/**
-	 * The number of structural features of the '<em>Modeled Restrictions</em>' class.
+	 * The number of structural features of the '<em>Other Parameters</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODELED_RESTRICTIONS_FEATURE_COUNT = 1;
+	int OTHER_PARAMETERS_FEATURE_COUNT = 1;
 
 	/**
-	 * The number of operations of the '<em>Modeled Restrictions</em>' class.
+	 * The number of operations of the '<em>Other Parameters</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODELED_RESTRICTIONS_OPERATION_COUNT = 0;
+	int OTHER_PARAMETERS_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link br.edu.ufpe.ines.decode.taskDescription.impl.MeasurementsImpl <em>Measurements</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see br.edu.ufpe.ines.decode.taskDescription.impl.MeasurementsImpl
+	 * @see br.edu.ufpe.ines.decode.taskDescription.impl.TaskDescriptionPackageImpl#getMeasurements()
+	 * @generated
+	 */
+	int MEASUREMENTS = 14;
+
+	/**
+	 * The feature id for the '<em><b>Content</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEASUREMENTS__CONTENT = 0;
+
+	/**
+	 * The number of structural features of the '<em>Measurements</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEASUREMENTS_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Measurements</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEASUREMENTS_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link br.edu.ufpe.ines.decode.taskDescription.impl.PenAndPaperQuestionnaireImpl <em>Pen And Paper Questionnaire</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see br.edu.ufpe.ines.decode.taskDescription.impl.PenAndPaperQuestionnaireImpl
+	 * @see br.edu.ufpe.ines.decode.taskDescription.impl.TaskDescriptionPackageImpl#getPenAndPaperQuestionnaire()
+	 * @generated
+	 */
+	int PEN_AND_PAPER_QUESTIONNAIRE = 15;
+
+	/**
+	 * The feature id for the '<em><b>File PDF</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PEN_AND_PAPER_QUESTIONNAIRE__FILE_PDF = QUESTIONNAIREMEASURE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Pen And Paper Questionnaire</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PEN_AND_PAPER_QUESTIONNAIRE_FEATURE_COUNT = QUESTIONNAIREMEASURE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Pen And Paper Questionnaire</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PEN_AND_PAPER_QUESTIONNAIRE_OPERATION_COUNT = QUESTIONNAIREMEASURE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link br.edu.ufpe.ines.decode.taskDescription.PlacementType <em>Placement Type</em>}' enum.
@@ -747,7 +858,7 @@ public interface TaskDescriptionPackage extends EPackage {
 	 * @see br.edu.ufpe.ines.decode.taskDescription.impl.TaskDescriptionPackageImpl#getPlacementType()
 	 * @generated
 	 */
-	int PLACEMENT_TYPE = 14;
+	int PLACEMENT_TYPE = 17;
 
 
 	/**
@@ -772,10 +883,10 @@ public interface TaskDescriptionPackage extends EPackage {
 	EReference getModeledTask_Restriction();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link br.edu.ufpe.ines.decode.taskDescription.ModeledTask#getMeasurements <em>Measurements</em>}'.
+	 * Returns the meta object for the containment reference '{@link br.edu.ufpe.ines.decode.taskDescription.ModeledTask#getMeasurements <em>Measurements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Measurements</em>'.
+	 * @return the meta object for the containment reference '<em>Measurements</em>'.
 	 * @see br.edu.ufpe.ines.decode.taskDescription.ModeledTask#getMeasurements()
 	 * @see #getModeledTask()
 	 * @generated
@@ -867,14 +978,14 @@ public interface TaskDescriptionPackage extends EPackage {
 	EReference getExperimentalTask_Requires();
 
 	/**
-	 * Returns the meta object for class '{@link br.edu.ufpe.ines.decode.taskDescription.Restriction <em>Restriction</em>}'.
+	 * Returns the meta object for class '{@link br.edu.ufpe.ines.decode.taskDescription.Parameter <em>Parameter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Restriction</em>'.
-	 * @see br.edu.ufpe.ines.decode.taskDescription.Restriction
+	 * @return the meta object for class '<em>Parameter</em>'.
+	 * @see br.edu.ufpe.ines.decode.taskDescription.Parameter
 	 * @generated
 	 */
-	EClass getRestriction();
+	EClass getParameter();
 
 	/**
 	 * Returns the meta object for class '{@link br.edu.ufpe.ines.decode.taskDescription.QuestionnaireMeasurement <em>Questionnaire Measurement</em>}'.
@@ -962,77 +1073,88 @@ public interface TaskDescriptionPackage extends EPackage {
 	EAttribute getTimeRestriction_Deadline();
 
 	/**
-	 * Returns the meta object for class '{@link br.edu.ufpe.ines.decode.taskDescription.SpecficRestriction <em>Specfic Restriction</em>}'.
+	 * Returns the meta object for class '{@link br.edu.ufpe.ines.decode.taskDescription.IDEParameter <em>IDE Parameter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Specfic Restriction</em>'.
-	 * @see br.edu.ufpe.ines.decode.taskDescription.SpecficRestriction
+	 * @return the meta object for class '<em>IDE Parameter</em>'.
+	 * @see br.edu.ufpe.ines.decode.taskDescription.IDEParameter
 	 * @generated
 	 */
-	EClass getSpecficRestriction();
+	EClass getIDEParameter();
 
 	/**
-	 * Returns the meta object for class '{@link br.edu.ufpe.ines.decode.taskDescription.EclipseRetriction <em>Eclipse Retriction</em>}'.
+	 * Returns the meta object for class '{@link br.edu.ufpe.ines.decode.taskDescription.EclipseParameter <em>Eclipse Parameter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Eclipse Retriction</em>'.
-	 * @see br.edu.ufpe.ines.decode.taskDescription.EclipseRetriction
+	 * @return the meta object for class '<em>Eclipse Parameter</em>'.
+	 * @see br.edu.ufpe.ines.decode.taskDescription.EclipseParameter
 	 * @generated
 	 */
-	EClass getEclipseRetriction();
+	EClass getEclipseParameter();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link br.edu.ufpe.ines.decode.taskDescription.EclipseRetriction#getForbiden <em>Forbiden</em>}'.
+	 * Returns the meta object for the attribute list '{@link br.edu.ufpe.ines.decode.taskDescription.EclipseParameter#getForbiden <em>Forbiden</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute list '<em>Forbiden</em>'.
-	 * @see br.edu.ufpe.ines.decode.taskDescription.EclipseRetriction#getForbiden()
-	 * @see #getEclipseRetriction()
+	 * @see br.edu.ufpe.ines.decode.taskDescription.EclipseParameter#getForbiden()
+	 * @see #getEclipseParameter()
 	 * @generated
 	 */
-	EAttribute getEclipseRetriction_Forbiden();
+	EAttribute getEclipseParameter_Forbiden();
 
 	/**
-	 * Returns the meta object for class '{@link br.edu.ufpe.ines.decode.taskDescription.OtherRestriction <em>Other Restriction</em>}'.
+	 * Returns the meta object for the attribute list '{@link br.edu.ufpe.ines.decode.taskDescription.EclipseParameter#getRequired <em>Required</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Other Restriction</em>'.
-	 * @see br.edu.ufpe.ines.decode.taskDescription.OtherRestriction
+	 * @return the meta object for the attribute list '<em>Required</em>'.
+	 * @see br.edu.ufpe.ines.decode.taskDescription.EclipseParameter#getRequired()
+	 * @see #getEclipseParameter()
 	 * @generated
 	 */
-	EClass getOtherRestriction();
+	EAttribute getEclipseParameter_Required();
 
 	/**
-	 * Returns the meta object for the attribute '{@link br.edu.ufpe.ines.decode.taskDescription.OtherRestriction#getDescription <em>Description</em>}'.
+	 * Returns the meta object for class '{@link br.edu.ufpe.ines.decode.taskDescription.GeneralParameter <em>General Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>General Parameter</em>'.
+	 * @see br.edu.ufpe.ines.decode.taskDescription.GeneralParameter
+	 * @generated
+	 */
+	EClass getGeneralParameter();
+
+	/**
+	 * Returns the meta object for the attribute '{@link br.edu.ufpe.ines.decode.taskDescription.GeneralParameter#getDescription <em>Description</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Description</em>'.
-	 * @see br.edu.ufpe.ines.decode.taskDescription.OtherRestriction#getDescription()
-	 * @see #getOtherRestriction()
+	 * @see br.edu.ufpe.ines.decode.taskDescription.GeneralParameter#getDescription()
+	 * @see #getGeneralParameter()
 	 * @generated
 	 */
-	EAttribute getOtherRestriction_Description();
+	EAttribute getGeneralParameter_Description();
 
 	/**
-	 * Returns the meta object for class '{@link br.edu.ufpe.ines.decode.taskDescription.ModeledRestrictions <em>Modeled Restrictions</em>}'.
+	 * Returns the meta object for class '{@link br.edu.ufpe.ines.decode.taskDescription.OtherParameters <em>Other Parameters</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Modeled Restrictions</em>'.
-	 * @see br.edu.ufpe.ines.decode.taskDescription.ModeledRestrictions
+	 * @return the meta object for class '<em>Other Parameters</em>'.
+	 * @see br.edu.ufpe.ines.decode.taskDescription.OtherParameters
 	 * @generated
 	 */
-	EClass getModeledRestrictions();
+	EClass getOtherParameters();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link br.edu.ufpe.ines.decode.taskDescription.ModeledRestrictions#getChildren <em>Children</em>}'.
+	 * Returns the meta object for the containment reference list '{@link br.edu.ufpe.ines.decode.taskDescription.OtherParameters#getChildren <em>Children</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Children</em>'.
-	 * @see br.edu.ufpe.ines.decode.taskDescription.ModeledRestrictions#getChildren()
-	 * @see #getModeledRestrictions()
+	 * @see br.edu.ufpe.ines.decode.taskDescription.OtherParameters#getChildren()
+	 * @see #getOtherParameters()
 	 * @generated
 	 */
-	EReference getModeledRestrictions_Children();
+	EReference getOtherParameters_Children();
 
 	/**
 	 * Returns the meta object for class '{@link br.edu.ufpe.ines.decode.taskDescription.Measurement <em>Measurement</em>}'.
@@ -1043,6 +1165,58 @@ public interface TaskDescriptionPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getMeasurement();
+
+	/**
+	 * Returns the meta object for class '{@link br.edu.ufpe.ines.decode.taskDescription.Measurements <em>Measurements</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Measurements</em>'.
+	 * @see br.edu.ufpe.ines.decode.taskDescription.Measurements
+	 * @generated
+	 */
+	EClass getMeasurements();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link br.edu.ufpe.ines.decode.taskDescription.Measurements#getContent <em>Content</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Content</em>'.
+	 * @see br.edu.ufpe.ines.decode.taskDescription.Measurements#getContent()
+	 * @see #getMeasurements()
+	 * @generated
+	 */
+	EReference getMeasurements_Content();
+
+	/**
+	 * Returns the meta object for class '{@link br.edu.ufpe.ines.decode.taskDescription.PenAndPaperQuestionnaire <em>Pen And Paper Questionnaire</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Pen And Paper Questionnaire</em>'.
+	 * @see br.edu.ufpe.ines.decode.taskDescription.PenAndPaperQuestionnaire
+	 * @generated
+	 */
+	EClass getPenAndPaperQuestionnaire();
+
+	/**
+	 * Returns the meta object for the reference list '{@link br.edu.ufpe.ines.decode.taskDescription.PenAndPaperQuestionnaire#getFilePDF <em>File PDF</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>File PDF</em>'.
+	 * @see br.edu.ufpe.ines.decode.taskDescription.PenAndPaperQuestionnaire#getFilePDF()
+	 * @see #getPenAndPaperQuestionnaire()
+	 * @generated
+	 */
+	EReference getPenAndPaperQuestionnaire_FilePDF();
+
+	/**
+	 * Returns the meta object for class '{@link br.edu.ufpe.ines.decode.taskDescription.Questionnairemeasure <em>Questionnairemeasure</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Questionnairemeasure</em>'.
+	 * @see br.edu.ufpe.ines.decode.taskDescription.Questionnairemeasure
+	 * @generated
+	 */
+	EClass getQuestionnairemeasure();
 
 	/**
 	 * Returns the meta object for enum '{@link br.edu.ufpe.ines.decode.taskDescription.PlacementType <em>Placement Type</em>}'.
@@ -1096,7 +1270,7 @@ public interface TaskDescriptionPackage extends EPackage {
 		EReference MODELED_TASK__RESTRICTION = eINSTANCE.getModeledTask_Restriction();
 
 		/**
-		 * The meta object literal for the '<em><b>Measurements</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Measurements</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1176,14 +1350,14 @@ public interface TaskDescriptionPackage extends EPackage {
 		EReference EXPERIMENTAL_TASK__REQUIRES = eINSTANCE.getExperimentalTask_Requires();
 
 		/**
-		 * The meta object literal for the '{@link br.edu.ufpe.ines.decode.taskDescription.impl.RestrictionImpl <em>Restriction</em>}' class.
+		 * The meta object literal for the '{@link br.edu.ufpe.ines.decode.taskDescription.impl.ParameterImpl <em>Parameter</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see br.edu.ufpe.ines.decode.taskDescription.impl.RestrictionImpl
-		 * @see br.edu.ufpe.ines.decode.taskDescription.impl.TaskDescriptionPackageImpl#getRestriction()
+		 * @see br.edu.ufpe.ines.decode.taskDescription.impl.ParameterImpl
+		 * @see br.edu.ufpe.ines.decode.taskDescription.impl.TaskDescriptionPackageImpl#getParameter()
 		 * @generated
 		 */
-		EClass RESTRICTION = eINSTANCE.getRestriction();
+		EClass PARAMETER = eINSTANCE.getParameter();
 
 		/**
 		 * The meta object literal for the '{@link br.edu.ufpe.ines.decode.taskDescription.impl.QuestionnaireMeasurementImpl <em>Questionnaire Measurement</em>}' class.
@@ -1256,24 +1430,24 @@ public interface TaskDescriptionPackage extends EPackage {
 		EAttribute TIME_RESTRICTION__DEADLINE = eINSTANCE.getTimeRestriction_Deadline();
 
 		/**
-		 * The meta object literal for the '{@link br.edu.ufpe.ines.decode.taskDescription.impl.SpecficRestrictionImpl <em>Specfic Restriction</em>}' class.
+		 * The meta object literal for the '{@link br.edu.ufpe.ines.decode.taskDescription.impl.IDEParameterImpl <em>IDE Parameter</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see br.edu.ufpe.ines.decode.taskDescription.impl.SpecficRestrictionImpl
-		 * @see br.edu.ufpe.ines.decode.taskDescription.impl.TaskDescriptionPackageImpl#getSpecficRestriction()
+		 * @see br.edu.ufpe.ines.decode.taskDescription.impl.IDEParameterImpl
+		 * @see br.edu.ufpe.ines.decode.taskDescription.impl.TaskDescriptionPackageImpl#getIDEParameter()
 		 * @generated
 		 */
-		EClass SPECFIC_RESTRICTION = eINSTANCE.getSpecficRestriction();
+		EClass IDE_PARAMETER = eINSTANCE.getIDEParameter();
 
 		/**
-		 * The meta object literal for the '{@link br.edu.ufpe.ines.decode.taskDescription.impl.EclipseRetrictionImpl <em>Eclipse Retriction</em>}' class.
+		 * The meta object literal for the '{@link br.edu.ufpe.ines.decode.taskDescription.impl.EclipseParameterImpl <em>Eclipse Parameter</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see br.edu.ufpe.ines.decode.taskDescription.impl.EclipseRetrictionImpl
-		 * @see br.edu.ufpe.ines.decode.taskDescription.impl.TaskDescriptionPackageImpl#getEclipseRetriction()
+		 * @see br.edu.ufpe.ines.decode.taskDescription.impl.EclipseParameterImpl
+		 * @see br.edu.ufpe.ines.decode.taskDescription.impl.TaskDescriptionPackageImpl#getEclipseParameter()
 		 * @generated
 		 */
-		EClass ECLIPSE_RETRICTION = eINSTANCE.getEclipseRetriction();
+		EClass ECLIPSE_PARAMETER = eINSTANCE.getEclipseParameter();
 
 		/**
 		 * The meta object literal for the '<em><b>Forbiden</b></em>' attribute list feature.
@@ -1281,17 +1455,25 @@ public interface TaskDescriptionPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ECLIPSE_RETRICTION__FORBIDEN = eINSTANCE.getEclipseRetriction_Forbiden();
+		EAttribute ECLIPSE_PARAMETER__FORBIDEN = eINSTANCE.getEclipseParameter_Forbiden();
 
 		/**
-		 * The meta object literal for the '{@link br.edu.ufpe.ines.decode.taskDescription.impl.OtherRestrictionImpl <em>Other Restriction</em>}' class.
+		 * The meta object literal for the '<em><b>Required</b></em>' attribute list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see br.edu.ufpe.ines.decode.taskDescription.impl.OtherRestrictionImpl
-		 * @see br.edu.ufpe.ines.decode.taskDescription.impl.TaskDescriptionPackageImpl#getOtherRestriction()
 		 * @generated
 		 */
-		EClass OTHER_RESTRICTION = eINSTANCE.getOtherRestriction();
+		EAttribute ECLIPSE_PARAMETER__REQUIRED = eINSTANCE.getEclipseParameter_Required();
+
+		/**
+		 * The meta object literal for the '{@link br.edu.ufpe.ines.decode.taskDescription.impl.GeneralParameterImpl <em>General Parameter</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see br.edu.ufpe.ines.decode.taskDescription.impl.GeneralParameterImpl
+		 * @see br.edu.ufpe.ines.decode.taskDescription.impl.TaskDescriptionPackageImpl#getGeneralParameter()
+		 * @generated
+		 */
+		EClass GENERAL_PARAMETER = eINSTANCE.getGeneralParameter();
 
 		/**
 		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
@@ -1299,17 +1481,17 @@ public interface TaskDescriptionPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute OTHER_RESTRICTION__DESCRIPTION = eINSTANCE.getOtherRestriction_Description();
+		EAttribute GENERAL_PARAMETER__DESCRIPTION = eINSTANCE.getGeneralParameter_Description();
 
 		/**
-		 * The meta object literal for the '{@link br.edu.ufpe.ines.decode.taskDescription.impl.ModeledRestrictionsImpl <em>Modeled Restrictions</em>}' class.
+		 * The meta object literal for the '{@link br.edu.ufpe.ines.decode.taskDescription.impl.OtherParametersImpl <em>Other Parameters</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see br.edu.ufpe.ines.decode.taskDescription.impl.ModeledRestrictionsImpl
-		 * @see br.edu.ufpe.ines.decode.taskDescription.impl.TaskDescriptionPackageImpl#getModeledRestrictions()
+		 * @see br.edu.ufpe.ines.decode.taskDescription.impl.OtherParametersImpl
+		 * @see br.edu.ufpe.ines.decode.taskDescription.impl.TaskDescriptionPackageImpl#getOtherParameters()
 		 * @generated
 		 */
-		EClass MODELED_RESTRICTIONS = eINSTANCE.getModeledRestrictions();
+		EClass OTHER_PARAMETERS = eINSTANCE.getOtherParameters();
 
 		/**
 		 * The meta object literal for the '<em><b>Children</b></em>' containment reference list feature.
@@ -1317,7 +1499,7 @@ public interface TaskDescriptionPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference MODELED_RESTRICTIONS__CHILDREN = eINSTANCE.getModeledRestrictions_Children();
+		EReference OTHER_PARAMETERS__CHILDREN = eINSTANCE.getOtherParameters_Children();
 
 		/**
 		 * The meta object literal for the '{@link br.edu.ufpe.ines.decode.taskDescription.impl.MeasurementImpl <em>Measurement</em>}' class.
@@ -1328,6 +1510,52 @@ public interface TaskDescriptionPackage extends EPackage {
 		 * @generated
 		 */
 		EClass MEASUREMENT = eINSTANCE.getMeasurement();
+
+		/**
+		 * The meta object literal for the '{@link br.edu.ufpe.ines.decode.taskDescription.impl.MeasurementsImpl <em>Measurements</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see br.edu.ufpe.ines.decode.taskDescription.impl.MeasurementsImpl
+		 * @see br.edu.ufpe.ines.decode.taskDescription.impl.TaskDescriptionPackageImpl#getMeasurements()
+		 * @generated
+		 */
+		EClass MEASUREMENTS = eINSTANCE.getMeasurements();
+
+		/**
+		 * The meta object literal for the '<em><b>Content</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MEASUREMENTS__CONTENT = eINSTANCE.getMeasurements_Content();
+
+		/**
+		 * The meta object literal for the '{@link br.edu.ufpe.ines.decode.taskDescription.impl.PenAndPaperQuestionnaireImpl <em>Pen And Paper Questionnaire</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see br.edu.ufpe.ines.decode.taskDescription.impl.PenAndPaperQuestionnaireImpl
+		 * @see br.edu.ufpe.ines.decode.taskDescription.impl.TaskDescriptionPackageImpl#getPenAndPaperQuestionnaire()
+		 * @generated
+		 */
+		EClass PEN_AND_PAPER_QUESTIONNAIRE = eINSTANCE.getPenAndPaperQuestionnaire();
+
+		/**
+		 * The meta object literal for the '<em><b>File PDF</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PEN_AND_PAPER_QUESTIONNAIRE__FILE_PDF = eINSTANCE.getPenAndPaperQuestionnaire_FilePDF();
+
+		/**
+		 * The meta object literal for the '{@link br.edu.ufpe.ines.decode.taskDescription.impl.QuestionnairemeasureImpl <em>Questionnairemeasure</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see br.edu.ufpe.ines.decode.taskDescription.impl.QuestionnairemeasureImpl
+		 * @see br.edu.ufpe.ines.decode.taskDescription.impl.TaskDescriptionPackageImpl#getQuestionnairemeasure()
+		 * @generated
+		 */
+		EClass QUESTIONNAIREMEASURE = eINSTANCE.getQuestionnairemeasure();
 
 		/**
 		 * The meta object literal for the '{@link br.edu.ufpe.ines.decode.taskDescription.PlacementType <em>Placement Type</em>}' enum.

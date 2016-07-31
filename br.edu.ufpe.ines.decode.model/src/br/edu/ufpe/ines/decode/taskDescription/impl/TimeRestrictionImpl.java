@@ -29,7 +29,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class TimeRestrictionImpl extends RestrictionImpl implements TimeRestriction {
+public class TimeRestrictionImpl extends ParameterImpl implements TimeRestriction {
 	/**
 	 * The default value of the '{@link #getTimeFrame() <em>Time Frame</em>}' attribute.
 	 * <!-- begin-user-doc -->

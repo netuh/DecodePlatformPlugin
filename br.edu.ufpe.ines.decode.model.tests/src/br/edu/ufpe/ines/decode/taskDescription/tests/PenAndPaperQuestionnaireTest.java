@@ -2,18 +2,18 @@
  */
 package br.edu.ufpe.ines.decode.taskDescription.tests;
 
-import br.edu.ufpe.ines.decode.taskDescription.EclipseRetriction;
+import br.edu.ufpe.ines.decode.taskDescription.PenAndPaperQuestionnaire;
 import br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionFactory;
 
 import junit.textui.TestRunner;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Eclipse Retriction</b></em>'.
+ * A test case for the model object '<em><b>Pen And Paper Questionnaire</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class EclipseRetrictionTest extends SpecficRestrictionTest {
+public class PenAndPaperQuestionnaireTest extends QuestionnairemeasureTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -21,28 +21,28 @@ public class EclipseRetrictionTest extends SpecficRestrictionTest {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(EclipseRetrictionTest.class);
+		TestRunner.run(PenAndPaperQuestionnaireTest.class);
 	}
 
 	/**
-	 * Constructs a new Eclipse Retriction test case with the given name.
+	 * Constructs a new Pen And Paper Questionnaire test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EclipseRetrictionTest(String name) {
+	public PenAndPaperQuestionnaireTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Returns the fixture for this Eclipse Retriction test case.
+	 * Returns the fixture for this Pen And Paper Questionnaire test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	protected EclipseRetriction getFixture() {
-		return (EclipseRetriction)fixture;
+	protected PenAndPaperQuestionnaire getFixture() {
+		return (PenAndPaperQuestionnaire)fixture;
 	}
 
 	/**
@@ -53,7 +53,7 @@ public class EclipseRetrictionTest extends SpecficRestrictionTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(TaskDescriptionFactory.eINSTANCE.createEclipseRetriction());
+		setFixture(TaskDescriptionFactory.eINSTANCE.createPenAndPaperQuestionnaire());
 	}
 
 	/**
@@ -67,4 +67,4 @@ public class EclipseRetrictionTest extends SpecficRestrictionTest {
 		setFixture(null);
 	}
 
-} //EclipseRetrictionTest
+} //PenAndPaperQuestionnaireTest
