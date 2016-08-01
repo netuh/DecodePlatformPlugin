@@ -2,17 +2,14 @@
  */
 package br.edu.ufpe.ines.decode.util;
 
-import br.edu.ufpe.ines.decode.*;
-
-import br.edu.ufpe.ines.decode.aux.Identifiable;
-import br.edu.ufpe.ines.decode.aux.Nameable;
-
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
+import br.edu.ufpe.ines.decode.CodingExperiment;
+import br.edu.ufpe.ines.decode.DecodePackage;
+import br.edu.ufpe.ines.decode.aux.Identifiable;
+import br.edu.ufpe.ines.decode.aux.Nameable;
 
 /**
  * <!-- begin-user-doc -->

@@ -98,7 +98,7 @@ public class ModeledTaskItemProvider extends NameableItemProvider {
 				 getString("_UI_ModeledTask_parent_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ModeledTask_parent_feature", "_UI_ModeledTask_type"),
 				 TaskDescriptionPackage.Literals.MODELED_TASK__PARENT,
-				 true,
+				 false,
 				 false,
 				 true,
 				 null,

@@ -2,12 +2,14 @@
  */
 package br.edu.ufpe.ines.decode.taskDescription.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -138,22 +140,6 @@ public abstract class ModeledTaskImpl extends NameableImpl implements ModeledTas
 	public OtherParameters getRestriction() {
 		return restriction;
 	}
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public List<Parameter> getAllRestriction() {		
-		List<Parameter> task = new ArrayList<Parameter>();
-		restriction.getChildren().forEach(elemt -> task.add(elemt));
-		task.addAll(restriction.getChildren());
-		ModeledTask parent = getParent(); 
-		if (parent != null){
-			task.addAll(parent.getAllRestriction());
-		}
-		return task;
-	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -268,6 +254,24 @@ public abstract class ModeledTaskImpl extends NameableImpl implements ModeledTas
 		parent = newParent;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TaskDescriptionPackage.MODELED_TASK__PARENT, oldParent, parent));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public List<Parameter> getParameters2() {
+		List<Parameter> task = new ArrayList<Parameter>();
+		if (restriction != null){
+			restriction.getChildren().forEach(elemt -> task.add(elemt));
+			task.addAll(restriction.getChildren());
+		}
+		ModeledTask parent = getParent(); 
+		if (parent != null){
+			task.addAll(parent.getParameters2());
+		}
+		return task;
 	}
 
 	/**
@@ -405,6 +409,20 @@ public abstract class ModeledTaskImpl extends NameableImpl implements ModeledTas
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case TaskDescriptionPackage.MODELED_TASK___GET_PARAMETERS2:
+				return getParameters2();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

@@ -46,6 +46,7 @@ import br.edu.ufpe.ines.decode.taskDescription.measurements.impl.MeasurementsPac
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -301,6 +302,15 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 	 */
 	public EReference getModeledTask_Parent() {
 		return (EReference)modeledTaskEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getModeledTask__GetParameters2() {
+		return modeledTaskEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -623,6 +633,7 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 		createEReference(modeledTaskEClass, MODELED_TASK__RESTRICTION);
 		createEReference(modeledTaskEClass, MODELED_TASK__MEASUREMENTS);
 		createEReference(modeledTaskEClass, MODELED_TASK__PARENT);
+		createEOperation(modeledTaskEClass, MODELED_TASK___GET_PARAMETERS2);
 
 		sequencialEClass = createEClass(SEQUENCIAL);
 		createEReference(sequencialEClass, SEQUENCIAL__TASKS);
@@ -732,6 +743,8 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 		initEReference(getModeledTask_Measurements(), this.getMeasurements(), null, "measurements", null, 0, 1, ModeledTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getModeledTask_Parent(), this.getModeledTask(), null, "parent", null, 0, 1, ModeledTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEOperation(getModeledTask__GetParameters2(), this.getParameter(), "getParameters2", 0, -1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(sequencialEClass, Sequencial.class, "Sequencial", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSequencial_Tasks(), this.getModeledTask(), null, "tasks", null, 0, -1, Sequencial.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -786,8 +799,26 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 		addEEnumLiteral(placementTypeEEnum, PlacementType.DURING);
 
 		// Create annotations
+		// GenModel
+		createGenModelAnnotations();
 		// http:///org/eclipse/emf/ecore/util/ExtendedMetaData
 		createExtendedMetaDataAnnotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>GenModel</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createGenModelAnnotations() {
+		String source = "GenModel";	
+		addAnnotation
+		  (getModeledTask__GetParameters2(), 
+		   source, 
+		   new String[] {
+			 "body", "List<Parameter> task = new ArrayList<Parameter>();\nif (restriction != null){\n\trestriction.getChildren().forEach(elemt -> task.add(elemt));\n\ttask.addAll(restriction.getChildren());\n}\nModeledTask parent = getParent(); \nif (parent != null){\n\ttask.addAll(parent.getAllRestriction());\n}\nreturn task;"
+		   });
 	}
 
 	/**

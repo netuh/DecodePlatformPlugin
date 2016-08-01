@@ -44,7 +44,9 @@ public class StartExperimentHandler extends AbstractHandler {
 		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
 		
 		CurrentExecutableTask task = manager.getExecutionTask();
-		List<Parameter> restriction = task.getTaskModel().getAllRestriction();
+		List<Parameter> restriction = task.getTaskModel().getParameters2();
+		System.out.println("restriction1="+restriction.size());
+		System.out.println("restriction2="+restriction);
 		if (!restriction.isEmpty()){
 			for (Parameter aRestriction : restriction) {
 				List<String> restricNotSatisfied = verify(aRestriction);

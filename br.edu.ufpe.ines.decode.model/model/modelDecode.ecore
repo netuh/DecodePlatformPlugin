@@ -9,6 +9,11 @@
   </eClassifiers>
   <eSubpackages name="taskDescription" nsURI="taskDescription" nsPrefix="taskDescription">
     <eClassifiers xsi:type="ecore:EClass" name="ModeledTask" abstract="true" eSuperTypes="#//aux/Nameable #//aux/Identifiable">
+      <eOperations name="getParameters2" upperBound="-1" eType="#//taskDescription/Parameter">
+        <eAnnotations source="GenModel">
+          <details key="body" value="List&lt;Parameter> task = new ArrayList&lt;Parameter>();&#xA;if (restriction != null){&#xA;&#x9;restriction.getChildren().forEach(elemt -> task.add(elemt));&#xA;&#x9;task.addAll(restriction.getChildren());&#xA;}&#xA;ModeledTask parent = getParent(); &#xA;if (parent != null){&#xA;&#x9;task.addAll(parent.getAllRestriction());&#xA;}&#xA;return task;"/>
+        </eAnnotations>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="restriction" eType="#//taskDescription/OtherParameters"
           containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="measurements" ordered="false"

@@ -41,22 +41,6 @@ public interface ModeledTask extends Nameable, Identifiable {
 	 * @generated
 	 */
 	OtherParameters getRestriction();
-	
-	/**
-	 * Returns the value of the '<em><b>Restriction</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Restriction</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Restriction</em>' containment reference.
-	 * @see #setRestriction(OtherParameters)
-	 * @see br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionPackage#getModeledTask_Restriction()
-	 * @model containment="true"
-	 * @generated NOT
-	 */
-	List<Parameter> getAllRestriction();
 
 	/**
 	 * Sets the value of the '{@link br.edu.ufpe.ines.decode.taskDescription.ModeledTask#getRestriction <em>Restriction</em>}' containment reference.
@@ -119,5 +103,14 @@ public interface ModeledTask extends Nameable, Identifiable {
 	 * @generated
 	 */
 	void setParent(ModeledTask value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 *        annotation="GenModel body='List<Parameter> task = new ArrayList<Parameter>();\nif (restriction != null){\n\trestriction.getChildren().forEach(elemt -> task.add(elemt));\n\ttask.addAll(restriction.getChildren());\n}\nModeledTask parent = getParent(); \nif (parent != null){\n\ttask.addAll(parent.getAllRestriction());\n}\nreturn task;'"
+	 * @generated NOT
+	 */
+	List<Parameter> getParameters2();
 
 } // ModeledTask

@@ -112,9 +112,7 @@ public class SequencialImpl extends ComposedTaskImpl implements Sequencial {
 		switch (featureID) {
 			case TaskDescriptionPackage.SEQUENCIAL__TASKS:
 				getTasks().clear();
-				Collection<? extends ModeledTask> childrenTask = (Collection<? extends ModeledTask>)newValue;
-				childrenTask.forEach(child -> child.setParent(this));
-				getTasks().addAll(childrenTask);
+				getTasks().addAll((Collection<? extends ModeledTask>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

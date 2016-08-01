@@ -7,6 +7,7 @@ import br.edu.ufpe.ines.decode.aux.AuxPackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -124,13 +125,22 @@ public interface TaskDescriptionPackage extends EPackage {
 	int MODELED_TASK_FEATURE_COUNT = AuxPackage.NAMEABLE_FEATURE_COUNT + 4;
 
 	/**
+	 * The operation id for the '<em>Get Parameters2</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODELED_TASK___GET_PARAMETERS2 = AuxPackage.NAMEABLE_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Modeled Task</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODELED_TASK_OPERATION_COUNT = AuxPackage.NAMEABLE_OPERATION_COUNT + 0;
+	int MODELED_TASK_OPERATION_COUNT = AuxPackage.NAMEABLE_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link br.edu.ufpe.ines.decode.taskDescription.impl.ComposedTaskImpl <em>Composed Task</em>}' class.
@@ -195,6 +205,15 @@ public interface TaskDescriptionPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPOSED_TASK_FEATURE_COUNT = MODELED_TASK_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get Parameters2</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSED_TASK___GET_PARAMETERS2 = MODELED_TASK___GET_PARAMETERS2;
 
 	/**
 	 * The number of operations of the '<em>Composed Task</em>' class.
@@ -279,6 +298,15 @@ public interface TaskDescriptionPackage extends EPackage {
 	int SEQUENCIAL_FEATURE_COUNT = COMPOSED_TASK_FEATURE_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Get Parameters2</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEQUENCIAL___GET_PARAMETERS2 = COMPOSED_TASK___GET_PARAMETERS2;
+
+	/**
 	 * The number of operations of the '<em>Sequencial</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -359,6 +387,15 @@ public interface TaskDescriptionPackage extends EPackage {
 	 * @ordered
 	 */
 	int RANDOM_FEATURE_COUNT = COMPOSED_TASK_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get Parameters2</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RANDOM___GET_PARAMETERS2 = COMPOSED_TASK___GET_PARAMETERS2;
 
 	/**
 	 * The number of operations of the '<em>Random</em>' class.
@@ -450,6 +487,15 @@ public interface TaskDescriptionPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXPERIMENTAL_TASK_FEATURE_COUNT = MODELED_TASK_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Get Parameters2</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPERIMENTAL_TASK___GET_PARAMETERS2 = MODELED_TASK___GET_PARAMETERS2;
 
 	/**
 	 * The number of operations of the '<em>Experimental Task</em>' class.
@@ -950,6 +996,16 @@ public interface TaskDescriptionPackage extends EPackage {
 	EReference getModeledTask_Parent();
 
 	/**
+	 * Returns the meta object for the '{@link br.edu.ufpe.ines.decode.taskDescription.ModeledTask#getParameters2() <em>Get Parameters2</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Parameters2</em>' operation.
+	 * @see br.edu.ufpe.ines.decode.taskDescription.ModeledTask#getParameters2()
+	 * @generated
+	 */
+	EOperation getModeledTask__GetParameters2();
+
+	/**
 	 * Returns the meta object for class '{@link br.edu.ufpe.ines.decode.taskDescription.Sequencial <em>Sequencial</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1340,6 +1396,14 @@ public interface TaskDescriptionPackage extends EPackage {
 		 * @generated
 		 */
 		EReference MODELED_TASK__PARENT = eINSTANCE.getModeledTask_Parent();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Parameters2</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation MODELED_TASK___GET_PARAMETERS2 = eINSTANCE.getModeledTask__GetParameters2();
 
 		/**
 		 * The meta object literal for the '{@link br.edu.ufpe.ines.decode.taskDescription.impl.SequencialImpl <em>Sequencial</em>}' class.

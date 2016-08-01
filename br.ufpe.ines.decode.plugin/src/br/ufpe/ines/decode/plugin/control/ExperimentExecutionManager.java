@@ -57,10 +57,12 @@ public class ExperimentExecutionManager {
 		}
 		if (task instanceof Random) {
 			Random taskRandom = (Random) task;
-			EList<ModeledTask> taskSet = taskRandom.getTasks();
-			//Collections.shuffle(taskSet);
+			//EList<ModeledTask> taskSet = taskRandom.getTasks();
+			List<ModeledTask> tasksToShuffle = new ArrayList<ModeledTask>();
+			tasksToShuffle.addAll(taskRandom.getTasks());
+			Collections.shuffle(tasksToShuffle);
 			List<ExperimentalTask> random = new LinkedList<ExperimentalTask>();
-			for (ModeledTask modeledTask : taskSet) {
+			for (ModeledTask modeledTask : tasksToShuffle) {
 				random.addAll(reduce(modeledTask));
 			}
 			return random;
@@ -73,7 +75,10 @@ public class ExperimentExecutionManager {
 			return aTask;
 		if (aTask instanceof Random) {
 			Random randomTask = (Random) aTask;
-			for (ModeledTask innerTask : randomTask.getTasks()) {
+			List<ModeledTask> tasksToShuffle = new ArrayList<ModeledTask>();
+			tasksToShuffle.addAll(randomTask.getTasks());
+			Collections.shuffle(tasksToShuffle);
+			for (ModeledTask innerTask : tasksToShuffle) {
 				ModeledTask taskReturn = findTask(taskId, innerTask);
 				if (taskReturn != null)
 					return taskReturn;

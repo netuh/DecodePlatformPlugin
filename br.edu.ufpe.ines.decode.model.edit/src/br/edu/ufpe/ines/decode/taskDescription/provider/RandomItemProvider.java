@@ -3,20 +3,19 @@
 package br.edu.ufpe.ines.decode.taskDescription.provider;
 
 
-import br.edu.ufpe.ines.decode.taskDescription.Random;
-import br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionFactory;
-import br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionPackage;
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import br.edu.ufpe.ines.decode.taskDescription.ModeledTask;
+import br.edu.ufpe.ines.decode.taskDescription.Random;
+import br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionFactory;
+import br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionPackage;
 
 /**
  * This is the item provider adapter for a {@link br.edu.ufpe.ines.decode.taskDescription.Random} object.
@@ -74,9 +73,11 @@ public class RandomItemProvider extends ComposedTaskItemProvider {
 	 */
 	@Override
 	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
+		if (object instanceof ModeledTask && child instanceof ModeledTask){
+			ModeledTask taskParent = (ModeledTask)object;
+			ModeledTask taskChild = (ModeledTask)child;
+			taskChild.setParent(taskParent);
+		}
 		return super.getChildFeature(object, child);
 	}
 

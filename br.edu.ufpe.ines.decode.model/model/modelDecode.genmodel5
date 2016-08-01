@@ -37,6 +37,9 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true">
           <ecoreFeature xsi:type="ecore:EReference" href="modelDecode.ecore#//taskDescription/ModeledTask/parent"/>
         </genFeatures>
+        <genOperations>
+          <ecoreOperation href="modelDecode.ecore#//taskDescription/ModeledTask/getParameters2"/>
+        </genOperations>
       </genClasses>
       <genClasses>
         <ecoreClass href="modelDecode.ecore#//taskDescription/Sequencial"/>
