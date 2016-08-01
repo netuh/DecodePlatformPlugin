@@ -52,9 +52,9 @@ public class Activator extends AbstractUIPlugin {
 //		file1.delete();
 //		File file2 = context.getDataFile(FILE_EXPORTATION_JSON);
 //		file2.delete();
-		
+
 		//COMMENT IT
-		
+
 		ExperimentManagerLoader loader = new ExperimentManagerLoader(context);
 		loader.loadExperimetnDescription();
 		loader.loadExecutionDescription();

@@ -19,10 +19,9 @@ public class ObservingService {
 		this.task = task;
 	}
 
-	public void recordEvent(ActionInterface actionType, String commandId, String bundleId) {
+	public void recordEvent(ActionInterface actionType, String... data) {
 		if (!actionType.allowAddingData()){
-			AtomicCollectedData aPieceOfData = new AtomicCollectedData(actionType);
-			//manager.addData(aPieceOfData);
+			AtomicCollectedData aPieceOfData = new AtomicCollectedData(actionType, data);
 			task.addData(aPieceOfData);
 			return;
 		}
@@ -30,11 +29,9 @@ public class ObservingService {
 		
 		for (LogType aLogType : whatToObsereve) {
 			if (aLogType.equals(LogType.LOG_TIME)){
-				CollectedDataWithTime aPieceOfData = new CollectedDataWithTime (actionType, commandId, bundleId, Instant.MIN); 
-				//manager.addData(aPieceOfData);
+				CollectedDataWithTime aPieceOfData = new CollectedDataWithTime (actionType, Instant.MIN, data); 
 				task.addData(aPieceOfData);
 			}
 		}
 	}
-
 }

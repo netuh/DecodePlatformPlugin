@@ -29,35 +29,12 @@ public enum ActionPart implements ActionInterface {
 		public String getDescription() {
 			return description; 
 	    }
-
-		public static String findEquivalent(Object element) {
-			if (element instanceof IWorkbenchPart){
-				IWorkbenchPartSite site = ((IWorkbenchPart)element).getSite();
-				return getKind(site).getDescription();
-			}
-			if (element instanceof IPerspectiveDescriptor){
-				return PERSPECTIVE.getDescription();
-			}
-			if (element instanceof IWorkbenchWindow){
-				return WORKBENCH.getDescription();
-			}
-			
-			return UNKNOWN.getDescription();
-		}
-
-		private static ELEMENT getKind(IWorkbenchPartSite site) {
-			if (site instanceof IEditorSite)
-				return EDITOR;
-			else if (site instanceof IViewSite)
-				return VIEW;
-			return PART;
-		}
 	}
 
-	private String kind;
 	private String description;
-	private ActionPart(String kind) {
-		this.kind = kind;
+	private String kind;
+	private ActionPart(String description) {
+		this.description = description;
 	}
 	
 	@Override
@@ -75,7 +52,26 @@ public enum ActionPart implements ActionInterface {
 		return true;
 	}
 	
-	public void setDescription(String element) {
-		description = element;
+	public String findKind(Object element) {
+		if (element instanceof IWorkbenchPart){
+			IWorkbenchPartSite site = ((IWorkbenchPart)element).getSite();
+			return getKind(site).getDescription();
+		}
+		if (element instanceof IPerspectiveDescriptor){
+			return ELEMENT.PERSPECTIVE.getDescription();
+		}
+		if (element instanceof IWorkbenchWindow){
+			return ELEMENT.WORKBENCH.getDescription();
+		}
+		
+		return ELEMENT.UNKNOWN.getDescription();
+	}
+
+	private static ELEMENT getKind(IWorkbenchPartSite site) {
+		if (site instanceof IEditorSite)
+			return ELEMENT.EDITOR;
+		else if (site instanceof IViewSite)
+			return ELEMENT.VIEW;
+		return ELEMENT.PART;
 	}
 }

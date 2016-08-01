@@ -85,7 +85,7 @@ public class NativeDialogFactory {
 			FileDialog fileDialog = new FileDialog(shell, style);
 			fileDialog.setText(text);
 			if (style == SWT.SAVE){
-				fileDialog.setFileName("results.zip");
+				fileDialog.setFileName("results.txt");
 			}
 			return fileDialog.open();
 		}

@@ -6,31 +6,11 @@ import br.ufpe.ines.decode.plugin.epp.usagedata.extension.actions.ActionInterfac
 
 public class CollectedDataWithTime extends AtomicCollectedData {
 
-	private String commandId;
-	private String bundleId;
 	private Instant instant;
 
-	public CollectedDataWithTime(ActionInterface actionType, String commandId, String bundleId, Instant instant) {
-		super(actionType);
-		this.commandId = commandId;
-		this.bundleId = bundleId;
-		this.instant = instant;
-	}
-
-	public String getCommandId() {
-		return commandId;
-	}
-
-	public void setCommandId(String commandId) {
-		this.commandId = commandId;
-	}
-
-	public String getBundleId() {
-		return bundleId;
-	}
-
-	public void setBundleId(String bundleId) {
-		this.bundleId = bundleId;
+	public CollectedDataWithTime(ActionInterface actionType, Instant min, String[] data) {
+		super(actionType, data);
+		this.instant = min;
 	}
 
 	public Instant getInstant() {

@@ -5,6 +5,10 @@ import br.ufpe.ines.decode.plugin.epp.usagedata.extension.actions.ActionInterfac
 public interface CollectedDataInterface {
 
 	public ActionInterface getActionType();
+	
+	public String[] getData();
+	
+	public void setData(String[] data);
 
 	public void setActionType(ActionInterface actionType);
 }

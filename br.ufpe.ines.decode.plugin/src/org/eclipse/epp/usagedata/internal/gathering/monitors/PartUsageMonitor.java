@@ -24,7 +24,6 @@ import org.eclipse.ui.PlatformUI;
 
 import br.ufpe.ines.decode.plugin.epp.usagedata.extension.ObservingService;
 import br.ufpe.ines.decode.plugin.epp.usagedata.extension.actions.ActionPart;
-import br.ufpe.ines.decode.plugin.epp.usagedata.extension.actions.ActionPart.ELEMENT;
 
 /**
  * Instances of the {@link PartUsageMonitor} class monitor the use of parts in
@@ -46,56 +45,37 @@ import br.ufpe.ines.decode.plugin.epp.usagedata.extension.actions.ActionPart.ELE
  * 
  */
 public class PartUsageMonitor implements UsageMonitor {
-	private static final String EMPTY_STRING = ""; //$NON-NLS-1$
 
 	private static final String WORKBENCH_BUNDLE_ID = "org.eclipse.ui.workbench"; //$NON-NLS-1$
 	private static final String PERSPECTIVES_EXTENSION_POINT = "org.eclipse.ui.perspectives"; //$NON-NLS-1$
-
-//	private static final String WORKBENCH = "workbench"; //$NON-NLS-1$
-//	private static final String PERSPECTIVE = "perspective"; //$NON-NLS-1$
-//	private static final String DEACTIVATED = "deactivated"; //$NON-NLS-1$
-//	private static final String ACTIVATED = "activated"; //$NON-NLS-1$
-//	private static final String CLOSED = "closed"; //$NON-NLS-1$
-//	private static final String OPENED = "opened"; //$NON-NLS-1$
-//	private static final String PART = "part"; //$NON-NLS-1$
-//	private static final String VIEW = "view"; //$NON-NLS-1$
-//	private static final String EDITOR = "editor"; //$NON-NLS-1$
 
 	private ObservingService usageDataService;
 	
 	private IWindowListener windowListener = new IWindowListener() {
 		public void windowOpened(IWorkbenchWindow window) {
 			ActionPart action = ActionPart.OPENED;
-			action.setDescription(ELEMENT.findEquivalent(window));
-			usageDataService.recordEvent(action, EMPTY_STRING, WORKBENCH_BUNDLE_ID);
-			//usageDataService.recordEvent(OPENED, WORKBENCH, EMPTY_STRING, WORKBENCH_BUNDLE_ID);
-			//recordEvent(OPENED, window);
+			action.findKind(window);
+			usageDataService.recordEvent(action, WORKBENCH_BUNDLE_ID);
 			hookListener(window);
 		}
 
 		public void windowClosed(IWorkbenchWindow window) {
 			ActionPart action = ActionPart.CLOSED;
-			action.setDescription(ELEMENT.findEquivalent(window));
-			usageDataService.recordEvent(action, EMPTY_STRING, WORKBENCH_BUNDLE_ID);
-			//usageDataService.recordEvent(CLOSED, WORKBENCH, EMPTY_STRING, WORKBENCH_BUNDLE_ID);
-			//recordEvent(CLOSED, window);
+			action.findKind(window);
+			usageDataService.recordEvent(action, WORKBENCH_BUNDLE_ID);
 			unhookListeners(window);
 		}
 
 		public void windowActivated(IWorkbenchWindow window) {
 			ActionPart action = ActionPart.ACTIVATED;
-			action.setDescription(ELEMENT.findEquivalent(window));
-			usageDataService.recordEvent(action, EMPTY_STRING, WORKBENCH_BUNDLE_ID);
-			//usageDataService.recordEvent(ACTIVATED, WORKBENCH, EMPTY_STRING, WORKBENCH_BUNDLE_ID);
-			//recordEvent(ACTIVATED, window);
+			action.findKind(window);
+			usageDataService.recordEvent(action, WORKBENCH_BUNDLE_ID);
 		}
 
 		public void windowDeactivated(IWorkbenchWindow window) {
 			ActionPart action = ActionPart.DEACTIVATED;
-			action.setDescription(ELEMENT.findEquivalent(window));
-			usageDataService.recordEvent(action, EMPTY_STRING, WORKBENCH_BUNDLE_ID);
-			//usageDataService.recordEvent(DEACTIVATED, WORKBENCH, EMPTY_STRING, WORKBENCH_BUNDLE_ID);
-			//recordEvent(DEACTIVATED, window);
+			action.findKind(window);
+			usageDataService.recordEvent(action, WORKBENCH_BUNDLE_ID);
 		}
 
 	};
@@ -119,10 +99,8 @@ public class PartUsageMonitor implements UsageMonitor {
 			//String event, IWorkbenchPart part
 			IWorkbenchPartSite site = part.getSite();
 			ActionPart action = ActionPart.ACTIVATED;
-			action.setDescription(ELEMENT.findEquivalent(site));
+			action.findKind(site);
 			usageDataService.recordEvent(action, site.getId(), site.getPluginId());
-			//usageDataService.recordEvent(ACTIVATED, getKind(site), site.getId(), site.getPluginId());
-			//recordEvent(ACTIVATED, part);
 		}
 
 		public void partDeactivated(IWorkbenchPart part) {
@@ -136,19 +114,15 @@ public class PartUsageMonitor implements UsageMonitor {
 		public void partClosed(IWorkbenchPart part) {
 			IWorkbenchPartSite site = part.getSite();
 			ActionPart action = ActionPart.CLOSED;
-			action.setDescription(ELEMENT.findEquivalent(part));
+			action.findKind(part);
 			usageDataService.recordEvent(action, site.getId(), site.getPluginId());
-			//usageDataService.recordEvent(CLOSED, getKind(site), site.getId(), site.getPluginId());
-			//recordEvent(CLOSED, part);
 		}
 
 		public void partOpened(IWorkbenchPart part) {
 			IWorkbenchPartSite site = part.getSite();
 			ActionPart action = ActionPart.OPENED;
-			action.setDescription(ELEMENT.findEquivalent(part));
+			action.findKind(part);
 			usageDataService.recordEvent(action, site.getId(), site.getPluginId());
-			//usageDataService.recordEvent(OPENED, getKind(site), site.getId(), site.getPluginId());
-			//recordEvent(OPENED, part);
 		}
 	};
 
@@ -156,10 +130,8 @@ public class PartUsageMonitor implements UsageMonitor {
 		public void perspectiveActivated(IWorkbenchPage page, IPerspectiveDescriptor perspective) {
 			String id = perspective.getId();
 			ActionPart action = ActionPart.ACTIVATED;
-			action.setDescription(ELEMENT.findEquivalent(perspective));
+			action.findKind(perspective);
 			usageDataService.recordEvent(action, id, perspectiveToBundleIdMapper.getBundleId(id));
-			//usageDataService.recordEvent(ACTIVATED, PERSPECTIVE, id, perspectiveToBundleIdMapper.getBundleId(id));
-			//recordEvent(ACTIVATED, perspective);
 		}
 
 		public void perspectiveChanged(IWorkbenchPage page, IPerspectiveDescriptor perspective, String changeId) {			
@@ -256,10 +228,8 @@ public class PartUsageMonitor implements UsageMonitor {
 		if (perspective != null) {
 			String id = perspective.getId();
 			ActionPart action = ActionPart.ACTIVATED;
-			action.setDescription(ELEMENT.findEquivalent(perspective));
+			action.findKind(perspective);
 			usageDataService.recordEvent(action, id, perspectiveToBundleIdMapper.getBundleId(id));
-			//usageDataService.recordEvent(ACTIVATED, PERSPECTIVE, id, perspectiveToBundleIdMapper.getBundleId(id));
-			//recordEvent(ACTIVATED, perspective);
 		}
 		page.addPartListener(partListener);
 	}
@@ -267,39 +237,4 @@ public class PartUsageMonitor implements UsageMonitor {
 	private void unhookListeners(IWorkbenchPage page) {
 		page.removePartListener(partListener);
 	}
-//	
-//	private void recordEvent(String event, IWorkbenchWindow window) {
-//		// TODO Hardcoding bundle id for now.
-//		// TODO Does an IWorkbenchWindow have an id?
-//		usageDataService.recordEvent(event, WORKBENCH, EMPTY_STRING, WORKBENCH_BUNDLE_ID);
-//	}
-//
-//	private void recordEvent(String event, IPerspectiveDescriptor perspective) {
-//		String id = perspective.getId();
-//		usageDataService.recordEvent(event, PERSPECTIVE, id, perspectiveToBundleIdMapper.getBundleId(id));
-//	}
-//	
-//	private void recordEvent(String event, IWorkbenchPart part) {
-//		IWorkbenchPartSite site = part.getSite();
-//		usageDataService.recordEvent(event, getKind(site), site.getId(), site.getPluginId());
-//	}
-//
-//	/**
-//	 * This method returns the &quot;kind&quot; of thing that's represented by
-//	 * <code>site</code>. More specifically, this method answers the
-//	 * extension point from which the thing represented by <code>site</code>
-//	 * is defined. Should be an editor or view. Answers <code>null</code> if
-//	 * the &quot;kind&quot; cannot be determined.
-//	 * 
-//	 * @param site
-//	 * @return Name of the extension point from which the editor or view is
-//	 *         created, or null if it cannot be determined.
-//	 */
-//	private String getKind(IWorkbenchPartSite site) {
-//		if (site instanceof IEditorSite)
-//			return EDITOR;
-//		else if (site instanceof IViewSite)
-//			return VIEW;
-//		return PART;
-//	}
 }

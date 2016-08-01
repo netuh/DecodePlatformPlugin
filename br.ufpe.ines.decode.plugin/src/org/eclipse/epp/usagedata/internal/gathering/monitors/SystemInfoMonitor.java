@@ -36,25 +36,19 @@ public class SystemInfoMonitor implements UsageMonitor {
 		 * runtime exception. We'll catch and log that potential exception.
 		 */
 		try {
-			usageDataService.recordEvent(ActionSystemInfo.INFO_OS, Platform.getOS(), null);
-			usageDataService.recordEvent(ActionSystemInfo.INFO_ARCH, Platform.getOSArch(), null);
-			usageDataService.recordEvent(ActionSystemInfo.INFO_WS, Platform.getWS(), null);
-			usageDataService.recordEvent(ActionSystemInfo.INFO_LOCALE,  Platform.getNL(), null);
+			usageDataService.recordEvent(ActionSystemInfo.INFO_OS, Platform.getOS());
+			usageDataService.recordEvent(ActionSystemInfo.INFO_ARCH, Platform.getOSArch());
+			usageDataService.recordEvent(ActionSystemInfo.INFO_WS, Platform.getWS());
+			usageDataService.recordEvent(ActionSystemInfo.INFO_LOCALE,  Platform.getNL());
 		} catch (Exception e) {
 			//TODO FIX IT
 		}
 		
-		usageDataService.recordEvent(ActionSystemInfo.INFO_PROCESSORS, String.valueOf(Runtime.getRuntime().availableProcessors()), null);
-
-//		for (String property : ActionSystemInfo.ALL_PROPERTIES) {
-//			ActionSystemInfo action = ActionSystemInfo.PROPERTY;
-//			action.setDescription(property);
-//			usageDataService.recordEvent(action, System.getProperty(property), null);
-//		}
+		usageDataService.recordEvent(ActionSystemInfo.INFO_PROCESSORS, String.valueOf(Runtime.getRuntime().availableProcessors()));
 		for (Object aProperty : System.getProperties().keySet()) {
 			ActionSystemInfo action = ActionSystemInfo.PROPERTY;
-			action.setDescription(aProperty.toString());
-			usageDataService.recordEvent(action, System.getProperty(aProperty.toString()), null);
+			String propertyString = aProperty.toString();
+			usageDataService.recordEvent(action, propertyString, System.getProperty(propertyString));
 		}
 	}
 

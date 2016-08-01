@@ -8,6 +8,7 @@ import org.eclipse.epp.usagedata.internal.gathering.monitors.UsageMonitor;
 import br.edu.ufpe.ines.decode.taskDescription.ExperimentalTask;
 import br.edu.ufpe.ines.decode.taskDescription.Measurement;
 import br.edu.ufpe.ines.decode.taskDescription.measurements.AnyAction;
+import br.edu.ufpe.ines.decode.taskDescription.measurements.FinalTask;
 import br.edu.ufpe.ines.decode.taskDescription.measurements.LogType;
 import br.ufpe.ines.decode.plugin.epp.usagedata.extension.UsageMonitorFactory;
 import br.ufpe.ines.decode.plugin.epp.usagedata.extension.dataCollection.CollectedDataInterface;
@@ -41,6 +42,13 @@ public class CurrentExecutableTask {
 					List<LogType> actions = new LinkedList<LogType>();
 					measuAnyAction.getLog().forEach(action -> actions.add(action));
 					activeMonitors.addAll(UsageMonitorFactory.startAllMonitor(actions, this));
+				}
+				
+				if (measurement instanceof FinalTask) {
+					FinalTask measuFinalTask = (FinalTask) measurement;
+					List<LogType> actions = new LinkedList<LogType>();
+					measuFinalTask.getLog().forEach(action -> actions.add(action));
+					activeMonitors.addAll(UsageMonitorFactory.startFinalTaskMonitor(actions, this));
 				}
 			}
 		}

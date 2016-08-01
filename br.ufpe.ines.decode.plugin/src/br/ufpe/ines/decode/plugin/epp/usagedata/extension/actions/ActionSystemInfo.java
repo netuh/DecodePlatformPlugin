@@ -24,11 +24,6 @@ public enum ActionSystemInfo implements ActionInterface {
 	public Boolean allowAddingData() {
 		return false;
 	}
-
-	public void setDescription(String newValue) {
-		if (this.equals(PROPERTY))
-			description = newValue;
-	}
 //
 //	public static String[] ALL_PROPERTIES = {
 //			"java.runtime.name", //$NON-NLS-1$
