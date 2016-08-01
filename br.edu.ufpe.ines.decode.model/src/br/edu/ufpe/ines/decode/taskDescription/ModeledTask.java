@@ -2,6 +2,8 @@
  */
 package br.edu.ufpe.ines.decode.taskDescription;
 
+import java.util.List;
+
 import br.edu.ufpe.ines.decode.aux.Identifiable;
 import br.edu.ufpe.ines.decode.aux.Nameable;
 
@@ -16,6 +18,7 @@ import br.edu.ufpe.ines.decode.aux.Nameable;
  * <ul>
  *   <li>{@link br.edu.ufpe.ines.decode.taskDescription.ModeledTask#getRestriction <em>Restriction</em>}</li>
  *   <li>{@link br.edu.ufpe.ines.decode.taskDescription.ModeledTask#getMeasurements <em>Measurements</em>}</li>
+ *   <li>{@link br.edu.ufpe.ines.decode.taskDescription.ModeledTask#getParent <em>Parent</em>}</li>
  * </ul>
  *
  * @see br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionPackage#getModeledTask()
@@ -38,6 +41,22 @@ public interface ModeledTask extends Nameable, Identifiable {
 	 * @generated
 	 */
 	OtherParameters getRestriction();
+	
+	/**
+	 * Returns the value of the '<em><b>Restriction</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Restriction</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Restriction</em>' containment reference.
+	 * @see #setRestriction(OtherParameters)
+	 * @see br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionPackage#getModeledTask_Restriction()
+	 * @model containment="true"
+	 * @generated NOT
+	 */
+	List<Parameter> getAllRestriction();
 
 	/**
 	 * Sets the value of the '{@link br.edu.ufpe.ines.decode.taskDescription.ModeledTask#getRestriction <em>Restriction</em>}' containment reference.
@@ -74,5 +93,31 @@ public interface ModeledTask extends Nameable, Identifiable {
 	 * @generated
 	 */
 	void setMeasurements(Measurements value);
+
+	/**
+	 * Returns the value of the '<em><b>Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Parent</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Parent</em>' reference.
+	 * @see #setParent(ModeledTask)
+	 * @see br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionPackage#getModeledTask_Parent()
+	 * @model
+	 * @generated
+	 */
+	ModeledTask getParent();
+
+	/**
+	 * Sets the value of the '{@link br.edu.ufpe.ines.decode.taskDescription.ModeledTask#getParent <em>Parent</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Parent</em>' reference.
+	 * @see #getParent()
+	 * @generated
+	 */
+	void setParent(ModeledTask value);
 
 } // ModeledTask

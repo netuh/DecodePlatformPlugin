@@ -2,23 +2,24 @@
  */
 package br.edu.ufpe.ines.decode.taskDescription.impl;
 
-import br.edu.ufpe.ines.decode.aux.AuxPackage;
-import br.edu.ufpe.ines.decode.aux.Identifiable;
-
-import br.edu.ufpe.ines.decode.aux.impl.NameableImpl;
-
-import br.edu.ufpe.ines.decode.taskDescription.Measurements;
-import br.edu.ufpe.ines.decode.taskDescription.ModeledTask;
-import br.edu.ufpe.ines.decode.taskDescription.OtherParameters;
-import br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionPackage;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import br.edu.ufpe.ines.decode.aux.AuxPackage;
+import br.edu.ufpe.ines.decode.aux.Identifiable;
+import br.edu.ufpe.ines.decode.aux.impl.NameableImpl;
+import br.edu.ufpe.ines.decode.taskDescription.Measurements;
+import br.edu.ufpe.ines.decode.taskDescription.ModeledTask;
+import br.edu.ufpe.ines.decode.taskDescription.OtherParameters;
+import br.edu.ufpe.ines.decode.taskDescription.Parameter;
+import br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,6 +32,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link br.edu.ufpe.ines.decode.taskDescription.impl.ModeledTaskImpl#getElementId <em>Element Id</em>}</li>
  *   <li>{@link br.edu.ufpe.ines.decode.taskDescription.impl.ModeledTaskImpl#getRestriction <em>Restriction</em>}</li>
  *   <li>{@link br.edu.ufpe.ines.decode.taskDescription.impl.ModeledTaskImpl#getMeasurements <em>Measurements</em>}</li>
+ *   <li>{@link br.edu.ufpe.ines.decode.taskDescription.impl.ModeledTaskImpl#getParent <em>Parent</em>}</li>
  * </ul>
  *
  * @generated
@@ -77,6 +79,16 @@ public abstract class ModeledTaskImpl extends NameableImpl implements ModeledTas
 	protected Measurements measurements;
 
 	/**
+	 * The cached value of the '{@link #getParent() <em>Parent</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getParent()
+	 * @generated
+	 * @ordered
+	 */
+	protected ModeledTask parent;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -98,9 +110,11 @@ public abstract class ModeledTaskImpl extends NameableImpl implements ModeledTas
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public String getElementId() {
+		if (elementId == null)
+			elementId = UUID.randomUUID().toString();
 		return elementId;
 	}
 
@@ -123,6 +137,22 @@ public abstract class ModeledTaskImpl extends NameableImpl implements ModeledTas
 	 */
 	public OtherParameters getRestriction() {
 		return restriction;
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public List<Parameter> getAllRestriction() {		
+		List<Parameter> task = new ArrayList<Parameter>();
+		restriction.getChildren().forEach(elemt -> task.add(elemt));
+		task.addAll(restriction.getChildren());
+		ModeledTask parent = getParent(); 
+		if (parent != null){
+			task.addAll(parent.getAllRestriction());
+		}
+		return task;
 	}
 
 	/**
@@ -207,6 +237,44 @@ public abstract class ModeledTaskImpl extends NameableImpl implements ModeledTas
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ModeledTask getParent() {
+		if (parent != null && parent.eIsProxy()) {
+			InternalEObject oldParent = (InternalEObject)parent;
+			parent = (ModeledTask)eResolveProxy(oldParent);
+			if (parent != oldParent) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TaskDescriptionPackage.MODELED_TASK__PARENT, oldParent, parent));
+			}
+		}
+		return parent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ModeledTask basicGetParent() {
+		return parent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setParent(ModeledTask newParent) {
+		ModeledTask oldParent = parent;
+		parent = newParent;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TaskDescriptionPackage.MODELED_TASK__PARENT, oldParent, parent));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -232,6 +300,9 @@ public abstract class ModeledTaskImpl extends NameableImpl implements ModeledTas
 				return getRestriction();
 			case TaskDescriptionPackage.MODELED_TASK__MEASUREMENTS:
 				return getMeasurements();
+			case TaskDescriptionPackage.MODELED_TASK__PARENT:
+				if (resolve) return getParent();
+				return basicGetParent();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -252,6 +323,9 @@ public abstract class ModeledTaskImpl extends NameableImpl implements ModeledTas
 				return;
 			case TaskDescriptionPackage.MODELED_TASK__MEASUREMENTS:
 				setMeasurements((Measurements)newValue);
+				return;
+			case TaskDescriptionPackage.MODELED_TASK__PARENT:
+				setParent((ModeledTask)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -274,6 +348,9 @@ public abstract class ModeledTaskImpl extends NameableImpl implements ModeledTas
 			case TaskDescriptionPackage.MODELED_TASK__MEASUREMENTS:
 				setMeasurements((Measurements)null);
 				return;
+			case TaskDescriptionPackage.MODELED_TASK__PARENT:
+				setParent((ModeledTask)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -292,6 +369,8 @@ public abstract class ModeledTaskImpl extends NameableImpl implements ModeledTas
 				return restriction != null;
 			case TaskDescriptionPackage.MODELED_TASK__MEASUREMENTS:
 				return measurements != null;
+			case TaskDescriptionPackage.MODELED_TASK__PARENT:
+				return parent != null;
 		}
 		return super.eIsSet(featureID);
 	}

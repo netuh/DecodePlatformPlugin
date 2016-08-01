@@ -106,13 +106,22 @@ public interface TaskDescriptionPackage extends EPackage {
 	int MODELED_TASK__MEASUREMENTS = AuxPackage.NAMEABLE_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODELED_TASK__PARENT = AuxPackage.NAMEABLE_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Modeled Task</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODELED_TASK_FEATURE_COUNT = AuxPackage.NAMEABLE_FEATURE_COUNT + 3;
+	int MODELED_TASK_FEATURE_COUNT = AuxPackage.NAMEABLE_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Modeled Task</em>' class.
@@ -168,6 +177,15 @@ public interface TaskDescriptionPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPOSED_TASK__MEASUREMENTS = MODELED_TASK__MEASUREMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSED_TASK__PARENT = MODELED_TASK__PARENT;
 
 	/**
 	 * The number of structural features of the '<em>Composed Task</em>' class.
@@ -232,6 +250,15 @@ public interface TaskDescriptionPackage extends EPackage {
 	 * @ordered
 	 */
 	int SEQUENCIAL__MEASUREMENTS = COMPOSED_TASK__MEASUREMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEQUENCIAL__PARENT = COMPOSED_TASK__PARENT;
 
 	/**
 	 * The feature id for the '<em><b>Tasks</b></em>' containment reference list.
@@ -307,6 +334,15 @@ public interface TaskDescriptionPackage extends EPackage {
 	int RANDOM__MEASUREMENTS = COMPOSED_TASK__MEASUREMENTS;
 
 	/**
+	 * The feature id for the '<em><b>Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RANDOM__PARENT = COMPOSED_TASK__PARENT;
+
+	/**
 	 * The feature id for the '<em><b>Tasks</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -378,6 +414,15 @@ public interface TaskDescriptionPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXPERIMENTAL_TASK__MEASUREMENTS = MODELED_TASK__MEASUREMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPERIMENTAL_TASK__PARENT = MODELED_TASK__PARENT;
 
 	/**
 	 * The feature id for the '<em><b>Depends</b></em>' reference list.
@@ -894,6 +939,17 @@ public interface TaskDescriptionPackage extends EPackage {
 	EReference getModeledTask_Measurements();
 
 	/**
+	 * Returns the meta object for the reference '{@link br.edu.ufpe.ines.decode.taskDescription.ModeledTask#getParent <em>Parent</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Parent</em>'.
+	 * @see br.edu.ufpe.ines.decode.taskDescription.ModeledTask#getParent()
+	 * @see #getModeledTask()
+	 * @generated
+	 */
+	EReference getModeledTask_Parent();
+
+	/**
 	 * Returns the meta object for class '{@link br.edu.ufpe.ines.decode.taskDescription.Sequencial <em>Sequencial</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1276,6 +1332,14 @@ public interface TaskDescriptionPackage extends EPackage {
 		 * @generated
 		 */
 		EReference MODELED_TASK__MEASUREMENTS = eINSTANCE.getModeledTask_Measurements();
+
+		/**
+		 * The meta object literal for the '<em><b>Parent</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODELED_TASK__PARENT = eINSTANCE.getModeledTask_Parent();
 
 		/**
 		 * The meta object literal for the '{@link br.edu.ufpe.ines.decode.taskDescription.impl.SequencialImpl <em>Sequencial</em>}' class.

@@ -22,6 +22,8 @@
       <genClasses image="false" ecoreClass="modelDecode.ecore#//taskDescription/ModeledTask">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modelDecode.ecore#//taskDescription/ModeledTask/restriction"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modelDecode.ecore#//taskDescription/ModeledTask/measurements"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference modelDecode.ecore#//taskDescription/ModeledTask/parent"/>
       </genClasses>
       <genClasses ecoreClass="modelDecode.ecore#//taskDescription/Sequencial">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modelDecode.ecore#//taskDescription/Sequencial/tasks"/>

@@ -13,6 +13,7 @@
           containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="measurements" ordered="false"
           eType="#//taskDescription/Measurements" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//taskDescription/ModeledTask"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Sequencial" eSuperTypes="#//taskDescription/ComposedTask">
       <eStructuralFeatures xsi:type="ecore:EReference" name="tasks" upperBound="-1"

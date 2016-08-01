@@ -299,6 +299,15 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getModeledTask_Parent() {
+		return (EReference)modeledTaskEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSequencial() {
 		return sequencialEClass;
 	}
@@ -613,6 +622,7 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 		modeledTaskEClass = createEClass(MODELED_TASK);
 		createEReference(modeledTaskEClass, MODELED_TASK__RESTRICTION);
 		createEReference(modeledTaskEClass, MODELED_TASK__MEASUREMENTS);
+		createEReference(modeledTaskEClass, MODELED_TASK__PARENT);
 
 		sequencialEClass = createEClass(SEQUENCIAL);
 		createEReference(sequencialEClass, SEQUENCIAL__TASKS);
@@ -720,6 +730,7 @@ public class TaskDescriptionPackageImpl extends EPackageImpl implements TaskDesc
 		initEClass(modeledTaskEClass, ModeledTask.class, "ModeledTask", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getModeledTask_Restriction(), this.getOtherParameters(), null, "restriction", null, 0, 1, ModeledTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getModeledTask_Measurements(), this.getMeasurements(), null, "measurements", null, 0, 1, ModeledTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getModeledTask_Parent(), this.getModeledTask(), null, "parent", null, 0, 1, ModeledTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sequencialEClass, Sequencial.class, "Sequencial", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSequencial_Tasks(), this.getModeledTask(), null, "tasks", null, 0, -1, Sequencial.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

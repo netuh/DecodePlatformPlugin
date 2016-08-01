@@ -18,7 +18,6 @@ import org.eclipse.ui.handlers.HandlerUtil;
 import org.osgi.framework.Bundle;
 
 import br.edu.ufpe.ines.decode.taskDescription.EclipseParameter;
-import br.edu.ufpe.ines.decode.taskDescription.OtherParameters;
 import br.edu.ufpe.ines.decode.taskDescription.Parameter;
 import br.ufpe.ines.decode.plugin.control.ExperimentExecutionManager;
 import br.ufpe.ines.decode.plugin.model.CurrentExecutableTask;
@@ -45,9 +44,9 @@ public class StartExperimentHandler extends AbstractHandler {
 		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
 		
 		CurrentExecutableTask task = manager.getExecutionTask();
-		OtherParameters restriction = task.getTaskModel().getRestriction();
-		if (restriction != null){
-			for (Parameter aRestriction : restriction.getChildren()) {
+		List<Parameter> restriction = task.getTaskModel().getAllRestriction();
+		if (!restriction.isEmpty()){
+			for (Parameter aRestriction : restriction) {
 				List<String> restricNotSatisfied = verify(aRestriction);
 				if (!restricNotSatisfied.isEmpty()){
 					MessageDialog.openInformation(window.getShell(),

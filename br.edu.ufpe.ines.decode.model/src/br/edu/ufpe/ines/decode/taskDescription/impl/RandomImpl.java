@@ -2,21 +2,18 @@
  */
 package br.edu.ufpe.ines.decode.taskDescription.impl;
 
-import br.edu.ufpe.ines.decode.taskDescription.ModeledTask;
-import br.edu.ufpe.ines.decode.taskDescription.Random;
-import br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionPackage;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import br.edu.ufpe.ines.decode.taskDescription.ModeledTask;
+import br.edu.ufpe.ines.decode.taskDescription.Random;
+import br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -104,7 +101,7 @@ public class RandomImpl extends ComposedTaskImpl implements Random {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
@@ -112,7 +109,9 @@ public class RandomImpl extends ComposedTaskImpl implements Random {
 		switch (featureID) {
 			case TaskDescriptionPackage.RANDOM__TASKS:
 				getTasks().clear();
-				getTasks().addAll((Collection<? extends ModeledTask>)newValue);
+				Collection<? extends ModeledTask> childrenTask = (Collection<? extends ModeledTask>)newValue;
+				childrenTask.forEach(child -> child.setParent(this));
+				getTasks().addAll(childrenTask);
 				return;
 		}
 		super.eSet(featureID, newValue);
