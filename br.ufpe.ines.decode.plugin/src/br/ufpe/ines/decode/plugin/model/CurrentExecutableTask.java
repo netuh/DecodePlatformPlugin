@@ -35,8 +35,8 @@ public class CurrentExecutableTask {
 	}
 
 	public void start(){
-		if (currentTask.getMeasurements() != null && currentTask.getMeasurements().getContent() != null){
-			for (Measurement measurement : currentTask.getMeasurements().getContent()) {
+		if (currentTask.getAllMeasument() != null){
+			for (Measurement measurement : currentTask.getAllMeasument()) {
 				if (measurement instanceof AnyAction) {
 					AnyAction measuAnyAction = (AnyAction) measurement;
 					List<LogType> actions = new LinkedList<LogType>();

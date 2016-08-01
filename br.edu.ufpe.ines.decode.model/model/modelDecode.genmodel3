@@ -38,7 +38,10 @@
           <ecoreFeature xsi:type="ecore:EReference" href="modelDecode.ecore#//taskDescription/ModeledTask/parent"/>
         </genFeatures>
         <genOperations>
-          <ecoreOperation href="modelDecode.ecore#//taskDescription/ModeledTask/getParameters2"/>
+          <ecoreOperation href="modelDecode.ecore#//taskDescription/ModeledTask/getAllParameters"/>
+        </genOperations>
+        <genOperations>
+          <ecoreOperation href="modelDecode.ecore#//taskDescription/ModeledTask/getAllMeasument"/>
         </genOperations>
       </genClasses>
       <genClasses>

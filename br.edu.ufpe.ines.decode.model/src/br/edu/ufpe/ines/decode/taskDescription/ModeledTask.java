@@ -111,6 +111,14 @@ public interface ModeledTask extends Nameable, Identifiable {
 	 *        annotation="GenModel body='List<Parameter> task = new ArrayList<Parameter>();\nif (restriction != null){\n\trestriction.getChildren().forEach(elemt -> task.add(elemt));\n\ttask.addAll(restriction.getChildren());\n}\nModeledTask parent = getParent(); \nif (parent != null){\n\ttask.addAll(parent.getAllRestriction());\n}\nreturn task;'"
 	 * @generated NOT
 	 */
-	List<Parameter> getParameters2();
+	List<Parameter> getAllParameters();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" unique="false" ordered="false"
+	 * @generated NOT
+	 */
+	List<Measurement> getAllMeasument();
 
 } // ModeledTask

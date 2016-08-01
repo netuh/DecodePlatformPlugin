@@ -24,7 +24,8 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modelDecode.ecore#//taskDescription/ModeledTask/measurements"/>
         <genFeatures property="Readonly" notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference modelDecode.ecore#//taskDescription/ModeledTask/parent"/>
-        <genOperations ecoreOperation="modelDecode.ecore#//taskDescription/ModeledTask/getParameters2"/>
+        <genOperations ecoreOperation="modelDecode.ecore#//taskDescription/ModeledTask/getAllParameters"/>
+        <genOperations ecoreOperation="modelDecode.ecore#//taskDescription/ModeledTask/getAllMeasument"/>
       </genClasses>
       <genClasses ecoreClass="modelDecode.ecore#//taskDescription/Sequencial">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modelDecode.ecore#//taskDescription/Sequencial/tasks"/>

@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import br.edu.ufpe.ines.decode.aux.AuxPackage;
 import br.edu.ufpe.ines.decode.aux.Identifiable;
 import br.edu.ufpe.ines.decode.aux.impl.NameableImpl;
+import br.edu.ufpe.ines.decode.taskDescription.Measurement;
 import br.edu.ufpe.ines.decode.taskDescription.Measurements;
 import br.edu.ufpe.ines.decode.taskDescription.ModeledTask;
 import br.edu.ufpe.ines.decode.taskDescription.OtherParameters;
@@ -261,7 +262,7 @@ public abstract class ModeledTaskImpl extends NameableImpl implements ModeledTas
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public List<Parameter> getParameters2() {
+	public List<Parameter> getAllParameters() {
 		List<Parameter> task = new ArrayList<Parameter>();
 		if (restriction != null){
 			restriction.getChildren().forEach(elemt -> task.add(elemt));
@@ -269,7 +270,25 @@ public abstract class ModeledTaskImpl extends NameableImpl implements ModeledTas
 		}
 		ModeledTask parent = getParent(); 
 		if (parent != null){
-			task.addAll(parent.getParameters2());
+			task.addAll(parent.getAllParameters());
+		}
+		return task;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public List<Measurement> getAllMeasument() {
+		List<Measurement> task = new ArrayList<Measurement>();
+		if (measurements != null){
+			measurements.getContent().forEach(elemt -> task.add(elemt));
+			task.addAll(measurements.getContent());
+		}
+		ModeledTask parent = getParent(); 
+		if (parent != null){
+			task.addAll(parent.getAllMeasument());
 		}
 		return task;
 	}
@@ -419,8 +438,10 @@ public abstract class ModeledTaskImpl extends NameableImpl implements ModeledTas
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case TaskDescriptionPackage.MODELED_TASK___GET_PARAMETERS2:
-				return getParameters2();
+			case TaskDescriptionPackage.MODELED_TASK___GET_ALL_PARAMETERS:
+				return getAllParameters();
+			case TaskDescriptionPackage.MODELED_TASK___GET_ALL_MEASUMENT:
+				return getAllMeasument();
 		}
 		return super.eInvoke(operationID, arguments);
 	}
