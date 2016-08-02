@@ -59,7 +59,6 @@ public class Activator extends AbstractUIPlugin {
 		loader.loadExperimetnDescription();
 		loader.loadExecutionDescription();
 		plugin = this;
-		//  SWTBot IDE Features	2.4.0.201604200752	org.eclipse.swtbot.ide.feature.group	Eclipse.org
 		URL confURL = getBundle().getEntry("resources/log4j.properties");
 		PropertyConfigurator.configure(FileLocator.toFileURL(confURL).getFile());
 	}
