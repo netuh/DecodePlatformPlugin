@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/br.ufpe.ines.decode.plugin.feature_1.0.0.201608021457.jar" id="br.ufpe.ines.decode.plugin.feature" version="1.0.0.201608021457">
+      <category name="Decode_ID2"/>
+   </feature>
+   <category-def name="Decode_ID2" label="Decode"/>
+</site>
