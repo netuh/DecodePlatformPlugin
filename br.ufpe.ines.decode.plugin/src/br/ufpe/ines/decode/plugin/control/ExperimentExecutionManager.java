@@ -13,8 +13,6 @@ import java.util.Map;
 import java.util.Queue;
 import java.util.stream.Collectors;
 
-import org.eclipse.emf.common.util.EList;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
