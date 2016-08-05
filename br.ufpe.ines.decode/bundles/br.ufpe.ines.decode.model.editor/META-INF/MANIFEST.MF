@@ -13,9 +13,10 @@ Export-Package: br.ufpe.ines.decode.decode.artifacts.presentation,
  br.ufpe.ines.decode.decode.presentation,
  br.ufpe.ines.decode.decode.taskDescription.measurements.presentation,
  br.ufpe.ines.decode.decode.taskDescription.presentation
-Require-Bundle: org.eclipse.core.runtime,
+Require-Bundle: br.ufpe.ines.decode.model;bundle-version="0.1.0",
+ br.ufpe.ines.decode.model.edit;bundle-version="1.0.0";visibility:=reexport,
+ org.eclipse.core.runtime,
  org.eclipse.core.resources;visibility:=reexport,
- br.ufpe.ines.decode.model.edit;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.eclipse.emf.edit.ui;visibility:=reexport,
  org.eclipse.ui.ide;visibility:=reexport

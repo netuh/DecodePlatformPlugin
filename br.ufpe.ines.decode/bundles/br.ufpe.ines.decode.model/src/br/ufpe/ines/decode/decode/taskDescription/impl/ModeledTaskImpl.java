@@ -15,6 +15,9 @@ import br.ufpe.ines.decode.decode.taskDescription.Parameter;
 import br.ufpe.ines.decode.decode.taskDescription.TaskDescriptionPackage;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -115,9 +118,11 @@ public abstract class ModeledTaskImpl extends NameableImpl implements ModeledTas
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public String getElementId() {
+		if (elementId == null)
+			elementId = UUID.randomUUID().toString();
 		return elementId;
 	}
 
@@ -260,23 +265,37 @@ public abstract class ModeledTaskImpl extends NameableImpl implements ModeledTas
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	public EList<Parameter> getAllParameters() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public List<Parameter> getAllParameters() {
+		List<Parameter> task = new ArrayList<Parameter>();
+		if (restriction != null){
+			restriction.getChildren().forEach(elemt -> task.add(elemt));
+			task.addAll(restriction.getChildren());
+		}
+		ModeledTask parent = getParent(); 
+		if (parent != null){
+			task.addAll(parent.getAllParameters());
+		}
+		return task;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	public EList<Measurement> getAllMeasument() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public List<Measurement> getAllMeasument() {
+		List<Measurement> task = new ArrayList<Measurement>();
+		if (measurements != null){
+			measurements.getContent().forEach(elemt -> task.add(elemt));
+			task.addAll(measurements.getContent());
+		}
+		ModeledTask parent = getParent(); 
+		if (parent != null){
+			task.addAll(parent.getAllMeasument());
+		}
+		return task;
 	}
 
 	/**

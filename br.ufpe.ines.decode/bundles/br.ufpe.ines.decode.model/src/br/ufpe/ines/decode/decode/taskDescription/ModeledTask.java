@@ -2,10 +2,9 @@
  */
 package br.ufpe.ines.decode.decode.taskDescription;
 
+import java.util.List;
 import br.ufpe.ines.decode.decode.aux.Identifiable;
 import br.ufpe.ines.decode.decode.aux.Nameable;
-
-import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -109,16 +108,16 @@ public interface ModeledTask extends Nameable, Identifiable {
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"
 	 *        annotation="GenModel body='List<Parameter> task = new ArrayList<Parameter>();\nif (restriction != null){\n\trestriction.getChildren().forEach(elemt -> task.add(elemt));\n\ttask.addAll(restriction.getChildren());\n}\nModeledTask parent = getParent(); \nif (parent != null){\n\ttask.addAll(parent.getAllRestriction());\n}\nreturn task;'"
-	 * @generated
+	 * @generated NOT
 	 */
-	EList<Parameter> getAllParameters();
+	List<Parameter> getAllParameters();
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" unique="false" ordered="false"
-	 * @generated
+	 * @generated NOT
 	 */
-	EList<Measurement> getAllMeasument();
+	List<Measurement> getAllMeasument();
 
 } // ModeledTask

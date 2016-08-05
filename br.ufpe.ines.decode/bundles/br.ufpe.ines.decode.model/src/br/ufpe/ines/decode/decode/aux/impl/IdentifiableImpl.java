@@ -5,6 +5,8 @@ package br.ufpe.ines.decode.decode.aux.impl;
 import br.ufpe.ines.decode.decode.aux.AuxPackage;
 import br.ufpe.ines.decode.decode.aux.Identifiable;
 
+import java.util.UUID;
+
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -68,9 +70,11 @@ public abstract class IdentifiableImpl extends MinimalEObjectImpl.Container impl
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public String getElementId() {
+		if (elementId == null)
+			elementId = UUID.randomUUID().toString();
 		return elementId;
 	}
 

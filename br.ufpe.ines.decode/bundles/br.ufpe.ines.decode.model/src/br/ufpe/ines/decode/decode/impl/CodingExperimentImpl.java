@@ -14,6 +14,8 @@ import br.ufpe.ines.decode.decode.aux.impl.NameableImpl;
 
 import br.ufpe.ines.decode.decode.taskDescription.ExecutionDerivations;
 
+import java.util.UUID;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -100,9 +102,11 @@ public class CodingExperimentImpl extends NameableImpl implements CodingExperime
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public String getElementId() {
+		if (elementId == null)
+			elementId = UUID.randomUUID().toString();
 		return elementId;
 	}
 

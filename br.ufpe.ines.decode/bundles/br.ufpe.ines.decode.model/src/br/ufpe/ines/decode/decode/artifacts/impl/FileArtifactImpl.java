@@ -7,6 +7,11 @@ import br.ufpe.ines.decode.decode.artifacts.FileArtifact;
 
 import br.ufpe.ines.decode.decode.aux.impl.NameableImpl;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -120,11 +125,22 @@ public abstract class FileArtifactImpl extends NameableImpl implements FileArtif
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public void setLocalFilePath(String newLocalFilePath) {
 		String oldLocalFilePath = localFilePath;
 		localFilePath = newLocalFilePath;
+		Path path = Paths.get(newLocalFilePath);
+		if (path.toFile().exists()){
+			try {
+				byte[] data = Files.readAllBytes(path);
+				setFile(data);
+				setName(path.toFile().getName());
+			} catch (IOException e) {
+				localFilePath = oldLocalFilePath;
+				e.printStackTrace();
+			}
+		}
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ArtifactsPackage.FILE_ARTIFACT__LOCAL_FILE_PATH, oldLocalFilePath, localFilePath));
 	}
