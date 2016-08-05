@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+ <extension
+         point="org.eclipse.ui.commands">
+      <category
+            name="Decode Category"
+            id="br.ufpe.ines.decode.plugin.category.command">
+      </category>
+      <command
+            name="Load Experiment Command"
+            categoryId="br.ufpe.ines.decode.plugin.category.command"
+            id="br.ufpe.ines.decode.plugin.handler.selectExperiment">
+      </command>
+      <command
+            name="Configure Experiment Command"
+            categoryId="br.ufpe.ines.decode.plugin.category.command"
+            id="br.ufpe.ines.decode.plugin.handler.configureTask">
+      </command>
+      <command
+            name="Start Experiment Command"
+            categoryId="br.ufpe.ines.decode.plugin.category.command"
+            id="br.ufpe.ines.decode.plugin.handler.startExperiment">
+      </command>
+      <command
+            name="Finish Experiment Command"
+            categoryId="br.ufpe.ines.decode.plugin.category.command"
+            id="br.ufpe.ines.decode.plugin.handler.finishExperiment">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="br.ufpe.ines.decode.observer.control.handlers.LoadExperimentHandler"
+            commandId="br.ufpe.ines.decode.plugin.handler.selectExperiment">
+      </handler>
+      <handler
+            class="br.ufpe.ines.decode.observer.control.handlers.ConfigureExperimentHandler"
+            commandId="br.ufpe.ines.decode.plugin.handler.configureTask">
+         <enabledWhen>
+         	<test
+               property="br.ufpe.ines.decode.plugin.hasSelectedExperiment">
+            </test>
+         </enabledWhen>
+      </handler>
+      <handler
+            class="br.ufpe.ines.decode.observer.control.handlers.StartExperimentHandler"
+            commandId="br.ufpe.ines.decode.plugin.handler.startExperiment">
+         <enabledWhen>
+         	<test
+               property="br.ufpe.ines.decode.plugin.hasConfiguredExperiment">
+            </test>
+         </enabledWhen>
+      </handler>
+      <handler
+            class="br.ufpe.ines.decode.observer.control.handlers.FinishExperimentHandler"
+            commandId="br.ufpe.ines.decode.plugin.handler.finishExperiment">
+         <enabledWhen>
+         	<test
+               property="br.ufpe.ines.decode.plugin.hasStartedExperiment">
+            </test>
+         </enabledWhen>
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar
+               id="CommandLog.toolbars.sampleToolbar2">
+            <command
+                  commandId="br.ufpe.ines.decode.plugin.handler.configureTask"
+                  id="CommandLog.toolbars.ConfigureTask"
+                  disabledIcon="icons/sample.gif"
+                  icon="icons/sample.gif"
+                  style="push"
+                  tooltip="Configure Current Task">
+            </command>
+            <command
+                  commandId="br.ufpe.ines.decode.plugin.handler.startExperiment"
+                  disabledIcon="icons/ic_queue_play_next.png"
+                  icon="icons/ic_queue_play_next.png"
+                  id="CommandLog.toolbars.StartExperiment"
+                  style="push"
+                  tooltip="Start Experiment">
+            </command>
+            <command
+                  commandId="br.ufpe.ines.decode.plugin.handler.finishExperiment"
+                  disabledIcon="icons/ic_done.png"
+                  icon="icons/ic_done.png"
+                  id="CommandLog.toolbars.FinishExperiment"
+                  style="push"
+                  tooltip="Finish Experiment">
+            </command>
+            <command
+                  commandId="br.ufpe.ines.decode.plugin.handler.selectExperiment"
+                  disabledIcon="icons/ic_input.png"
+                  icon="icons/ic_input.png"
+                  id="CommandLog.toolbars.SelectExperiment"
+                  style="push"
+                  tooltip="Select Experiment">
+            </command>
+         </toolbar>
+      </menuContribution>
+   </extension>
+	<extension point="org.eclipse.core.expressions.propertyTesters">
+      <propertyTester
+            class="br.ufpe.ines.decode.observer.ui.tester.ToolBarButtonTester"
+            id="br.ufpe.ines.decode.selectedExperimentTester"
+            namespace="br.ufpe.ines.decode.plugin"
+            properties="hasSelectedExperiment"
+            type="java.lang.Object">
+      </propertyTester>
+      <propertyTester
+            class="br.ufpe.ines.decode.observer.ui.tester.ToolBarButtonTester"
+            id="br.ufpe.ines.decode.stardedExperimentTester"
+            namespace="br.ufpe.ines.decode.plugin"
+            properties="hasStartedExperiment"
+            type="java.lang.Object">
+      </propertyTester>
+      <propertyTester
+            class="br.ufpe.ines.decode.observer.ui.tester.ToolBarButtonTester"
+            id="br.ufpe.ines.decode.stardedExperimentTester"
+            namespace="br.ufpe.ines.decode.plugin"
+            properties="hasConfiguredExperiment"
+            type="java.lang.Object">
+      </propertyTester>
+	</extension>
+ <extension
+       point="org.eclipse.ui.startup">
+    <startup
+          class="br.ufpe.ines.decode.observer.PluginStartup">
+    </startup>
+ </extension>
+</plugin>

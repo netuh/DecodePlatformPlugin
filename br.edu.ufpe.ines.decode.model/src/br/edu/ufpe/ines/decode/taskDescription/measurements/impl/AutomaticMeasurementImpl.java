@@ -2,8 +2,6 @@
  */
 package br.edu.ufpe.ines.decode.taskDescription.measurements.impl;
 
-import br.edu.ufpe.ines.decode.taskDescription.impl.MeasurementImpl;
-
 import br.edu.ufpe.ines.decode.taskDescription.measurements.AutomaticMeasurement;
 import br.edu.ufpe.ines.decode.taskDescription.measurements.LogType;
 import br.edu.ufpe.ines.decode.taskDescription.measurements.MeasurementsPackage;
@@ -29,7 +27,7 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  *
  * @generated
  */
-public abstract class AutomaticMeasurementImpl extends MeasurementImpl implements AutomaticMeasurement {
+public abstract class AutomaticMeasurementImpl extends br.ufpe.ines.decode.taskDescription.impl.MeasurementImpl implements AutomaticMeasurement {
 	/**
 	 * The cached value of the '{@link #getLog() <em>Log</em>}' attribute list.
 	 * <!-- begin-user-doc -->

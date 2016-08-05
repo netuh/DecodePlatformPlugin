@@ -2,8 +2,6 @@
  */
 package br.edu.ufpe.ines.decode.taskDescription.measurements.util;
 
-import br.edu.ufpe.ines.decode.taskDescription.Measurement;
-
 import br.edu.ufpe.ines.decode.taskDescription.measurements.*;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -98,7 +96,7 @@ public class MeasurementsAdapterFactory extends AdapterFactoryImpl {
 				return createTestExecutionAdapter();
 			}
 			@Override
-			public Adapter caseMeasurement(Measurement object) {
+			public Adapter caseMeasurement(br.ufpe.ines.decode.taskDescription.Measurement object) {
 				return createMeasurementAdapter();
 			}
 			@Override
@@ -220,13 +218,13 @@ public class MeasurementsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link br.edu.ufpe.ines.decode.taskDescription.Measurement <em>Measurement</em>}'.
+	 * Creates a new adapter for an object of class '{@link br.ufpe.ines.decode.taskDescription.Measurement <em>Measurement</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see br.edu.ufpe.ines.decode.taskDescription.Measurement
+	 * @see br.ufpe.ines.decode.taskDescription.Measurement
 	 * @generated
 	 */
 	public Adapter createMeasurementAdapter() {

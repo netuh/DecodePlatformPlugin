@@ -2,8 +2,6 @@
  */
 package br.edu.ufpe.ines.decode.taskDescription.measurements;
 
-import br.edu.ufpe.ines.decode.taskDescription.Measurement;
-
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -22,7 +20,7 @@ import org.eclipse.emf.common.util.EList;
  * @model abstract="true"
  * @generated
  */
-public interface AutomaticMeasurement extends Measurement {
+public interface AutomaticMeasurement extends br.ufpe.ines.decode.taskDescription.Measurement {
 	/**
 	 * Returns the value of the '<em><b>Log</b></em>' attribute list.
 	 * The list contents are of type {@link br.edu.ufpe.ines.decode.taskDescription.measurements.LogType}.

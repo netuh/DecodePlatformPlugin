@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: br.ufpe.ines.decode.model;singleton:=true
+Export-Package: br.ufpe.ines.decode.decode,br.ufpe.ines.decode.decode.
+ artifacts,br.ufpe.ines.decode.decode.artifacts.impl,br.ufpe.ines.deco
+ de.decode.artifacts.questionnaire,br.ufpe.ines.decode.decode.artifact
+ s.questionnaire.impl,br.ufpe.ines.decode.decode.artifacts.questionnai
+ re.util,br.ufpe.ines.decode.decode.artifacts.util,br.ufpe.ines.decode
+ .decode.aux,br.ufpe.ines.decode.decode.aux.impl,br.ufpe.ines.decode.d
+ ecode.aux.util,br.ufpe.ines.decode.decode.impl,br.ufpe.ines.decode.de
+ code.taskDescription,br.ufpe.ines.decode.decode.taskDescription.impl,
+ br.ufpe.ines.decode.decode.taskDescription.measurements,br.ufpe.ines.
+ decode.decode.taskDescription.measurements.impl,br.ufpe.ines.decode.d
+ ecode.taskDescription.measurements.util,br.ufpe.ines.decode.decode.ta
+ skDescription.util,br.ufpe.ines.decode.decode.util
+Bundle-Name: %pluginName
+Bundle-Version: 0.1.0.201608041852
+Bundle-ClassPath: .
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.core.runtime,org.eclipse.emf.ecore;visibil
+ ity:=reexport,org.eclipse.emf.ecore.xmi;visibility:=reexport
+Bundle-ManifestVersion: 2
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
+Bundle-Vendor: %providerName
+

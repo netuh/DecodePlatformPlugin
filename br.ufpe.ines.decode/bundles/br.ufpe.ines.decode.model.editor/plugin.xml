@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated model.Decode -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="br.ufpe.ines.decode.decode.presentation.DecodeModelWizardID"
+            name="%_UI_DecodeModelWizard_label"
+            class="br.ufpe.ines.decode.decode.presentation.DecodeModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/DecodeModelFile.gif">
+         <description>%_UI_DecodeModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated model.Decode -->
+      <editor
+            id="br.ufpe.ines.decode.decode.presentation.DecodeEditorID"
+            name="%_UI_DecodeEditor_label"
+            icon="icons/full/obj16/DecodeModelFile.gif"
+            extensions="decode"
+            class="br.ufpe.ines.decode.decode.presentation.DecodeEditor"
+            contributorClass="br.ufpe.ines.decode.decode.presentation.DecodeActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated model.Decode -->
+      <editor
+            id="br.ufpe.ines.decode.decode.taskDescription.presentation.TaskDescriptionEditorID"
+            name="%_UI_TaskDescriptionEditor_label"
+            icon="icons/full/obj16/TaskDescriptionModelFile.gif"
+            extensions="taskdescription"
+            class="br.ufpe.ines.decode.decode.taskDescription.presentation.TaskDescriptionEditor"
+            contributorClass="br.ufpe.ines.decode.decode.taskDescription.presentation.TaskDescriptionActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated model.Decode -->
+      <editor
+            id="br.ufpe.ines.decode.decode.taskDescription.measurements.presentation.MeasurementsEditorID"
+            name="%_UI_MeasurementsEditor_label"
+            icon="icons/full/obj16/MeasurementsModelFile.gif"
+            extensions="measurements"
+            class="br.ufpe.ines.decode.decode.taskDescription.measurements.presentation.MeasurementsEditor"
+            contributorClass="br.ufpe.ines.decode.decode.taskDescription.measurements.presentation.MeasurementsActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated model.Decode -->
+      <editor
+            id="br.ufpe.ines.decode.decode.artifacts.presentation.ArtifactsEditorID"
+            name="%_UI_ArtifactsEditor_label"
+            icon="icons/full/obj16/ArtifactsModelFile.gif"
+            extensions="artifacts"
+            class="br.ufpe.ines.decode.decode.artifacts.presentation.ArtifactsEditor"
+            contributorClass="br.ufpe.ines.decode.decode.artifacts.presentation.ArtifactsActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated model.Decode -->
+      <editor
+            id="br.ufpe.ines.decode.decode.artifacts.questionnaire.presentation.QuestionnaireEditorID"
+            name="%_UI_QuestionnaireEditor_label"
+            icon="icons/full/obj16/QuestionnaireModelFile.gif"
+            extensions="questionnaire"
+            class="br.ufpe.ines.decode.decode.artifacts.questionnaire.presentation.QuestionnaireEditor"
+            contributorClass="br.ufpe.ines.decode.decode.artifacts.questionnaire.presentation.QuestionnaireActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated model.Decode -->
+      <package
+            uri="http://www.example.org/modelDecode"
+            class="br.ufpe.ines.decode.decode.DecodePackage"
+            genModel="model/model.Decode.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated model.Decode -->
+      <package
+            uri="taskDescription"
+            class="br.ufpe.ines.decode.decode.taskDescription.TaskDescriptionPackage"
+            genModel="model/model.Decode.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated model.Decode -->
+      <parser
+            type="taskdescription"
+            class="br.ufpe.ines.decode.decode.taskDescription.util.TaskDescriptionResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated model.Decode -->
+      <package
+            uri="measurements"
+            class="br.ufpe.ines.decode.decode.taskDescription.measurements.MeasurementsPackage"
+            genModel="model/model.Decode.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated model.Decode -->
+      <package
+            uri="artifacts"
+            class="br.ufpe.ines.decode.decode.artifacts.ArtifactsPackage"
+            genModel="model/model.Decode.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated model.Decode -->
+      <package
+            uri="questionnaire"
+            class="br.ufpe.ines.decode.decode.artifacts.questionnaire.QuestionnairePackage"
+            genModel="model/model.Decode.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated model.Decode -->
+      <package
+            uri="aux"
+            class="br.ufpe.ines.decode.decode.aux.AuxPackage"
+            genModel="model/model.Decode.genmodel"/>
+   </extension>
+
+</plugin>

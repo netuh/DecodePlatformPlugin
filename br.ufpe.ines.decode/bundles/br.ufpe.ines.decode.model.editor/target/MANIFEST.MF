@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: br.ufpe.ines.decode.model.editor;singleton:=true
+Require-Bundle: org.eclipse.core.runtime,org.eclipse.core.resources;vi
+ sibility:=reexport,br.ufpe.ines.decode.model.edit;visibility:=reexpor
+ t,org.eclipse.emf.ecore.xmi;visibility:=reexport,org.eclipse.emf.edit
+ .ui;visibility:=reexport,org.eclipse.ui.ide;visibility:=reexport
+Bundle-ManifestVersion: 2
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
+Bundle-Vendor: %providerName
+Export-Package: br.ufpe.ines.decode.decode.artifacts.presentation,br.u
+ fpe.ines.decode.decode.artifacts.questionnaire.presentation,br.ufpe.i
+ nes.decode.decode.presentation,br.ufpe.ines.decode.decode.taskDescrip
+ tion.measurements.presentation,br.ufpe.ines.decode.decode.taskDescrip
+ tion.presentation
+Bundle-Name: %pluginName
+Bundle-Version: 1.0.0.201608041852
+Bundle-ClassPath: .
+Bundle-Localization: plugin
+Bundle-Activator: br.ufpe.ines.decode.decode.presentation.ModelEditorP
+ lugin$Implementation
+

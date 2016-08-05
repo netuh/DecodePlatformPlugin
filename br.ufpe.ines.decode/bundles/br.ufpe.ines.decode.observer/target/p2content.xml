@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<units size='1'>
+  <unit id='br.ufpe.ines.decode.observer' version='1.0.0.201608041852'>
+    <update id='br.ufpe.ines.decode.observer' range='[0.0.0,1.0.0.201608041852)' severity='0'/>
+    <properties size='4'>
+      <property name='org.eclipse.equinox.p2.name' value='Observer'/>
+      <property name='maven-groupId' value='br.ufpe.ines.decode'/>
+      <property name='maven-artifactId' value='br.ufpe.ines.decode.observer'/>
+      <property name='maven-version' value='1.0.0-SNAPSHOT'/>
+    </properties>
+    <provides size='3'>
+      <provided namespace='org.eclipse.equinox.p2.iu' name='br.ufpe.ines.decode.observer' version='1.0.0.201608041852'/>
+      <provided namespace='osgi.bundle' name='br.ufpe.ines.decode.observer' version='1.0.0.201608041852'/>
+      <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+    </provides>
+    <requires size='16'>
+      <required namespace='osgi.bundle' name='org.eclipse.ui' range='0.0.0'/>
+      <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+      <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='3.11.0'/>
+      <required namespace='osgi.bundle' name='org.eclipse.jdt.core' range='3.12.0'/>
+      <required namespace='osgi.bundle' name='org.eclipse.jdt.launching' range='3.8.100'/>
+      <required namespace='osgi.bundle' name='org.eclipse.emf.common' range='2.12.0'/>
+      <required namespace='osgi.bundle' name='org.eclipse.debug.core' range='3.10.100'/>
+      <required namespace='osgi.bundle' name='org.eclipse.core.expressions' range='3.5.100'/>
+      <required namespace='osgi.bundle' name='br.ufpe.ines.decode.model' range='0.1.0'/>
+      <required namespace='java.package' name='com.google.gson' range='2.2.4'/>
+      <required namespace='java.package' name='com.google.gson.reflect' range='2.2.4'/>
+      <required namespace='java.package' name='org.apache.commons.compress.archivers' range='1.6.0'/>
+      <required namespace='java.package' name='org.apache.commons.compress.archivers.zip' range='1.6.0'/>
+      <required namespace='java.package' name='org.apache.commons.compress.utils' range='1.6.0'/>
+      <required namespace='java.package' name='org.apache.commons.io' range='0.0.0'/>
+      <required namespace='java.package' name='org.apache.log4j' range='1.2.15'/>
+    </requires>
+    <artifacts size='1'>
+      <artifact classifier='osgi.bundle' id='br.ufpe.ines.decode.observer' version='1.0.0.201608041852'/>
+    </artifacts>
+    <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+    <touchpointData size='1'>
+      <instructions size='1'>
+        <instruction key='manifest'>
+          Bundle-SymbolicName: br.ufpe.ines.decode.observer;singleton:=true&#xA;Bundle-Version: 1.0.0.201608041852&#xA;
+        </instruction>
+      </instructions>
+    </touchpointData>
+  </unit>
+</units>

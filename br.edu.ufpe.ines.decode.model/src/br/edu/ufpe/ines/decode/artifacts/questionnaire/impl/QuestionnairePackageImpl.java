@@ -2,12 +2,6 @@
  */
 package br.edu.ufpe.ines.decode.artifacts.questionnaire.impl;
 
-import br.edu.ufpe.ines.decode.DecodePackage;
-
-import br.edu.ufpe.ines.decode.artifacts.ArtifactsPackage;
-
-import br.edu.ufpe.ines.decode.artifacts.impl.ArtifactsPackageImpl;
-
 import br.edu.ufpe.ines.decode.artifacts.questionnaire.AppendableElement;
 import br.edu.ufpe.ines.decode.artifacts.questionnaire.Block;
 import br.edu.ufpe.ines.decode.artifacts.questionnaire.Choice;
@@ -23,17 +17,6 @@ import br.edu.ufpe.ines.decode.artifacts.questionnaire.QuestionnairePackage;
 import br.edu.ufpe.ines.decode.artifacts.questionnaire.Restriction;
 import br.edu.ufpe.ines.decode.artifacts.questionnaire.SimpleChoice;
 import br.edu.ufpe.ines.decode.artifacts.questionnaire.TextField;
-
-import br.edu.ufpe.ines.decode.aux.AuxPackage;
-
-import br.edu.ufpe.ines.decode.aux.impl.AuxPackageImpl;
-
-import br.edu.ufpe.ines.decode.impl.DecodePackageImpl;
-
-import br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionPackage;
-
-import br.edu.ufpe.ines.decode.taskDescription.impl.TaskDescriptionPackageImpl;
-
 import br.edu.ufpe.ines.decode.taskDescription.measurements.MeasurementsPackage;
 
 import br.edu.ufpe.ines.decode.taskDescription.measurements.impl.MeasurementsPackageImpl;
@@ -195,11 +178,11 @@ public class QuestionnairePackageImpl extends EPackageImpl implements Questionna
 		XMLTypePackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
-		DecodePackageImpl theDecodePackage = (DecodePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(DecodePackage.eNS_URI) instanceof DecodePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(DecodePackage.eNS_URI) : DecodePackage.eINSTANCE);
-		TaskDescriptionPackageImpl theTaskDescriptionPackage = (TaskDescriptionPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TaskDescriptionPackage.eNS_URI) instanceof TaskDescriptionPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TaskDescriptionPackage.eNS_URI) : TaskDescriptionPackage.eINSTANCE);
+		br.ufpe.ines.decode.impl.DecodePackageImpl theDecodePackage = (br.ufpe.ines.decode.impl.DecodePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(br.ufpe.ines.decode.DecodePackage.eNS_URI) instanceof br.ufpe.ines.decode.impl.DecodePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(br.ufpe.ines.decode.DecodePackage.eNS_URI) : br.ufpe.ines.decode.DecodePackage.eINSTANCE);
+		br.ufpe.ines.decode.taskDescription.impl.TaskDescriptionPackageImpl theTaskDescriptionPackage = (br.ufpe.ines.decode.taskDescription.impl.TaskDescriptionPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(br.ufpe.ines.decode.taskDescription.TaskDescriptionPackage.eNS_URI) instanceof br.ufpe.ines.decode.taskDescription.impl.TaskDescriptionPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(br.ufpe.ines.decode.taskDescription.TaskDescriptionPackage.eNS_URI) : br.ufpe.ines.decode.taskDescription.TaskDescriptionPackage.eINSTANCE);
 		MeasurementsPackageImpl theMeasurementsPackage = (MeasurementsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(MeasurementsPackage.eNS_URI) instanceof MeasurementsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(MeasurementsPackage.eNS_URI) : MeasurementsPackage.eINSTANCE);
-		ArtifactsPackageImpl theArtifactsPackage = (ArtifactsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ArtifactsPackage.eNS_URI) instanceof ArtifactsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ArtifactsPackage.eNS_URI) : ArtifactsPackage.eINSTANCE);
-		AuxPackageImpl theAuxPackage = (AuxPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(AuxPackage.eNS_URI) instanceof AuxPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(AuxPackage.eNS_URI) : AuxPackage.eINSTANCE);
+		br.ufpe.ines.decode.artifacts.impl.ArtifactsPackageImpl theArtifactsPackage = (br.ufpe.ines.decode.artifacts.impl.ArtifactsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(br.ufpe.ines.decode.artifacts.ArtifactsPackage.eNS_URI) instanceof br.ufpe.ines.decode.artifacts.impl.ArtifactsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(br.ufpe.ines.decode.artifacts.ArtifactsPackage.eNS_URI) : br.ufpe.ines.decode.artifacts.ArtifactsPackage.eINSTANCE);
+		br.ufpe.ines.decode.aux.impl.AuxPackageImpl theAuxPackage = (br.ufpe.ines.decode.aux.impl.AuxPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(br.ufpe.ines.decode.aux.AuxPackage.eNS_URI) instanceof br.ufpe.ines.decode.aux.impl.AuxPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(br.ufpe.ines.decode.aux.AuxPackage.eNS_URI) : br.ufpe.ines.decode.aux.AuxPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theQuestionnairePackage.createPackageContents();

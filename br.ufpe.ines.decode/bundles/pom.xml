@@ -1,0 +1,20 @@
+<project>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>br.ufpe.ines.decode</groupId>
+    <artifactId>br.ufpe.ines.decode.bundles</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <parent>
+        <groupId>br.ufpe.ines.decode</groupId>
+        <artifactId>br.ufpe.ines.decode.root</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+    <modules>
+        <module>br.ufpe.ines.decode.model</module>
+        <module>br.ufpe.ines.decode.model.edit</module>
+        <module>br.ufpe.ines.decode.model.editor</module>
+        <module>br.ufpe.ines.decode.observer</module>
+    </modules>
+</project>

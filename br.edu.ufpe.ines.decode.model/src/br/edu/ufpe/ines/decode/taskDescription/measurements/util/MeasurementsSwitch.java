@@ -2,8 +2,6 @@
  */
 package br.edu.ufpe.ines.decode.taskDescription.measurements.util;
 
-import br.edu.ufpe.ines.decode.taskDescription.Measurement;
-
 import br.edu.ufpe.ines.decode.taskDescription.measurements.*;
 
 import org.eclipse.emf.ecore.EObject;
@@ -248,7 +246,7 @@ public class MeasurementsSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseMeasurement(Measurement object) {
+	public T caseMeasurement(br.ufpe.ines.decode.taskDescription.Measurement object) {
 		return null;
 	}
 

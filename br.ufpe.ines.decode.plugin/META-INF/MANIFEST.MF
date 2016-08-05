@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Plugin
-Bundle-SymbolicName: br.ufpe.ines.decode.plugin;singleton:=true
+Bundle-SymbolicName: br.edu.ufpe.ines.decode.plugin;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: br.ufpe.ines.decode.plugin.Activator
 Require-Bundle: org.apache.log4j;bundle-version="1.2.15",
@@ -17,12 +17,20 @@ Require-Bundle: org.apache.log4j;bundle-version="1.2.15",
  org.eclipse.equinox.p2.engine;bundle-version="2.4.100",
  org.eclipse.equinox.p2.operations;bundle-version="2.4.200",
  org.eclipse.equinox.p2.metadata;bundle-version="2.3.100"
-Export-Package: br.ufpe.ines.decode.plugin,
- br.ufpe.ines.decode.plugin.model.todelete,
- br.ufpe.ines.decode.plugin.control,
- br.ufpe.ines.decode.plugin.ui.dialog,
- br.ufpe.ines.decode.plugin.control.handlers,
- br.ufpe.ines.decode.plugin.util
+Export-Package: br.ufpe.ines.decode.plugin;
+  uses:="org.osgi.framework,
+   org.eclipse.ui,
+   org.eclipse.jface.resource,
+   org.eclipse.ui.plugin",
+ br.ufpe.ines.decode.plugin.control;
+  uses:="br.ufpe.ines.decode.plugin.model,
+   br.edu.ufpe.ines.decode,
+   br.ufpe.ines.decode.plugin.control.loader,
+   org.apache.log4j",
+ br.ufpe.ines.decode.plugin.control.handlers;uses:="org.eclipse.core.commands,org.apache.log4j",
+ br.ufpe.ines.decode.plugin.model.todelete;uses:="org.eclipse.swt.graphics,br.ufpe.ines.decode.plugin.control",
+ br.ufpe.ines.decode.plugin.ui.dialog;uses:="org.eclipse.swt.widgets,org.eclipse.jface.dialogs,org.apache.log4j",
+ br.ufpe.ines.decode.plugin.util;uses:="br.edu.ufpe.ines.decode.artifacts,org.eclipse.core.resources,org.apache.log4j"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Import-Package: com.google.gson;version="2.2.4",

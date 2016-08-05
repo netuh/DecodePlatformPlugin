@@ -2,8 +2,6 @@
  */
 package br.edu.ufpe.ines.decode.taskDescription.measurements;
 
-import br.edu.ufpe.ines.decode.taskDescription.TaskDescriptionPackage;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
@@ -75,7 +73,7 @@ public interface MeasurementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AUTOMATIC_MEASUREMENT__LOG = TaskDescriptionPackage.MEASUREMENT_FEATURE_COUNT + 0;
+	int AUTOMATIC_MEASUREMENT__LOG = br.ufpe.ines.decode.taskDescription.TaskDescriptionPackage.MEASUREMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Automatic Measurement</em>' class.
@@ -84,7 +82,7 @@ public interface MeasurementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AUTOMATIC_MEASUREMENT_FEATURE_COUNT = TaskDescriptionPackage.MEASUREMENT_FEATURE_COUNT + 1;
+	int AUTOMATIC_MEASUREMENT_FEATURE_COUNT = br.ufpe.ines.decode.taskDescription.TaskDescriptionPackage.MEASUREMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Automatic Measurement</em>' class.
@@ -93,7 +91,7 @@ public interface MeasurementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AUTOMATIC_MEASUREMENT_OPERATION_COUNT = TaskDescriptionPackage.MEASUREMENT_OPERATION_COUNT + 0;
+	int AUTOMATIC_MEASUREMENT_OPERATION_COUNT = br.ufpe.ines.decode.taskDescription.TaskDescriptionPackage.MEASUREMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link br.edu.ufpe.ines.decode.taskDescription.measurements.impl.ActionsImpl <em>Actions</em>}' class.
