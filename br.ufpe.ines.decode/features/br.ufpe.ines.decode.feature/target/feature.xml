@@ -2,7 +2,7 @@
 <feature
       id="br.ufpe.ines.decode.feature"
       label="Decode Model"
-      version="1.0.0.201608041852"
+      version="1.0.0.201611091413"
       provider-name="INES UFPE">
 
    <description url="http://www.example.com/description">
@@ -25,27 +25,29 @@
       <import plugin="org.eclipse.core.resources"/>
       <import plugin="org.eclipse.emf.edit.ui"/>
       <import plugin="org.eclipse.ui.ide"/>
+      <import plugin="br.ufpe.ines.decode.model" version="0.1.0" match="greaterOrEqual"/>
+      <import plugin="br.ufpe.ines.decode.model.edit" version="1.0.0" match="greaterOrEqual"/>
    </requires>
 
    <plugin
          id="br.ufpe.ines.decode.model"
-         download-size="222"
-         install-size="891"
-         version="0.1.0.201608041852"
+         download-size="224"
+         install-size="897"
+         version="0.1.0.201611091413"
          unpack="false"/>
 
    <plugin
          id="br.ufpe.ines.decode.model.edit"
          download-size="135"
          install-size="245"
-         version="1.0.0.201608041852"
+         version="1.0.0.201611091413"
          unpack="false"/>
 
    <plugin
          id="br.ufpe.ines.decode.model.editor"
-         download-size="227"
-         install-size="461"
-         version="1.0.0.201608041852"
+         download-size="230"
+         install-size="467"
+         version="1.0.0.201611091413"
          unpack="false"/>
 
 </feature>

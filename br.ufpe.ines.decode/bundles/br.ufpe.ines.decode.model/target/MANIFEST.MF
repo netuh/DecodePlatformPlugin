@@ -1,19 +1,66 @@
 Manifest-Version: 1.0
 Bundle-SymbolicName: br.ufpe.ines.decode.model;singleton:=true
-Export-Package: br.ufpe.ines.decode.decode,br.ufpe.ines.decode.decode.
- artifacts,br.ufpe.ines.decode.decode.artifacts.impl,br.ufpe.ines.deco
- de.decode.artifacts.questionnaire,br.ufpe.ines.decode.decode.artifact
- s.questionnaire.impl,br.ufpe.ines.decode.decode.artifacts.questionnai
- re.util,br.ufpe.ines.decode.decode.artifacts.util,br.ufpe.ines.decode
- .decode.aux,br.ufpe.ines.decode.decode.aux.impl,br.ufpe.ines.decode.d
- ecode.aux.util,br.ufpe.ines.decode.decode.impl,br.ufpe.ines.decode.de
- code.taskDescription,br.ufpe.ines.decode.decode.taskDescription.impl,
- br.ufpe.ines.decode.decode.taskDescription.measurements,br.ufpe.ines.
- decode.decode.taskDescription.measurements.impl,br.ufpe.ines.decode.d
- ecode.taskDescription.measurements.util,br.ufpe.ines.decode.decode.ta
- skDescription.util,br.ufpe.ines.decode.decode.util
+Export-Package: br.ufpe.ines.decode.decode; uses:="org.eclipse.emf.eco
+ re,  br.ufpe.ines.decode.decode.taskDescription,  br.ufpe.ines.decode
+ .decode.aux,  br.ufpe.ines.decode.decode.artifacts",br.ufpe.ines.deco
+ de.decode.artifacts; uses:="org.eclipse.emf.ecore,  br.ufpe.ines.deco
+ de.decode.aux,  br.ufpe.ines.decode.decode.taskDescription,  org.ecli
+ pse.emf.common.util",br.ufpe.ines.decode.decode.artifacts.impl; uses:
+ ="org.eclipse.emf.ecore,  org.eclipse.emf.ecore.impl,  br.ufpe.ines.d
+ ecode.decode.taskDescription,  org.eclipse.emf.common.util,  br.ufpe.
+ ines.decode.decode.artifacts,  br.ufpe.ines.decode.decode.aux.impl,  
+ org.eclipse.emf.common.notify",br.ufpe.ines.decode.decode.artifacts.q
+ uestionnaire; uses:="org.eclipse.emf.ecore,  org.eclipse.emf.common.u
+ til",br.ufpe.ines.decode.decode.artifacts.questionnaire.impl; uses:="
+ org.eclipse.emf.ecore,  org.eclipse.emf.ecore.impl,  org.eclipse.emf.
+ common.util,  br.ufpe.ines.decode.decode.artifacts.questionnaire,  or
+ g.eclipse.emf.common.notify",br.ufpe.ines.decode.decode.artifacts.que
+ stionnaire.util; uses:="org.eclipse.emf.ecore,  br.ufpe.ines.decode.d
+ ecode.artifacts.questionnaire,  org.eclipse.emf.common.notify,  org.e
+ clipse.emf.common.notify.impl,  org.eclipse.emf.ecore.util",br.ufpe.i
+ nes.decode.decode.artifacts.util; uses:="org.eclipse.emf.ecore,  br.u
+ fpe.ines.decode.decode.aux,  br.ufpe.ines.decode.decode.artifacts,  o
+ rg.eclipse.emf.common.notify,  org.eclipse.emf.common.notify.impl,  o
+ rg.eclipse.emf.ecore.util",br.ufpe.ines.decode.decode.aux; uses:="org
+ .eclipse.emf.ecore",br.ufpe.ines.decode.decode.aux.impl; uses:="org.e
+ clipse.emf.ecore,  org.eclipse.emf.ecore.impl,  br.ufpe.ines.decode.d
+ ecode.aux",br.ufpe.ines.decode.decode.aux.util; uses:="org.eclipse.em
+ f.ecore,  br.ufpe.ines.decode.decode.aux,  org.eclipse.emf.common.not
+ ify,  org.eclipse.emf.common.notify.impl,  org.eclipse.emf.ecore.util
+ ",br.ufpe.ines.decode.decode.impl; uses:="org.eclipse.emf.ecore,  br.
+ ufpe.ines.decode.decode,  org.eclipse.emf.ecore.impl,  br.ufpe.ines.d
+ ecode.decode.taskDescription,  br.ufpe.ines.decode.decode.artifacts, 
+  br.ufpe.ines.decode.decode.aux.impl,  org.eclipse.emf.common.notify"
+ ,br.ufpe.ines.decode.decode.taskDescription; uses:="org.eclipse.emf.e
+ core,  br.ufpe.ines.decode.decode.aux,  org.eclipse.emf.common.util, 
+  br.ufpe.ines.decode.decode.artifacts,  javax.xml.datatype",br.ufpe.i
+ nes.decode.decode.taskDescription.impl; uses:="org.eclipse.emf.ecore,
+   org.eclipse.emf.ecore.impl,  br.ufpe.ines.decode.decode.taskDescrip
+ tion,  org.eclipse.emf.common.util,  br.ufpe.ines.decode.decode.artif
+ acts,  javax.xml.datatype,  br.ufpe.ines.decode.decode.aux.impl,  org
+ .eclipse.emf.common.notify",br.ufpe.ines.decode.decode.taskDescriptio
+ n.measurements; uses:="org.eclipse.emf.ecore,  br.ufpe.ines.decode.de
+ code.taskDescription,  org.eclipse.emf.common.util",br.ufpe.ines.deco
+ de.decode.taskDescription.measurements.impl; uses:="org.eclipse.emf.e
+ core,  br.ufpe.ines.decode.decode.taskDescription.impl,  org.eclipse.
+ emf.ecore.impl,  org.eclipse.emf.common.util,  br.ufpe.ines.decode.de
+ code.taskDescription.measurements",br.ufpe.ines.decode.decode.taskDes
+ cription.measurements.util; uses:="org.eclipse.emf.ecore,  br.ufpe.in
+ es.decode.decode.taskDescription,  org.eclipse.emf.common.notify,  br
+ .ufpe.ines.decode.decode.taskDescription.measurements,  org.eclipse.e
+ mf.common.notify.impl,  org.eclipse.emf.ecore.util",br.ufpe.ines.deco
+ de.decode.taskDescription.util; uses:="org.eclipse.emf.ecore,  org.ec
+ lipse.emf.ecore.resource.impl,  org.eclipse.emf.ecore.xmi.impl,  br.u
+ fpe.ines.decode.decode.taskDescription,  br.ufpe.ines.decode.decode.a
+ ux,  org.eclipse.emf.ecore.xmi.util,  org.eclipse.emf.common.util,  o
+ rg.eclipse.emf.common.notify,  org.eclipse.emf.common.notify.impl,  o
+ rg.eclipse.emf.ecore.resource,  org.eclipse.emf.ecore.util",br.ufpe.i
+ nes.decode.decode.util; uses:="br.ufpe.ines.decode.decode,  org.eclip
+ se.emf.ecore,  br.ufpe.ines.decode.decode.aux,  org.eclipse.emf.commo
+ n.notify,  org.eclipse.emf.common.notify.impl,  org.eclipse.emf.ecore
+ .util"
 Bundle-Name: %pluginName
-Bundle-Version: 0.1.0.201608041852
+Bundle-Version: 0.1.0.201611091413
 Bundle-ClassPath: .
 Bundle-Localization: plugin
 Require-Bundle: org.eclipse.core.runtime,org.eclipse.emf.ecore;visibil

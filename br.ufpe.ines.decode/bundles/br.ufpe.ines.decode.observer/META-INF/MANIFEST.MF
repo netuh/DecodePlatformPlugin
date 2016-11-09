@@ -6,12 +6,12 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: br.ufpe.ines.decode.observer.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- org.eclipse.core.resources;bundle-version="3.11.0",
- org.eclipse.jdt.core;bundle-version="3.12.0",
- org.eclipse.jdt.launching;bundle-version="3.8.100",
- org.eclipse.emf.common;bundle-version="2.12.0",
- org.eclipse.debug.core;bundle-version="3.10.100",
- org.eclipse.core.expressions;bundle-version="3.5.100",
+ org.eclipse.core.resources;bundle-version="[3.9.0,4.0.0)",
+ org.eclipse.jdt.core;bundle-version="[3.9.0,4.0.0)",
+ org.eclipse.jdt.launching;bundle-version="[3.8.0,4.0.0)",
+ org.eclipse.emf.common;bundle-version="[2.8.0,3.0.0)",
+ org.eclipse.debug.core;bundle-version="[3.9.0,4.0.0)",
+ org.eclipse.core.expressions;bundle-version="[3.4.600,4.0.0)",
  br.ufpe.ines.decode.model;bundle-version="0.1.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy

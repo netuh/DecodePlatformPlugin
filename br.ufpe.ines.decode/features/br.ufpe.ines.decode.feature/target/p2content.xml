@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <units size='2'>
-  <unit id='br.ufpe.ines.decode.feature.feature.group' version='1.0.0.201608041852' singleton='false'>
-    <update id='br.ufpe.ines.decode.feature.feature.group' range='[0.0.0,1.0.0.201608041852)' severity='0'/>
+  <unit id='br.ufpe.ines.decode.feature.feature.group' version='1.0.0.201611091413' singleton='false'>
+    <update id='br.ufpe.ines.decode.feature.feature.group' range='[0.0.0,1.0.0.201611091413)' severity='0'/>
     <properties size='8'>
       <property name='org.eclipse.equinox.p2.name' value='Decode Model'/>
       <property name='org.eclipse.equinox.p2.description' value='[Enter Feature Description here.]'/>
@@ -13,9 +13,9 @@
       <property name='maven-version' value='1.0.0-SNAPSHOT'/>
     </properties>
     <provides size='1'>
-      <provided namespace='org.eclipse.equinox.p2.iu' name='br.ufpe.ines.decode.feature.feature.group' version='1.0.0.201608041852'/>
+      <provided namespace='org.eclipse.equinox.p2.iu' name='br.ufpe.ines.decode.feature.feature.group' version='1.0.0.201611091413'/>
     </provides>
-    <requires size='11'>
+    <requires size='13'>
       <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.core.runtime' range='0.0.0'/>
       <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.emf.ecore' range='0.0.0'/>
       <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.emf.ecore.xmi' range='0.0.0'/>
@@ -23,10 +23,12 @@
       <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.core.resources' range='0.0.0'/>
       <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.emf.edit.ui' range='0.0.0'/>
       <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.ui.ide' range='0.0.0'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='br.ufpe.ines.decode.model' range='[0.1.0.201608041852,0.1.0.201608041852]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='br.ufpe.ines.decode.model.edit' range='[1.0.0.201608041852,1.0.0.201608041852]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='br.ufpe.ines.decode.model.editor' range='[1.0.0.201608041852,1.0.0.201608041852]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='br.ufpe.ines.decode.feature.feature.jar' range='[1.0.0.201608041852,1.0.0.201608041852]'>
+      <required namespace='org.eclipse.equinox.p2.iu' name='br.ufpe.ines.decode.model' range='0.1.0'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='br.ufpe.ines.decode.model.edit' range='1.0.0'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='br.ufpe.ines.decode.model' range='[0.1.0.201611091413,0.1.0.201611091413]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='br.ufpe.ines.decode.model.edit' range='[1.0.0.201611091413,1.0.0.201611091413]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='br.ufpe.ines.decode.model.editor' range='[1.0.0.201611091413,1.0.0.201611091413]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='br.ufpe.ines.decode.feature.feature.jar' range='[1.0.0.201611091413,1.0.0.201611091413]'>
         <filter>
           (org.eclipse.update.install.features=true)
         </filter>
@@ -42,7 +44,7 @@
       [Enter Copyright Description here.]
     </copyright>
   </unit>
-  <unit id='br.ufpe.ines.decode.feature.feature.jar' version='1.0.0.201608041852'>
+  <unit id='br.ufpe.ines.decode.feature.feature.jar' version='1.0.0.201611091413'>
     <properties size='7'>
       <property name='org.eclipse.equinox.p2.name' value='Decode Model'/>
       <property name='org.eclipse.equinox.p2.description' value='[Enter Feature Description here.]'/>
@@ -53,15 +55,15 @@
       <property name='maven-version' value='1.0.0-SNAPSHOT'/>
     </properties>
     <provides size='3'>
-      <provided namespace='org.eclipse.equinox.p2.iu' name='br.ufpe.ines.decode.feature.feature.jar' version='1.0.0.201608041852'/>
+      <provided namespace='org.eclipse.equinox.p2.iu' name='br.ufpe.ines.decode.feature.feature.jar' version='1.0.0.201611091413'/>
       <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='feature' version='1.0.0'/>
-      <provided namespace='org.eclipse.update.feature' name='br.ufpe.ines.decode.feature' version='1.0.0.201608041852'/>
+      <provided namespace='org.eclipse.update.feature' name='br.ufpe.ines.decode.feature' version='1.0.0.201611091413'/>
     </provides>
     <filter>
       (org.eclipse.update.install.features=true)
     </filter>
     <artifacts size='1'>
-      <artifact classifier='org.eclipse.update.feature' id='br.ufpe.ines.decode.feature' version='1.0.0.201608041852'/>
+      <artifact classifier='org.eclipse.update.feature' id='br.ufpe.ines.decode.feature' version='1.0.0.201611091413'/>
     </artifacts>
     <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
     <touchpointData size='1'>

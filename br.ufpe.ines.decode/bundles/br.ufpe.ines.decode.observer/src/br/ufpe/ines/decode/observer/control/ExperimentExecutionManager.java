@@ -21,6 +21,7 @@ import br.ufpe.ines.decode.decode.artifacts.JavaProject;
 import br.ufpe.ines.decode.decode.taskDescription.ExperimentalTask;
 import br.ufpe.ines.decode.decode.taskDescription.ModeledTask;
 import br.ufpe.ines.decode.decode.taskDescription.Random;
+import br.ufpe.ines.decode.decode.taskDescription.Sequencial;
 import br.ufpe.ines.decode.observer.control.loader.ExecutionExportation;
 import br.ufpe.ines.decode.observer.epp.usagedata.extension.data.CollectedDataInterface;
 import br.ufpe.ines.decode.observer.model.CurrentExecutableTask;
@@ -65,6 +66,18 @@ public class ExperimentExecutionManager {
 			}
 			return random;
 		}
+		
+		if (task instanceof Sequencial) {
+			Sequencial taskRandom = (Sequencial) task;
+			//EList<ModeledTask> taskSet = taskRandom.getTasks();
+			List<ModeledTask> tasksToShuffle = new ArrayList<ModeledTask>();
+			tasksToShuffle.addAll(taskRandom.getTasks());
+			List<ExperimentalTask> random = new LinkedList<ExperimentalTask>();
+			for (ModeledTask modeledTask : tasksToShuffle) {
+				random.addAll(reduce(modeledTask));
+			}
+			return random;
+		}
 		return Collections.<ExperimentalTask>emptyList();
 	}
 
@@ -73,6 +86,17 @@ public class ExperimentExecutionManager {
 			return aTask;
 		if (aTask instanceof Random) {
 			Random randomTask = (Random) aTask;
+			List<ModeledTask> tasksToShuffle = new ArrayList<ModeledTask>();
+			tasksToShuffle.addAll(randomTask.getTasks());
+			Collections.shuffle(tasksToShuffle);
+			for (ModeledTask innerTask : tasksToShuffle) {
+				ModeledTask taskReturn = findTask(taskId, innerTask);
+				if (taskReturn != null)
+					return taskReturn;
+			}
+		}
+		if (aTask instanceof Sequencial) {
+			Sequencial randomTask = (Sequencial) aTask;
 			List<ModeledTask> tasksToShuffle = new ArrayList<ModeledTask>();
 			tasksToShuffle.addAll(randomTask.getTasks());
 			Collections.shuffle(tasksToShuffle);
@@ -99,6 +123,7 @@ public class ExperimentExecutionManager {
 		}
 		data.clear();
 		lifoQueue.clear();
+		System.out.println("listTasks="+listTasks.size());
 		ExperimentalTask currentTask = listTasks.remove(0);
 		lifoQueue.addAll(listTasks.stream()
 								  .map(e -> e.getElementId())
@@ -121,6 +146,7 @@ public class ExperimentExecutionManager {
 
 	private ModeledTask findInExperiment(CodingExperiment selectedExperiment, String taskId) {
 		ModeledTask taskToAdd = null;
+		System.out.println("taskId="+taskId);
 		for (ModeledTask modeledTask : selectedExperiment.getTask().getTasks()) {
 			ModeledTask foundTask = findTask(taskId, modeledTask);
 			if (foundTask != null) {
