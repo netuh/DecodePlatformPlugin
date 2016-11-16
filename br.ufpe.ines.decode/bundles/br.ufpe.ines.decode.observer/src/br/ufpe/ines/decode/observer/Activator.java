@@ -1,8 +1,15 @@
 package br.ufpe.ines.decode.observer;
 
+import java.net.URL;
+
+import org.apache.log4j.PropertyConfigurator;
+import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
+
+import br.ufpe.ines.decode.observer.control.loader.ExperimentManagerLoader;
+import br.ufpe.ines.decode.observer.control.loader.ExperimentSaver;
 
 /**
  * The activator class controls the plug-in life cycle
@@ -28,6 +35,12 @@ public class Activator extends AbstractUIPlugin {
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		plugin = this;
+		ExperimentManagerLoader loader = new ExperimentManagerLoader(context);
+		loader.loadExperimetnDescription();
+		loader.loadExecutionDescription();
+		plugin = this;
+		URL confURL = getBundle().getEntry("resources/log4j.properties");
+		PropertyConfigurator.configure(FileLocator.toFileURL(confURL).getFile());
 	}
 
 	/*
@@ -37,6 +50,9 @@ public class Activator extends AbstractUIPlugin {
 	public void stop(BundleContext context) throws Exception {
 		plugin = null;
 		super.stop(context);
+		ExperimentSaver saver = new ExperimentSaver(context);
+		saver.saveExperiments();
+		saver.saveExecutionExperiments();
 	}
 
 	/**

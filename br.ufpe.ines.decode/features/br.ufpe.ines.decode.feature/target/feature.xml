@@ -2,7 +2,7 @@
 <feature
       id="br.ufpe.ines.decode.feature"
       label="Decode Model"
-      version="1.0.0.201611091413"
+      version="1.0.0.201611161724"
       provider-name="INES UFPE">
 
    <description url="http://www.example.com/description">
@@ -33,21 +33,21 @@
          id="br.ufpe.ines.decode.model"
          download-size="224"
          install-size="897"
-         version="0.1.0.201611091413"
+         version="0.1.0.201611161724"
          unpack="false"/>
 
    <plugin
          id="br.ufpe.ines.decode.model.edit"
          download-size="135"
          install-size="245"
-         version="1.0.0.201611091413"
+         version="1.0.0.201611161724"
          unpack="false"/>
 
    <plugin
          id="br.ufpe.ines.decode.model.editor"
          download-size="230"
          install-size="467"
-         version="1.0.0.201611091413"
+         version="1.0.0.201611161724"
          unpack="false"/>
 
 </feature>

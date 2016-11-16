@@ -60,7 +60,7 @@ Export-Package: br.ufpe.ines.decode.decode; uses:="org.eclipse.emf.eco
  n.notify,  org.eclipse.emf.common.notify.impl,  org.eclipse.emf.ecore
  .util"
 Bundle-Name: %pluginName
-Bundle-Version: 0.1.0.201611091413
+Bundle-Version: 0.1.0.201611161724
 Bundle-ClassPath: .
 Bundle-Localization: plugin
 Require-Bundle: org.eclipse.core.runtime,org.eclipse.emf.ecore;visibil

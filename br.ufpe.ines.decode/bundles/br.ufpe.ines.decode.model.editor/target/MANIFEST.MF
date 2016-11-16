@@ -15,7 +15,7 @@ Export-Package: br.ufpe.ines.decode.decode.artifacts.presentation,br.u
  tion.measurements.presentation,br.ufpe.ines.decode.decode.taskDescrip
  tion.presentation
 Bundle-Name: %pluginName
-Bundle-Version: 1.0.0.201611091413
+Bundle-Version: 1.0.0.201611161724
 Bundle-ClassPath: .
 Bundle-Localization: plugin
 Bundle-Activator: br.ufpe.ines.decode.decode.presentation.ModelEditorP

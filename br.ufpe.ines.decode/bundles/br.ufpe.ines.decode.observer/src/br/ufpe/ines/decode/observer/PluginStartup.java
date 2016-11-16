@@ -8,7 +8,6 @@ public class PluginStartup implements IStartup {
 	@Override
 	public void earlyStartup() {
 		Platform.getBundle(Activator.PLUGIN_ID);
-		System.out.println("coisas");
 	}
 
 }
