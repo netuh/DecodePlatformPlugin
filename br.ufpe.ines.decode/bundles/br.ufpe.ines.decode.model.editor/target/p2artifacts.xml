@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <?artifactRepository version='1.1.0'?>
 <artifacts size='1'>
-  <artifact classifier='osgi.bundle' id='br.ufpe.ines.decode.model.editor' version='1.0.0.201611161724'>
+  <artifact classifier='osgi.bundle' id='br.ufpe.ines.decode.model.editor' version='1.0.0.201611221747'>
     <properties size='5'>
-      <property name='artifact.size' value='236208'/>
-      <property name='download.size' value='236208'/>
+      <property name='artifact.size' value='236210'/>
+      <property name='download.size' value='236210'/>
       <property name='maven-groupId' value='br.ufpe.ines.decode'/>
       <property name='maven-artifactId' value='br.ufpe.ines.decode.model.editor'/>
       <property name='maven-version' value='1.0.0-SNAPSHOT'/>

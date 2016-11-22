@@ -2,7 +2,7 @@
 <feature
       id="br.ufpe.ines.decode.observer.feature"
       label="Observer Feature"
-      version="1.0.0.201611161724"
+      version="1.0.0.201611221747"
       provider-name="INES UFPE">
 
    <description url="http://www.example.com/description">
@@ -39,14 +39,14 @@
          id="br.ufpe.ines.decode.model"
          download-size="224"
          install-size="897"
-         version="0.1.0.201611161724"
+         version="0.1.0.201611221747"
          unpack="false"/>
 
    <plugin
          id="br.ufpe.ines.decode.observer"
-         download-size="107"
-         install-size="195"
-         version="1.0.0.201611161724"
+         download-size="96"
+         install-size="176"
+         version="1.0.0.201611221747"
          unpack="false"/>
 
 </feature>

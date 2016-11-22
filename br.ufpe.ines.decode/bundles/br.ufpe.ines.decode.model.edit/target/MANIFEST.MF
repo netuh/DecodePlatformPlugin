@@ -12,7 +12,7 @@ Export-Package: br.ufpe.ines.decode.decode.artifacts.provider,br.ufpe.
  es.decode.decode.taskDescription.measurements.provider,br.ufpe.ines.d
  ecode.decode.taskDescription.provider
 Bundle-Name: %pluginName
-Bundle-Version: 1.0.0.201611161724
+Bundle-Version: 1.0.0.201611221747
 Bundle-ClassPath: .
 Bundle-Localization: plugin
 Bundle-Activator: br.ufpe.ines.decode.decode.provider.ModelEditPlugin$
