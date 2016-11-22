@@ -34,6 +34,29 @@ public class Activator extends AbstractUIPlugin {
 	 */
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
+//		String FILE_LIST_JSON = "fileList.json";
+//		String FILE_EXPORTATION_JSON = "exportation.json";
+//		File file1 = context.getDataFile(FILE_LIST_JSON);
+//		if (file1.exists()){
+//			Gson gson = new Gson();
+//			List<String> fileNames = gson.
+//					fromJson(new FileReader(file1),
+//							 new TypeToken<List<String>>(){}.getType());
+//			if (fileNames != null) {
+//				for (String fileName : fileNames) {
+//					File file2 = context.getDataFile(fileName);
+//					file2.delete();
+//				}
+//			}
+//		}
+//		file1.delete();
+//		File file2 = context.getDataFile(FILE_EXPORTATION_JSON);
+//		file2.delete();
+//		for (Bundle bundle : context.getBundles()) {
+//		System.out.println("bundle_id:"+bundle.getSymbolicName());
+//	}
+		//COMMENT IT!
+
 		plugin = this;
 		ExperimentManagerLoader loader = new ExperimentManagerLoader(context);
 		loader.loadExperimetnDescription();

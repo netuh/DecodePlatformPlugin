@@ -9,6 +9,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Map;
 import java.util.Queue;
 import java.util.stream.Collectors;
@@ -53,30 +54,27 @@ public class ExperimentExecutionManager {
 	private List<ExperimentalTask> reduce(ModeledTask task) {
 		if (task instanceof ExperimentalTask) {
 			return Arrays.asList((ExperimentalTask) task);
-		}
-		if (task instanceof Random) {
+		}else if (task instanceof Random) {
 			Random taskRandom = (Random) task;
-			//EList<ModeledTask> taskSet = taskRandom.getTasks();
 			List<ModeledTask> tasksToShuffle = new ArrayList<ModeledTask>();
 			tasksToShuffle.addAll(taskRandom.getTasks());
 			Collections.shuffle(tasksToShuffle);
-			List<ExperimentalTask> random = new LinkedList<ExperimentalTask>();
+			List<ExperimentalTask> taskList = new LinkedList<ExperimentalTask>();
 			for (ModeledTask modeledTask : tasksToShuffle) {
-				random.addAll(reduce(modeledTask));
+				taskList.addAll(reduce(modeledTask));
 			}
-			return random;
-		}
-		
-		if (task instanceof Sequencial) {
+			return taskList;
+		}else if (task instanceof Sequencial) {
 			Sequencial taskRandom = (Sequencial) task;
-			//EList<ModeledTask> taskSet = taskRandom.getTasks();
-			List<ModeledTask> tasksToShuffle = new ArrayList<ModeledTask>();
-			tasksToShuffle.addAll(taskRandom.getTasks());
-			List<ExperimentalTask> random = new LinkedList<ExperimentalTask>();
-			for (ModeledTask modeledTask : tasksToShuffle) {
-				random.addAll(reduce(modeledTask));
+			List<ExperimentalTask> taskList = new LinkedList<ExperimentalTask>();
+			System.out.println("before taskList size="+taskRandom.getTasks().size());
+			for (ModeledTask modeledTask : taskRandom.getTasks()) {
+				taskList.addAll(reduce(modeledTask));
 			}
-			return random;
+			for (ExperimentalTask experimentalTask : taskList) {
+				System.out.println("before taskList size="+experimentalTask.getName());
+			}
+			return taskList;
 		}
 		return Collections.<ExperimentalTask>emptyList();
 	}
@@ -122,12 +120,22 @@ public class ExperimentExecutionManager {
 			listTasks.addAll(reduce(modeledTask));
 		}
 		data.clear();
-		lifoQueue.clear();
-		System.out.println("listTasks="+listTasks.size());
+		lifoQueue.clear();		
 		ExperimentalTask currentTask = listTasks.remove(0);
-		lifoQueue.addAll(listTasks.stream()
-								  .map(e -> e.getElementId())
-								  .collect(Collectors.toList()));
+		for (ExperimentalTask experimentalTask : listTasks) {
+			System.out.println("list_id_1="+experimentalTask.getElementId());
+		}
+		
+		ListIterator<ExperimentalTask> iter = listTasks.listIterator(listTasks.size());
+		while (iter.hasPrevious()) {
+			ExperimentalTask s = iter.previous();
+			lifoQueue.add(s.getElementId());
+		}
+//		lifoQueue.addAll(listTasks.stream()
+//								  .map(e -> e.getElementId())
+//								  .collect(Collectors.toList()));
+
+		System.out.println("peek="+lifoQueue.peek());
 		task = new CurrentExecutableTask(currentTask);
 	}
 	

@@ -26,8 +26,6 @@ public class ConfigureExperimentHandler  extends AbstractHandler {
 	public Object execute(ExecutionEvent event) throws ExecutionException {		
 		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
 		CurrentExecutableTask task = manager.getExecutionTask();
-		System.out.println("toString="+task.toString());
-		System.out.println("task.getTaskModel()="+task.getTaskModel().getName());
 		List<JavaProject> javaProjects = task.getTaskModel().getRequires()
 				  .stream()
 				  .filter(c -> c instanceof JavaProject)

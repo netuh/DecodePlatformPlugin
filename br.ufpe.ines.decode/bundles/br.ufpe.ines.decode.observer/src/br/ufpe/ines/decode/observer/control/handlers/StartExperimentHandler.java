@@ -11,6 +11,7 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IBundleGroupProvider;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.IWorkbenchWindow;
@@ -76,6 +77,9 @@ public class StartExperimentHandler extends AbstractHandler {
 
 	private List<String> verify(Parameter aRestriction) {
 		List<String> restricNotSatisfied = new LinkedList<String>();
+		for (IBundleGroupProvider provider : Platform.getBundleGroupProviders()) {
+			System.out.println("provider.getName="+provider.getName());
+		}
 		if (aRestriction instanceof EclipseParameter){
 			EclipseParameter er = (EclipseParameter)aRestriction;
 			for (String bundleId : er.getForbiden()) {

@@ -22,7 +22,6 @@ import org.eclipse.jdt.core.IPackageFragmentRoot;
 import org.eclipse.jdt.core.JavaCore;
 
 import br.ufpe.ines.decode.observer.control.ExperimentManager;
-import br.ufpe.ines.decode.observer.model.todelete.Experiment;
 
 public class LaucherListerner implements ILaunchListener {
 
@@ -32,8 +31,8 @@ public class LaucherListerner implements ILaunchListener {
 	private static Instant lastExecDate=Instant.MIN;
 	
 
-	public LaucherListerner(Experiment selectedExperiment) {
-	}
+//	public LaucherListerner(Experiment selectedExperiment) {
+//	}
 
 	public LaucherListerner() {
 	}
